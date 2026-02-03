@@ -1,0 +1,410 @@
+/*********************************************************************/
+/* Tag line
+/*********************************************************************/
+.tag-line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0;
+    margin: 1rem 0;
+    list-style: none;
+    justify-content: center;
+}
+
+.tag {
+    background-color: var(--tag-color, #eee);
+    color: #fefefe;
+    font-size: 0.75rem;
+    padding: 3px 10px;
+    border-radius: 4px;
+    list-style: none;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+/*********************************************************************/
+/* Abstract Container je Artile
+/*********************************************************************/
+.abstract {
+    padding: 35px 45px;
+    border-radius: 5px;
+    box-shadow: 0 15px 40px -10px var(--border);
+    line-height: 34px;
+}
+
+.abstract h2 {
+    text-align: center;
+    margin: 0;
+    scroll-margin-top: 0;
+    font-style: italic;
+    font-weight: 400;
+}
+
+/*********************************************************************/
+/* headings have a counter per section
+/*********************************************************************/
+article {
+    counter-reset: section-counter figure-count;
+    scroll-margin-top: 5rem;
+}
+
+article section:not(.abstract) h2 {
+    counter-increment: section-counter;
+}
+
+article section:not(.abstract) h2::before {
+    content: counter(section-counter) ". ";
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+}
+
+/*********************************************************************/
+/* TOC with Summary, Details, Counter */
+/*********************************************************************/
+.toc {
+    border: 1px solid var(--border, #ccc);
+    border-radius: 5px;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+.toc summary {
+    cursor: pointer;
+    font-weight: 700;
+    padding: 5px;
+    /* Wir lassen den Standard-Pfeil (Dreieck) jetzt einfach da */
+}
+
+.toc nav {
+    margin-top: 10px;
+    border-top: 1px solid #eee;
+}
+
+.toc ul {
+    counter-reset: toc-counter;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.toc li {
+    counter-increment: toc-counter;
+    display: block;
+}
+
+.toc li:hover {
+    background: #F2F2F2;
+}
+
+.toc li a::before {
+    content: counter(toc-counter) ". ";
+    font-weight: bold;
+    margin-right: 5px;
+    color: var(--tag-color);
+}
+
+.toc a {
+    display: block;
+    text-decoration: none;
+    font-size: .9em;
+}
+
+summary {
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    outline: none;
+}
+
+/* Den Standard-Pfeil verstecken */
+summary::-webkit-details-marker {
+    display: none;
+}
+
+summary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.toggle-icon {
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+    transform: rotate(-90deg);
+}
+
+details[open] .toggle-icon {
+    transform: rotate(0);
+}
+
+details {
+    overflow: hidden;
+    transition: height 0.3s ease-out;
+    interpolate-size: allow-keywords;
+}
+
+details::details-content {
+    opacity: 0;
+    transition: opacity 0.3s ease, content-visibility 0.3s allow-discrete;
+}
+
+details[open]::details-content {
+    opacity: 1;
+}
+
+/*********************************************************************/
+/* Figures and Image Grids
+/*********************************************************************/
+figure {
+    counter-increment: figure-count;
+    margin-bottom: 2em;
+}
+
+figure img {
+    text-align: center;
+}
+
+figcaption::before {
+    content: "Bild " counter(figure-count) ": ";
+    font-style: italic;
+    font-family: var(--font-serif);
+}
+
+figcaption,
+caption {
+    margin: auto;
+    text-align: center;
+    font-style: italic;
+    font-family: var(--font-serif);
+}
+
+/* Image Grid */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    align-items: start;
+}
+
+.image-grid div {
+    margin: 0;
+}
+
+.image-grid div {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+/* Enlage pictures */
+.lightbox-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: var(--text);
+    cursor: zoom-out;
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 1200px;
+    max-height: 90vh;
+    object-fit: contain;
+    animation-name: zoom;
+    animation-duration: 0.3s;
+    background: var(--bg);
+}
+
+/* Zoom-Animation beim Öffnen */
+@keyframes zoom {
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: var(--border);
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus {
+    color: var(--border);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+article figure img {
+    cursor: zoom-in;
+    transition: 0.3s;
+}
+
+article figure img:hover {
+    opacity: 0.9;
+}
+
+/*********************************************************************/
+/* Callouts
+/*********************************************************************/
+.callout {
+    padding: 5px 10px;
+    margin: 10px 0;
+    box-shadow: 2px 2px 5px 0 #dadada;
+    line-height: 1.7em;
+    background: #fff;
+}
+
+.callout:hover {
+    transform: translate(2px, -2px);
+}
+
+/*********************************************************************/
+/* Code
+/*********************************************************************/
+pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 1em 0;
+    background: #fff;
+}
+
+/*********************************************************************/
+/* MathJax
+/*********************************************************************/
+mjx-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-width: 100%;
+    color: inherit;
+    margin: 1.5em 0;
+    padding: 0.5em 0;
+}
+
+mjx-container[jax="SVG"] svg {
+    vertical-align: -1.1px !important;
+    max-width: 100%;
+}
+
+/* .math-block{
+    min-height: 1.5em;
+    display: block;
+    text-align: center;
+} */
+
+/*********************************************************************/
+/* Endnoten
+/*********************************************************************/
+.ref-sources {
+    padding-left: 20px;
+    word-wrap: break-word;
+    border-top: 1px solid var(--border);
+    margin-top: 30px;
+    padding-top: 15px;
+    width: fit-content;
+    min-width: 30%;
+}
+
+.ref-sources>li {
+    padding-left: 7px;
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+    transition: background 0.3s ease;
+}
+
+.ref-sources>li:target {
+    background: #0e53ae22;
+    border-radius: 4px;
+    outline: 2px solid var(--text-link);
+}
+
+a[id^="cite-ref-"] {
+    font-family: var(--font-sans, sans-serif);
+    font-size: 0.75em;
+    font-weight: 600;
+    line-height: 0;
+    vertical-align: super;
+    text-decoration: none;
+    padding: 0 2px;
+    scroll-margin-top: var(--scroll-padding);
+    scroll-behavior: smooth;
+}
+
+figcaption a[id^="cite-ref-"] {
+    vertical-align: middle;
+}
+
+/* Der Zurück-Pfeil/Link in der Liste */
+a[href^="#cite-ref-"] {
+    text-decoration: none;
+    font-size: 1.1rem;
+    margin-right: 5px;
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+a[href^="#cite-ref-"]:hover {
+    transform: translateY(-2px);
+}
+
+.ref-sources::before {
+    display: none;
+}
+
+/*********************************************************************/
+/* Table Grundformatierung
+/*********************************************************************/
+table {
+    text-align: left;
+    border: 1px solid var(--border);
+    border-collapse: collapse;
+    width: 100%;
+    margin: auto;
+}
+
+td,
+th {
+    border: 1px solid var(--border);
+    padding: 8px;
+}
+
+
+
+
+/*********************************************************************/
+/* SVG-Signatur unter dem Artikel
+/*********************************************************************/
+.signature-icon {
+    width: 200px;
+    height: 60px;
+    background-color: currentColor;
+    -webkit-mask: url('../img/signature.svg') no-repeat center;
+    mask: url('../img/signature.svg') no-repeat center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    margin: 2rem 0;
+}

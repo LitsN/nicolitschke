@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <title>Kosten fressen Rendite: Der mathematische Beweis</title>
+    <meta name="description"
+        content="Alle Investitionen lassen sich durch Kostenreduktion optimieren. In diesem Beitrag führe ich den mathematischen Beweis.">
+    <meta name="robots" content="index, follow, archive">
+    <meta name="author" content="Nico Litschke">
+
+    <meta property="og:url" content="http://www.nicolitschke.com/beweis-investitionen-optimieren/">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:site_name" content="Nico Litschke">
+    <meta property="og:title" content="Kosten fressen Rendite: Der mathematische Beweis">
+    <meta property="og:description"
+        content="Alle Investitionen lassen sich durch Kostenreduktion maximieren. In diesem Beitrag führe ich den mathematischen Beweis.">
+    <meta property="og:image" content="../assets/img/beweis-investitionen-optimieren/hero.png">
+
+    <meta name="google-site-verification" content="1KLRTKWSuSamhN09JbMkQEd-R10iuFCNAHxdYZJVr_M">
+
+    <link rel="canonical" href="https://www.nicolitschke.com/beweis-investitionen-optimieren/">
+    <link rel="stylesheet" href="../assets/css/fonts.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/article.css">
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+    <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+
+    <!-- Mathjax: enable when needed; otherwise disable-->
+    <script>
+        // Falls MathJax bereits existiert, nutzen wir es, sonst erstellen wir ein leeres Objekt
+        window.MathJax = window.MathJax || {};
+
+        // Wir weisen die Konfiguration zu
+        Object.assign(window.MathJax, {
+            tex: {
+                tags: 'all',
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            svg: {
+                fontCache: 'global',
+                displayAlign: 'center',
+                scale: 1
+            },
+            options: {
+                enableMenu: false
+            }
+        });
+    </script>
+    <script src="../assets/js/tex-mml-svg.js" async></script>
+</head>
+
+
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="site-title" href="../index.html">Nico Litschke</a>
+            <nav class="site-nav" aria-label="Hauptnavigation">
+                <a href="../index.html">Über</a>
+                <a href="../texte.html">Texte</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <article>
+            <h1>Kosten fressen Rendite: Der mathematische Beweis</h1>
+
+            <ul class="tag-line">
+                <li><a href="../texte.html?tag=skills-tools" class="tag" data-tag="skills-tools"
+                        title="Alle Artikel über Skills & Tools anzeigen">Skills & Tools</a></li>
+                <li><a href="../texte.html?tag=safety-risiko" class="tag" data-tag="safety-risiko"
+                        title="Alle Artikel über Safety & Risiko anzeigen">Safety & Risiko</a></li>
+            </ul>
+
+            <section class="abstract" aria-labelledby="abstract-title">
+                <h2 id="abstract-title">Abstract</h2>
+                <p>
+                    &bdquo;Reich werden mit diesem Steuertrick&ldquo; &ndash; eine h&auml;ufige L&uuml;ge auf
+                    Social-Media. Das ist nicht nur unlogisch, sondern mathematisch unsinnig. <strong>Steuern sparen
+                        &ne; Verm&ouml;gen aufbauen</strong>.
+                    Entscheidend ist kosteng&uuml;nstiges Investieren &ndash; wie ich es auch in Vortr&auml;gen und
+                    Workshops von <a href="https://www.finchamp.de" target="_blank"
+                        title="https://www.finchamp.de">FinChamp e.V.</a>
+                    betone. Hier der mathematische Beweis.
+                </p>
+            </section>
+
+            <details class="toc">
+                <summary>
+                    <svg class="icon toggle-icon">
+                        <use href="../assets/img/icons.svg#icon-expand"></use>
+                    </svg>
+                    Inhalt
+                </summary>
+                <nav aria-label="Inhaltsverzeichnis">
+                    <ul>
+                        <li><a href="#section-1">Kosten und Steuern mindern den Investitionserfolg</a></li>
+                        <li><a href="#section-2">Annahmen & Rechenregeln</a></li>
+                        <li><a href="#section-3">Den absoluten Gewinn optimieren</a></li>
+                        <li><a href="#section-4">Die Rendite optimieren</a></li>
+                        <li><a href="#section-5">Einfluss von Steuern</a></li>
+                        <li><a href="#section-6">Portfolio optimieren</a></li>
+                        <li><a href="#section-7">Laufende Ausschüttungen, Dividende, Aktientausch</a></li>
+                        <li><a href="#section-8">Verlustgeschäfte</a></li>
+                        <li><a href="#section-9">Trading</a></li>
+                        <li><a href="#section-10">Andere Investitionen</a></li>
+                    </ul>
+                </nav>
+            </details>
+
+            <section id="section-1" aria-labelledby="title-1">
+
+                <h2 class="" id="title-1">Kosten und Steuern mindern den Investitionserfolg</h2>
+                <p>
+                    Die Auswirkung von Kosten<a href="#cite-note-1" id="cite-ref-1" name="cite-ref-1"
+                        title="Quelle">[1]</a>&thinsp;<a href="#cite-note-1" id="cite-ref-1" name="cite-ref-1"
+                        title="Quelle"></a>&thinsp;<a href="#cite-note-2" id="cite-ref-2" name="cite-ref-2"
+                        title="Quelle">[2]</a>&thinsp;<a href="#cite-note-2" id="cite-ref-2" name="cite-ref-2"
+                        title="Quelle"></a><a href="#cite-note-3" id="cite-ref-3" name="cite-ref-3"
+                        title="Quelle">[3]</a> und Steuern<a aria-label="Zur Endnote 5" href="#cite-note-5"
+                        id="cite-ref-5" name="cite-ref-5" title="Zur Endnote 5">[5]</a> auf den
+                    Investitionserfolg verdeutlicht nachfolgende Grafik. Laufende Gewinne werden thesauriert.
+                    Vereinfacht
+                    fallen Steuern einmalig am Ende an. Die Auswirkung auf die Endvermögen<a href="#cite-note-4"
+                        id="cite-ref-4" name="cite-ref-4" title="Quelle">[4]</a> sind erheblich.
+                </p>
+                <figure><img
+                        alt="Grafik zeigt das Endvermögen für Investitionen mit verschiedenen Kostenstrukturen über 20 Jahre. Vergleich zwischen Fonds, ETF und niedrige Volatilität mit geschätzten Kosten."
+                        src="../assets/img/beweis-investitionen-optimieren/costeffect-chart.png" />
+                </figure>
+
+                <p>
+                    Das leuchtet direkt ein: Banken, Broker und Staat wollen an der Investition mitverdienen. Deshalb
+                    gilt immer:
+                </p>
+                <p class="callout">
+                    <strong>Minimale Transaktionskosten maximieren Gewinn und Rendite (minimieren Verluste), ob mit oder
+                        ohne Steuern, für alle Arten umgesetzter Investitionen.
+                        <br>Lösung: <a href="../texte/anlagestrategien-simuliert-analysiert.html"
+                            title="Systemisch analysiert: Warum Buy-and-Hold des Weltportfolios langfristig gewinnt">Buy-and-Hold
+                            auf einen weltweiten ETF</a> bei einem günstigen Onlinebroker</strong> – einfach umsetzbar,
+                    mit vertretbarem Risiko.<br>
+                    <strong>Wichtig</strong>: Wir optimieren nur die Umsetzung einer Investition. Ob die
+                    Investition
+                    überhaupt lukrativ ist, ist eine gänzlich andere Frage.
+                </p>
+                <p>Nachfolgend zeige ich den mathematischen Beweis, dass dies immer gilt. Der Charme: Wir brauchen keine
+                    empirischen Daten, ob das stimmt. </p>
+                <p class="callout">
+                    Der Rechenweg taugt auch für den Matheunterricht der Oberstufe als Anwendungsbeispiel für
+                    Differenzialrechnung. Den Rechenweg habe ich so weit ausgeführt, dass er mit Unterstützung des
+                    Mathelehrers des Vertrauens nachgerechnet werden kann.
+                </p>
+                <div class="signature-icon"></div>
+                <p class="callout">
+                    <span style="font-size: 14px;"><strong>Haftungsausschluss</strong>: Keine Versicherungs-, Finanz-,
+                        Anlage- und/oder Steuerberatung!</span>
+                </p>
+                </div>
+            </section>
+
+            </p>
+            </section>
+
+            <section id="section-2" aria-labelledby="title-2">
+                <h2 class="" id="title-2">Annahmen &amp; Rechenregeln</h2>
+                <p>
+                    Für diese Analyse nehmen wir an, dass Gewinne und Renditen sowohl positiv als auch negativ sein
+                    können. Steuern, Inflation und Risiken bleiben unberücksichtigt.
+                </p>
+                <p>
+                    <strong>Kettenregel</strong>
+                    $$ u'(v) = u'(v) \cdot v' $$
+
+                </p>
+                <p>
+                    <strong>Produktregel</strong>
+                    $$ (uv)' = u'v + uv' $$
+                </p>
+                <p>
+                    <strong>Quotientenregel</strong>
+                    $$ \left( \frac{u}{v} \right)' = \frac{u'v - vu'}{v^2} $$
+                </p>
+            </section>
+
+            <section id="section-3" aria-labelledby="title-3">
+                <h2 class="" id="title-3">Den absoluten Gewinn optimieren</h2>
+                <p>
+                    Der Gewinn $G$ einer Anlage in ein Wertpapier berechnet sich aus
+                    $$G=E-A$$
+                </p>
+
+                <p>
+                    mit $E$ als Erlös und $A$ als Ausgaben. Sowohl der Erlös als auch die Ausgaben hängen von der Menge
+                    $X$ des Wertpapiers ab. Unter Berücksichtigung des Erlöspreises $P$ ergibt sich für den Erlös
+                    $$E=P_E \cdot X$$
+                </p>
+                <p>
+                    Analog dazu ergibt sich für die Ausgaben der Preis $P_E$. Hinzu kommen aber auch noch die
+                    Transaktionskosten $K$, die uns die Bank in Rechnung stellt. Das heißt für die Ausgaben:
+                    $$A=P_A \cdot X + K $$
+                </p>
+                <p>
+                    Die Transaktionskosten $K_E$ hängen sowohl vom Erlös als auch den Ausgaben und den laufenden Kosten
+                    ab. Genauer:
+                    $$ K(E, A, X) = K_E + K_A + K_L + K_\tau > 0 $$
+                </p>
+
+                <p>
+                    mit $K_E$ als Kosten für den Erlös, $K_A$ als Kosten für die Ausgabe, $K_L$ für die laufenden
+                    Kosten, $K_{\tau}$ für Residualkosten wie Spreads, Währungsumrechnungen, Kontogebühren, etc. Da es
+                    sich hierbei um eine lineare Verkettung von Teilkosten handelt, wird zum Zweck der Lesbarkeit auf
+                    die Aufteilung der Kosten verzichtet. Außerdem wird angenommen, dass zumindest die Residualkosten
+                    anfallen.
+                </p>
+                <p>
+                    Setzen wir die Ausdrücke (5) und (6) in (4) ein:
+                    $$ G = P_E \cdot X - P_A \cdot X - K $$
+                </p>
+                <p>
+                    Für den maximalen Gewinn müssen wir die 1. Ableitung auf den Gewinn $G$ nach der gekauften Menge $X$
+                    bilden:
+                    $$ G' = \frac{dG}{dX} = P_E - P_A - K' $$
+                </p>
+
+                <p>
+                    Setzen wir $G'$ gleich Null, so erhalten wir:
+                    $$ 0 \equiv P_E - P_A - K' $$
+                </p>
+
+                <p>
+                    Umgestellt:
+                    $$ P_E - P_A = K' $$
+                </p>
+
+                <p>
+                    Der Gewinn $G$ ist maximal, wenn die 2. Ableitung von (8) nach der gekauften Menge
+                    $X$ kleiner Null ist:
+                    $$ G'' = \frac{d^2 G}{dX^2} = -K'' \lt 0 $$
+                </p>
+
+                <p>
+                    Das ist erfüllt, weil die Summanden größer als Null sind:
+                    $$ -\underbrace{K''}_{>0} \lt 0 $$
+                </p>
+
+                <p>
+                    Daraus folgt: Der maximale Gewinn liegt dort, wo der Stückgewinn $P_E-P_A$ die Grenzkosten $K'$
+                    schneidet. Das leuchtet unmittelbar ein: Solange die Grenzkosten niedriger als der Stückgewinn sind,
+                    lohnt sich der Handel. Überschreiten die Grenzkosten den Stückgewinn, entsteht ein Verlust.
+                </p>
+                <p class="callout">
+                    <strong>Fazit: Minimale Transaktionskosten maximieren den absoluten Gewinn.</strong>
+                </p>
+            </section>
+
+            <section id="section-4" aria-labelledby="title-4">
+                <h2 class="" id="title-4">Die Rendite optimieren</h2>
+                <p>
+                    Die Rendite $R$ einer Anlage in Wertpapiere berechnet sich aus:
+                    $$ R = \frac{G}{A} = \frac{E - A}{A} = \frac{E}{A} - 1 $$
+                </p>
+
+                <p>
+                    mit dem Gewinn $G$ und den angefallenen Ausgaben $A$. Den Erlös $E$ ersetzen wir durch (5) und die
+                    Ausgabe $A$ durch (6):
+                    $$ R = \frac{P_E \cdot X}{P_A \cdot X + K} - 1 $$
+                </p>
+
+                <p>
+                    Für die maximale Rendite müssen wir die 1. Ableitung von $R$ nach der gekauften Menge
+                    $X$ bilden. Die Eins in (15) entfällt beim Ableiten. Mit Hilfe der Quotientenregel (3) folgt:
+                    $$ R' = \frac{dR}{dX} = \frac{P_E \cdot (P_A \cdot X + K) - P_E \cdot X \cdot (P_A + K')}{(P_A \cdot
+                    X + K)^2} $$
+                </p>
+
+                <p>
+                    Im Zähler können wir die Klammern auflösen und zusammenfassen:
+                    $$ R' = \frac{P_E \cdot K - P_E \cdot X \cdot K'}{(P_A \cdot X + K)^2} $$
+                </p>
+
+                <p>
+                    Damit die erste Ableitung der Rendite $R$ nach der Menge $X$ Null ist, muss der Zähler Null sein:
+                    $$ 0 \equiv P_E \cdot K - P_E \cdot X \cdot K' $$
+                </p>
+
+                <p>
+                    Da $P_E$ in jedem Summanden vorkommt und definitiv nichtnegativ ist, können wir die gesamte Formel
+                    durch $P_E$ teilen:
+                    $$ 0 \equiv K - X \cdot K' $$
+                </p>
+
+                <p>
+                    Durch Umstellen ergibt sich:
+                    $$ \frac{K}{X} = K' $$
+                </p>
+
+                <p>
+                    Um auf Maximum oder Minimum der Rendite $R$ zu prüfen, können wir auch (20) minimieren. Abgeleitet
+                    mit der Quotientenregel (3) nach der Menge $X$:
+                    $$ \frac{d(\frac{K}{X})}{dX} = \frac{K' \cdot X - K}{X^2} $$
+                </p>
+
+                <p>
+                    Setzen wir (21) gleich Null, muss der Zähler Null werden:
+                    $$ 0 \equiv K - X \cdot K' $$
+                </p>
+
+                <p>
+                    und erhalten durch Umstellen:
+                    $$ \frac{K}{X} = K' > 0 $$
+                </p>
+
+                <p>
+                    Da (23) größer Null ist, werden die Kosten minimiert und folglich die Rendite $R$ (21) maximiert.
+                    Bemerkenswert daran: Die Stelle des Optimums (18) hängt nicht mehr direkt vom Kauf- und
+                    Verkaufspreis der Investition ab, sondern <strong>nur noch von den Kosten $K$ und der Menge
+                        $X$</strong>.
+                </p>
+                <p class="callout">
+                    <strong>Fazit: Minimale Transaktionskosten maximieren die Rendite.</strong>
+                </p>
+            </section>
+
+            <section id="section-5" aria-labelledby="title-5">
+                <h2 class="" id="title-5">Einfluss von Steuern</h2>
+                <p>
+                    Berücksichtigt man Steuern $S$, so gilt für den Gewinn nach Steuern $G_{\text{nach St.}}$ unter
+                    Berücksichtigung von (8):
+                    $$ G_{\text{nach St.}} = G_{\text{vor St.}} - S(G_{\text{vor St.}}) $$
+                </p>
+                <p>
+                    Typischerweise ist die Steuer $G_{\text{vor St.}}$ ein prozentualer Anteil $\hat{s}$ vom Gewinn.
+                    Allerdings ist $\hat{s}$ laut unseren Steuergesetzen vom Gewinn $G_{\text{vor St.}}$ und von der
+                    Anlageform abhängig. Somit ergibt sich:
+                    $$ G_{\text{nach St.}} = G_{\text{vor St.}} - \hat{s} \cdot G_{\text{vor St.}}, \quad \text{mit}
+                    \quad 0 \lt \hat{s} \lt 1 $$ </p>
+
+                <p>
+                    Das können wir vereinfachen auf:
+                    $$ G_{\text{nach St.}} = G_{\text{vor St.}} \cdot (1 - \hat{s}) $$
+                </p>
+
+                <p>
+                    Beachte, dass der Term $(1 - \hat{s})$ ebenfalls ein Faktor im Intervall $0 \lt 1 - \hat{s} \lt 1$
+                    ist. Deshalb können wir (28) nach der Menge $X$ ableiten:
+                    $$ G'_{\text{nach Steuer}} = \frac{dG_{\text{nach St.}}}{dX} = G'_{\text{vor St.}} \cdot (1 -
+                    \hat{s}) $$
+                </p>
+
+                <p>
+                    Die erste Ableitung von $G'_{\text{vor St.}}$ nach der Menge $X$ entspricht (9). Das setzen wir ein:
+                    $$ G'_{\text{nach Steuer}} = (P_E - P_A - K') \cdot (1 - \hat{s}) $$
+
+                </p>
+
+                <p>
+                    Für das Maximum müssen wir $G'_{\text{nach Steuer}}$ Null setzen:
+                    $$ 0 \equiv (P_E - P_A - K') \cdot (1 - \hat{s}) $$
+                </p>
+
+                <p>
+                    Ein Produkt ist Null, sobald einer der Faktoren Null wird. Laut (25) ist das für $(1 - \hat{s})$
+                    nicht möglich. Das heißt:
+                    $$ 0 \equiv P_E - P_A - K' $$
+                </p>
+
+                <p>
+                    Das kennen wir bereits. Auch unter Berücksichtigung von Steuern gilt für den maximalen
+                    Gewinn:
+                    $$ P_E - P_A = K' $$
+                </p>
+
+                <p>
+                    Für die zweite Ableitung nach der Menge $X$ ergibt sich:
+                    $$ G''_{\text{nach Steuer}} = (-K'') \cdot (1 - \hat{s}) $$
+                </p>
+
+                <p>
+                    Analog zu (15) ergibt sich somit:
+                    $$ \underbrace{ - \underbrace{K''}_{\gt 0} \cdot \underbrace{(1 - \hat{s})}_{\gt 0} }_{\lt 0} \lt 0
+                    $$
+                </p>
+
+                <p>
+                    Für die Rendite $R$ gilt der zuvor aufgezeigte Rechenweg analog. Dieser kann als Übung nachvollzogen
+                    werden.
+                </p>
+                <p class="callout">
+                    <strong>Fazit: Auch wenn Steuern $S$ anfallen, gilt: Minimale Transaktionskosten $K$ maximieren
+                        Gewinn $G$ und Rendite $R$.</strong>
+                </p>
+            </section>
+
+            <section id="section-6" aria-labelledby="title-6">
+                <h2 class="" id="title-6">Portfolio optimieren</h2>
+                <p>
+                    Nehmen wir nun an, wir teilen unsere Investition auf mehrere Investitionen $i$ auf, die zu einem
+                    Portfolio $PF$ gehören. Dann ist der absolute Portfoliogewinn $G_{PF}$ die Summe der Teilgewinne:
+                    $$ G_{PF} = \sum G_i, \quad \text{mit} \quad 1 \lt i \lt \infty $$
+                </p>
+
+                <p>
+                    Analog können wir (8) einsetzen:
+                    $$ G_{PF} = \sum (P_{E_i} X_i - P_{A_i} X_i) - \sum K_i $$
+                </p>
+
+                <p>
+                    und ermitteln die 1. Ableitung nach der Menge $X$:
+                    $$ G'_{PF} = \sum (P_{E_i} - P_{A_i}) - \sum K'_i $$
+                </p>
+
+                <p>
+                    Setzen wir die 1. Ableitung Null und stellen um:
+                    $$ \sum (P_{E_i} - P_{A_i}) = \sum K'_i $$
+                </p>
+
+                <p>
+                    Es handelt sich wiederum um ein Maximum, weil uns die Banken nichts schenken:
+                    $$ G''_{PF} = - \underbrace{ \sum \underbrace{K''_i}_{\gt 0} }_{\gt 0} \lt 0 $$
+                </p>
+
+                <p>
+                    Für die Rendite $R$ und Steuern $S$ gilt der zuvor aufgezeigte Rechenweg analog. Dieser kann als
+                    Übung nachvollzogen werden.
+                </p>
+                <p class="callout">
+                    <strong>Fazit: Auch in einem Portfolio, gilt: Minimale Transaktionskosten $K$ maximieren Gewinn $G$
+                        und
+                        Rendite $R$.</strong>
+                </p>
+            </section>
+
+            <section id="section-7" aria-labelledby="title-7">
+                <h2 class="" id="title-7">Laufende Ausschüttungen, Dividende, Aktientausch</h2>
+                <p>
+                    Die Überlegungen zum Portfolio beantwortet auch die Frage, wie es sich verhält, wenn während der
+                    Haltezeit laufende Ausschüttungen anfallen, z. B. aus Dividende oder Aktientausch. Diese Einnahmen
+                    samt zugehöriger Ausgaben und Kosten sind in der Reihe (35) enthalten. Sollten diese laufenden
+                    Ausschüttungen thesauriert und zinseszinslich angelegt werden, sind diese beim Verkauf der
+                    Investition enthalten.
+                </p>
+            </section>
+
+            <section id="section-8" aria-labelledby="title-8">
+                <h2 class="" id="title-8">Verlustgeschäfte</h2>
+                <p>
+                    Alle Überlegungen gelten auch für Verlustgeschäfte (negative Gewinne), wenn $P_E \lt P_A$ bzw.
+                    $\sum P_{E_i} \lt \sum P_{A_i}$:
+                </p>
+                <p class="callout"><strong>Verlustgeschäfte werden durch minimale Transaktionskosten $K$
+                        minimiert</strong>.
+                </p>
+            </section>
+
+            <section id="section-9" aria-labelledby="title-9">
+                <h2 class="" id="title-9">Trading</h2>
+                <p>
+                    Beim Trading wird die Zeitspanne zwischen Kauf und Verkauf stark verkürzt. Entsprechend häufig
+                    fallen Transaktionskosten an. Dieses Vorgehen widerspricht der Formel (37). Zu den erheblichen
+                    Risiken von Trading sei auf den guten Artikel von <a href="https://www.finanztip.de/boerse/trading/"
+                        rel="noopener noreferrer" target="_blank"
+                        title="https://www.finanztip.de/boerse/trading/">Finanztip</a> verwiesen.
+                </p>
+            </section>
+
+            <section id="section-10" aria-labelledby="title-10">
+                <h2 class="" id="title-10">Andere Investitionen</h2>
+                <p>
+                    Die Betrachtungen gelten auch für andere Investition wie Immobilien, Gold, Crypto. Die Kosten für
+                    Management, Makler, Notar, Steuern, Zinsen, Versicherungen, etc. sind in den Residualkosten in
+                    (7) enthalten.
+                </p>
+            </section>
+
+            <section id="section-11" aria-labelledby="title-11">
+                <h2 class="" id="title-11">Anhang - Download</h2>
+
+                <div class="download">
+                    <span>Auswirkung von Kosten auf das Endvermögen.xlsx</span>
+                    <a href="../assets/img/beweis-investitionen-optimieren/Auswirkung von Kosten auf das Endvermögen.xlsx"
+                        aria-label="Datei herunterladen">
+                        <svg class="icon">
+                            <use href="../assets/img/icons.svg#icon-download"></use>
+                        </svg>
+                    </a>
+                </div>
+
+            </section>
+
+            <section id="section-14" aria-labelledby="title-14">
+                <h2 class="" id="title-14">Endoten</h2>
+                <ol class="ref-sources">
+                    <li id="cite-note-1">
+                        <a href="#cite-ref-1" title="zurück">↑</a> <a
+                            href="https://www.finanztip.de/lebensversicherung/kapitallebensversicherung/"
+                            rel="noopener noreferrer"
+                            target="_blank">https://www.finanztip.de/lebensversicherung/kapitallebensversicherung/</a>
+                    </li>
+                    <li id="cite-note-2">
+                        <a href="#cite-ref-2" title="zurück">↑</a> <a
+                            href="https://kvoptimal.de/blog/lebensversicherung/die-kosten-in-lebensversicherungen-und-rentenversicherungen/"
+                            rel="noopener noreferrer"
+                            target="_blank">https://kvoptimal.de/blog/lebensversicherung/die-kosten-in-lebensversicherungen-und-rentenversicherungen/</a>
+                    </li>
+                    <li id="cite-note-3">
+                        <a href="#cite-ref-3" title="zurück">↑</a> <a
+                            href="https://www.weltsparen.de/geldanlage/etf/kosten/" rel="noopener noreferrer"
+                            target="_blank">https://www.weltsparen.de/geldanlage/etf/kosten/</a>
+                    </li>
+                    <li id="cite-note-4">
+                        <a href="#cite-ref-4" title="zurück">↑</a> <a
+                            href="https://www.finanztip.de/indexfonds-etf/msci-world/" rel="noopener noreferrer"
+                            target="_blank">https://www.finanztip.de/indexfonds-etf/msci-world/</a>
+                    </li>
+                    <li id="cite-note-5">
+                        <a href="#cite-ref-5" title="zurück">↑</a> Bei 25% Abgeltungssteuer zzgl. Soli
+                        5,5%, vgl. §32d (1) EStG: <a href="https://www.gesetze-im-internet.de/estg/__32d.html"
+                            rel="noopener noreferrer"
+                            target="_blank">https://www.gesetze-im-internet.de/estg/__32d.html</a>
+                    </li>
+                </ol>
+            </section>
+
+        </article>
+    </main>
+
+    <a href="#" class="scroll-up" aria-label="Nach oben scrollen">
+        <svg class="icon">
+            <use href="../assets/img/icons.svg#icon-scrollup"></use>
+        </svg>
+    </a>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <a href="../impressum.html">Impressum</a>
+            <a href="../datenschutz.html">Datenschutz</a>
+        </div>
+    </footer>
+</body>
+
+</html>

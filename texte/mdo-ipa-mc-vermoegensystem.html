@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport" />
+    <title>Systemoptimierung mit MDO, IPA, MC</title>
+    <meta
+        content="Fallbeispiel zur systematischen Reduktion komplexer Entscheidungsprobleme mit MDO, IPA und Monte-Carlo-Simulation – angewandt auf Vermögensaufbau."
+        name="description" />
+    <meta content="index, follow, archive" name="robots" />
+    <meta content="Nico Litschke" name="author" />
+    <meta content="http://www.nicolitschke.com/mdo-ipa-mc-vermoegensystem/" property="og:url" />
+    <meta content="article" property="og:type" />
+    <meta content="de_DE" property="og:locale" />
+    <meta content="Nico Litschke" property="og:site_name" />
+    <meta content="Systemoptimierung mit MDO, IPA, MC" property="og:title" />
+    <meta
+        content="Wie sich komplexe Entscheidungsprobleme mit MDO, Isoperformance-Analyse und Monte-Carlo-Simulation systematisch reduzieren lassen – gezeigt am Beispiel Vermögensaufbau."
+        property="og:description" />
+    <meta property="og:image" content="../assets/img/<name>/hero.png">
+    <meta content="1KLRTKWSuSamhN09JbMkQEd-R10iuFCNAHxdYZJVr_M" name="google-site-verification" />
+    <link href="https://www.nicolitschke.com/mdo-ipa-mc-vermoegensystem/" rel="canonical" />
+    <link href="../assets/css/fonts.css" rel="stylesheet" />
+    <link href="../assets/css/main.css" rel="stylesheet" />
+    <link href="../assets/css/article.css" rel="stylesheet" />
+    <link href="../assets/img/favicon.svg" rel="icon" type="image/svg+xml" />
+    <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+    <!-- Mathjax: enable when needed; otherwise disable-->
+    <!-- <script defer="" src="../assets/js/mathjax-config.js"></script>
+    <script async="" src="../assets/js/tex-mml-svg.js"></script> -->
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="site-title" href="../index.html">Nico Litschke</a>
+            <nav aria-label="Hauptnavigation" class="site-nav">
+                <a href="../index.html">Über</a>
+                <a href="../texte.html">Texte</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <article>
+            <h1>Systemkomplexität reduzieren und auf Ziele optimieren: Fallbeispiel „Vermögensaufbau“</h1>
+            <ul class="tag-line">
+                <li><a class="tag" data-tag="systemik" href="../texte.html?tag=systemik"
+                        title="Alle Artikel über Systemdenken anzeigen">Systemdenken</a></li>
+                <li><a class="tag" data-tag="engineering" href="../texte.html?tag=engineering"
+                        title="Alle Artikel über Engineering anzeigen">Engineering</a></li>
+            </ul>
+            <p style="text-align: right;">
+                DE | <a href="https://nicolitschke.substack.com/p/reducing-system-complexity-and-optimizing"
+                    target="_blank"
+                    title="https://nicolitschke.substack.com/p/reducing-system-complexity-and-optimizing">EN</a>
+            </p>
+            <section aria-labelledby="abstract-title" class="abstract">
+                <h2 id="abstract-title">Abstract</h2>
+                <p>
+                    Systemverhalten wird an Zielen bemessen, die jedoch häufig widersprüchlich zueinander sind. So steht
+                    die Leistungsfähigkeit eines elektrischen Antriebs („Freude am Fahren“) im Spannungsfeld zu
+                    Safety, Lebensdauer und Verbrauch. Zudem sind zahlreiche Fachbereiche an der Entwicklung beteiligt.
+                    Das Gesamtsystem lässt sich als multidimensionales, nichtlineares Optimierungsproblem
+                    beschreiben. Systems Engineering (SE) muss hierfür nicht nur die organisatorische Klammer bilden,
+                    sondern auch geeignete Analysewerkzeuge bereitstellen. Dieser Beitrag zeigt, wie sich die
+                    Werkzeuge Multidisziplinäre Design Optimierung (MDO), Isoperformance-Analyse (IPA) und
+                    Monte-Carlo-Simulation (MC) kombinieren lassen, um ein solches System strukturiert zu optimieren.
+                    Die
+                    Anwendung wird am Beispiel des komplexen, vernetzten Systems „Vermögensaufbau“ demonstriert.
+                    Ergebnis ist eine Komplexitätsreduktion, durch die das ursprüngliche Optimierungsproblem auf ein
+                    einfaches Kriterium zurückgeführt wird.
+                </p>
+            </section>
+            <details class="toc">
+                <summary>
+                    <svg class="icon toggle-icon">
+                        <use href="../assets/img/icons.svg#icon-expand"></use>
+                    </svg>
+                    Inhalt
+                </summary>
+                <nav aria-label="Inhaltsverzeichnis">
+                    <ul>
+                        <li><a href="#section-1">Das System „Vermögensaufbau“ und seine Teilsysteme</a></li>
+                        <li><a href="#section-2">Das nichtlineare Optimierungsproblem (NLP) und Ziele</a></li>
+                        <li><a href="#section-3">Multidisziplinäre Design Optimierung (MDO)</a></li>
+                        <li><a href="#section-4">Isoperformance Analyse (IPA)</a></li>
+                        <li><a href="#section-5">Monte-Carlo Simulation (MC) des Netto-Cashflows</a></li>
+                        <li><a href="#section-6">Schlussfolgerung: Komplexitätsreduktion und
+                                Entscheidungsregel</a></li>
+                    </ul>
+                </nav>
+            </details>
+            <section aria-labelledby="title-1" id="section-1">
+                <h2 id="title-1">Das System „Vermögensaufbau“ und seine Teilsysteme</h2>
+                <p>
+                    Mein Geschäft betreibe ich über eine Holding. Ich bin ihr Gesellschafter, sie ist Gesellschafterin
+                    des Geschäfts. Umsätze aus dem Geschäft zahle ich mir teilweise als Gehalt aus. Der verbleibende
+                    Gewinn wird in der Holding thesauriert. Zusätzlich halte ich Anlagevermögen (AV) in Wertpapieren und
+                    Immobilien (VuV). Mit den Geldzuflüssen (Cashflow, CF) aus allen Teilsystemen decke ich meine
+                    Lebenshaltungskosten. Das nachfolgende Bild 1 fasst den Systemkontext zusammen:
+                </p>
+                <figure>
+                    <img alt="Systemkontextdiagramm des Vermögensaufbaus mit zentralem Akteur und vernetzten Teilsystemen."
+                        src="../assets/img/mdo-ipa-mc-vermoegensystem/sys-context.png" />
+                    <figcaption>/figcaption> Systemkontext des Vermögensaufbaus mit Selbstständigem,
+                        Geschäft, Holding, Anlagevermögen und Immobilien. Quelle: Eigene Darstellung. </figcaption>
+                </figure>
+                <p>
+                    Das System besteht aus vernetzten Teilsystemen mit jeweils eigenen operativen, rechtlichen und
+                    steuerlichen Regimen. Gehalt muss ich privat versteuern und mindert gleichzeitig den Gewinn des
+                    Geschäfts sowie die Thesaurierung. Theoretisch kann der notwendige Cashflow aus Gehalt, aus der
+                    Holding, aus VuV oder aus einer Mischung dieser Quellen stammen. An vielen Stellhebeln lässt sich
+                    gleichzeitig drehen – doch welche sind im Gesamtsystem tatsächlich wirksam?
+                </p>
+                <p>
+                    Im Folgenden werden verschiedene Analyseschritte durchlaufen, die zeigen, wie eine solche
+                    Optimierung methodisch angegangen werden kann. Auch wenn die Darstellung sequenziell erfolgt,
+                    handelt es
+                    sich um ein iteratives Vorgehen: Erkenntnisse aus einer Teilanalyse fließen in andere zurück.
+                    Ausgangspunkt ist stets eine klare Definition des nichtlinearen Optimierungsproblems (NLP) sowie der
+                    zugrunde liegenden Ziele.
+                </p>
+            </section>
+            <section aria-labelledby="title-2" id="section-2">
+                <h2 id="title-2">Das nichtlineare Optimierungsproblem (NLP) und Ziele</h2>
+                <p>
+                    Aktuell strebe ich Vermögensaufbau an. Bargeld benötige ich zur Deckung meiner Lebenshaltungskosten.
+                    Das ist wichtig zum Verständnis: Meine Lebenshaltungskosten unterliegen keiner „Lifestyle
+                    Inflation“. Ich kaufe mir also kein teureres Auto oder eine Luxusreise, nur weil ich es mir leisten
+                    kann. Gleichzeitig muss ich streng darauf achten, dass die Teilsysteme liquide bleiben; eine
+                    Insolvenz ist unbedingt zu vermeiden. Diese Risiken federe ich durch Liquiditätspuffer ab, die ich
+                    „Notgroschen“ nenne. Das zugehörige NLP lautet:
+                </p>
+                <p>
+                    <strong>Ziel:</strong>
+                </p>
+                <ul>
+                    <li>
+                        <em>Z1:</em> ΔVermögen → max
+                    </li>
+                </ul>
+                <div></div>
+                <p>
+                    <strong>Nebenbedingungen (NB):</strong>
+                </p>
+                <ul>
+                    <li>
+                        <em>NB1:</em> Notgroschen (Privatvermögen) ≥ ε
+                    </li>
+                    <li>
+                        <em>NB2:</em> Notgroschen (Geschäft) ≥ η
+                    </li>
+                    <li>
+                        <em>NB3:</em> Notgroschen (Holding) ≥ λ
+                    </li>
+                    <li>
+                        <em>NB4:</em> CF ≥ Lebenshaltungskosten
+                    </li>
+                    <li>
+                        <em>NB5:</em> Lebenshaltungskosten ≠ f(ΔVermögen, Umsatz, Gehalt, Ausschüttungen)
+                    </li>
+                </ul>
+                <div></div>
+                <p>
+                    <strong>Randbedingungen (RB):</strong>
+                </p>
+                <ul>
+                    <li>
+                        <em>RB1:</em> Haltedauer von AV → ∞
+                    </li>
+                </ul><br />
+                <p>
+                    NB1 bis NB3 besagen, dass der jeweilige Notgroschen nicht unter einen Schwellwert fallen soll.
+                    Praktisch heißt das: Ich halte stets so viel Geld auf dem Tagesgeld vor, dass ich daraus die Kosten
+                    für einen festgelegten Zeitraum begleichen kann, selbst wenn Einkommen und Umsatz vollständig
+                    wegfallen. Das beschreibt meine individuelle Risikoaversion; andere Lebensumstände würden andere
+                    Schwellwerte erfordern. Durch NB4 werden die Notgroschen idealerweise nicht angetastet. NB5 richtet
+                    sich explizit gegen Lifestyle Inflation. RB1 soll einmal investiertes Kapital schützen; „Buy
+                    and Hold Forever“ gilt bekanntlich als <a href="/texte/anlagestrategien-simuliert-analysiert.html"
+                        title="Systemisch analysiert: Warum Buy-and-Hold des Weltportfolios langfristig gewinnt">langfristig
+                        optimale
+                        Anlagestrategie</a>.
+                </p>
+                <p class="callout">
+                    Wichtig: Ziele beschreiben den gewünschten Systemzustand. Kosten, Termine, Safety, Security,
+                    Qualität und ähnliche Größen sind in der Regel Neben- oder Randbedingungen, nicht Ziele. Klarheit in
+                    dieser Trennung ist Voraussetzung für jede sinnvolle Optimierung.
+                </p>
+                <p class="callout">
+                    Wichtig ist auch: Jede Änderung hat Neben- und Fernwirkungen. Was soll sich nicht ändern? Häufig
+                    wird übersehen, was aktuell unauffällig ist, aber dennoch wesentlich bleibt.<a
+                        aria-label="Zur Endnote 1" href="#cite-note-1" id="cite-ref-1" title="Zur Endnote 1">[1]</a>
+                </p>
+                <p>
+                    Im nächsten Schritt überführen wir die Ausgangslage und das NLP in eine MDO-Sicht.
+                </p>
+            </section>
+            <section aria-labelledby="title-3" id="section-3">
+                <h2 id="title-3">Multidisziplinäre Design Optimierung (MDO)</h2>
+                <p>
+                    Das nachfolgende Bild 2 überführt den Systemkontext des zugrunde liegenden NLP in eine MDO-Sicht.
+                </p>
+                <figure>
+                    <img alt="Strukturmodell (MDO) des Systems „Vermögensaufbau“ mit Teilsystemen, Cashflows, Steuerwirkungen und Rückkopplungen zum ΔVermögen."
+                        src="../assets/img/mdo-ipa-mc-vermoegensystem/mdo.svg" />
+                    <figcaption>Strukturmodell (MDO) des Systems „Vermögensaufbau“ mit
+                        vernetzten Teilsystemen. Quelle: Eigene Darstellung. </figcaption>
+                </figure>
+                <p>
+                    Dargestellt sind die verschiedenen Teilsysteme und ihre Schnittstellen. NB1 bis NB3 sind als
+                    Pufferelemente modelliert. NB4 ist dadurch realisiert, dass die Lebenshaltung keinen direkten
+                    Eingang
+                    aus Einkommensquellen hat. Das Zusammenwirken von versteuertem Einkommen und Lebenshaltungskosten
+                    ist im ΔVermögen abgebildet. Einige dieser Kosten wirken sich zugleich auf die Steuerlast aus.
+                    Ebenfalls dargestellt ist, dass in der steuerlichen Berechnung fiktive Kosten wie Abschreibungen und
+                    Rückstellungen berücksichtigt werden; sie wirken sich rechnerisch aus, führen jedoch nicht zu
+                    einem Liquiditätsabfluss und werden daher nach der Versteuerung wieder eliminiert.
+                </p>
+                <p>
+                    Für die weitere Analyse sind insbesondere folgende Variablen ausschlaggebend:<a
+                        aria-label="Zur Endnote 2" href="#cite-note-2" id="cite-ref-2" title="Zur Endnote 2">[2]</a>
+                </p>
+                <ul>
+                    <li>    <em>Kopplungsvariablen</em>, die Rückkopplungen zwischen den Teilsystemen abbilden.
+                    </li>
+                    <li>    <em>Lokale Variablen</em>, die innerhalb der Teilsysteme zur Transformation von Input in
+                        Output erforderlich sind.
+                    </li>
+                </ul>
+                <p class="callout">
+                    In der Praxis identifiziert das SE die Kopplungsvariablen und entwickelt daraus eine MDO-Sicht wie
+                    in Bild 2. Die Fachbereiche verantworten ihre lokalen Variablen. Die <em>Kopplungsvariablen
+                        strukturieren und vereinfachen damit auch die Kommunikation</em>.
+                </p>
+                <p>
+                    Die Abbildung verdeutlicht die hohe strukturelle und dynamische Kopplung des Systems. Eine exakte
+                    Lösung des Ziels unter Einhaltung der NB und RB ist daher kaum praktikabel. Es wäre wenig
+                    sinnvoll, Steuerformeln, Gewinnrechnung und Thesaurierung vollständig analytisch zu verknüpfen.
+                    Spätestens bei der Modellierung der Liquiditätspuffer müssten zeitabhängige, gekoppelte Gleichungen
+                    formuliert und optimiert werden. Zudem wollen wir keine unsachlichen Vereinfachungen annehmen:
+                    Künftige Lebenshaltungskosten, Umsätze und Marktrenditen sind unsicher und schwanken zufällig.
+                </p>
+                <p class="callout">
+                    Halten wir fest: Anstatt „alles mit allem“ zu verknüpfen, zeigt die MDO-Sicht klar abgegrenzte
+                    Systemteile, ausgewählte Schnittstellen und lokale Parameter. Dadurch ist die Komplexität bereits
+                    reduziert. Eine exakte Lösung des resultierenden MDO bleibt hier jedoch praktisch nicht erreichbar.
+                </p>
+                <p>
+                    Es braucht eine weitere Reduktion der Komplexität.
+                </p>
+            </section>
+            <section aria-labelledby="title-4" id="section-4">
+                <h2 id="title-4">Isoperformance Analyse (IPA)</h2>
+                <p>
+                    Die MDO-Sicht reduziert zwar die strukturelle Komplexität des Systems, lässt jedoch eine hohe
+                    kombinatorische Vielfalt möglicher Lösungen zu. Zur weiteren Reduktion dieser Vielfalt wird daher
+                    eine Isoperformance-Analyse eingesetzt.
+                </p>
+                <p class="callout">
+                    Ziel der IPA ist, Kopplungsvariablen zu identifizieren, die <strong>für die Optimierung eine geringe
+                        Sensitivität</strong> gegenüber anderen Teilsystemen oder dem Systemziel aufweisen und deshalb
+                    fixiert werden können.<a aria-label="Zur Endnote 3" href="#cite-note-3" id="cite-ref-3"
+                        title="Zur Endnote 3">[3]</a>
+                </p>
+                <p>
+                    Eine dieser Variablen sind die Lebenshaltungskosten. Sie unterliegen keiner Lifestyle Inflation,
+                    sind nach unten durch Fixkosten begrenzt und wachsen nach oben nicht beliebig. Sie bewegen sich in
+                    einem relativ engen Bereich und können daher auf ein konstantes Leistungsniveau („Iso“) fixiert
+                    werden.
+                </p>
+                <p>
+                    Auch buchhalterische Gewinne und Verluste des Anlagevermögens und der Holding werden für die
+                    Optimierung fixiert, jedoch auf „Null“ und aus einem anderen Grund. Sie können stark schwanken,
+                    beruhen auf exogenen Marktentwicklungen und entziehen sich einer gezielten Kontrolle. Entsprechend
+                    eignen sie sich nicht zur Optimierung. Gleiches gilt für Gewinn- und Steuerrechnungen, die
+                    verbindlichen gesetzlichen Vorgaben folgen und nicht frei gestaltbar sind.
+                </p>
+                <p>
+                    Ein Blick auf die MDO-Sicht zeigt damit: Als nicht fixierte Kopplungsvariablen verbleiben im
+                    Wesentlichen Umsatz und Gehalt. Dadurch vereinfacht sich die Optimierungsfrage erheblich: Welche
+                    Umsatz-Gehalts-Kombination ist für den Vermögenszuwachs geeignet, um die Lebenshaltungskosten zu
+                    decken (NB4)?
+                </p>
+                <p>
+                     
+                </p>
+                <p>
+                    Diese starke Vereinfachung ist dem betrachteten System geschuldet. In technischen Systemen verbleibt
+                    typischerweise eine größere Anzahl nicht fixierter Kopplungsvariablen.
+                </p>
+                <p class="callout">
+                    Die IPA reduziert die <a href="/texte/requisite-variety.html"
+                        title="Droge Varietät: Vernetzter, intelligenter, leistungsfähiger?">kombinatorische
+                        Vielfalt</a>, indem für ausgewählte Variablen ein
+                    zufriedenstellendes Leistungsniveau festgelegt wird.
+                </p>
+                <p>
+                    Dennoch bleibt das Problem der vernetzten Teilsysteme mit ihren jeweiligen Rechenlogiken und
+                    Steuerregimen bestehen. Dieses adressieren wir im nächsten Schritt mit dem Schweizer Taschenmesser
+                    der
+                    quantitativen Analyse.
+                </p>
+            </section>
+            <section aria-labelledby="title-5" id="section-5">
+                <h2 id="title-5">Monte-Carlo Simulation (MC) des Netto-Cashflows</h2>
+                <p>
+                    Das verbleibende Optimierungsproblem wird in eine MC überführt und statistisch ausgewertet, um den
+                    Aufwand einer exakten analytischen Lösung zu vermeiden. Die MC simuliert unterschiedliche
+                    Umsatz-Gehalts-Kosten-Kombinationen und ihre Auswirkungen auf den Netto-CF. Das Ergebnis zeigt der
+                    3D-Plot in Bild 3.
+                </p>
+                <figure>
+                    <img alt="Monte-Carlo-Scatterplot: Netto-Cashflow über Umsatz und Lohn."
+                        src="../assets/img/mdo-ipa-mc-vermoegensystem/mc-3dplot.png" />
+                    <figcaption>3D-Scatterplot der MC-Simulation: Netto-Cashflow in
+                        Abhängigkeit von Umsatz und Lohn. Quelle: Eigene Darstellung.</figcaption>
+                </figure>
+                <p>
+                    Bemerkenswert ist, was das Bild 3 nicht zeigt: In der schiefen Ebene gibt es weder Tal noch Gipfel
+                    oder Sattelpunkt. Zudem verläuft die Ebene nahezu parallel zur Gehaltsachse. In der
+                    Projektion auf Umsatz und Netto-CF (Bild 4) zeigt sich, dass das Gehalt nur einen vernachlässigbaren
+                    Einfluss hat. Der Netto-CF schwankt lediglich marginal und wird gemäß Regression nahezu
+                    vollständig (R² ≈ 99 %) durch den Umsatz erklärt. 
+                </p>
+                <figure>
+                    <img alt="Scatterplot aus Umsatz-Lohn-Kombinationen mit nahezu linearer Beziehung zwischen Umsatz und Netto-Cashflow."
+                        src="../assets/img/mdo-ipa-mc-vermoegensystem/mc-regresssion-cf-umsatz.png" />
+                    <figcaption>MC-Scatterplot und Regression: Netto-Cashflow in
+                        Abhängigkeit vom Umsatz und Gehalt. Quelle: Eigene Darstellung.</figcaption>
+                </figure>
+                <p>
+                    Dieses Ergebnis überrascht zunächst, da die Steuerprogression (Bild 5) eine Optimierung suggeriert.
+                    Die Steuerprogression ist auch in der Simulation enthalten (Bild 6). Der verbreitete
+                    Denkfehler liegt jedoch in der Interpretation: Verhältniszahlen bilden die relevanten Vorgänge nicht
+                    ab. Geld wirkt in absoluten Beträgen. Niedrige Einkommen werden mit niedrigeren Steuerfaktoren
+                    multipliziert, höhere Einkommen mit höheren. Höheres Brutto führt daher im Kern zu proportional
+                    höherem Netto – der Anstieg ist lediglich durch Steuerabzüge gedämpft. Genau das zeigt Bild 4.
+                </p>
+                <figure>
+                    <img alt="Kurve des durchschnittlichen Steuersatzes über dem zu versteuernden Einkommen (Quelle: BMF 2026, Einzelperson)."
+                        src="../assets/img/mdo-ipa-mc-vermoegensystem/bmf-avg-steuersatz.png" />
+                    <figcaption>Durchschnittssteuersatz in Abhängigkeit vom zu
+                        versteuernden Einkommen (Quelle: <a id="cite-ref-4" href="#cite-note-4"
+                            aria-label="Zur Endnote 4">[4, Einzelperson, 2026]</a>).</figcaption>
+                </figure>
+                <div></div>
+                <figure>
+                    <img alt="Scatterplot der Steuerlast über dem zu versteuernden Einkommen (MC-Simulation)."
+                        src="../assets/img/mdo-ipa-mc-vermoegensystem/mc-avg-steuerlast.png" />
+                    <figcaption>MC-Scatterplot der Steuerlast in Abhängigkeit vom zu versteuernden Einkommen für eine
+                        Einzelperson Quelle: Eigene Darstellung.</figcaption>
+                </figure><br />
+                <p>
+                    Warum wird dennoch häufig beklagt, dass ein höheres Brutto sogar zu einem geringen Netto führen
+                    kann? Auch dieser Effekt tritt in der Simulation auf. Seine Größenordnung ist jedoch begrenzt
+                    (Bild 7): Es handelt sich überwiegend um wenige hundert Euro. Für niedrige Einkommen ist das
+                    relevant; für das hier betrachtete System ergibt sich daraus jedoch kein nennenswertes
+                    Optimierungspotenzial, da Umsätze und Kosten nicht exakt bekannt sind. 
+                </p>
+                <figure>
+                    <img alt="MC-Scatterplot der absoluten Streuung des Netto-Cashflow, abhängig von Umsatz und Lohn."
+                        src="../assets/img/mdo-ipa-mc-vermoegensystem/mc-residual-plot.png">
+                    <figcaption>MC-Scatterplot der absoluten Streuung des Netto-Cashflow,
+                        abhängig von Umsatz und Lohn. Quelle: Eigene Darstellung. </figcaption>
+                </figure>
+                <p>
+                    Insgesamt ist die MC schlüssig und erlaubt die Konstruktion einer einfachen Entscheidungsregel.
+                </p>
+            </section>
+            <section aria-labelledby="title-6" id="section-6">
+                <h2 id="title-6">Schlussfolgerung: Komplexitätsreduktion und Entscheidungsregel</h2>
+                <p>
+                    Durch MDO, IPA und MC wurde eine <strong>erhebliche Komplexitätsreduktion</strong> erreicht. Die
+                    vernetzten Teilsysteme mit ihren jeweiligen Rechenlogiken lassen sich auf ein einfaches
+                    Entscheidungsproblem zurückführen: Für den Vermögenszuwachs ist die konkrete
+                    Umsatz-Gehalts-Kombination weitgehend unerheblich. Niedrigere Steuerabflüsse im privaten Bereich
+                    führen zu höheren
+                    Steuerabflüssen im Geschäft und umgekehrt. Eine systemweite Steueroptimierung über das Gehalt ist
+                    damit nicht möglich. Es verbleibt nur: <strong>Viel Umsatz hilft viel.</strong>
+                </p>
+                <p>
+                    Das ursprünglich komplexe Entscheidungsproblem reduziert sich damit auf eine deutlich einfachere
+                    Frage: <strong>Wie viel CF ist erforderlich, um die Lebenshaltungskosten zu decken?</strong> Diese
+                    Kosten sind gut bekannt und in der Regel steuerbar. Extreme Sonderfälle werden über die Notgroschen
+                    abgefedert.
+                </p>
+                <p>
+                    Diese Einschätzung gilt auch bei langfristiger Betrachtung. Mittels der zufälligen Wachstumsraten im
+                    MDO ließen sich Vermögen und Kosten in der MC verzinsen und zeitversetzt auszahlen. Das ändert
+                    aber die Schlussfolgerungen nicht, solange der <em>CF die Lebenshaltungskosten deckt</em>, diese
+                    <em>auf einem bodenständigen Niveau</em> bleiben und der <em>Vermögensverzehr über die Notgroschen
+                        kontrolliert</em> wird. Erforderlich ist lediglich eine regelmäßige Anpassung des Modells an
+                    geänderte steuerliche Ansatzvorschriften und veränderte Lebensumstände.
+                </p>
+                <p class="callout">
+                    Das gezeigte Vorgehen ist universell einsetzbar. MDO, IPA und MC eignen sich einzeln oder kombiniert
+                    für unterschiedliche komplexe Entscheidungsprobleme. In der Produktentwicklung würden die
+                    Kopplungsvariablen beispielsweise auf physikalischen Zusammenhängen oder auf Signal- und
+                    Datenflüssen beruhen. In der Praxis führen die Fachbereiche ihre jeweiligen MCs durch und geben die
+                    resultierenden Kopplungsvariablen an das SE oder andere Fachbereiche weiter. So wird iterativ
+                    zusammengearbeitet, bis die systemweite Zielfunktion(en) des NLP konvergiert.
+                </p>
+                <p>
+                    — Ihr, Nico Litschke
+                </p>
+            </section>
+
+            <section id="section-7" aria-labelledby="title-7">
+                <h2 id="title-4">Anhang – Grafiken</h2>
+                <!-- Attachments are provided as downloads in the folderpath: ../assets/img/name -->
+                <div class="download">
+                    <span>SysCon_MDO_Vermögensaufbau.drawio</span>
+                    <a href="../assets/img/mdo-ipa-mc-vermoegensystem/SysCon_MDO_Vermögensaufbau.drawio"
+                        aria-label="Datei herunterladen">
+                        <svg class="icon">
+                            <use href="../assets/img/icons.svg#icon-download"></use>
+                        </svg>
+                    </a>
+                </div>
+            </section>
+
+            <section aria-labelledby="title-8" id="section-8">
+                <h2 id="title-8">Endnoten</h2>
+                <ol class="ref-sources">
+                    <li id="cite-note-1">
+                        <a aria-label="Zurück zur Textstelle, wo diese Quelle zitiert wurde" href="#cite-ref-1"
+                            title="Zurück zum Text">↑</a> Dörner, D. (2002). <em>Die Logik des
+                            Mißlingens:
+                            Strategisches Denken in komplexen Situationen</em> (15. Aufl.). Reinbek bei Hamburg:
+                        Rowohlt.
+                    </li>
+                    <li id="cite-note-2">
+                        <a aria-label="Zurück zur Textstelle, wo diese Quelle zitiert wurde" href="#cite-ref-2"
+                            title="Zurück zum Text">↑</a> Agte, J., de Weck, O., Sobieszczanski-Sobieski,
+                        J.,
+                        Arendsen, P., Morris, A., &amp; Spieck, M. (2009). MDO: Assessment and direction for
+                        advancement—An opinion of one international group. <em>Structural and Multidisciplinary
+                            Optimization</em>,
+                        40(1–6), 17–33. <a href="https://doi.org/10.1007/s00158-009-0381-5" rel="noopener noreferrer"
+                            target="_blank">https://doi.org/10.1007/s00158-009-0381-5</a>
+                    </li>
+                    <li id="cite-note-3">
+                        <a aria-label="Zurück zur Textstelle, wo diese Quelle zitiert wurde" href="#cite-ref-3"
+                            title="Zurück zum Text">↑</a> de Weck, O. L., &amp; Jones, M. B. (2006).
+                        Isoperformance:
+                        Analysis and design of complex systems with desired outcomes. <em>Systems Engineering</em>,
+                        9(1), 45–61. <a href="https://doi.org/10.1002/sys.20043" rel="noopener noreferrer"
+                            target="_blank">https://doi.org/10.1002/sys.20043</a>
+                    </li>
+                    <li id="cite-note-4">
+                        <a aria-label="Zurück zur Textstelle, wo diese Quelle zitiert wurde" href="#cite-ref-4"
+                            title="Zurück zum Text">↑</a> Bundesministerium der Finanzen
+                        (BMF). (2026). Berechnungen und Informationen zur Einkommensteuer. <a
+                            href="https://www.bmf-steuerrechner.de/ekst/eingabeformekst.xhtml" rel="noopener noreferrer"
+                            target="_blank">https://www.bmf-steuerrechner.de/ekst/eingabeformekst.xhtml</a>
+                    </li>
+                </ol>
+            </section>
+        </article>
+    </main>
+    <a aria-label="Nach oben scrollen" class="scroll-up" href="#">
+        <svg class="icon">
+            <use href="../assets/img/icons.svg#icon-scrollup"></use>
+        </svg>
+    </a>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <a href="../impressum.html">Impressum</a>
+            <a href="../datenschutz.html">Datenschutz</a>
+        </div>
+    </footer>
+    <script src="../assets/js/lightbox.js"></script>
+</body>
+
+</html>

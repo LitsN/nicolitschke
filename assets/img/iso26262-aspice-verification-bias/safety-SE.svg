@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-300 -100 1800 900" xmlns:bx="https://boxy-svg.com" role="img"
+     preserveAspectRatio="xMidYMid meet"
+     aria-labelledby="safety-title safety-desc">
+
+  <title id="safety-title">
+    Safety Systems Engineering – Zusammenspiel von Systemgestaltung und Nachweis laut den Safetynormen und Compliancestandards
+  </title>
+
+  <desc id="safety-desc">
+    Liegende Acht als Denkbild für Safety Systems Engineering. 
+    Links Systemgestaltung mit Organisation, Designprinzipien, Produktarchitektur und Integration. 
+    Rechts prüfende Aktivitäten wie Confirmation, Validation, Verifikation, Safety-Analysen und statische Checks. 
+    In der Mitte verbindet der Safety Case beide Seiten. 
+    Die Grafik zeigt, dass Safety als Systemqualität im Zusammenspiel von Gestaltung und Bewertung entsteht.
+  </desc>
+  
+  <defs>
+    <linearGradient gradientUnits="userSpaceOnUse" x1="610.774" y1="125.278" x2="610.774" y2="416.29" id="gradient-0" gradientTransform="matrix(0.768346, -0.640034, 1.11483, 1.338331, -114.415692, 306.036705)" spreadMethod="pad">
+      <stop offset="0" style="stop-color: rgb(91, 145, 229); stop-opacity: 0.2;"/>
+      <stop offset="0.473" style="stop-color: rgb(91, 145, 229); stop-opacity: 0.69;"/>
+      <stop offset="1" style="stop-color: rgb(0, 86, 163); stop-opacity: 0.2;"/>
+    </linearGradient>
+    <bx:grid x="0" y="0" width="100" height="100" divisions="10"/>
+    <style bx:fonts="Roboto">@import url(https://fonts.googleapis.com/css2?family=Roboto%3Aital%2Cwght%400%2C100..900%3B1%2C100..900&amp;display=swap);</style>
+    <radialGradient gradientUnits="userSpaceOnUse" cx="584.153" cy="259.172" r="732.343" id="gradient-1">
+      <stop offset="0" style="stop-color: rgb(20.784% 75.686% 75.686%)"/>
+      <stop offset="1" style="stop-color: rgb(255, 255, 255);"/>
+    </radialGradient>
+  </defs>
+  <g style="pointer-events: none;" transform="matrix(1.083168, 0, 0, 1.083168, -32.735851, 69.273033)">
+    <title>background</title>
+    <line style="stroke-width: 3px; stroke-dasharray: 8px; fill: none; stroke: rgb(153, 153, 153);" x1="584.152" y1="-137.81" x2="584.152" y2="656.156"/>
+    <path d="M 584.322 305.206 C 610.515 281.748 729.744 159.701 810.105 159.701 C 890.465 159.701 955.605 224.846 955.605 305.206 C 955.605 385.566 890.985 451.134 810.105 450.711 C 729.227 450.288 613.151 336.574 582.064 303.851 C 547.792 267.775 435.287 159.701 354.927 159.701 C 274.567 159.701 209.422 224.846 209.422 305.206 C 209.422 385.566 274.567 450.711 354.927 450.711 C 435.287 450.711 556.323 331.372 584.322 305.206 Z" style="fill: none; stroke: url(&quot;#gradient-0&quot;); stroke-width: 100px;"/>
+    <path d="M 224.18 173.858 H 243.784 L 242.08 168.967 L 257.569 175.771 L 242.08 182.576 L 243.784 177.685 H 224.18 V 173.858 Z" bx:shape="arrow 224.18 168.967 33.389 13.608 3.827 15.49 1.704 1@e051b7f8" style="stroke-width: 1px; transform-origin: 237.513px 175.771px 0px; fill: rgb(170, 170, 170);" transform="matrix(0.758933, 0.651169, -0.636925, 0.771154, 442.298254, 135.633233)"/>
+    <path d="M -224.18 -164.077 H -204.577 L -206.281 -168.967 L -190.791 -162.163 L -206.281 -155.359 L -204.577 -160.25 H -224.18 V -164.077 Z" bx:shape="arrow -224.18 -168.967 33.389 13.608 3.827 15.49 1.704 1@aafe2f24" style="stroke-width: 1px; transform-origin: -210.847px -162.164px 0px; fill: rgb(170, 170, 170);" transform="matrix(-0.758933, 0.651169, 0.636925, 0.771154, 774.261586, 569.208041)"/>
+    <path d="M 577.57 312.775 C 603.763 289.317 722.992 167.27 803.352 167.27 C 883.712 167.27 948.857 232.415 948.857 312.775 C 948.857 393.135 884.229 458.703 803.352 458.28 C 722.475 457.857 606.399 344.143 575.312 311.42 C 541.04 275.344 428.535 167.27 348.175 167.27 C 267.815 167.27 202.67 232.415 202.67 312.775 C 202.67 393.135 267.815 458.28 348.175 458.28 C 428.535 458.28 549.571 338.941 577.57 312.775 Z" style="fill: none; stroke: rgb(91, 145, 229); stroke-width: 2px;"/>
+    <path d="M 584.794 307.655 C 610.987 284.197 730.216 162.15 810.576 162.15 C 890.936 162.15 956.081 227.295 956.081 307.655 C 956.081 388.015 891.453 453.583 810.576 453.16 C 729.699 452.737 613.623 339.023 582.536 306.3 C 548.264 270.224 435.759 162.15 355.399 162.15 C 275.039 162.15 209.894 227.295 209.894 307.655 C 209.894 388.015 275.039 453.16 355.399 453.16 C 435.759 453.16 556.795 333.821 584.794 307.655 Z" style="fill: none; stroke: rgb(52, 98, 169); stroke-opacity: 0.8;"/>
+    <path d="M 584.862 299.813 C 611.055 276.355 730.284 154.308 810.644 154.308 C 891.004 154.308 956.149 219.453 956.149 299.813 C 956.149 380.173 891.521 445.741 810.644 445.318 C 729.767 444.895 613.691 331.181 582.604 298.458 C 548.332 262.382 435.827 154.308 355.467 154.308 C 275.107 154.308 209.962 219.453 209.962 299.813 C 209.962 380.173 275.107 445.318 355.467 445.318 C 435.827 445.318 556.863 325.979 584.862 299.813 Z" style="fill: none; stroke: rgb(52, 98, 169); stroke-opacity: 0.8;"/>
+    <path d="M 556.487 305.61 C 582.68 282.152 701.909 160.105 782.269 160.105 C 862.629 160.105 927.774 225.25 927.774 305.61 C 927.774 385.97 863.146 451.538 782.269 451.115 C 701.392 450.692 585.316 336.978 554.229 304.255 C 519.957 268.179 407.452 160.105 327.092 160.105 C 246.732 160.105 181.587 225.25 181.587 305.61 C 181.587 385.97 246.732 451.115 327.092 451.115 C 407.452 451.115 528.488 331.776 556.487 305.61 Z" style="fill: none; stroke: rgb(91, 145, 229); stroke-opacity: 0.6; stroke-width: 4px;"/>
+    <path d="M 575.95 279.56 C 602.143 256.102 721.372 134.055 801.732 134.055 C 882.092 134.055 947.237 199.199 947.237 279.56 C 947.237 359.919 882.609 425.487 801.732 425.065 C 720.855 424.642 604.779 310.927 573.693 278.205 C 539.42 242.128 426.915 134.055 346.555 134.055 C 266.195 134.055 201.05 199.199 201.05 279.56 C 201.05 359.919 266.195 425.065 346.555 425.065 C 426.915 425.065 547.951 305.725 575.95 279.56 Z" style="fill: none; stroke: rgb(52, 98, 169); stroke-opacity: 0.8;"/>
+    <path d="M 558.937 320.066 C 585.13 296.608 704.359 174.561 784.718 174.561 C 865.078 174.561 930.224 239.706 930.224 320.066 C 930.224 400.426 865.596 465.994 784.718 465.571 C 703.841 465.148 587.765 351.434 556.678 318.711 C 522.406 282.635 409.901 174.561 329.541 174.561 C 249.181 174.561 184.036 239.706 184.036 320.066 C 184.036 400.426 249.181 465.571 329.541 465.571 C 409.901 465.571 530.937 346.232 558.937 320.066 Z" style="fill: none; stroke: rgb(91, 145, 229); stroke-opacity: 0.6; stroke-width: 4px;"/>
+    <path d="M 605.838 332.815 C 632.031 309.357 751.26 187.31 831.62 187.31 C 911.98 187.31 977.125 252.455 977.125 332.815 C 977.125 413.175 912.497 478.743 831.62 478.32 C 750.743 477.897 634.667 364.183 603.58 331.46 C 569.308 295.384 456.803 187.31 376.443 187.31 C 296.083 187.31 230.938 252.455 230.938 332.815 C 230.938 413.175 296.083 478.32 376.443 478.32 C 456.803 478.32 577.839 358.981 605.838 332.815 Z" style="fill: none; stroke: rgb(91, 145, 229); stroke-opacity: 0.6; stroke-width: 4px;"/>
+    <path d="M 590.534 322.497 C 616.727 299.039 735.956 176.992 816.316 176.992 C 896.676 176.992 961.819 242.137 961.819 322.497 C 961.819 402.857 897.193 468.425 816.316 468.002 C 735.439 467.579 619.363 353.865 588.276 321.142 C 554.004 285.066 441.499 176.992 361.139 176.992 C 280.779 176.992 215.634 242.137 215.634 322.497 C 215.634 402.857 280.779 468.002 361.139 468.002 C 441.499 468.002 562.535 348.663 590.534 322.497 Z" style="fill: none; stroke: rgb(52, 98, 169); stroke-opacity: 0.8;"/>
+    <path d="M 575.14 265.787 C 601.333 242.329 720.562 120.282 800.922 120.282 C 881.282 120.282 946.427 185.427 946.427 265.787 C 946.427 346.147 881.799 411.715 800.922 411.292 C 720.045 410.869 603.969 297.155 572.882 264.432 C 538.61 228.356 426.105 120.282 345.745 120.282 C 265.385 120.282 200.24 185.427 200.24 265.787 C 200.24 346.147 265.385 411.292 345.745 411.292 C 426.105 411.292 547.141 291.953 575.14 265.787 Z" style="fill: none; stroke: rgb(91, 145, 229); stroke-opacity: 0.4; stroke-width: 4px;"/>
+    <path d="M 563.224 307.095 C 589.416 283.637 708.645 161.59 789.005 161.59 C 869.365 161.59 934.51 226.735 934.51 307.095 C 934.51 387.455 869.882 453.023 789.005 452.6 C 708.128 452.177 592.052 338.463 560.966 305.74 C 526.693 269.664 414.188 161.59 333.828 161.59 C 253.468 161.59 188.323 226.735 188.323 307.095 C 188.323 387.455 253.468 452.6 333.828 452.6 C 414.188 452.6 535.224 333.261 563.224 307.095 Z" style="fill: none; stroke: rgb(91, 145, 229); stroke-opacity: 0.6; stroke-width: 2px;"/>
+    <path d="M 599.445 310.345 C 625.638 286.887 744.867 164.84 825.227 164.84 C 905.587 164.84 970.732 229.985 970.732 310.345 C 970.732 390.705 906.104 456.273 825.227 455.85 C 744.35 455.427 628.274 341.713 597.187 308.99 C 562.915 272.914 450.41 164.84 370.05 164.84 C 289.69 164.84 224.545 229.985 224.545 310.345 C 224.545 390.705 289.69 455.85 370.05 455.85 C 450.41 455.85 571.446 336.511 599.445 310.345 Z" style="fill: none; stroke: rgb(52, 98, 169);"/>
+    <path d="M 593.773 281.179 C 619.966 257.721 739.195 135.674 819.555 135.674 C 899.915 135.674 965.065 200.819 965.065 281.179 C 965.065 361.539 900.432 427.107 819.555 426.684 C 738.678 426.261 622.602 312.547 591.515 279.824 C 557.243 243.748 444.738 135.674 364.378 135.674 C 284.018 135.674 218.873 200.819 218.873 281.179 C 218.873 361.539 284.018 426.684 364.378 426.684 C 444.738 426.684 565.774 307.345 593.773 281.179 Z" style="fill: none; stroke: rgb(91, 145, 229); stroke-opacity: 0.4; stroke-width: 4px;"/>
+    <path d="M 559.747 333.029 C 585.94 309.571 705.169 187.524 785.524 187.524 C 865.894 187.524 931.034 252.669 931.034 333.029 C 931.034 413.389 866.404 478.957 785.524 478.534 C 704.652 478.111 588.576 364.397 557.489 331.674 C 523.217 295.598 410.712 187.524 330.352 187.524 C 249.992 187.524 184.847 252.669 184.847 333.029 C 184.847 413.389 249.992 478.534 330.352 478.534 C 410.712 478.534 531.748 359.195 559.747 333.029 Z" style="fill: none; stroke: rgb(91, 145, 229); stroke-opacity: 0.4; stroke-width: 4px;"/>
+    <path d="M 618.078 312.776 C 644.271 289.318 763.5 167.271 843.86 167.271 C 924.22 167.271 989.365 232.416 989.365 312.776 C 989.365 393.136 924.737 458.704 843.86 458.281 C 762.983 457.858 646.907 344.144 615.82 311.421 C 581.548 275.345 469.043 167.271 388.683 167.271 C 308.323 167.271 243.178 232.416 243.178 312.776 C 243.178 393.136 308.323 458.281 388.683 458.281 C 469.043 458.281 590.079 338.942 618.078 312.776 Z" style="fill: none; stroke-width: 3px; stroke: rgb(52, 98, 169); stroke-opacity: 0.4;"/>
+    <path d="M 545.164 307.104 C 571.357 283.646 690.586 161.599 770.946 161.599 C 851.311 161.599 916.451 226.744 916.451 307.104 C 916.451 387.464 851.821 453.032 770.946 452.609 C 690.069 452.187 573.993 338.472 542.906 305.749 C 508.634 269.673 396.129 161.599 315.769 161.599 C 235.409 161.599 170.264 226.744 170.264 307.104 C 170.264 387.464 235.409 452.609 315.769 452.609 C 396.129 452.609 517.165 333.27 545.164 307.104 Z" style="fill: none; stroke-width: 4px; stroke: rgb(52, 98, 169); stroke-opacity: 0.4;"/>
+    <path d="M 601.065 274.698 C 627.258 251.24 746.487 129.193 826.847 129.193 C 907.207 129.193 972.357 194.338 972.357 274.698 C 972.357 355.058 907.727 420.626 826.847 420.203 C 745.97 419.78 629.894 306.066 598.807 273.343 C 564.535 237.267 452.03 129.193 371.67 129.193 C 291.31 129.193 226.165 194.338 226.165 274.698 C 226.165 355.058 291.31 420.203 371.67 420.203 C 452.03 420.203 573.066 300.864 601.065 274.698 Z" style="fill: none; stroke: rgb(52, 98, 169); stroke-width: 3px; stroke-opacity: 0.4;"/>
+    <path d="M 574.3 344.877 C 600.493 321.419 719.722 199.372 800.077 199.372 C 880.447 199.372 945.587 264.517 945.587 344.877 C 945.587 425.237 880.957 490.805 800.077 490.382 C 719.205 489.959 603.129 376.245 572.042 343.522 C 537.77 307.446 425.265 199.372 344.905 199.372 C 264.548 199.372 199.398 264.517 199.398 344.877 C 199.398 425.237 264.548 490.382 344.905 490.382 C 425.265 490.382 546.301 371.043 574.3 344.877 Z" style="fill: none; stroke: rgb(91, 145, 229); stroke-opacity: 0.4; stroke-width: 4px;"/>
+    <path d="M 586.157 295.193 C 615.215 268.724 747.483 131.011 836.633 131.011 C 925.794 131.011 998.059 204.518 998.059 295.193 C 998.059 385.867 926.36 459.85 836.633 459.373 C 746.906 458.895 618.139 330.586 583.652 293.664 C 545.631 252.957 420.82 131.011 331.67 131.011 C 242.523 131.011 170.247 204.518 170.247 295.193 C 170.247 385.867 242.523 459.373 331.67 459.373 C 420.82 459.373 555.095 324.716 586.157 295.193 Z" style="fill: none; stroke: rgb(91, 145, 229); stroke-opacity: 0.4; stroke-width: 4px;"/>
+    <ellipse style="fill: rgb(255, 255, 255); stroke-width: 1.461px; stroke: rgb(102, 102, 102); transform-origin: 584.178px 134.097px 0px;" cx="584.177" cy="134.094" rx="41.989" ry="41.989"/>
+    <path d="M 564.466 158.565 C 563.3 158.565 562.312 158.152 561.485 157.325 C 560.652 156.496 560.244 155.501 560.244 154.34 L 560.244 131.097 L 564.466 131.097 L 564.466 154.34 L 600.38 154.34 L 600.38 158.565 L 564.466 158.565 Z M 572.917 150.115 C 571.761 150.115 570.763 149.701 569.929 148.873 C 569.102 148.046 568.688 147.051 568.688 145.89 L 568.688 122.649 L 579.253 122.649 L 579.253 118.421 C 579.253 117.267 579.666 116.27 580.494 115.439 C 581.326 114.617 582.315 114.202 583.475 114.202 L 591.935 114.202 C 593.091 114.202 594.089 114.617 594.916 115.439 C 595.739 116.27 596.158 117.267 596.158 118.421 L 596.158 122.649 L 606.72 122.649 L 606.72 145.89 C 606.72 147.051 606.302 148.046 605.475 148.873 C 604.652 149.701 603.659 150.115 602.489 150.115 L 572.917 150.115 Z M 572.917 145.89 L 602.489 145.89 L 602.489 126.878 L 572.917 126.878 L 572.917 145.89 Z M 583.475 122.649 L 591.935 122.649 L 591.935 118.421 L 583.475 118.421 L 583.475 122.649 Z M 572.917 145.89 L 572.917 126.878 L 572.917 145.89 Z" style="stroke-width: 0.487px; fill: rgb(102, 102, 102); transform-origin: 583.48px 136.381px 0px;"/>
+    <circle style="fill: url(&quot;#gradient-1&quot;); fill-opacity: 0.2;" cx="584.153" cy="259.172" rx="110.835" ry="110.835" r="732.343"/>
+  </g>
+  <g style="" transform="matrix(1, 0, 0, 1, 0.000029, 0.000286)">
+    <title>Ebenen-Split</title>
+    <path d="M -590 -52.686 H -538.001 L -538.001 -58.589 L -520 -47.521 L -538.001 -36.454 L -538.001 -42.357 H -590 V -52.686 Z" bx:shape="arrow -590 -58.589 70 22.135 10.329 18.001 0 1@bd8da456" style="stroke-width: 1px; fill: rgb(170, 170, 170);" transform="matrix(-1, 0, 0, 1, 0, 0)"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 55px; letter-spacing: 1.5px; text-anchor: middle; white-space: pre;" x="1050" y="-28.707">Safetynormen</text>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 55px; letter-spacing: 1.5px; text-anchor: middle; white-space: pre;" x="150" y="-28.706">Systemgestaltung</text>
+    <path d="M 610 -52.686 H 661.999 L 661.999 -58.589 L 680 -47.521 L 661.999 -36.454 L 661.999 -42.357 H 610 V -52.686 Z" bx:shape="arrow 610 -58.589 70 22.135 10.329 18.001 0 1@f5a7fbb2" style="stroke-width: 1px; fill: rgb(170, 170, 170);"/>
+  </g>
+  <g transform="matrix(1, 0, 0, 1, 125.093857, -80.035049)">
+    <title>Safety-Analysis</title>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 36px; letter-spacing: 1px; white-space: pre;" x="934.216" y="669.948">Safety Analysen</text>
+    <rect x="940" y="690.711" width="10" height="10" style="fill: rgb(51, 51, 51);"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre;" x="960" y="704.156">HARA/HAZOP</text>
+    <rect x="940" y="724.475" width="10" height="10" style="fill: rgb(51, 51, 51); transform-origin: 999px 729.479px 0px;"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre; transform-origin: 999px 729.512px 0px;" x="960" y="737.92">DFA &amp; FFI</text>
+    <rect x="940" y="760.706" width="10" height="9.44" style="fill: rgb(51, 51, 51);"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre;" x="960" y="773.871">Kontrollfluss</text>
+    <rect x="1135.54" y="690.363" width="10.95" height="10.712" style="fill: rgb(51, 51, 51);"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre;" x="1156.49" y="704.124">FMEDA</text>
+    <rect x="1135.54" y="724.405" width="10" height="10" style="fill: rgb(51, 51, 51);"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre;" x="1155.54" y="737.85">FMEA</text>
+    <rect x="1135.54" y="760.426" width="10" height="10" style="fill: rgb(51, 51, 51);"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre;" x="1156.49" y="773.871">FTA</text>
+  </g>
+  <g transform="matrix(1, 0, 0, 1, 170.492538, -331.37381)">
+    <title>Verification</title>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 36px; letter-spacing: 1px; white-space: pre;" x="934.216" y="669.948">Verifikation</text>
+    <rect x="940" y="690.679" width="10" height="10" style="fill: rgb(51, 51, 51);"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre;" x="960" y="704.124">Simulation</text>
+    <rect x="940" y="724.491" width="10" height="10" style="fill: rgb(51, 51, 51); transform-origin: 999px 729.495px 0px;"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre; transform-origin: 999px 729.528px 0px;" x="960" y="737.936">Funktionstest</text>
+    <rect x="940" y="760.706" width="10" height="9.44" style="fill: rgb(51, 51, 51);"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre;" x="960" y="773.871">Fault Injection</text>
+    <rect x="1129.75" y="690.323" width="10.95" height="10.712" style="fill: rgb(51, 51, 51);"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre;" x="1150.7" y="704.124">Performance</text>
+    <rect x="1129.75" y="724.421" width="10" height="10" style="fill: rgb(51, 51, 51);"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre;" x="1149.75" y="737.866">Ressourcen</text>
+    <rect x="1129.75" y="760.426" width="10" height="10" style="fill: rgb(51, 51, 51);"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre;" x="1150.7" y="773.871">SiL/HiL/ViL</text>
+  </g>
+  <g transform="matrix(1, 0, 0, 1, 92.580933, -551.107422)">
+    <title>Validation</title>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 36px; letter-spacing: 1px; white-space: pre;" x="934.216" y="669.948">Validation</text>
+    <rect x="940" y="690.847" width="10" height="10" style="fill: rgb(51, 51, 51);"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre;" x="960" y="704.124">Erprobung</text>
+    <rect x="940" y="723.69" width="10" height="10" style="fill: rgb(51, 51, 51); transform-origin: 999px 728.694px 0px;"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre; transform-origin: 999px 728.559px 0px;" x="960" y="736.967">Dauerlauf</text>
+    <rect x="940" y="758.635" width="10" height="9.44" style="fill: rgb(51, 51, 51);"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre;" x="960" y="771.632">Stresstest</text>
+    <rect x="1092.15" y="690.491" width="10.95" height="10.712" style="fill: rgb(51, 51, 51);"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre;" x="1113.1" y="704.124">Fahrzeug</text>
+    <rect x="1092.15" y="723.658" width="10" height="10" style="fill: rgb(51, 51, 51);"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre;" x="1112.15" y="736.935">Testbench</text>
+    <rect x="1092.15" y="758.355" width="10" height="10" style="fill: rgb(51, 51, 51);"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre;" x="1113.1" y="771.632">SiL/HiL/ViL</text>
+  </g>
+  <g transform="matrix(1, 0, 0, 1, -254.428101, 1.758942)">
+    <title>Statische-Checks</title>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 36px; letter-spacing: 1px; white-space: pre;" x="934.216" y="669.948">Statische Checks</text>
+    <rect x="940" y="689.83" width="10" height="10" style="fill: rgb(51, 51, 51);"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre;" x="960" y="703.235">Experten Reviews</text>
+    <rect x="940" y="724.289" width="10" height="10" style="fill: rgb(51, 51, 51); transform-origin: 999px 729.293px 0px;"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre; transform-origin: 999px 729.437px 0px;" x="960" y="737.845">Modellchecker</text>
+    <rect x="940" y="759.175" width="10" height="9.44" style="fill: rgb(51, 51, 51);"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre;" x="960" y="772.451">Statische Codeanalyse</text>
+  </g>
+  <g transform="matrix(1, 0, 0, 1, -236.054687, -592.523621)">
+    <title>Confirmation</title>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 36px; letter-spacing: 1px; white-space: pre;" x="934.216" y="669.948">Confirmation</text>
+    <rect x="940" y="690" width="10" height="10" style="fill: rgb(51, 51, 51);"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre;" x="960" y="703.235">Reviews</text>
+    <rect x="940" y="724.155" width="10" height="10" style="fill: rgb(51, 51, 51); transform-origin: 999px 729.159px 0px;"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre; transform-origin: 999px 728.6px 0px;" x="960" y="737.008">Assessment</text>
+    <rect x="1063.23" y="690" width="10.95" height="10.712" style="fill: rgb(51, 51, 51);"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre;" x="1084.18" y="704.124">Audit</text>
+  </g>
+  <g transform="matrix(1, 0, 0, 1, -878.643188, -0.710858)">
+    <title>Architektur</title>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 36px; letter-spacing: 1px; white-space: pre;" x="934.216" y="669.948">Produktarchitektur</text>
+    <rect x="940" y="689.687" width="10" height="10" style="fill: rgb(51, 51, 51);"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre;" x="960" y="703.235">Funktionssicht</text>
+    <rect x="940" y="722.344" width="10" height="10" style="fill: rgb(51, 51, 51); transform-origin: 999px 727.348px 0px;"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre; transform-origin: 999px 727.484px 0px;" x="960" y="735.892">Struktursicht</text>
+    <rect x="940" y="755.332" width="10" height="9.44" style="fill: rgb(51, 51, 51);"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre;" x="960" y="768.6">Laufzeitsicht</text>
+    <rect x="1135.54" y="690.199" width="10.95" height="10.712" style="fill: rgb(51, 51, 51);"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre;" x="1156.49" y="704.124">Schnittstellen &amp; Signale</text>
+    <rect x="1135.54" y="723.44" width="10" height="10" style="fill: rgb(51, 51, 51);"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre;" x="1155.54" y="736.988">Fehlerhandling &amp; Persistenz</text>
+    <rect x="1135.54" y="755.052" width="10" height="10" style="fill: rgb(51, 51, 51);"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre;" x="1156.49" y="768.6">Degradation, Safe State</text>
+  </g>
+  <g transform="matrix(1, 0, 0, 1, -1161.775757, -232.197144)">
+    <title>Prinzipien</title>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 36px; letter-spacing: 1px; white-space: pre;" x="934.216" y="669.948">Designprinzipien</text>
+    <rect x="940" y="690.004" width="10" height="10" style="fill: rgb(51, 51, 51);"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre;" x="960" y="703.375">Partitionierung</text>
+    <rect x="940" y="722.591" width="10" height="10" style="fill: rgb(51, 51, 51); transform-origin: 999px 727.595px 0px;"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre; transform-origin: 999px 727.554px 0px;" x="960" y="735.962">Redundanzen</text>
+    <rect x="940" y="756.564" width="10" height="9.44" style="fill: rgb(51, 51, 51);"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre;" x="960" y="769.655">Restriktionen</text>
+    <rect x="1135.54" y="689.508" width="10.95" height="10.712" style="fill: rgb(51, 51, 51);"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre;" x="1156.49" y="703.235">Offenheit</text>
+    <rect x="1135.54" y="722.731" width="10" height="10" style="fill: rgb(51, 51, 51);"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre;" x="1155.54" y="736.102">Kapselung</text>
+    <rect x="1135.54" y="756.284" width="10" height="10" style="fill: rgb(51, 51, 51);"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre;" x="1156.49" y="769.655">Konventionen</text>
+  </g>
+  <g transform="matrix(1, 0, 0, 1, -777.831482, -607.030029)">
+    <title>Integration</title>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 36px; letter-spacing: 1px; white-space: pre;" x="934.216" y="669.948">Integration</text>
+    <rect x="940" y="690.905" width="10" height="10" style="fill: rgb(51, 51, 51);"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre;" x="960" y="704.267">CI/CD</text>
+    <rect x="940" y="720" width="10" height="10" style="fill: rgb(51, 51, 51); transform-origin: 999px 725.004px 0px;"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre; transform-origin: 999px 728.445px 0px;" x="960" y="736.853">Versionierung</text>
+    <rect x="940" y="758.686" width="10" height="9.44" style="fill: rgb(51, 51, 51);"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre;" x="960" y="771.768">Automation</text>
+    <rect x="1135.54" y="690.407" width="10.95" height="10.712" style="fill: rgb(51, 51, 51);"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre;" x="1156.49" y="704.124">Traceability</text>
+    <rect x="1135.54" y="723.634" width="10" height="10" style="fill: rgb(51, 51, 51);"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre;" x="1155.54" y="736.996">Konfiguration</text>
+    <rect x="1135.54" y="758.406" width="10" height="10" style="fill: rgb(51, 51, 51);"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre;" x="1156.49" y="771.768">Bugs &amp; Changes</text>
+  </g>
+  <g transform="matrix(1, 0, 0, 1, -1117.63208, -474.487823)">
+    <title>Organisation</title>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 36px; letter-spacing: 1px; white-space: pre;" x="934.216" y="669.948">Organisation</text>
+    <rect x="940" y="690.694" width="10" height="10" style="fill: rgb(51, 51, 51);"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre;" x="960" y="704.124">Verantwortung</text>
+    <rect x="940" y="723.151" width="10" height="10" style="fill: rgb(51, 51, 51); transform-origin: 999px 728.155px 0px;"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre; transform-origin: 999px 728.173px 0px;" x="960" y="736.581">Kollaboration</text>
+    <rect x="940" y="758.09" width="10" height="9.44" style="fill: rgb(51, 51, 51);"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre;" x="960" y="771.24">Steuerung</text>
+    <rect x="1135.54" y="690.338" width="10.95" height="10.712" style="fill: rgb(51, 51, 51);"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre;" x="1156.49" y="704.124">Tools</text>
+    <rect x="1135.54" y="723.174" width="10" height="10" style="fill: rgb(51, 51, 51);"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre;" x="1155.54" y="736.604">Prozesse</text>
+    <rect x="1135.54" y="757.81" width="10" height="10" style="fill: rgb(51, 51, 51);"/>
+    <text style="fill: rgb(51, 51, 51); font-family: &quot;Roboto&quot;; font-size: 24px; white-space: pre;" x="1156.49" y="771.24">Leitkultur</text>
+  </g>
+</svg>

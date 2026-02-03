@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport" />
+    <title>Kapitalwert: Der Wert eines Angebots</title>
+    <meta
+        content="Wie berechnen wir den Wert eines Angebots und dessen Risiko? Wir nutzen dafür den Kapitalwert - ich zeige, wie man ihn berechnet und interpretiert."
+        name="description" />
+    <meta content="index, follow, archive" name="robots" />
+    <meta content="Nico Litschke" name="author" />
+    <meta content="https://www.nicolitschke.com/texte/kapitalwert-basics.html" property="og:url" />
+    <meta content="article" property="og:type" />
+    <meta content="de_DE" property="og:locale" />
+    <meta content="Nico Litschke" property="og:site_name" />
+    <meta content="Kapitalwert: Der Wert eines Angebots" property="og:title" />
+    <meta
+        content="Wie berechnen wir den Wert eines Angebots und dessen Risiko? Wir nutzen dafür den Kapitalwert - ich zeige, wie man ihn berechnet und interpretiert."
+        property="og:description" />
+    <meta content="../assets/img/kapitalwert-basics/hero.png" property="og:image" />
+    <meta content="1KLRTKWSuSamhN09JbMkQEd-R10iuFCNAHxdYZJVr_M" name="google-site-verification" />
+    <link href="https://www.nicolitschke.com/texte/kapitalwert-basics.html" rel="canonical" />
+    <link href="../assets/css/fonts.css" rel="stylesheet" />
+    <link href="../assets/css/main.css" rel="stylesheet" />
+    <link href="../assets/css/article.css" rel="stylesheet" />
+    <link href="../assets/img/favicon.svg" rel="icon" type="image/svg+xml" />
+    <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+    <script defer="" src="../assets/js/mathjax-config.js"></script>
+    <script async="" src="../assets/js/tex-mml-svg.js"></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="site-title" href="../index.html">Nico Litschke</a>
+            <nav aria-label="Hauptnavigation" class="site-nav">
+                <a href="../index.html">Über</a>
+                <a href="../texte.html">Texte</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <article>
+
+            <h1>Kapitalwert: Der Wert eines Angebots</h1>
+            <ul class="tag-line">
+                <li><a class="tag" data-tag="safety-risiko" href="../texte.html?tag=safety-risiko"
+                        title="Alle Artikel über Safety &amp; Risiko anzeigen">Safety &amp; Risiko</a></li>
+                <li><a class="tag" data-tag="skills-tools" href="../texte.html?tag=skills-tools"
+                        title="Alle Artikel über Skills &amp; Tools anzeigen">Skills &amp; Tools</a></li>
+            </ul>
+            <section aria-labelledby="abstract-title" class="abstract">
+                <h2 id="abstract-title">Abstract</h2>
+                <p class="summary">
+                    Als Selbstständige wollen wir Angebote schaffen, die mehr wert sind als sie kosten.<a
+                        href="#cite-note-1" id="cite-ref-1" name="cite-ref-1" title="Quelle">[1]</a> In
+                    diesem Artikel
+                    geht es um uns als Käufer: Wie berechnen wir den Wert eines Angebots? Der Standard dafür ist der
+                    &bdquo;Kapitalwert&rdquo;. Er besagt, wie viel zukünftige Zahlungen heute wert sind. So können wir
+                    Risiken
+                    besser bewerten und prüfen, ob sich ein Geschäft für uns lohnt. Ich erkläre die Grundlagen des
+                    Kapitalwerts und zeige, wie Sie ihn am Beispiel einer Gym-Mitgliedschaft und einer Immobilie selber
+                    nutzen können.
+                </p>
+            </section>
+            <p>
+                In diesem Artikel geht es primär um das Rechnen. Qualitative Faktoren und fortgeschrittenere
+                Risikoanalysen folgen in zukünftigen Artikeln.
+            </p>
+            <div class="callout">
+                <p>
+                    <strong>Gut zu wissen</strong>
+                </p>
+                <p>
+                    Auch in Projektmanagement-Standards finden wir den Kapitalwert:
+                </p>
+                <ul>
+                    <li>
+                        <strong>PMBOK (PMI):</strong> Wirtschaftlichkeitsanalyse und Projektselektion
+                    </li>
+                    <li>
+                        <strong>PRINCE2:</strong> Investment Appraisal im Business Case
+                    </li>
+                    <li>
+                        <strong>IPMA:</strong> Projektbewertung und Nutzenanalyse
+                    </li>
+                    <li>
+                        <strong>ISO&nbsp;21500&nbsp;/&nbsp;21502:</strong> Finanzielle Bewertungsmethode
+                    </li>
+                    <li>
+                        <strong>SAFe (Agil):</strong> Portfolio- und Priorisierungskalkulation
+                    </li>
+                </ul>
+                <p>
+                    Methodisch gibt es keinen Unterschied: Ein Projekt verursacht Kosten, und das Ergebnis soll Nutzen
+                    stiften – also positive Rückflüsse generieren.
+                </p>
+            </div>
+            <details class="toc">
+                <summary><svg class="icon toggle-icon">
+                        <use href="../assets/img/icons.svg#icon-expand"></use>
+                    </svg>Inhalt</summary>
+                <nav aria-label="Inhaltsverzeichnis">
+                    <ul>
+                        <li><a href="#section-1">Warum späteres Geld weniger wert ist</a></li>
+                        <li><a href="#section-2">Beispiel: Lebenslange Gym-Mitgliedschaft</a></li>
+                        <li><a href="#section-3">Opportunität: Investition in ETF ACWI IMI mit 7,5% p.a.</a></li>
+                        <li><a href="#section-4">Basis: Abgezinste Zahlungen</a></li>
+                        <li><a href="#section-5">Abzahlung der lebenslangen Mitgliedschaft</a></li>
+                        <li><a href="#section-6">Kapitalwert der lebenslangen Mitgliedschaft</a></li>
+                        <li><a href="#section-7">Beispiel: Immobilie</a></li>
+                        <li><a href="#section-8">Umgang mit fiktiven Zahlungen</a></li>
+                        <li><a href="#section-9">Kaufmännische Vorsichtsprinzip</a></li>
+                        <li><a href="#section-10">Wofür der Kapitalwert taugt und wofür nicht</a></li>
+                        <li><a href="#section-11">Fazit</a></li>
+                    </ul>
+                </nav>
+            </details>
+            <section aria-labelledby="title-1" id="section-1">
+                <h2 id="title-1">Warum späteres Geld weniger wert ist</h2>
+                <p>
+                    Der Wert eines Angebots hängt davon ab, <strong>wann</strong> die Zahlungen erfolgen. Ein Beispiel:
+                </p>
+                <ul>
+                    <li>Szenario&nbsp;A: 5&nbsp;Jahre lang spare ich je 1.000&nbsp;EUR und im sechsten Jahr zusätzlich
+                        5.000&nbsp;EUR
+                    </li>
+                    <li>Szenario&nbsp;B: Im ersten Jahr spare ich 5.000&nbsp;EUR und in den nächsten 5&nbsp;Jahren je
+                        1.000&nbsp;EUR
+                    </li>
+                </ul>
+                <p>
+                    Jeweils erhalte ich 2&nbsp;% p.&nbsp;a. auf Sparguthaben. Jeweils spare ich 10.000&nbsp;EUR.
+                    Trotzdem
+                    unterscheidet sich das Endvermögen:
+                </p>
+                <figure>
+                    <img alt="Endvermögen von 10.000&nbsp;EUR, bei 2&nbsp;% p.a. auf Sparguthaben (eigene Darstellung)"
+                        class="" src="../assets/img/kapitalwert-basics/vgl-endwerte.png" />
+                    <figcaption>Endvermögen von 10.000&nbsp;EUR, bei 2&nbsp;% p.a. auf Sparguthaben (eigene
+                        Darstellung)</figcaption>
+                </figure>
+                <p>
+                    Im Szenario&nbsp;B liegt mehr Geld länger auf dem Konto – und erzielt deshalb höhere Zinsen. Zeit
+                    ist beim Vermögensaufbau einer der entscheidenden Faktoren. Aber auch Inflation, Steuern,
+                    Abschreibungen oder Sonderzahlungen beeinflussen, wie viel ein Angebot tatsächlich wert ist. All das
+                    müssen wir einpreisen.
+                </p>
+            </section>
+            <section aria-labelledby="title-2" id="section-2">
+                <h2 id="title-2">Beispiel: Lebenslange Gym-Mitgliedschaft</h2>
+                <p>
+                    Mein Fitnessstudio bot mir an:
+                </p>
+                <ul>
+                    <li>monatlich 45&nbsp;EUR, oder
+                    </li>
+                    <li>einmalig 2.500&nbsp;EUR für eine lebenslange Mitgliedschaft
+                    </li>
+                </ul>
+                <p>
+                    Lohnt sich die Einmalzahlung? Mein Gym argumentierte: Nach 4,5&nbsp;Jahren hätte sich die
+                    Mitgliedschaft amortisiert:
+                    $$\frac{2.500\&nbsp;EUR}{45\&nbsp;EUR/Monat} \approx 55,5\&nbsp;Jahre \approx
+                    4,5\&nbsp;Jahre$$
+                </p>
+
+                <p>
+                    Das stimmt aber nur, wenn ich mein Geld auf dem Sparbuch oder Girokonto versauern lasse und es keine
+                    Inflation gibt. Beides trifft bei mir nicht zu.
+                </p>
+                <p class="callout">
+                    Beim Kapitalwert erstellen wir ein Modell, das ein Geschäft vernünftig auf unsere Lebensrealität
+                    abbildet.
+                </p>
+            </section>
+            <section aria-labelledby="title-3" id="section-3">
+                <h2 id="title-3">Opportunität: Investition in ETF ACWI IMI mit 7,5&nbsp;% p.a.</h2>
+                <p>
+                    Für die Berechnung des Kapitalwerts brauchen wir einen Referenzzins. Typische Quellen dafür sind:<a
+                        href="#cite-note-2" id="cite-ref-2" name="cite-ref-2" title="Quelle">[2]</a>
+                </p>
+                <ul>
+                    <li>Zinssätze auf 10-jährige deutsche Staatsanleihen
+                    </li>
+                    <li>die erwartete Inflationsrate
+                    </li>
+                    <li>Opportunitätskosten für alternative Investments
+                    </li>
+                    <li>eine Kombination daraus zzgl. Risikoaufschläge
+                    </li>
+                </ul>
+                <p>
+                    Wenn ich die 2.500&nbsp;EUR nicht für die lebenslange Mitgliedschaft verwende, würde ich das Geld in
+                    einen breitgestreuten ETF anlegen. Die langfristige, reale Rendite eines Weltportfolios wie den
+                    ACWI IMI beträgt im Mittel 7,5&nbsp;% p.&nbsp;a.<a href="#cite-note-3" id="cite-ref-3"
+                        name="cite-ref-3" title="Quelle">[3]</a> &bdquo;Reale Rendite&rdquo; bedeutet:
+                    Die mittlere
+                    Inflation ist
+                    bereits
+                    abgezogen. Risikoaufschläge lassen wir für den Moment außer Acht.
+                </p>
+            </section>
+            <section aria-labelledby="title-4" id="section-4">
+                <h2 id="title-4">Basis: Abgezinste Zahlungen</h2>
+                <p>
+                    Ausgangsfrage: Welchen Betrag $Z$ muss ich heute sparen, um in einem Jahr $12 \cdot 45\&nbsp;EUR =
+                    540\
+                    &nbsp;EUR$ zahlen zu können? Rechnerisch:
+                    $$Z \cdot (1 + 7,5\%) = 540 \text{&nbsp;EUR}$$
+                    $$Z \cdot 1,075 = 540 \text{&nbsp;EUR}$$
+                    $$Z = \frac{540 \text{&nbsp;EUR}}{1,075} = 502,33 \text{&nbsp;EUR}$$
+                </p>
+
+                <p>
+                    Es macht finanziell keinen Unterschied, ob ich bei 7,5&nbsp;% p.&nbsp;a. sofort 502,33&nbsp;EUR
+                    zahlen
+                    ODER diesen
+                    Betrag spare und in einem Jahr 540&nbsp;EUR zahle. Genau das ist der <strong>Kapitalwert: Der
+                        heutige Wert zukünftiger Zahlungen.</strong> Das veranschaulicht folgende
+                    Grafik:
+                </p>
+                <figure>
+                    <img alt="Durch Abzinsen wird der heutige Wert zukünftiger Zahlung berechnet (eigene Darstellung)"
+                        src="../assets/img/kapitalwert-basics/npv-discounting.png" />
+                    <figcaption>Durch Abzinsen wird der heutige Wert zukünftiger Zahlung berechnet
+                        (eigene Darstellung)</figcaption>
+                </figure>
+
+                <p>
+                    Für 2&nbsp;Jahre gilt dasselbe Prinzip. Wir müssen die zweiten 540&nbsp;EUR nur über
+                    <strong>2&nbsp;Jahre</strong>
+                    abzinsen:
+                    $$\text{Kapitalwert}_{t \leq 2} = \frac{540 \text{&nbsp;EUR}}{(1 + 7,5\%)^1} + \frac{540
+                    \text{&nbsp;EUR}}{(1
+                    + 7,5\%)^2}$$
+                    $$= 502,33 \text{&nbsp;EUR} + 467,28 \text{&nbsp;EUR} = 969,61 \text{&nbsp;EUR}$$
+                </p>
+
+                <p>
+                    Analog gilt: Es macht keinen Unterschied, ob ich sofort 969,61&nbsp;EUR zahle ODER 969,61&nbsp;EUR
+                    zu
+                    7,5&nbsp;% p.&nbsp;a. spare und davon nächstes sowie übernächstes Jahr jeweils 540&nbsp;EUR
+                    auszahle.
+                </p>
+            </section>
+            <section aria-labelledby="title-5" id="section-5">
+                <h2 id="title-5">Abzahlung der lebenslangen Mitgliedschaft</h2>
+                <p>
+                    Den heutigen Wert der lebenslangen Mitgliedschaft berechnen wir analog. Ich zahle sofort
+                    2.500&nbsp;EUR
+                    und in jedem folgenden Jahr spare ich 540&nbsp;EUR. Im Excel schön übersichtlich:
+                </p>
+                <figure>
+                    <img alt="NPV Kalkulation in Excel" src="../assets/img/kapitalwert-basics/npv-calc-sheet.png" />
+                    <figcaption>Kapitalwert der lebenslangen Mitgliedschaft bei 7,5&nbsp;% p.a. (eigene
+                        Darstellung)</figcaption>
+                </figure>
+                <p>
+                    Ergebnis: Bei einem Zinssatz von 7,5&nbsp;% p.&nbsp;a. hätte sich die lebenslange Mitgliedschaft
+                    nach
+                    6&nbsp;Jahren
+                    geradeso abbezahlt – also 1,5&nbsp;Jahre oder ein Drittel länger, als mein Gym behauptet hat.
+                </p>
+                <div class="callout">
+                    Ob sich ein Investment lohnt, entscheidet der Kapitalwert:
+                    <ul>
+                        <li>
+                            $Kapitalwert &gt; 0$: Das Geschäft lohnt sich
+                        </li>
+                        <li>
+                            $Kapitalwert &lt; 0$: Das Geschäfts lohnt sich nicht
+                        </li>
+                        <li>Bei <strong>mehreren Alternativen</strong> gilt: Ein <strong>höherer Kapitalwert</strong>
+                            ist besser.
+                        </li>
+                    </ul>
+                </div>
+                <p>
+                    Alternativ können wir auch die Excel-Funktion <a
+                        href="https://support.microsoft.com/de-de/office/xkapitalwert-funktion-1b42bbf6-370f-4532-a0eb-d67c16b664b7"
+                        target="_blank"
+                        title="https://support.microsoft.com/de-de/office/xkapitalwert-funktion-1b42bbf6-370f-4532-a0eb-d67c16b664b7"><em>XKAPITALWERT</em></a>
+                    (oder in Google Sheets <a href="https://support.google.com/docs/answer/3093268?hl=de"
+                        target="_blank" title="https://support.google.com/docs/answer/3093268?hl=de"><em>XNPV</em></a>)
+                    verwenden. Für komplexere Analysen wie eine Monte-Carlo-Simulation sind die Zeilen 7 und 8 jedoch
+                    unverzichtbar.
+                </p>
+            </section>
+            <section aria-labelledby="title-6" id="section-6">
+                <h2 id="title-6">Kapitalwert der lebenslangen Mitgliedschaft</h2>
+                <p>
+                    Angenommen, ich komme tatsächlich in den Genuss einer lebenslangen Mitgliedschaft. Das bedeutet,
+                    dass ich jedes Jahr 540&nbsp;EUR spare. Den Wert dieser unendlichen Zahlungen modellieren wir mit
+                    der
+                    sogenannten &bdquo;ewigen Rente&rdquo;:
+                    $$\text{Wert der ewigen Rente} = \frac{\text{jährliche Zahlung}}{\text{Zinssatz} -
+                    \text{Wachstumsrate}}$$
+                </p>
+                <p>
+                    Setzen wir die Werte ein:
+                    $$\text{Wert der ewigen Rente} = \frac{540 \text{&nbsp;EUR}}{7,5\% - 0} = 7.200 \text{&nbsp;EUR}$$
+                </p>
+                <p>
+                    und es ergibt sich für den Kapitalwert:
+                    $$\text{Kapitalwert} = -2.500 \text{&nbsp;EUR} + 7.200 \text{&nbsp;EUR} = 4.700 \text{&nbsp;EUR}$$
+                </p>
+
+                Da $4.700 \text{&nbsp;EUR} \gg 0$ ist, ist das Ergebnis eindeutig: Die Mitgliedschaft ist rechnerisch
+                ein
+                gutes Geschäft. Anders gesagt: Für 2.500&nbsp;EUR (Preis) kaufe ich eine Leistung, die 7.200&nbsp;EUR
+                wert
+                ist.<p>
+                    Das Gleiche im Excel:
+                </p>
+                <figure>
+                    <img alt="Berechnung des NPV mit ewiger Rente in Excel"
+                        src="../assets/img/kapitalwert-basics/npv-calc-sheet-full.png" />
+                    <figcaption>Kapitalwert der lebenslangen Mitgliedschaft mit ewiger Rente, 7,5&nbsp;%
+                        p.&nbsp;a. (eigene Darstellung)</figcaption>
+                </figure>
+                <p>
+                    In der Darstellung habe ich die ewige Rente auf Anfang des siebten&nbsp;Jahres beziehungsweise Ende
+                    des sechsten&nbsp;Jahres abgezinst. Das veranschaulicht folgende Abbildung.
+                </p>
+                <figure>
+                    <img alt="Visualisierung der ewigen Rente"
+                        src="../assets/img/kapitalwert-basics/npv-disc-ewig.png" />
+                    <figcaption>Heutige Wert der ewigen Rente (eigene Darstellung)</figcaption>
+                </figure>
+                <p>
+                    Bei konstanten Zinssätzen macht es keinen Unterschied, wann die ewige Rente angesetzt wird.
+                    Interessant wird es, wenn sich Zinssätze oder Wachstumsraten ändern. Angenommen,
+                    der Jahresbeitras wächst alle drei&nbsp;Jahre um 5&nbsp;%:
+                </p>
+                <figure>
+                    <img alt="NPV mit Wachstumsfaktor in Excel"
+                        src="../assets/img/kapitalwert-basics/npv-calc-growing-returns.png" />
+                    <figcaption>Kapitalwert der lebenslangen Mitgliedschaft mit 5&nbsp;%
+                        Beitragswachstum alle 3&nbsp;Jahre (eigene Darstellung)</figcaption>
+                </figure>
+                <p>
+                    Der Kapitalwert steigt nur geringfügig, da die höheren Beiträge weit in der Zukunft liegen. Dieses
+                    Risiko ist im Kapitalwert bereits berücksichtigt.
+                </p>
+                <p>
+                    Der Charme der Methode: Oberhalb der Abzinsung können wir die Rechnung flexibel anpassen, z.&nbsp;B.
+                    mit Deckungsbeiträgen, Stückkosten, Mengen, Abschreibungen, Steuern, Kreditkosten, Wachstumsraten
+                    oder Inflation. Dazu ein Beispiel.
+                </p>
+            </section>
+            <section aria-labelledby="title-7" id="section-7">
+                <h2 id="title-7">Beispiel: Immobilie</h2>
+                <p>
+                    Eine Immobilie wird ohne Eigenkapital gekauft, vermietet und nach 10&nbsp;Jahren steuerfrei
+                    verkauft:
+                </p>
+                <figure>
+                    <img alt="NPV-Kalkulation einer Immobilie in Excel"
+                        src="../assets/img/kapitalwert-basics/npv-immo-bsp.png" />
+                    <figcaption>Kapitalwert einer Immobilie, vermietet, steuerfreier Verkauf nach
+                        10&nbsp;Jahren (eigene Darstellung)</figcaption>
+                </figure>
+                <p>
+                    Darin sind folgende Punkte berücksichtigt:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Zeilen&thinsp;5–6:</strong> Steuerwirksame Abschreibungen und Kreditzinsen
+                    </li>
+                    <li>
+                        <strong>Zeile&thinsp;12:</strong> Steuerunwirksame Tilgung
+                    </li>
+                    <li>
+                        <strong>Zeilen&thinsp;16–21:</strong> Kreditzinsen und Tilgung getrennt
+                    </li>
+                    <li>
+                        <strong>Zeilen&thinsp;23–30:</strong> Steuerersparnis durch steuerliche Verluste
+                    </li>
+                    <li>
+                        <strong>Zeilen&thinsp;33–36:</strong> Verkauf des Objekts und Kreditauslöse
+                    </li>
+                    <li>
+                        <strong>Zeilen&thinsp;37–39:</strong> Kapitalwert
+                    </li>
+                </ul>
+                <p class="callout">
+                    Das Beispiel zeigt auch: Aus buchhalterischen oder steuerlichen Gewinnen/ Verlusten können wir nicht
+                    den Wert eines Angebots ableiten. Der Kapitalwert hingegen liefert eine fundierte
+                    Entscheidungshilfe.
+                </p>
+            </section>
+            <section aria-labelledby="title-8" id="section-8">
+                <h2 id="title-8">Umgang mit fiktiven Zahlungen</h2>
+                <p>
+                    In Zeile&nbsp;5 der Immobilienkalkulation ziehe ich die Abschreibung für Abnutzung (AfA) ab und in
+                    Zeile&nbsp;11 addiere ich sie in gleicher Höhe wieder auf. Warum? AfA ist steuerlich relevant, real
+                    fließt aber kein Geld. Die Zahlung ist fiktiv. Ähnlich verhält es sich bei:
+                </p>
+                <ul>
+                    <li>Rückstellungen
+                    </li>
+                    <li>Rechnungsabgrenzungsposten
+                    </li>
+                    <li>latenten Steuern
+                    </li>
+                    <li>Goodwill
+                    </li>
+                    <li>verdeckten Einlagen/Entnahmen
+                    </li>
+                    <li>Neubewertungen von Bilanzposten
+                    </li>
+                    <li>kalkulatorischen Größen, z.&nbsp;B. Unternehmerlohn, Miete, Pauschalen
+                    </li>
+                </ul>
+                <p class="callout">
+                    <strong>Cash is King:</strong> Im Kapitalwert berücksichtigen wir nur <strong>real fließende Ein-
+                        und Auszahlungen.</strong> Warum? Weil sie tatsächlich über unseren Erfolg oder Misserfolg
+                    entscheiden.
+                </p>
+            </section>
+            <section aria-labelledby="title-9" id="section-9">
+                <h2 id="title-9">Kaufmännische Vorsichtsprinzip</h2>
+                <p>
+                    Weitere interessante Details aus der Immobilienkalkulation zeigen sich bei den üblichen Kennzahlen
+                    wie der &bdquo;Brutto- und Nettomietrendite&rdquo;:
+                </p>
+                <figure>
+                    <img alt="Screenshot von überzogenen Brutto- und Nettomietrenditen"
+                        src="../assets/img/kapitalwert-basics/immo-mietrendite.png" />
+                    <figcaption>Brutto- und Nettomietrendite der Immobilie. Wert und Risiken intransparent. (eigene
+                        Darstellung)</figcaption>
+                </figure>
+                <p>
+                    Zugegeben, diese Kennzahlen wirken unattraktiv. Makler und FinFluencer nennen diese Werte häufig –
+                    allerdings meist nur für das erste Jahr. Das sagt kaum etwas über fremdfinanzierte Investments
+                    aus. Mit dem Modell erkenne ich jedoch, welches Risiko ich eingehe: 10&nbsp;Jahre lang würde ich
+                    draufzahlen, und alles hängt vom hohen Verkaufserlös ab. Ob deutsche Immobilien im Preis steigen,
+                    ist aktuell (Stand: 12/2024) ungewiss.<a href="#cite-note-4" id="cite-ref-4" name="cite-ref-4"
+                        title="Quelle">[4]</a> Ein blindes Vertrauen in steigende Werte ist daher äußerst
+                    riskant.
+                </p>
+                <p>
+                    Das ist symptomatisch: Viele Leute gehen aufgrund von Intransparenz und verkürzter Kennzahlen enorme
+                    Risiken ein. Als Investoren wollen wir Risiken kontrollieren. Dazu müssen wir zunächst die
+                    Zahlen in absoluten&nbsp;EURo beziffern und anschließend einen großzügigen Risikopuffer einbauen.
+                </p>
+                <p>
+                    Der entscheidende Hebel ist der Zinssatz: Höhere Zinssätze führen zu größeren Nennern und damit zu
+                    niedrigeren Kapitalwerten. Dieses Vorsichtsprinzip resultiert in niedrigeren Kapitalwerten, wie
+                    die folgende Tabelle zeigt:
+                </p>
+                <figure>
+                    <img alt="Einfluss des Zinssatzes auf den Kapitalwert"
+                        src="../assets/img/kapitalwert-basics/npv-effekt-zinssatz.png" />
+                    <figcaption>Wirkung auf den Kapitelwert durch verschiedenen Zinssätze Quelle: Eigene Darstellung.
+                    </figcaption>
+                </figure>
+
+                <p>
+                    Der Risikoaufschlag auf den <strong>Zins enthält eine entscheidende Information</strong>: Wie sicher
+                    sind wir, dass diese Kalkulation realistisch ist? Je unsicherer wir sind, desto höher der
+                    Risikoaufschlag. Selbst bei einem Risikoaufschlag von 100&nbsp;% bleibt der Kapitalwert positiv –
+                    ein starkes Argument für die lebenslange Mitgliedschaft.
+                </p>
+            </section>
+            <section aria-labelledby="title-10" id="section-10">
+                <h2 id="title-10">Wofür der Kapitalwert taugt und wofür nicht</h2>
+                <p>
+                    Keine Methode löst alle Probleme, und auch der Kapitalwert hat seine Grenzen. Oft wird kritisiert,
+                    dass er auf Annahmen basiert und sensitiv auf den Zinssatz reagiert.<a href="#cite-note-5"
+                        id="cite-ref-5" name="cite-ref-5" title="Quelle">[5]</a> Diese Kritik ist
+                    dämlich. Jede Rechnung beruht auf Annahmen und ist sensitiv auf gewisse Parameter. Die Frage ist, ob
+                    wir uns das bewusst machen.
+                </p>
+                <p>
+                    Das eröffnet eine andere Perspektive. Es sind die Dinge, die wir <strong>für wahr halten, aber real
+                        falsch sind,</strong> die uns Probleme bereiten.<a href="#cite-note-5" id="cite-ref-5"
+                        name="cite-ref-5" title="Quelle">[5]</a> Der Kapitalwert ist auch ein
+                    Denkwerkzeug. Meine Immo-Kalkulation habe ich einmal aufgebaut und verbessere sie stetig. Sie
+                    dokumentiert mein Lernen und wie ich über Immobilienrenditen nachdenke.
+                </p>
+                <p>
+                    Aber Modell bleibt Modell. Sie vereinfachen die Welt. Die Zahlungen werden so nicht eintreten. Es
+                    ist nur eine Wert- und Risiko-<em>Schätzung</em>:
+                </p>
+                <p class="callout">
+                    Der Kapitalwert gibt an, ob wir bei über-pessimistischen Annahmen unser Geld eher vermehren
+                    (Kapitalwert &gt; 0) oder eher vernichten (Kapitalwert &lt; 0).
+                </p>
+                <p>
+                    Genau hier lauert ein Problem: Leider verwechselt immer wieder jemand das Bild mit der Landschaft
+                    und formt aus den Zahlen eine fixe Erwartung. Dann ist er enttäuscht, wenn das Geschäft
+                    schlechter läuft – selbst wenn wir nur weniger Gewinn machen. Aktieninvestoren können ein Lied davon
+                    singen. Der Kurs rauscht ab, wenn Gewinnprognosen unerfüllt sind.
+                </p>
+                <p>
+                    Kapitalwert-Modelle taugen für stabilere Geschäfte wie:
+                </p>
+                <ul>
+                    <li>Gebührenmodelle
+                    </li>
+                    <li>Maschinen
+                    </li>
+                    <li>Anleihen
+                    </li>
+                    <li>Immobilien
+                    </li>
+                    <li>Versicherungen
+                    </li>
+                    <li>Solaranlagen
+                    </li>
+                    <li>PKW
+                    </li>
+                    <li>Konsumaktien
+                    </li>
+                    <li>etc.
+                    </li>
+                </ul>
+                <p>
+                    Die Bürokratie und Gesetze dieser Geschäfte sind relativ träge und &bdquo;stabilisieren&rdquo; den
+                    Aussagengehalt unseres Modells. Anders sieht es bei hochdynamischen Geschäften, wie Startups,
+                    Erfindungen,
+                    Innovationen oder Wachstumsaktien (z.&nbsp;B. Tesla). Deren Dynamik können wir nicht vernünftig in
+                    so ein
+                    Modell packen. Erwartungen und Enttäuschungen sind vorprogrammiert. Die eigentliche Kritik
+                    richtet sich daher nicht gegen den Kapitalwert selbst, sondern gegen unseren Umgang damit.
+                </p>
+            </section>
+            <section aria-labelledby="title-11" id="section-11">
+                <h2 id="title-11">Fazit</h2>
+                <p>
+                    Unter den vielen Finanzkennzahlen gibt uns der Kapitalwert die klarste Antwort: Lohnt sich ein
+                    Investment für mich – ja oder nein? Seine Stärke liegt darin, den Wert eines Angebots greifbar zu
+                    machen und Risiken zu beziffern. So können wir fundierter entscheiden als mit verkürzten
+                    Versprechungen.
+                </p>
+                <p>
+                    Welche Erfahrungen haben Sie mit Investitionen gemacht? Hätten Sie mit dem Kapitalwert andere
+                    Entscheidungen getroffen? Ich bin gespannt auf Ihre Kommentare und Anregungen!
+                </p>
+                <div class="signature-icon"></div>
+
+                </div>
+            </section>
+
+            <section aria-labelledby="title-12" id="section-12">
+                <h2 id="title-12">Anhang &ndash; Excel-Sheet</h2>
+                <div class="download">
+                    <span>Excel-Tabelle zur Berechnung des Kapitalwerts der lebenslangen
+                        Gym-Mitgiedschaft</span>
+                    <a href="../assets/img/kapitalwert-basics/Kapitalwert_lebenlsange_Gym_Mitgliedschaft.xlsx"
+                        aria-label="Datei herunterladen">
+                        <svg class="icon">
+                            <use href="../assets/img/icons.svg#icon-download"></use>
+                        </svg>
+                    </a>
+                </div>
+
+            </section>
+            <section aria-labelledby="title-13" id="section-13">
+                <h2 id="title-13">Endnoten</h2>
+                <ol class="ref-sources">
+                    <li id="cite-note-1">
+                        <a href="#cite-ref-1" title="zurück">↑</a>Die Unterscheidung zwischen Wert und
+                        Preis hat uns Bejamin Graham, der Urvater des Value Investings, gelehrt, vgl. Graham, B. (2014).
+                        <em>The Intelligent Investor (Revised)</em>. New York: Harper Collins.
+                    </li>
+                    <li id="cite-note-2">
+                        <a href="#cite-ref-2" title="zurück">↑</a>Finanzwissenschaftler setzen für
+                        Unternehmen die &bdquo;weighted average cost of capital&rdquo; (WACC) an. Das würde hier zu
+                        kompliziert werden. Gut erklärt hier: <a
+                            href="https://www.deltavalue.de/wacc-weighted-average-cost-of-capital/" target="_blank"
+                            title="WACC erklärt">https://www.deltavalue.de/wacc-weighted-average-cost-of-capital/</a>
+                    </li>
+                    <li id="cite-note-3">
+                        <a href="#cite-ref-3" title="zurück">↑</a>Jordà, Ò., Knoll, K., Kuvshinov, D.,
+                        Schularick, M. Taylor, A.M. (2017). <em>“The Rate of Return on Everything, 1870–2015”</em>
+                        Federal Reserve Bank of San Francisco Working Paper 2017-25. <a
+                            href="https://doi.org/10.24148/wp2017-25"
+                            target="_blank">https://doi.org/10.24148/wp2017-25</a>
+                    </li>
+                    <li id="cite-note-4">
+                        <a href="#cite-ref-4" title="zurück">↑</a>Kommer, G. (2023). <em>Wertsteigerungen
+                            von Wohnimmobilien – Traum und Wirklichkeit</em>. Im Internet (17.12.2024): <a
+                            href="https://gerd-kommer.de/wertsteigerungen-wohnimmobilien/"
+                            target="_blank">https://gerd-kommer.de/wertsteigerungen-wohnimmobilien/</a>.
+                    </li>
+                    <li id="cite-note-5">
+                        <a href="#cite-ref-5" title="zurück">↑</a>Corporate Finance Institute (o.D.).
+                        <em>Net Present Value (NPV)</em>. Im Internet (17.12.2024): <a
+                            href="https://corporatefinanceinstitute.com/resources/valuation/net-present-value-npv/"
+                            target="_blank">https://corporatefinanceinstitute.com/resources/valuation/net-present-value-npv/</a>.
+                    </li>
+                </ol>
+            </section>
+        </article>
+    </main>
+    <!-- Followed by standard elements -->
+    <a aria-label="Nach oben scrollen" class="scroll-up" href="#">
+        <svg class="icon">
+            <use href="../assets/img/icons.svg#icon-scrollup"></use>
+        </svg>
+    </a>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <a href="../impressum.html">Impressum</a>
+            <a href="../datenschutz.html">Datenschutz</a>
+        </div>
+    </footer>
+    <script src="../assets/js/lightbox.js"></script>
+</body>
+
+</html>

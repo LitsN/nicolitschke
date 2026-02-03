@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <title>Was ist ein (Sicherheits-)Konzept? - Nico Litschke</title>
+  <meta name="description"
+    content="Was ist ein Sicherheitskonzept nach ISO 26262? Ein systemischer Blick auf Zweck, Fehlverhalten und Struktur jenseits von Detailed Design.">
+  <meta name="robots" content="index, follow, archive">
+  <meta name="author" content="Nico Litschke">
+
+  <meta property="og:url" content="https://www.nicolitschke.com/texte/safety-concept.html">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="Nico Litschke">
+  <meta property="og:title" content="Was ist ein (Sicherheits-)Konzept?">
+  <meta property="og:description"
+    content="Was ist ein Sicherheitskonzept nach ISO 26262? Ein systemischer Blick auf Zweck, Fehlverhalten und Struktur jenseits von Detailed Design.">
+  <meta property="og:image" content="../assets/img/safety-concept/hero.png">
+
+  <meta name="google-site-verification" content="1KLRTKWSuSamhN09JbMkQEd-R10iuFCNAHxdYZJVr_M">
+
+  <link rel="canonical" href="https://www.nicolitschke.com/texte/safety-concept.html">
+  <link rel="stylesheet" href="../assets/css/fonts.css">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/article.css">
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+
+  <script src="../assets/js/mathjax-config.js" defer></script>
+  <script src="../assets/js/tex-mml-svg.js" async></script>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="site-title" href="../index.html">Nico Litschke</a>
+      <nav class="site-nav" aria-label="Hauptnavigation">
+        <a href="../index.html">Über</a>
+        <a href="../texte.html">Texte</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article>
+      <h1>Was ist ein (Sicherheits-)Konzept?</h1>
+
+      <ul class="tag-line">
+        <li><a href="../texte.html?tag=safety-risiko" class="tag" data-tag="safety-risiko"
+            title="Alle Artikel über Safety & Risiko anzeigen">Safety & Risiko</a></li>
+        <li><a href="../texte.html?tag=engineering" class="tag" data-tag="engineering"
+            title="Alle Artikel über Engineering anzeigen">Engineering</a></li>
+      </ul>
+
+      <section class="abstract" aria-labelledby="abstract-title">
+        <h2 id="abstract-title">Abstract</h2>
+        <p>
+          Sicherheitskonzepte sind zentrale Bestandteile der ISO 26262: Sie empfiehlt Artefakte und Methoden,
+          mit denen Sicherheitskonzepte zu erstellen, zu analysieren und zu testen sind. Unklar bleibt jedoch,
+          was ein Sicherheitskonzept ist, was es leisten soll, und was nicht. Mangels dieser Klarheit driften viele
+          Sicherheitskonzepte
+          ins Detailed Design ab und verfehlen ihren eigentlichen Zweck: Safety ist eine Systemeigenschaft.
+          Sicherheitskonzepte sollen zeigen, wie Schutzmaßnahmen zusammenwirken, um unzumutbar hohe Risiken durch
+          Fehlverhalten
+          oder variierende Umweltbedingungen zu begrenzen. Der Beitrag überträgt die klassische Konzeptdefinition des
+          Systems Engineering
+          auf Sicherheitskonzepte: Es bildet sicherheitsrelevantes (Fehl-)Verhalten auf Systemstruktur ab und zeigt es
+          am Beispiel eines ePowertrains.
+          Mit dieser Schärfung lassen sich verständliche und kompakte Konzeptdokumentationen erstellen, ohne vorschnell
+          ins Detailed Design abzudriften.
+        </p>
+      </section>
+
+      <details class="toc">
+        <summary>
+          <svg class="icon toggle-icon">
+            <use href="../assets/img/icons.svg#icon-expand"></use>
+          </svg>
+          Inhalt
+        </summary>
+        <nav aria-label="Inhaltsverzeichnis">
+          <ul>
+            <li><a href="#section-1">Ausgangslage: Der unbestimmte Zweck des Sicherheitskonzepts</a></li>
+            <li><a href="#section-2">Zirkuläres Problem</a></li>
+            <li><a href="#section-3">Konsequenz: Abgleiten ins Detailed Design</a></li>
+            <li><a href="#section-4">Definition: Was ein Sicherheitskonzept ist</a></li>
+            <li><a href="#section-5">Beispiel: ePowertrain</a></li>
+          </ul>
+        </nav>
+      </details>
+
+      <section id="section-1" aria-labelledby="title-1">
+        <h2 id="title-1">Ausgangslage: Der unbestimmte Zweck des Sicherheitskonzepts</h2>
+        <p>
+          Diese Überschrift überrascht. ISO 26262 sieht explizit ein Funktionales und ein Technisches Sicherheitskonzept
+          vor.<a id="cite-ref-1" href="#cite-note-1" aria-label="Zur Endnote 1">[1]</a> Der Begriff „concept“ wird in
+          ISO 26262 und ihren Schwesternormen SOTIF (ISO/PAS 21448) und KI Safety (ISO/PAS 8800) insgesamt 391-mal
+          genannt. Wie kann dann der Zweck des Sicherheitskonzepts unbestimmt sein?
+        </p>
+
+        <figure>
+          <img alt="Häufigkeit des Begriffs concept in Automotive Safety Normen"
+            src="../assets/img/safety-concept/bash.png" />
+          <figcaption>Die Häufigkeit des Begriffs "concept" in Automotive Safety Normen Quelle: Eigene Darstellung.
+          </figcaption>
+        </figure>
+
+        <p>
+          Die normativen Vorgaben beziehen sich nahezu ausschließlich auf Vorgehen und Methodik. So beschreibt Band 3
+          „Concept Development“ in rund 40 Seiten Prosa, Grafiken und Tabellen die Methodik und zugehörige Artefakte,
+          die Band 4 für das Technische Sicherheitskonzept fortführt.
+        </p>
+
+        <p class="callout">
+          ISO 26262 führt hingegen nicht aus, <strong>wozu ein Sicherheitskonzept fachlich dient</strong>, was es
+          leisten soll, wie es sich inhaltlich vom Detailed Design abgrenzt und warum diese Abgrenzung relevant ist.
+        </p>
+
+        <p>
+          Diese Leerstelle bleibt nicht folgenlos. Mangels klarer inhaltlicher Leitplanken werden Sicherheitskonzepte in
+          der Praxis häufig überfrachtet – nach dem Motto: Mehr Detail erhöht die Sicherheit. Doch genau das Gegenteil
+          ist hier der Fall.
+        </p>
+      </section>
+
+      <section id="section-2" aria-labelledby="title-2">
+        <h2 id="title-2">Zirkuläres Problem: Sicherheitskonzepte nach ISO 26262 setzen ihre eigenen Ergebnisse voraus
+        </h2>
+        <p>
+          Wie auch andere Engineeringansätze beruht ISO 26262 auf dem bewährten Prinzip „Teile und Herrsche“:
+          Sollvorgaben werden vom Einfachen zum Detail weiter zerlegt, geordnet und konkretisiert: Von Sicherheitszielen
+          und -anforderungen über Notationen wie SysML und UML bis hin zu Sicherheitsanalysen und Tests. Grundsätzlich
+          ist genau das auch gewollt: Die Freiheitsgrade der Systemteile sollen durch Restriktionen top-down beschränkt
+          werden, um einen sicheren Systembetrieb zu gewährleisten.
+        </p>
+        <p>
+          „Grundsätzlich“ heißt jedoch: Es gibt Ausnahmen. Zerlegen, Ordnen und Konkretisieren setzt stets Sollvorgaben
+          voraus. In der Konzeptentwicklung nach ISO 26262 entsteht ein Zirkelschluss: Sie setzt Ergebnisse voraus, die
+          sie selbst erst erzeugt. So erfordert bereits eine Gefährdungsanalyse die Kenntnis, welches (Fehl-)Verhalten
+          in welcher Systemumwelt auftreten kann. Teile dieser Betrachtung wurden später unter anderem mit der
+          Schwesternorm SOTIF (ISO/PAS 21448) explizit adressiert. Sie fokussiert auf Gefährdungen, die bei fehlerfreiem
+          System aufgrund variierender Umweltbedingungen auftreten können.
+        </p>
+        <p>
+          Dieses zirkuläre Problem lässt sich wiederum auf die fehlende Zweckbestimmung von Sicherheitskonzepten
+          zurückführen: Mangels Klarheit, was ein Konzept leisten soll, werden wichtige Randbedingungen und Annahmen
+          übersehen.
+        </p>
+      </section>
+
+      <section id="section-3" aria-labelledby="title-3">
+        <h2 id="title-3">Konsequenz: Abgleiten ins Detailed Design und zu hohe Komplexität</h2>
+        <p>
+          Die fehlende Zweckbestimmung von Sicherheitskonzepten wirkt unmittelbar in die Praxis hinein. Ohne klare
+          Leitplanken ersetzt Detailtiefe die Systembeschreibung. Sicherheitskonzepte gleiten oft früh ins Detailed
+          Design ab: Die Behandlung von Bitkippern, Fehlermoden einzelner Bauteile, Timeouts oder Checksummen wird
+          ausführlich ausbuchstabiert, anstatt die systemischen Abhängigkeiten sowie, Neben- und Fernwirkungen
+          alternativer Designentscheidungen zu betrachten. Das ist zunächst nachvollziehbar: Wer kleinste Fehler im
+          Griff hat, glaubt leicht, das System sei sicher.
+        </p>
+        <p>
+          So ist es jedoch nicht. <strong>Fehlerfreie Bauteile garantieren keine Systemsicherheit</strong>. Safety ist
+          eine Systemeigenschaft. Sicherheitskonzepte müssen daher aufzeigen, wie unzumutbar hohes Risiko durch
+          Gefährdungen mittels des Zusammenspiels von Schutzvorkehrungen begrenzt wird. Der Schwerpunkt liegt hier auf
+          dem Zusammenspiel; weniger auf der technischen Umsetzung im Detailed Design.
+        </p>
+        <p>
+          Zudem fordert ISO 26262 wiederholt ein hierarchisches Design mit Modularisierung, Kapselung, Einfachheit und
+          reduzierter Komplexität. Ausschweifende Sicherheitskonzepte mit detaillierten Vorgaben stehen diesen
+          Prinzipien direkt entgegen. Die unklare Zweckbestimmung veranlasst uns zu vorschnellem Detailed Design und
+          damit zur Unterwanderung der Norm der selbst.
+        </p>
+      </section>
+
+      <section id="section-4" aria-labelledby="title-4">
+        <h2 id="title-4">Definition: Was ein Sicherheitskonzept ist</h2>
+        <p>
+          Oft wird Konzept salopp als „erste Niederschrift“ aufgefasst. Doch es steckt mehr drin. Im Systems Engineering
+          versteht man unter einem Konzept die Abbildung relevanten Systemverhaltens auf Struktur:<a id="cite-ref-2"
+            href="#cite-note-2" aria-label="Zur Endnote 2">[2]</a><a id="cite-ref-3" href="#cite-note-3"
+            aria-label="Zur Endnote 3">[3]</a>
+        </p>
+
+        <p class="callout" style="text-align: center;">
+          $$f: \text{Verhalten} \rightarrow \text{Struktur}$$
+        </p>
+
+        <figure>
+          <img alt="Abbildung von Verhalten auf Struktur (Venn-Diagramm)"
+            src="../assets/img/safety-concept/venn-diagram.png" />
+          <figcaption>Abbildung von Verhalten auf Struktur Quelle: Eigene Darstellung.</figcaption>
+        </figure>
+
+        <p>
+          Übertragen auf Sicherheitskonzepte:
+        </p>
+
+        <p class="callout" style="text-align: center;">
+          $$f: \text{(Fehl-)Verhalten} \rightarrow \text{Systemstruktur}$$
+        </p>
+
+        <p>
+          Die Besonderheit dieser Auffassung gegenüber Methoden des Zerlegens, Ordnens und Konkretisierens liegt darin,
+          dass <strong>(Fehl-)Verhalten und Systemstruktur untrennbar</strong> miteinander verknüpft sind. Sie werden
+          nicht über getrennte Sichten oder Artefakte behandelt, wie etwa in SysML/UML, sondern als Einheit verstanden.
+        </p>
+        <p>
+          Damit ist zugleich die Grundlage für eine systematische Gefährdungsanalyse gelegt: Das (Fehl-)Verhalten unter
+          variierenden Umweltbedingungen kann mit der bekannten Methodik der ISO 26262 bewertet werden. In
+          nachgelagerten Schritten lässt sich diese Abbildung konsistent in Sicherheitsziele sowie funktionale und
+          technische Sicherheitsanforderungen überführen, ohne frühzeitig in Fragen des Detailed Designs einzusteigen.
+        </p>
+        <p>
+          Auf diese Weise geht auch die Item Definition in die Systemarchitektur ein. Beide beschreiben unterschiedliche
+          Abstraktionsebenen desselben Systems, die im Verlauf der Konzeptarbeit schrittweise präzisiert werden.
+        </p>
+      </section>
+
+      <section id="section-5" aria-labelledby="title-5">
+        <h2 id="title-5">Beispiel: (Fehl-)Verhalten und Struktur im ePowertrain</h2>
+        <p>
+          Der Vorteil dieses Konzeptverständnisses lässt sich an einem vereinfachten Sicherheitskonzept eines
+          ePowertrains auf L0-Abstraktionsebene verdeutlichen:
+        </p>
+
+        <figure>
+          <img alt="OPM Darstellung eines Sicherheitskonzepts (L0)"
+            src="../assets/img/safety-concept/opm-diagram.png" />
+          <figcaption>Sicherheitskonzept (L0) eines ePowertrains: Verhalten, Struktur, Zweck und Gefährdungen des
+            Systems Quelle: Eigene Darstellung.</figcaption>
+        </figure>
+
+        <p>
+          Das Bild zeigt das Sicherheitskonzept (L0) und integriert dabei Zweck, Verhalten mit Gefährdungen und Struktur
+          des ePowertrains:
+        </p>
+        <ul>
+          <li><strong>Zweck</strong>: Der Standort von Fahrer, Insassen und Gepäck soll verändert werden</li>
+          <li><strong>(Fehl-)Verhalten</strong>: Beschleunigen und Energie wandeln; <strong>daraus resultierend:
+              Verlustleistung und Gefährdungen</strong></li>
+          <li><strong>Struktur</strong>: E-Maschine, Inverter, Antriebstrangmechanik, Systemschnittstellen</li>
+          <li><strong>Verbindungen</strong>: Abbildung von Verhalten auf Struktur</li>
+        </ul>
+
+        <p>
+          Deutlich wird, wie Gefährdungen im ePowertrains entstehen. Der emergente Charakter von Systemsafety wird
+          sichtbar: Gefährdungen ergeben sich aus dem Zusammenwirken von Verhalten und Struktur; nicht aus isolierten
+          Komponenten oder Fehlermoden.
+        </p>
+        <p>
+          Für das Fortschreiben der Entwicklung werden die Elemente in Bild 3 mit Anforderungen spezifiziert. Somit
+          entsteht eine knappe und präzise Konzeptdarstellung. In der weiteren Entwicklung bildet sie die Basis für das
+          Zerlegen, Ordnen und Konkretisieren des ePowertrains in Sicherheitsziele, funktionale und technische
+          Sicherheitsanforderungen und detaillierteren Architekturdarstellungen.
+        </p>
+
+        <p class="callout">
+          Eine Besonderheit des Bildes ist die Notation „Object-Process-Methodology“ gemäß ISO 19450:2024. Sie eignet
+          sich besonders für die Konzeptentwicklung und wird im nächsten Beitrag näher vorgestellt.
+        </p>
+
+        <div class="signature-icon"></div>
+      </section>
+
+      <section id="section-attachment-1" aria-labelledby="att-title-1">
+        <h2 id="att-title-1">Anhang 1 – OPM Safetykonzept ePowertrain</h2>
+        <div class="download">
+          <span>OPM_Safetykonzept_ePowertrain.drawio</span>
+          <a href="../assets/img/safety-concept/OPM_Safetykonzept_ePowertrain.drawio" aria-label="Datei herunterladen">
+            <svg class="icon">
+              <use href="../assets/img/icons.svg#icon-download"></use>
+            </svg>
+          </a>
+        </div>
+      </section>
+
+      <section id="section-attachment-2" aria-labelledby="att-title-2">
+        <h2 id="att-title-2">Anhang 2 – Venn-Abbildung</h2>
+        <p>Das Venn-Diagramm kann mit LaTeX kompiliert werden:</p>
+        <pre><code class="language-tex">% LaTeX / TikZ
+\documentclass[tikz,border=5pt]{standalone}
+\usepackage{tikz}
+\usepackage{amsfonts}   % oder: amssymb
+\usetikzlibrary{calc,arrows.meta}
+
+\begin{document}
+\begin{tikzpicture}[
+  font=\Huge,
+  every node/.style={inner sep=0pt},
+  arr/.style={-Latex, line width=0.9pt}
+]
+
+% Mengen V und S
+\node[font=\Huge] at (-2.5,2.8) {$\mathbb{V}$};
+\draw[rounded corners=29pt, line width=1pt]
+  (-4.,-2.5) rectangle (-2,2.5);
+
+\node[font=\Huge] at (3.4,2.8) {$\mathbb{S}$};
+\draw[rounded corners=45pt, line width=1pt]
+  (1,-2.5) rectangle (4.1,2.5);
+
+% Knoten Menge V
+\node (v1) at (-3.2, 1.6) {$v_1$};
+\node (v2) at (-2.7, 0.0) {$v_2$};
+\node (v3) at (-3.2,-1.6) {$v_3$};
+
+% Knoten Menge S
+\node (s1) at ( 2.4, 1.6) {$s_1$};
+\node (s2) at ( 3.3, 0.7) {$s_2$};
+\node (s3) at ( 2.1,-0.2) {$s_3$};
+\node (s4) at ( 3.5,-0.8) {$s_4$};
+\node (s5) at ( 2.7,-1.9) {$s_5$};
+
+% Abbildungspfeile V → S
+\draw[arr] (v1.east) -- (s1.west);
+\draw[arr] (v2.east) -- (s2.west);
+\draw[arr] (v2.east) -- (s5.west);
+\draw[arr] (v3.east) -- (s3.west);
+
+\end{tikzpicture}
+\end{document}
+</code></pre>
+      </section>
+
+      <section id="section-endnotes" aria-labelledby="title-endnotes">
+        <h2 id="title-endnotes">Endnoten</h2>
+        <ol class="ref-sources">
+          <li id="cite-note-1">
+            <a href="#cite-ref-1" aria-label="Zurück zum Text">↑</a>
+            International Organization for Standardization. (2018). <em>ISO 26262:2018 Road vehicles – Functional
+              safety</em> (2nd ed.). Geneva: ISO.
+          </li>
+          <li id="cite-note-2">
+            <a href="#cite-ref-2" aria-label="Zurück zum Text">↑</a>
+            National Aeronautics and Space Administration. (2016). <em>NASA systems engineering handbook</em> (2nd ed.,
+            p. 298). Washington, DC: CreateSpace Independent Publishing Platform.
+          </li>
+          <li id="cite-note-3">
+            <a href="#cite-ref-3" aria-label="Zurück zum Text">↑</a>
+            International Council on Systems Engineering. (2015). <em>INCOSE systems engineering handbook: A guide for
+              system life cycle processes and activities</em> (4th ed., p. 304). Hoboken, NJ: Wiley.
+          </li>
+        </ol>
+      </section>
+
+    </article>
+  </main>
+
+  <a href="#" class="scroll-up" aria-label="Nach oben scrollen">
+    <svg class="icon">
+      <use href="../assets/img/icons.svg#icon-scrollup"></use>
+    </svg>
+  </a>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <a href="../impressum.html">Impressum</a>
+      <a href="../datenschutz.html">Datenschutz</a>
+    </div>
+  </footer>
+  <script src="../assets/js/lightbox.js"></script>
+</body>
+
+</html>

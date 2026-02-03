@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <title>Wer schneller fährt, kommt kaum früher an – Grenznutzen des Schnellerfahrens</title>
+    <meta name="description"
+        content="Der Grenznutzen des Schnellerfahrens wird schnell unbedeutend. Doch das ist kontraintuitiv. Ein gehirngerechter Tacho könnte das Problem lösen.">
+    <meta name="robots" content="index, follow, archive">
+    <meta name="author" content="Nico Litschke">
+
+    <meta property="og:url" content="https://www.nicolitschke.com/texte/tacho-grenznutzen.html">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:site_name" content="Nico Litschke">
+    <meta property="og:title" content="Wer schneller fährt, kommt kaum früher an – Grenznutzen des Schnellerfahrens">
+    <meta property="og:description"
+        content="Der Grenznutzen des Schnellerfahrens wird schnell unbedeutend. Ein gehirngerechter Tacho schafft Abhilfe.">
+    <meta property="og:image" content="../assets/img/tacho-grenznutzen/hero.png">
+
+    <meta name="google-site-verification" content="1KLRTKWSuSamhN09JbMkQEd-R10iuFCNAHxdYZJVr_M">
+
+    <link rel="canonical" href="https://www.nicolitschke.com/texte/tacho-grenznutzen.html">
+    <link rel="stylesheet" href="../assets/css/fonts.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/article.css">
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+    <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+
+    <script src="../assets/js/mathjax-config.js" defer></script>
+    <script src="../assets/js/tex-mml-svg.js" async></script>
+
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="site-title" href="../index.html">Nico Litschke</a>
+            <nav class="site-nav" aria-label="Hauptnavigation">
+                <a href="../index.html">Über</a>
+                <a href="../texte.html">Texte</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <article>
+            <h1>Wer schneller fährt, kommt kaum früher an – Grenznutzen des Schnellerfahrens</h1>
+
+            <ul class="tag-line">
+                <li><a href="../texte.html?tag=systemik" class="tag" data-tag="systemik"
+                        title="Alle Artikel über Systemdenken anzeigen">Systemdenken</a></li>
+                <li><a href="../texte.html?tag=engineering" class="tag" data-tag="engineering"
+                        title="Alle Artikel über Engineering anzeigen">Engineering</a></li>
+            </ul>
+
+            <section class="abstract" aria-labelledby="abstract-title">
+                <h2 id="abstract-title">Abstract</h2>
+                <p>
+                    Wie schnell sollte man eigentlich fahren? Wer 10 % schneller fährt, kommt nicht 10 % früher an. Der
+                    Grenznutzen des Schnellerfahrens wird rasch unbedeutend. Das ist kontraintuitiv, trotz einfachster
+                    Physik. Ein „gehirngerechter“ Tacho zeigt unmittelbar, ab wann eine höhere Geschwindigkeit kaum noch
+                    Zeit spart. Er macht auch deutlich, warum Nutzen und Risiken immer absolut betrachtet werden sollten
+                    und wie sehr die Darstellung von Zahlen unser Urteil beeinflusst. Die Antwort auf diese scheinbar
+                    triviale Frage bündelt Erkenntnisse aus mehreren Disziplinen.
+                </p>
+            </section>
+
+            <details class="toc">
+                <summary>
+                    <svg class="icon toggle-icon">
+                        <use href="../assets/img/icons.svg#icon-expand"></use>
+                    </svg>
+                    Inhalt
+                </summary>
+                <nav aria-label="Inhaltsverzeichnis">
+                    <ul>
+                        <li><a href="#section-1">Zusammenfassung und Ergebnis</a></li>
+                        <li><a href="#section-2">Problem: Schnelles Denken, langsames Denken</a></li>
+                        <li><a href="#section-3">Problem: Unser Gehirn mag keine Prozente</a></li>
+                        <li><a href="#section-4">Richtig Entscheiden – der Grenznutzen</a></li>
+                        <li><a href="#section-5">Der Grenznutzen des Schnellerfahrens</a></li>
+                        <li><a href="#section-6">Poka Yoke: Integration in den Alltag</a></li>
+                        <li><a href="#section-7">Abschließende Gedanken</a></li>
+                    </ul>
+                </nav>
+            </details>
+
+            <section id="section-1" aria-labelledby="title-1">
+                <h2 id="title-1">Zusammenfassung und Ergebnis</h2>
+
+                <p>Die Antwort auf die Frage, wie schnell man fahren sollte, liefert der Grenznutzen:</p>
+
+                <ul>
+                    <li>Wie viel Zeit gewinnt man durch eine um 10 km/h höhere Geschwindigkeit?</li>
+                    <li>Ab 140 km/h sinkt der Grenznutzen deutlich.</li>
+                    <li>Ab etwa 180 km/h wird er vernachlässigbar klein.</li>
+                </ul>
+
+                <p>
+                    Auf dem Tacho ist die Fahrtdauer für eine Strecke von 100 km in Blau dargestellt. Der Grenznutzen
+                    springt sofort ins Auge, ohne zu rechnen. Zudem löst die Darstellung vier weitere
+                    Kognitionsprobleme:
+                </p>
+
+                <ol>
+                    <li>
+                        <em>Kontraintuitiv</em>: Der Zusammenhang zwischen Fahrtdauer und Geschwindigkeit ist
+                        nichtlinear. Eine korrekte <em>Antwort erfordert zwingend aufwändiges analytisches Denken.</em>
+                    </li>
+                    <li>
+                        <em>Prozente</em>: Unser Gehirn übersetzt Prozente und Nichtlinearität in lineare Vorgänge.
+                        <em>Deshalb gehören Nutzen und Risiken immer absolut betrachtet</em>.
+                    </li>
+                    <li>
+                        <em>Entscheidungskriterium</em>: „Mehr“ ist kein Kriterium. <em>Menschen reagieren auf
+                            Grenznutzen, auf die nächste Einheit und ihren Effekt</em>.
+                    </li>
+                    <li>
+                        <em>Lesbarkeit</em>: Formeln und Diagramme sind exakt, aber sperrig. <em>Die blaue Kurve liefert
+                            eine einfache, alltagstaugliche Heuristik.</em>
+                    </li>
+                </ol>
+
+                <figure>
+                    <img alt="Gehirngerechter Tachometer" src="../assets/img/tacho-grenznutzen/tacho.svg"
+                        style="max-height: 500px;" />
+                    <figcaption>Gehirngerechter Tachometer — die blaue Linie zeigt die Fahrtdauer für 100 km. Höhere
+                        Geschwindigkeiten führen nicht proportional zur geringen Fahrzeiten. (Quelle: Eigene
+                        Darstellung)</figcaption>
+                </figure>
+
+                <p>
+                    Was halten Sie von diesem Tacho? Ist er nützlich? Wäre das im Auto sinnvoll? Ich freue mich auf Ihre
+                    Meinung. Der Rest des Beitrags erläutert die Probleme und Lösungen im Detail.
+                </p>
+            </section>
+
+            <section id="section-2" aria-labelledby="title-2">
+                <h2 id="title-2">Problem: Schnelles Denken, langsames Denken</h2>
+
+                <p>
+                    Neulich war ich auf einer Vertriebsfahrt und geriet wegen eines Staus in Zeitdruck. Für 85 km
+                    Autobahn, etwas Landstraße und das Parkhaus blieben mir 60 Minuten. Wie schnell sollte ich fahren,
+                    um rechtzeitig anzukommen? Baustellen waren mir nicht bekannt, das Navi meldete keine Verzögerungen.
+                    Spontan dachte ich: Wenn ich auf der Autobahn entspannte 125 km/h fahre, brauche ich etwa 50
+                    Minuten. Wenn ich 20 % schneller fahre, also rund 150 km/h, müsste ich weitere 20 % Zeit sparen und
+                    in etwa 40 Minuten ankommen. Gedacht, gefahren.
+                </p>
+
+                <p>
+                    Verwirren Sie die Prozentpunkte? Das war mein kleines didaktisches Attentat. Unser Gehirn ist
+                    miserabel im Umgang mit Prozenten. Es erwartet eine lineare Welt. Deshalb denke ich spontan: Wenn
+                    ich 20 % schneller fahre, bin ich 20 % früher da. Diese Intuition trügt.
+                </p>
+
+                <p>Mit kurzem Nachdenken wird klar:</p>
+
+                <p>$$v = \frac{s}{t} \rightarrow t = \frac{s}{v}$$</p>
+
+                <p>
+                    Die Geschwindigkeit steht im Nenner. Das macht den Zusammenhang nichtlinear. Physikalisch ist das
+                    simpel; der Punkt ist: Ich musste bewusst darüber nachdenken. Daniel Kahneman hat diesen Umstand in
+                    „Thinking, Fast and Slow“ beschrieben.<a id="cite-ref-1" href="#cite-note-1"
+                        aria-label="Zur Endnote 1">[1]</a> Unser Denken arbeitet in zwei Modi:
+                </p>
+
+                <ul>
+                    <li>schnelles, intuitives Denken wie meine Schätzung</li>
+                    <li>langsames, analytisches Denken wie die Schulformel</li>
+                </ul>
+
+                <p>
+                    Beide gleichzeitig kann das Gehirn nicht. Es muss aktiv umschalten.<a id="cite-ref-2"
+                        href="#cite-note-2" aria-label="Zur Endnote 2">[2]</a>
+                </p>
+            </section>
+
+            <section id="section-3" aria-labelledby="title-3">
+                <h2 id="title-3">Problem: Unser Gehirn mag keine Prozente</h2>
+
+                <p>
+                    Wie viel mehr Output entsteht bei 10 % mehr Input? Wir sind so sehr an solche Fragen gewöhnt, dass
+                    wir ihre Tücken oft übersehen. Zwei Beispiele zeigen, warum das ungünstig ist.
+                </p>
+
+                <p>
+                    Im Streben nach einer Schlagzeile schreibt ein Journalist: „Kaffee senkt das X-Y-Risiko um 10 %.“
+                    Natürlich tut er das nicht. Die Positivrate steigt nur von 10 auf 11 von 100 Personen, also um 1
+                    Prozentpunkt. Gerd Gigerenzer und Kollegen zeigen viele weitere Fälle aus der Diagnostik, in denen
+                    sich Menschen teuren und teils schmerzhaften Verfahren unterziehen, obwohl der Nutzen gering ist.<a
+                        id="cite-ref-3" href="#cite-note-3" aria-label="Zur Endnote 3">[3]</a> Ich kenne das auch aus
+                    dem Gym und der Ernährung: In den sozialen Medien herrscht ein Hype um das angeblich effektivste
+                    Training und die beste Ernährung, bei dem Prozentpunkte aus Studien zitiert werden. Doch die
+                    entscheidende Frage lautet: Wie groß ist der Effekt in absoluten Zahlen? Wenn ich in drei Monaten 10
+                    % mehr abgenommen habe, können das absolut nur etwa 200 g sein. Ein Glas Wasser. Wo ist das
+                    relevant, außer im Profisport?
+                </p>
+
+                <p>
+                    Oder denken wir an Dr. Grey und Dr. House, die mit Chuzpe sagen: „Seine Überlebenswahrscheinlichkeit
+                    liegt nur bei 10 %!“ Nein, tut sie nicht. Diese Werte sind Mediane oder Mittelwerte einer
+                    Population. Versicherungen kalkulieren so, weil sie Kollektive versichern. Der Staat plant
+                    MRT-Stationen nach Bevölkerungsstatistiken. Beim Grippeschutz wird die Bevölkerung geschützt. Ein
+                    Arzt sieht jedoch immer den einzelnen Patienten. Dieser liegt selten genau im Mittel. Er ist
+                    irgendein Punkt oder ein Ausreißer unter der Glockenkurve. Wie sollte man also an das Risiko
+                    herangehen? Man betrachtet es in absoluten Größen. Wie geübt ist der Arzt in dieser Behandlung?
+                    Anfang des Jahres ließ ich einen Schlüsselbeinbruch richten. Ich habe mich gegen eine OP durch den
+                    Chefarzt und für die Oberärztin entschieden. Warum? Weil sie täglich mehrere ähnliche Fälle
+                    versorgt.
+                </p>
+
+                <p class="callout">
+                    <em>Das Preisschild anheften</em>. Die reale Konsequenz zeigt sich immer in absoluten Zahlen — Euro,
+                    Liter, Gewicht, Meter, Dauer oder Anzahl.
+                </p>
+
+                <p>
+                    Trotzdem wird fast überall mit Prozenten hantiert: Rabatte, Steuerbelastung, Renditen, Zinsen,
+                    Auslastung, Inflation oder Überlebenswahrscheinlichkeiten. Doch ist klar,
+                </p>
+
+                <ul>
+                    <li>dass man bei einem Zinssatz von 3,5 % über 20 Jahre das Haus doppelt abzahlt ($1,035^{20}
+                        \approx 2$)?</li>
+                    <li>dass 20 % Rabatt auf einen 80-Cent-Artikel 16 Cent sparen?</li>
+                    <li>dass bei „40 % Steuerbelastung“ meist der Grenzsteuersatz gemeint ist und man real nur 25 % von
+                        65.000 € = 16.500 € Steuern zahlt?<a id="cite-ref-4" href="#cite-note-4"
+                            aria-label="Zur Endnote 4">[4]</a></li>
+                    <li>dass bei „10 % Sterblichkeit“ die reale Betroffenheit fehlt, etwa 10 % von 2 von 100 betroffenen
+                        Personen?</li>
+                </ul>
+
+                <p class="callout">
+                    Prozentangaben verschleiern die reale Konsequenz. <strong>Übersetzen Sie Prozente deshalb immer in
+                        absolute Zahlen</strong>.
+                </p>
+            </section>
+
+            <section id="section-4" aria-labelledby="title-4">
+                <h2 id="title-4">Richtig Entscheiden – der Grenznutzen</h2>
+                <p>
+                    Wie schnell sollten wir nun fahren? Solche Fragen lassen sich nicht rational beantworten. Wenn ich
+                    ein Snickers essen möchte, nehme ich das Angebot mit 20 % Rabatt für 64 Cent statt des Normalpreises
+                    von 80 Cent. Egal, worum es geht: Wenn wir etwas wertschätzen, bevorzugen wir mehr davon – oder
+                    besser, früher, günstiger, rentabler. Eine Grenze gibt es dabei nicht, und damit auch kein
+                    Entscheidungskriterium.
+                </p>
+                <p>
+                    In der Wert- und Entscheidungstheorie gilt der abnehmende Grenznutzen als anerkannte Grundlage.<a
+                        id="cite-ref-5" href="#cite-note-5" aria-label="Zur Endnote 5">[5]</a> Statt der Gesamtmenge
+                    betrachten wir die nächste Einheit und den Nutzen, den sie stiftet. Wer eine Stunde Sport pro Woche
+                    treibt statt gar keinen, darf einen großen Vorteil für die Gesundheit erwarten. Wer dagegen 11 statt
+                    10 Stunden trainiert, sollte keinen großen Zusatznutzen erwarten.
+                </p>
+                <p>
+                    Der abnehmende Grenznutzen lässt sich auf fast alles anwenden. So auch auf die Ausgangsfrage des
+                    Schnellfahrens: Je schneller wir fahren, desto früher kommen wir an. Klar. Als Grenznutzen
+                    formuliert: Wie viel Zeit spart man, wenn man 10 km/h schneller fährt?
+                </p>
+            </section>
+
+            <section id="section-5" aria-labelledby="title-5">
+                <h2 id="title-5">Der Grenznutzen des Schnellerfahrens</h2>
+
+                <p>
+                    Zunächst legen wir die Strecke auf eine einheitliche Bezugsgröße fest. Ich wähle $s = 100 \text{
+                    km}$, da diese Strecke bei uns üblich ist. Diese setzen wir in die bekannte Formel ein:
+                </p>
+
+                <p>$$t = \frac{100 \text{ km}}{v}$$</p>
+
+                <p>
+                    Die folgende Grafik zeigt, wie lange man bei unterschiedlichen Geschwindigkeiten für diese Strecke
+                    benötigt:
+                </p>
+
+                <figure>
+                    <img alt="Diagramm Fahrtdauer vs. Geschwindigkeit für 100km"
+                        src="../assets/img/tacho-grenznutzen/fahrtdauer-100km.png" />
+                    <figcaption>Fahrtdauer in Abhängigkeit der Geschwindigkeit für eine Strecke von 100 km
+                        Quelle: Eigene Darstellung.</figcaption>
+                </figure>
+
+                <p>
+                    Der abnehmende Grenznutzen ist deutlich erkennbar. Mit höherer Geschwindigkeit schafft man die
+                    Strecke zwar schneller, aber nicht im gleichen Maß. Ein Extrembeispiel: Mit 300 km/h ist man nur
+                    halb so lange unterwegs wie mit 200 km/h, spart aber nur zehn Minuten. Hier liegt das
+                    Kontraintuitive: Erst die absoluten Zahlen verdeutlichen die realen Konsequenzen.
+                </p>
+
+                <p>$$t'(v) = \frac{dt(v)}{dv} = - \frac{100 \text{ km}}{v^2}$$</p>
+
+                <figure>
+                    <img alt="Diagramm Grenzdauer (Ableitung) vs. Geschwindigkeit für 100km"
+                        src="../assets/img/tacho-grenznutzen/grenzdauer-100km.png" />
+                    <figcaption>Grenzdauer in Abhängigkeit der Geschwindigkeit für eine Strecke von 100 km
+                        Quelle: Eigene Darstellung.</figcaption>
+                </figure>
+
+                <p>
+                    Diese Darstellung ist formal korrekt, für die Praxis jedoch sperrig. Der Anstieg zeigt den minimalen
+                    Grenznutzen bei minimal höherer Geschwindigkeit. Daraus lässt sich nicht direkt ablesen, wie viel
+                    schneller man tatsächlich ist. Deshalb wähle ich eine praktisch relevante Differenz von $\Delta v =
+                    10 \text{ km/h}$:
+                </p>
+
+                <figure>
+                    <img alt="Diagramm Grenzdauer bei 10 km/h Differenz"
+                        src="../assets/img/tacho-grenznutzen/grenzdauer-10km.png" />
+                    <figcaption>Grenzdauer bei 10 km/h Geschwindigkeitsdifferenzen für eine Strecke von 100 km
+                        Quelle: Eigene Darstellung.</figcaption>
+                </figure>
+
+                <p>
+                    Die Grafik zeigt den Grenznutzen eindeutig: Wer bei 100 km/h um 10 km/h beschleunigt, spart auf 100
+                    km rund 5:30 Minuten.
+                </p>
+
+                <p>
+                    Wir müssen nicht bei einer Strecke von 100 km bleiben. Jede andere Strecke funktioniert genauso,
+                    etwa der Arbeitsweg oder die Heimreise. In der Formel wirkt die Strecke nur als Faktor und streckt
+                    oder staucht die Kurven:
+                </p>
+
+                <figure>
+                    <img alt="Diagramm Fahrtdauer für verschiedene Strecken"
+                        src="../assets/img/tacho-grenznutzen/fahrtdauer-schaar.png" />
+                    <figcaption>Fahrtdauer in Abhängigkeit der Geschwindigkeit für verschiedene Strecken
+                        Quelle: Eigene Darstellung.</figcaption>
+                </figure>
+
+                <figure>
+                    <img alt="Diagramm Grenzdauer Ableitung für verschiedene Strecken"
+                        src="../assets/img/tacho-grenznutzen/grenzdauer-schaar.png" />
+                    <figcaption>Grenzdauer in Abhängigkeit der Geschwindigkeit für verschiedene Strecken
+                        Quelle: Eigene Darstellung.</figcaption>
+                </figure>
+
+                <figure>
+                    <img alt="Diagramm Grenzdauer bei 10km/h Differenz für verschiedene Strecken"
+                        src="../assets/img/tacho-grenznutzen/grenzdauer-10km-schaar.png" />
+                    <figcaption>Grenzdauer bei 10 km/h Geschwindigkeitsdifferenzen für verschiedene Strecken
+                        Quelle: Eigene Darstellung.</figcaption>
+                </figure>
+
+                <p>
+                    Allerdings sind diese Grafiken an sich für viele Menschen nicht intuitiv lesbar und taugen nicht im
+                    Alltag.
+                </p>
+            </section>
+
+            <section id="section-6" aria-labelledby="title-6">
+                <h2 id="title-6">Poka Yoke: Integration in den Alltag</h2>
+                <p>
+                    Bei vielen technischen Anwendungen müssen wir die Mensch-Maschine-Schnittstelle per Design
+                    absichern. Beispiele sind der Zugang zu gefährlichen Maschinen, die richtige Ausrichtung von
+                    Steckern, das Starten des Autos durch zwei Interaktionen (etwa Bremse und Zündung) oder
+                    Spezialschrauben, die Hobbybastler von gefährlichen Teilen fernhalten. All das sind
+                    „Poka-Yoke“-Mechanismen, die den Umgang des Menschen mit Technik absichern.
+                </p>
+
+                <p>
+                    In diesem Sinne fassen wir die vorherigen Überlegungen zusammen: Der Grenznutzen des
+                    Schnellerfahrens, gemessen in absoluter Zeit, muss beim Fahren ohne Nachdenken verfügbar sein.
+                    Deshalb habe ich den klassischen Tacho um die blaue Kurve ergänzt. Sie ist eine einfache, aber
+                    zutreffende Entscheidungsregel<a id="cite-ref-6" href="#cite-note-6"
+                        aria-label="Zur Endnote 6">[6]</a> und zeigt, wie lange man für 100 km bei der aktuellen
+                    Geschwindigkeit benötigt:
+                </p>
+
+                <figure>
+                    <img alt="Gehirngerechter Tachometer" src="../assets/img/tacho-grenznutzen/tacho.svg"
+                        style="max-height: 500px;" />
+                    <figcaption>Gehirngerechter Tachometer — die blaue Linie zeigt Fahrtdauer für 100 km.
+                        Quelle: Eigene Darstellung.</figcaption>
+                </figure>
+
+                <p>
+                    Den Grenznutzen aus Grafik 3 habe ich bewusst weggelassen. Größere Geschwindigkeitssprünge erfordern
+                    mehr Nachdenken – und genau das wollen wir hier vermeiden. So bleibt der Zusammenhang gut lesbar.
+                    Beschleunigt man etwa von 80 km/h auf 130 km/h, benötigt man 46 Minuten statt 1:15 h, also 30
+                    Minuten weniger. Trotz aller Formeln und Grafiken ist diese Darstellung für mich am einprägsamsten.
+                </p>
+            </section>
+
+            <section id="section-7" aria-labelledby="title-7">
+                <h2 id="title-7">Abschließende Gedanken</h2>
+
+                <p>
+                    Der Charme des Grenznutzens liegt in seiner Einfachheit. Ein paar Minuten früher anzukommen, macht
+                    oft keinen Unterschied. Das leuchtet unmittelbar ein. Bei Rettungs- und Feuerwehrfahrten gilt das
+                    allerdings nicht.
+                </p>
+
+                <p>
+                    Wir brauchen dafür auch keine Kriterien, die mehr Daten, mehr Rechenarbeit und mehr Streit erzeugen,
+                    etwa zu Energieverbrauch, CO₂-Ausstoß oder zur Gefährdung anderer. Solche Debatten enden schnell in
+                    ideologischen Etiketten. Der Grenznutzen umgeht das. Er ist eine einfache, unstrittige
+                    physikalisch-ökonomische Aussage.
+                </p>
+
+                <p>
+                    Spannend werden die Bereiche mit hohem Grenznutzen. Ein 40-Tonner, der 80 km/h statt 60 km/h fährt,
+                    spart 25 Minuten auf 100 km. Das ist ein klarer Anreiz zum Schnellfahren. Umgekehrt ist der
+                    Grenzschaden groß, wenn die Geschwindigkeitsbegrenzung in Innenstädten von 50 km/h auf 30 km/h
+                    sinkt. Pro Person gehen 1:20 h auf 100 km verloren.
+                </p>
+
+                <p>
+                    Das sind jedoch großpolitische Themen. Für den Alltag reicht eine einfache Orientierungshilfe. Damit
+                    Entscheidungen beim Fahren rational und leichtfallen, ist dieser Tacho ein niederschwelliges
+                    Hilfsmittel.
+                </p>
+
+                <div class="signature-icon"></div>
+            </section>
+
+            <section id="section-8" aria-labelledby="title-8">
+                <h2 id="title-8">Anhang &ndash; Dateien</h2>
+
+                <div class="download">
+                    <span>Grenznutzen des Schnellerfahrens.ods</span>
+                    <a href="../assets/img/tacho-grenznutzen/Grenznutzen des Schnellerfahrens.ods"
+                        aria-label="Datei herunterladen">
+                        <svg class="icon">
+                            <use href="../assets/img/icons.svg#icon-download"></use>
+                        </svg>
+                    </a>
+                </div>
+                <div class="download">
+                    <span>tacho.svg</span>
+                    <a href="../assets/img/tacho-grenznutzen/tacho.svg" aria-label="Datei herunterladen"
+                        target="_blank">
+                        <svg class="icon">
+                            <use href="../assets/img/icons.svg#icon-download"></use>
+                        </svg>
+                    </a>
+                </div>
+            </section>
+
+            <section id="section-9" aria-labelledby="title-9">
+                <h2 id="title-9">Endnoten</h2>
+
+                <ol class="ref-sources">
+                    <li id="cite-note-1">
+                        <a href="#cite-ref-1" aria-label="Zurück zum Text">↑</a>
+                        Kahneman, D. (2011). <em>Thinking, fast and slow</em>. New York: Macmillan.
+                    </li>
+                    <li id="cite-note-2">
+                        <a href="#cite-ref-2" aria-label="Zurück zum Text">↑</a>
+                        Oakley, B. A. (2014). <em>A mind for numbers</em>. New York: Jeremy P. Tarcher/Penguin.
+                    </li>
+                    <li id="cite-note-3">
+                        <a href="#cite-ref-3" aria-label="Zurück zum Text">↑</a>
+                        Gigerenzer, G. (2008). <em>Bauchentscheidungen. Die Intelligenz des Unbewussten und die Macht
+                            der Intuition</em> (Vol. 1). München: Goldmann.
+                    </li>
+                    <li id="cite-note-4">
+                        <a href="#cite-ref-4" aria-label="Zurück zum Text">↑</a>
+                        Bundesministerium der Finanzen
+                        (BMF). (2026). Berechnungen und Informationen zur Einkommensteuer. <a
+                            href="https://www.bmf-steuerrechner.de/ekst/eingabeformekst.xhtml" rel="noopener noreferrer"
+                            target="_blank">https://www.bmf-steuerrechner.de/ekst/eingabeformekst.xhtml</a>
+                    </li>
+                    <li id="cite-note-5">
+                        <a href="#cite-ref-5" aria-label="Zurück zum Text">↑</a>
+                        Menger, C. (1871). <em>Grundsätze der Volkswirtschaftslehre. Erster Allgemeiner Teil</em>. Wien:
+                        Braumüller.
+                    </li>
+                    <li id="cite-note-6">
+                        <a href="#cite-ref-6" aria-label="Zurück zum Text">↑</a>
+                        Gigerenzer, G., &amp; Gaissmaier, W. (2011). Heuristic decision making. <em>Annual Review of
+                            Psychology, 62</em>, 451–482. <a href="https://doi.org/10.1146/annurev-psych-120709-145346"
+                            target="_blank"
+                            title="DOI-Link zur Publikation">https://doi.org/10.1146/annurev-psych-120709-145346</a>
+                    </li>
+                </ol>
+            </section>
+        </article>
+    </main>
+
+    <a href="#" class="scroll-up" aria-label="Nach oben scrollen">
+        <svg class="icon">
+            <use href="../assets/img/icons.svg#icon-scrollup"></use>
+        </svg>
+    </a>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <a href="../impressum.html">Impressum</a>
+            <a href="../datenschutz.html">Datenschutz</a>
+        </div>
+    </footer>
+    <script src="../assets/js/lightbox.js"></script>
+</body>
+
+</html>

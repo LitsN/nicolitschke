@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <title>Ineffizienz im Projektalltag in sieben Akten</title>
+    <meta name="description"
+        content="Sieben Akte über Stilblüten der Ineffizienz in Engineering-Projekten. Die Ursache sind feste Erwartungen. Sie lassen sich nicht mit Maschinendenke verbessern.">
+    <meta name="robots" content="index, follow, archive">
+    <meta name="author" content="Nico Litschke">
+
+    <meta property="og:url" content="https://www.nicolitschke.com/texte/ineffizienzen-projektalltag.html">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:site_name" content="Nico Litschke">
+    <meta property="og:title" content="Ineffizienz im Projektalltag in sieben Akten">
+    <meta property="og:description"
+        content="Sieben Akte über Stilblüten der Ineffizienz in Engineering-Projekten. Die Ursache sind feste Erwartungen. Sie lassen sich nicht mit Maschinendenke verbessern.">
+    <meta property="og:image" content="../assets/img/ineffizienzen-projektalltag/hero.jpg">
+
+    <meta name="google-site-verification" content="1KLRTKWSuSamhN09JbMkQEd-R10iuFCNAHxdYZJVr_M">
+
+    <link rel="canonical" href="https://www.nicolitschke.com/texte/ineffizienzen-projektalltag.html">
+    <link rel="stylesheet" href="../assets/css/fonts.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/article.css">
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+    <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+
+</head>
+<style>
+    .prolog {
+        counter-increment: section-counter -1;
+    }
+
+    .toc-prolog {
+        counter-increment: toc-counter -1;
+    }
+
+    table {
+        width: auto;
+    }
+</style>
+
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="site-title" href="../index.html">Nico Litschke</a>
+            <nav class="site-nav" aria-label="Hauptnavigation">
+                <a href="../index.html">Über</a>
+                <a href="../texte.html">Texte</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <article>
+            <h1>Ineffizienz im Projektalltag in sieben Akten</h1>
+
+            <ul class="tag-line">
+                <li><a href="../texte.html?tag=mastery-lernen" class="tag" data-tag="mastery-lernen"
+                        title="Alle Artikel über Mastery & Lernen anzeigen">Mastery & Lernen</a></li>
+                <li><a href="../texte.html?tag=fuehren-managen" class="tag" data-tag="fuehren-managen"
+                        title="Alle Artikel über Führen &amp; Managen anzeigen">Führen &amp; Managen</a></li>
+            </ul>
+
+            <section class="abstract" aria-labelledby="abstract-title">
+                <h2 id="abstract-title">Abstract</h2>
+                <p>
+                    Lean, Scrum, Automotive SPICE und Organisationsprojekte bieten sich seit über zwanzig Jahren ein
+                    Kopf-an-Kopf-Rennen in der Automobil-Industrie. Jüngst hat KI aufgeschlossen und
+                    liegt klar vorne. Das Rennen: vorhersagbarer, produktiver und kostengünstiger Entwickeln. In jedem
+                    der Ansätze werden Optimierungen meist geradlinig angegangen. Es gibt Abläufe, die haben einen
+                    gewissen Flow und sollen einen Nutzen liefern. Klingt wie ein Maschinenmodell und ist es auch. Die
+                    Strategie aber hat einen Schnitzer: Was als nützlich gilt, wird durch unsere Erwartungen, den
+                    Konventionen der Professionalität, vorbestimmt. Mit diesem Artikel möchte ich in sieben Akten auf
+                    Beispiele realer Stilblüten der Ineffizienz aufmerksam machen. Sie basieren alle auf Erwartungen.
+                    Dem ließe sich nur mit offenem Diskurs über Erwartungen beikommen. Der Diskurs aber scheitert
+                    wiederum an eingefahrenen Erwartungen.
+                </p>
+            </section>
+
+            <details class="toc">
+                <summary>
+                    <svg class="icon toggle-icon">
+                        <use href="../assets/img/icons.svg#icon-expand"></use>
+                    </svg>
+                    Inhalt
+                </summary>
+                <nav aria-label="Inhaltsverzeichnis">
+                    <ul>
+                        <li><a href="#section-1" class="toc-prolog">Prolog</a></li>
+                        <li><a href="#section-2">Akt: Ineffizienz durch sperrige und teure Tools</a></li>
+                        <li><a href="#section-3">Akt: Ineffizienz durch logische Formalien</a></li>
+                        <li><a href="#section-4">Akt: Ineffizienz durch mangelnde Tool-Performance</a></li>
+                        <li><a href="#section-5">Akt: Ineffizienz kommt vor allem vom Tippen</a></li>
+                        <li><a href="#section-6">Akt: Ineffizienz bei EDV-Basics</a></li>
+                        <li><a href="#section-7">Akt: Ineffizienz durch Überzeugung</a></li>
+                        <li><a href="#section-8">Akt: Ineffizienz durch pauschales Standardisieren</a></li>
+                        <li><a href="#section-9">Epilog: Es sind die Erwartungen</a></li>
+                    </ul>
+                </nav>
+            </details>
+
+
+            <section id="section-1" aria-labelledby="title-1" class="prolog">
+                <h2 id="title-1">Prolog</h2>
+
+                <p>
+                    Dieser Tage beim virtuellen Daily Stand-up aka Morgenkaffee: Im Fachbereich wird eine
+                    Lean-Initiative gestartet. Man ist zu teuer. Aufträge gehen an die günstigere Konkurrenz. Die
+                    (Re-Re-)
+                    Restrukturierung der letzten Jahrzehnte wird restrukturiert. Berater sind beauftragt. Start:
+                    vorgestern.
+                </p>
+            </section>
+            <section id="section-2" aria-labelledby="title-2">
+                <h2 id="title-2">Akt: Ineffizienz durch sperrige und teure Tools</h2>
+
+                <p>
+                    10 Minuten später widme ich mich wieder den Safety-Anforderungen. Und war genervt. Ich will Inhalte
+                    gestalten. Zur Elektromobilität der Zukunft beitragen. Ein Stück die Natur retten. Aber DOORS
+                    macht es unmöglich. Hier und jetzt. Für einfachste Navigation brauche ich die Maus. 3 Klicks braucht
+                    es, um die nächste Zelle zu aktivieren. Flow? Undenkbar. Wieso programmieren Hersteller immer
+                    wieder Excel-Oberflächen nach und hören auf halbem Wege auf? Leider kann ich Excel nicht verwenden.
+                    Der Safety-Assessor kanzelt sowas als »unprofessionell« ab und konstruiert den Super-GAU im
+                    Tool.
+                </p>
+                <p>
+                    Während mich DOORS zum Prokastinieren zwingt, fällt mein Blick auf das Gemälde neben meinem
+                    Schreibtisch: Geschachtelte Rechtecke, punktuell mit Linien verbunden und vereinzelt schraffiert.
+                    Ich
+                    mache ein Foto und signiere es. Das schicke ich an Ralph, unserem Chief-Architekten. In der
+                    anstehenden Architektur-Session begrüßt er mich mit herzlichem Lachen. Mit Ralph geht sowas. Er ist
+                    genauso Pragmatiker wie erfahrener Haudegen.
+                </p>
+                <p>
+                    Wir ergänzen und korrigieren meinen Entwurf samt Anforderungen. Abschließend einigen wir uns, wo ich
+                    das im Rhapsody einarbeite samt Schnittstellen, Datentypen, Traceability, und, und, und. Ralph
+                    verabschiedet mich mit einem Seitenhieb: »Vergiss net de teure Screenschots!«. Wir lachen und gehen
+                    unserer Wege. Aber er hat recht. Was am Whiteboard ein paar Minuten dauert, braucht im
+                    PowerPoint / Visio ca. eine Stunde und im Rhapsody mehrere. Mein Design wird kaum wertiger.
+                </p>
+                <p>
+                    Im Gegenteil: Diese Modelle widersprechen dem, was gute System-Architektur leisten soll. Die
+                    Abstraktion ist miserabel. Im Rhapsody soll jedes Signal einzeln angelegt und definiert werden. Nur
+                    so
+                    kann der Modell-Checker auf Vollständigkeit und Konsistenz prüfen. Der ist übrigens seit Wochen
+                    defekt. Code generieren wir auch nicht. Und wenn ich Kunden und Kolleginnen die System-Architektur
+                    erkläre, ist dieses Modell unbrauchbar. Sichtweisen auf System-Architektur dienen vor allem der
+                    visuellen Kommunikation. Erschlagende Details behindern.
+                </p>
+                <p>
+                    Abschließend mache ich Screenshots und lege sie im git ab. Die Tool-Lizenzen sind so teuer, dass sie
+                    handverlesen verteilt werden. In Summe der typische Fall von: In der Theorie klingt alles so
+                    schön logisch, praktisch ist es schlecht anwendbar.
+                </p>
+            </section>
+            <section id="section-3" aria-labelledby="title-3">
+                <h2 id="title-3">Akt: Ineffizienz durch logische Formalien</h2>
+
+                <p>
+                    Ein Review steht an. Anforderungen (DOORS) und Konzept (Rhapsody) sind gereift. Die FMEA (APIS IQ)
+                    ist vorbereitet. Ein Review-Ticket ist erstellt (Jira). Alles ist aufeinander verlinkt;
+                    möglichst mit Hyperlinks - falls jemand Namensgleichheit nicht kapieren will. Baselines sind auch
+                    gezogen (Tools &amp; git).
+                </p>
+                <p>
+                    Falls Sie sich fragen, wozu das Ganze: Automotive SPICE<sup>®</sup> will es so. Das ist ein
+                    Prozessstandard, den interne und externe Berater als de facto Automotive Franchise<a
+                        aria-label="Zur Endnote 1" href="#cite-note-1" id="cite-ref-1">[1]</a> – Pardon:
+                    State-of-the-Art – definiert haben. Angeblich könnte jemand nachvollziehen wollen, welches Dokument,
+                    in
+                    welcher Version, wann und mit wem ein Review durchlaufen hatte. Das habe ich für ein Review in den
+                    letzten 10 Jahren zwar nie erlebt, aber was weiß ich schon. Zumindest hatte zuletzt der Auditor
+                    das als Befund rausgehauen. Die QM ist seither sensibilisiert. Ich glaube, er brauchte einfach
+                    irgendwelche Findings.
+                </p>
+                <p>
+                    Ist doch nur Aufwand für ein einzelnes Review? Ja! In komplexen Projekten gibt es eine ganze Menge
+                    davon. Die Theorie...
+                </p>
+            </section>
+            <section id="section-4" aria-labelledby="title-4">
+                <h2 id="title-4">Akt: Ineffizienz durch mangelnde Tool-Performance</h2>
+
+                <p>
+                    Beim Umsetzen der Formalien beiße ich fast in die Tischkante. Die IT-Infrastruktur hat im VPN pro
+                    Klick fast eine 1s Latenzzeit. DOORS ist noch schlechter. Wie das nervt.
+                </p>
+                <p>
+                    Hersteller, bitte nehmt eine Stoppuhr und stoppt die Dauer von Alltags-Szenarien. Die
+                    Software-Architekten des Vertrauens werden sicherlich nicht erwarten, dass wir im Nachbargebäude der
+                    Frankfurter Börse mit unseren Quantencomputern arbeiten und über eine exklusive Standleitung
+                    verfügen. Wir arbeiten über VPN und verfügen über eine beschissene Bandbreite, beschissenes WiFi,
+                    semi-beschissene Rechner und wir müssen uns durch mindestens 5 Ordnerebenen durchklicken, um eine
+                    Datei zu finden. Bei meinen indischen Kolleg/inn/en kann auch mal das Licht flackern.
+                </p>
+                <p>
+                    Wenn wir jetzt noch zügig arbeiten können, dann taugt euer Tool für den Alltag.
+                </p>
+            </section>
+            <section id="section-5" aria-labelledby="title-5">
+                <h2 id="title-5">Akt: Ineffizienz kommt vor allem vom Tippen</h2>
+
+                <p>
+                    Ein paar Tage später: Ich habe zum Kickoff des Fachreviews eingeladen. Unser Kreis besteht aus vier
+                    Fachexperten und einem unabhängigen Moderator. Eigentlich will ich meine Arbeit vorstellen,
+                    Feedback und Perspektiven sammeln. Heute aber läuft es zäh. Die Diskussion entfaltet sich nicht. Der
+                    Grund: Wir warten auf den Moderator. Er tippt <span style="letter-spacing: 2px;">UNTERIRDISCH</span>
+                    langsam. Ralph ist nach 10 Minuten sichtlich so genervt, dass er übernimmt.
+                </p>
+                <p>
+                    Überall will man Geld sparen und manche Leute können nicht richtig tippen. In den 2020er Jahren
+                    wohlgemerkt. Dabei ist Tippen für Wissensarbeiter <strong>eine der grundlegenden Tätigkeiten
+                        schlechthin</strong> (neben Denken und Kommunizieren).
+                </p>
+                <p>
+                    Tippen ist eine muskulär-koordinative Tätigkeit. Wir können somit mit zwei Daumenregeln unseren
+                    Skill-Level bestimmen:
+                </p>
+                <p class="callout">
+                    Ist die Bewegung 1) hübsch und 2) leise, sind wir wirklich gut darin.
+                </p>
+                <p>
+                    Beim Laufen, Fechten, Yoga, Gewichtheben, Tanzen, Parkour und vermutlich allen anderen körperlichen
+                    Aktivitäten: Es muss hübsch sein und leise. Sieht es ästhetisch und elegant aus wie bei einer
+                    Prima Ballerina, ist ein/e Meister/in am Werk. Wer seine Finger aus 3cm Höhe auf die Tastatur
+                    krachen lässt, braucht vermutlich Training.
+                </p>
+                <p>
+                    Dazu noch eine lästige Beobachtung: <strong>Programmierer und Entwicklerinnen sind Profis</strong>.
+                    Die IT aber malträtiert sie mit 10 Euro Tastaturen.
+                </p>
+                <p class="callout">
+                    Gebt Entwicklern gescheite Tastaturen mit kurzem Tastenanschlag. Das holt mindestens
+                    <strong>3&nbsp;%.
+                        Täglich. Pro Person. Bei jedem Absatz.</strong>
+                </p>
+            </section>
+            <section id="section-6" aria-labelledby="title-6">
+                <h2 id="title-6">Akt: Ineffizienz bei EDV-Basics</h2>
+
+                <p>
+                    Unser Moderator tut sich auch mit Excel sehr schwer. In jede Zelle schreibt er entweder manuell das
+                    Datum und die Beteiligten oder er fuchtelt beim Copy-Paste wild mit der Maus rum als ob er mit
+                    ner Schlange kämpft.
+                </p>
+                <p>
+                    Da wundert sich der Ungeduldige. Office gibt es seit Jahrzehnten und kostenlose Trainings
+                    obendrein.<a aria-label="Zur Endnote 2" href="#cite-note-2" id="cite-ref-2">[2]</a>
+                    Ferner ist ein Großteil unserer Arbeit repetitiv. 20&nbsp;% der Tool-Funktionen und Satzschnipsel
+                    machen
+                    mindestens 70&nbsp;% der EDV-Arbeit aus. Tastenkürzel beschleunigen den Alltag ungemein. Falls
+                    Tastenkürzel fehlen, leistet Auto Hot Key (AHK) exzellente Abhilfe.<a aria-label="Zur Endnote 3"
+                        href="#cite-note-3" id="cite-ref-3">[3]</a> Wenn man nicht weiß, wie man den
+                    Namen des Kollegen Krishnamacharya schreibt oder das Sonderzeichen in Łukaszek nicht findet oder die
+                    gleichen Satzschnipsel immer wieder schreibt, dann löst AHK das sauber auf:
+                </p>
+
+                <table>
+                    <caption>Tabelle: Beispiele für Wenn-Dann-Regeln für ständig wiederholte Aufgaben.</caption>
+                    <tbody>
+                        <tr>
+                            <td>
+                                Krish_
+                            </td>
+                            <td>
+                                →
+                            </td>
+                            <td>
+                                Tirumalai Krishanmacharya
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Lukas_
+                            </td>
+                            <td>
+                                →
+                            </td>
+                            <td>
+                                Łukaszek T.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                MoMs_
+                            </td>
+                            <td>
+                                →
+                            </td>
+                            <td>
+                                Topic:<br />
+                                Date:<br />
+                                Participants:<br />
+                                Discussion:<br />
+                                Decisions:<br />
+                                Next Steps:
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Bug_
+                            </td>
+                            <td>
+                                →
+                            </td>
+                            <td>
+                                Description:<br />
+                                Expected Behavior:<br />
+                                Actual Behavior:<br />
+                                Steps for Reproduction:<br />
+                                Links / Attachments:
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                !=
+                            </td>
+                            <td>
+                                →
+                            </td>
+                            <td>
+                                ≠
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Strg + .
+                            </td>
+                            <td>
+                                →
+                            </td>
+                            <td>
+                                <p>
+                                    02.03.2021
+                                </p>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+                <p>
+                    Betriebswirte und Geisteswissenschaftler stöhnen, »Ich kann nicht programmieren!« Tut ihr auch
+                    nicht. Ihr definiert eine Regel, in einer Textdatei, nach definiertem Schema. Das kann jede/r.
+                </p>
+            </section>
+            <section id="section-7" aria-labelledby="title-7">
+                <h2 id="title-7">Akt: Ineffizienz durch Überzeugung</h2>
+
+                <p>
+                    Aus dem Review-Kickoff habe ich die Frage mitgenommen, wie wahrscheinlich mein angenommenes
+                    Worst-Case-Szenario eintritt. Mein Kunde hat eigens entwickelte Dashboards für die Historie der
+                    System-Performance aufgebaut. »Cooler Shit«, wie ich befinde. Das Problem aber:
+                </p>
+                <p class="callout">
+                    Dashboards veranschaulichen nur, was in der Vergangenheit bereits als relevant entschieden wurde.
+                </p>
+                <p>
+                    Ich erkunde gerade das Unbekannte, die ungestellten Fragen. Und das kann ich mit den verfügbaren
+                    Filtern (Design-Entscheidungen) nicht ermitteln. Der Function-Owner sperrt sich. Offensichtlich
+                    erkenne ich nicht, dass ja alles im Dashboard stünde! Also frage ich mich bis zur Entwicklerin
+                    durch. Sie erkennt das Problem. Wir tauschen anschließend ein verirrtes Safety-Ticket gegen eine
+                    CSV-Datei. Nach unserem Kuhhandel bin ich den Rest des Nachmittags mit dem Parsen der Daten und der
+                    Fehlerbehandlung von Sonderzeichen beschäftigt.
+                </p>
+            </section>
+            <section id="section-8" aria-labelledby="title-8">
+                <h2 id="title-8">Akt: Ineffizienz durch pauschales Standardisieren</h2>
+
+                <p>
+                    Mittlerweile habe ich die Daten verstanden und die richtigen Kategorien für meine Frage ermittelt.
+                    Trace-Marker sind definiert und in den Code geklopft. Jetzt will ich die Daten zerlegen und
+                    analysieren. Die Datenmenge aber zwingt Excel in die Knie und ich will die Analysen viele Releases
+                    wiederholen.
+                </p>
+                <p>
+                    Ein Kollege hat für solche Analysen R-Skripte entwickelt, die zum Standardprozess gehören. Mir ist
+                    unbehaglich. In R fühle ich mich nicht zu Hause. Ich bin unsicher, ob ich die Skripte richtig
+                    bediene. Zunächst wäre ich damit beschäftigt, die Skripte zu verstehen, anstatt sie auf mein Problem
+                    zu reflektieren. Ralph befreit mich. Ich soll lieber mein eigenes Skript entwickeln. Also
+                    setze ich ein, womit ich mich sicher fühle: Python, numpy, pandas.
+                </p>
+                <p>
+                    Lean-Berater/innen werden nun nervös(?). Skript-Wildwuchs sollte man vermeiden. Standardisierung
+                    bringt Effizienz. Für etablierte Geschäftsprozesse stimme ich zu. Beim Erkunden des Unbekannten
+                    gelten andere Regeln. Es geht um Erkenntnisvorgänge und um den Umgang mit Unsicherheit:
+                </p>
+                <p class="callout">
+                    Ich habe ein Problem, das ich erst noch verstehen muss. Mir fehlt auch ein Werkzeug. Also erschaffe
+                    ich eins. Dadurch verstehe ich Problem, Lösung und Werkzeug besser. Das sind individuelle
+                    Erkenntnisvorgänge. Pauschales Standardisieren und Optimieren behindern diesen Vorgang.
+                </p>
+            </section>
+            <section id="section-9" aria-labelledby="title-9">
+                <h2 id="title-9">Epilog: Es sind die Erwartungen</h2>
+
+                <p>
+                    Die Akte sind natürlich vereinfacht und überspitzt, aber real. Sie haben gemeinsam:
+                </p>
+                <p class="callout">
+                    Unsere Erwartungen erzeugen Stilblüten der Ineffizienz
+                </p>
+                <p>
+                    Beispiel Handskizze: Mir fallen viele Entwickler/innen ein, die das nicht akzeptieren. Die schließen
+                    unbewusst<a aria-label="Zur Endnote 4" href="#cite-note-4" id="cite-ref-4">[4]</a>
+                </p>
+                <p class="mdm-bld" style="text-align: center; margin: 10px auto;">
+                    „nicht Standard-Tool“ ⇒ unprofessionell ⇒ schlechter Entwurf
+                </p>
+                <p>
+                    Doch stimmt das? Wir betreiben sehr viel Aufwand, nur um die Erwartungen an die Professionalität zu
+                    erfüllen. Sprich: Damit uns die Kollegen und Kolleginnen als eine/n der ihren anerkennen.<a
+                        aria-label="Zur Endnote 5" href="#cite-note-5" id="cite-ref-5">[5]</a> Ähnlich beim Review. Mit
+                    den Baselines kann ich recht überzeugend demonstrieren, wie gründlich wir sind.
+                    Die Review-Baselines sind argumentativ motiviert. Sind sie inhaltlich wirklich nützlich?
+                </p>
+                <p>
+                    Besonders heikel sind die Themen Tippen und EDV-Basics. Schließlich konfrontiere ich Ingenieure,
+                    Naturwissenschaftler, Mathematiker mit sowas banalem! Das eckt an Erwartungen an, auch bei
+                    Effizienz-getriebenen Managern. Trotzdem sind Tippen und EDV-Basics für fast alle
+                    Entwicklungs-Aktivitäten notwendig. Wieso ist das Thema anscheinend tabu?
+                </p>
+                <p>
+                    Um daran etwas zu ändern, braucht es offenen Diskurs und Achtsamkeit.<a aria-label="Zur Endnote 6"
+                        href="#cite-note-6" id="cite-ref-6">[6]</a> Wir müssen <strong>Erwartungen
+                        offenlegen und prüfen, wie sie sich real auswirken.</strong> Re-Strukturierung wird daran nichts
+                    ändern. Diskurs ist Führungsaufgabe; nichts was Berater/innen leisten könnten.
+                </p>
+                <div class="signature-icon"></div>
+            </section>
+
+            <section id="section-10" aria-labelledby="title-10">
+                <h2 id="title-1o">Endnoten</h2>
+
+                <ol class="ref-sources">
+                    <li id="cite-note-1">
+                        <a aria-label="Zurück zum Text" href="#cite-ref-1">↑</a>Automotive SPICE<sup>®</sup>: <a
+                            href="http://www.automotivespice.com/download/" target="_blank"
+                            title="https://support.microsoft.com/de-de/training">http://www.automotivespice.com/download/</a>
+                    </li>
+                    <li id="cite-note-2">
+                        <a aria-label="Zurück zum Text" href="#cite-ref-2">↑</a>Microsoft Trainings: <a
+                            href="https://support.microsoft.com/de-de/training" target="_blank"
+                            title="https://support.microsoft.com/de-de/training">https://support.microsoft.com/de-de/training</a>
+                    </li>
+                    <li id="cite-note-3">
+                        <a aria-label="Zurück zum Text" href="#cite-ref-3">↑</a>Auto Hot Key: <a
+                            href="https://www.autohotkey.com/" target="_blank">https://www.autohotkey.com</a>
+                    </li>
+                    <li id="cite-note-4">
+                        <a aria-label="Zurück zum Text" href="#cite-ref-4">↑</a>Das ist der Halo-Effekt: Man schließt
+                        von bekannten Eigenschaften auf unbekannte. Vgl. <a
+                            href="https://de.wikipedia.org/wiki/Halo-Effekt"
+                            target="_blank">https://de.wikipedia.org/wiki/Halo-Effekt</a>
+                    </li>
+                    <li id="cite-note-5">
+                        <a aria-label="Zurück zum Text" href="#cite-ref-5">↑</a>Vgl. Kühl, S. (2015). <em>Sisyphos im
+                            Management: Die vergebliche Suche nach der optimalen Organisationsstruktur.</em> (2.,
+                        aktualisierte Auflage.). Frankfurt / New York: Campus Verlag.
+                    </li>
+                    <li id="cite-note-6">
+                        <a aria-label="Zurück zum Text" href="#cite-ref-6">↑</a>Vgl. Weick, K. E., &amp; Sutcliffe, K.
+                        M. (2010). <em>Das Unerwartete managen: wie Unternehmen aus Extremsituationen lernen.</em> (2.,
+                        vollständig überarbeitete Auflage.). Stuttgart: Schäffer-Poeschel.
+                    </li>
+                </ol>
+            </section>
+        </article>
+    </main>
+
+    <a href="#" class="scroll-up" aria-label="Nach oben scrollen">
+        <svg class="icon">
+            <use href="../assets/img/icons.svg#icon-scrollup"></use>
+        </svg>
+    </a>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <a href="../impressum.html">Impressum</a>
+            <a href="../datenschutz.html">Datenschutz</a>
+        </div>
+    </footer>
+</body>
+
+</html>

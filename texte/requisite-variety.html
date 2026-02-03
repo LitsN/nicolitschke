@@ -1,0 +1,738 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <title>Droge Varietät: Vernetzter, intelligenter, leistungsfähiger?</title>
+    <meta name="description"
+        content="Varietät gilt populärwissenschaftlich als Rohstoff für leistungsfähigere, intelligentere Systeme. Aber das ist oft nur schlechtes Design.">
+    <meta name="robots" content="index, follow, archive">
+    <meta name="author" content="Nico Litschke">
+
+    <meta property="og:url" content="https://www.nicolitschke.com/texte/requisite-variety.html">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:site_name" content="Nico Litschke">
+    <meta property="og:title" content="Droge Varietät: Vernetzter, intelligenter, leistungsfähiger?">
+    <meta property="og:description"
+        content="„Varietät gilt populärwissenschaftlich als Rohstoff für leistungsfähigere, intelligentere Systeme. Aber das ist oft nur schlechtes Design.">
+    <meta property="og:image" content="../assets/img/requisite-variety/hero.png">
+
+    <link rel="canonical" href="https://www.nicolitschke.com/texte/requisite-variety.html">
+    <link rel="stylesheet" href="../assets/css/fonts.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/article.css">
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+    <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+
+    <script src="../assets/js/mathjax-config.js" defer></script>
+    <script src="../assets/js/tex-mml-svg.js" async></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="site-title" href="../index.html">Nico Litschke</a>
+            <nav class="site-nav" aria-label="Hauptnavigation">
+                <a href="../index.html">Über</a>
+                <a href="../texte.html">Texte</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <article>
+            <h1>Droge Varietät: Vernetzter, intelligenter, leistungsfähiger?</h1>
+
+            <ul class="tag-line">
+                <li><a href="../texte.html?tag=systemik" class="tag" data-tag="systemik"
+                        title="Alle Artikel über Systemdenken anzeigen">Systemdenken</a></li>
+                <li><a href="../texte.html?tag=engineering" class="tag" data-tag="engineering"
+                        title="Alle Artikel über Engineering anzeigen">Engineering</a></li>
+            </ul>
+
+            <section class="abstract" aria-labelledby="abstract-title">
+                <h2 id="abstract-title">Abstract</h2>
+                <p>
+                    „Varietät“ gilt populärwissenschaftlich als Rohstoff für leistungsfähigere, intelligentere Systeme.
+                    Je mehr Knoten und Kanten vernetzt sind, desto besser. Doch der Beipackzettel fehlt oft: Varietät
+                    bringt auch Fehler, Dysfunktionen und hohen Energieverbrauch. Viele theoretische Permutationen
+                    bleiben praktisch unbrauchbar. Fazit: Varietät ist zweifellos wichtig, taugt aber als alleiniges
+                    Kriterium nicht zur wirksamen Systemgestaltung.
+                </p>
+            </section>
+
+            <details class="toc">
+                <summary>
+                    <svg class="icon toggle-icon">
+                        <use href="../assets/img/icons.svg#icon-expand"></use>
+                    </svg>
+                    Inhalt
+                </summary>
+                <nav aria-label="Inhaltsverzeichnis">
+                    <ul>
+                        <li><a href="#section-1">Komplexität als kombinatorische Varietät</a></li>
+                        <li><a href="#section-2">Varietät als Netz aus Knoten und Kanten</a></li>
+                        <li><a href="#section-3">„Requisite Variety“ – Aussagen über den Beobachter</a></li>
+                        <li><a href="#section-4">Tyrannei der Permutationen</a></li>
+                        <li><a href="#section-5">Organisationsentwicklung durch Permutationen</a></li>
+                        <li><a href="#section-6">Macht Varietät Organisationen wirklich intelligenter?</a></li>
+                        <li><a href="#section-7">Workshops mathematisch präzise</a></li>
+                        <li><a href="#section-8">Science is broken: Varietäts-Scientismus</a></li>
+                        <li><a href="#section-9">Schlusswort</a></li>
+                    </ul>
+                </nav>
+            </details>
+
+            <section id="section-1" aria-labelledby="title-1">
+                <h2 id="title-1">Komplexität als kombinatorische Varietät</h2>
+
+                <p>
+                    Ein fast intuitiver Zugang zu Komplexität liegt in der möglichen Vielfalt („Varietät“) eines
+                    Systems. Malik definiert:
+                </p>
+
+                <figure><img
+                        alt="Definition laut Malik: Komplexität ist Varietät. Varietät ist messbare Vielfalt. Messbare Vielfalt sind die unterscheidbaren Systemzustände."
+                        src="../assets/img/requisite-variety/complexity-is-variety.png" />
+                    <figcaption>Komplexität ist Varietät (Quelle: <a aria-label="Zur Endnote 1" href="#cite-note-1"
+                            id="cite-ref-1">[1, S. 45]</a>)</figcaption>
+                </figure>
+
+                <p>
+                    Genau genommen, können wir diese Varietät nur rechnerisch schätzen:
+                </p>
+
+                <ul>
+                    <li>die Anzahl der Knoten $n$
+                    </li>
+                    <li>die Anzahl und Art der Kanten $k$
+                    </li>
+                    <li>ihren Graph $g$
+                    </li>
+                    <li>und den Zustand $z$ der Kanten
+                    </li>
+                </ul>
+
+                <p>
+                    Spontan klingt das plausibel: Je mehr Teile interagieren, desto komplexer wirkt das System. Das, so
+                    erklärt Malik, sei ein „»Rohstoff«, eine neue Form von Kapital“, durch den
+                    „... <em>Organisationen leistungsfähiger, effektiver, schneller, flexibler und intelligenter</em>“
+                    würden.<a aria-label="Zur Endnote 1" href="#cite-note-1" id="cite-ref-1">[1]</a>
+                </p>
+
+                <p>
+                    Leistungsfähigkeit und Intelligenz hänge unmittelbar von der Komplexität eines Systems ab:
+                </p>
+
+                <figure><img
+                        alt="Screenshot aus Malik: Bei lebenden und technischen Systemen korreliert höhere Leistungsfähigkeit mit höherer Komplexität"
+                        src="../assets/img/requisite-variety/malik-excerpt.png" />
+                    <figcaption>Bei lebenden und technischen Systemen korreliert höhere Leistungsfähigkeit mit
+                        höherer Komplexität (Quelle: <a aria-label="Zur Endnote 1" href="#cite-note-1"
+                            id="cite-ref-1">[1, S. 48]</a>)</figcaption>
+                </figure>
+
+                <p class="callout">
+                    Kurzformel: $Varietät∼Leistungsfähigkeit$
+                </p>
+
+                <p>
+                    Ein Grund, genauer hinzusehen. Das Konzept der Varietät verdeutlichen wir an folgendem Beispiel: Als
+                    ich meinen Audi kaufte, war CarPlay nicht verfügbar. Erst ein zusätzliches Steuergerät (ECU)
+                    machte es möglich. Seit der Vernetzung kann ich über das Auto auf Connectivity-Dienste wie Karten,
+                    Blitzer-App, Audible oder Nachrichten zugreifen:
+                </p>
+
+                <figure><img
+                        alt="Connectivity im Fahrzeug. Links: IST-Zustand keine Connectivity. Rechts: zusätzliche ECU ermöglicht Conncectivity"
+                        src="../assets/img/requisite-variety/system-network.png" />
+                    <figcaption>Die Vernetzung zwischen Auto und Handy eröffnet neue Funktionen (Quelle: Eigene
+                        Darstellung).</figcaption>
+                </figure>
+            </section>
+
+            <section id="section-2" aria-labelledby="title-2">
+                <h2 id="title-2">Varietät als Netz aus Knoten und Kanten</h2>
+
+                <p>
+                    Das vernetzte Auto lässt sich als Graph darstellen. Teilsysteme sind Knoten, Schnittstellen Kanten:
+                </p>
+
+                <div class="image-grid">
+                    <div>
+                        <figure><img alt="Connectivity-Lösung als Graph: Ein Würfel mit 4 Knoten und 6 Kanten"
+                                src="../assets/img/requisite-variety/skeleton-diagram.png" />
+                            <figcaption>Graph-Darstellung des vernetzten Autos Quelle: Eigene Darstellung.</figcaption>
+                        </figure>
+                    </div>
+                    <div>
+                        <p>
+                            Durchzählen ergibt:
+                            $$n=4$$
+                            $$k=\frac{n(n-1)}{2}=\frac{4*3}{2}=6$$
+                        </p>
+                    </div>
+                </div>
+
+                <p>
+                    Da die mit dem Fragezeichen versehene Schnittstelle real fehlt, sind es tatsächlich $k=5$ Kanten.
+                    Zum Vergleich: Ein System mit $n=12$ Knoten hätte bereits $k=66$ Kanten:
+                </p>
+
+                <div class="image-grid">
+                    <div>
+                        <figure><img alt="Graph Dodekagon mit 12 Ecken und 66 Kanten"
+                                src="../assets/img/requisite-variety/dodekagon-outer.png" />
+                            <figcaption>Ein Zwölfeck mit 66 Kanten Quelle: Eigene Darstellung.</figcaption>
+                        </figure>
+                    </div>
+                    <div>
+                        <p>
+                            Durchzählen:
+                            $$n=12$$
+                            $$k=\frac{n(n-1)}{2}=\frac{12*11}{2}=66$$
+                        </p>
+                    </div>
+                </div>
+
+                <p>
+                    In manchen Kontexten sind Kanten gerichtet, z.B. Paul liebt Karla, Karla aber nicht Paul. Dann gilt:
+                </p>
+
+                <p>
+                    $$k=n(n-1)$$
+                </p>
+
+                <p class="callout">
+                    Auf den ersten Blick scheint es zu stimmen: Mehr Varietät führt zu höherer Leistungsfähigkeit.
+                </p>
+
+                <p>
+                    Doch meine Connectivity-Lösung war unelegant. Lieber wäre mir:
+                </p>
+
+                <div class="image-grid">
+                    <div>
+                        <figure><img
+                                alt="Wunschlösung für Connectivtiy: Das Auto kann direkt auf das Internet zu greifen, ohne zusätzliche ECU und Handy"
+                                src="../assets/img/requisite-variety/opt-solution.png" />
+                            <figcaption>Wunschlösung für Connectivity Quelle: Eigene Darstellung.</figcaption>
+                        </figure>
+                    </div>
+                    <div>
+                        <figure><img
+                                alt="Wunschlösung als Graph: Nur zwei Kanten (Auto und Cloud), verbunden durch eine Kante"
+                                src="../assets/img/requisite-variety/opt-solution-graph.png" />
+                            <figcaption>Wunschlösung als Graph Quelle: Eigene Darstellung. </figcaption>
+                        </figure>
+                    </div>
+                    <div>
+                        <p>
+                            Durchzählen:
+                            $$n=2$$
+                            $$k=\frac{2*1}{2}=1$$
+                        </p>
+                    </div>
+                </div>
+
+                <p>
+                    Diese Lösung hat gerignere Varietät bei gleicher Leistungsfähigkeit. Mehr noch: Sie ist robuster,
+                    also weniger fehleranfällig. In meiner realen Lösung mit $k=5$ Schnittstellen kann jede
+                    „gut“ oder „schlecht“ funktionieren. Das sind mindestens $m=2$ Zustände pro Kante. Damit gibt es:
+                </p>
+
+                <p>
+                    $$z\ge m^k=2^5=32$$
+                </p>
+
+                <p>
+                    mögliche Systemzustände. Nur in $z=2$ Zuständen funktioniert Connectivity; in <strong>mindestens
+                        $z=30$ ist sie defekt</strong>. Folgende Automatentabelle zeigt das anschaulich:
+                </p>
+
+                <figure><img alt="Automatentabelle, die die Permutationen der 32 theoretischen Systemzustände darstellt"
+                        src="../assets/img/requisite-variety/automatentabelle.png" />
+                    <figcaption>Ausschnitt der Automatentabelle zur Bewertung der Fehlerzustände für $k=5$
+                        Schnittstellen. Hierbei bedeutet 1 = funktionierende und 0 = nicht funktionierende
+                        Schnittstelle. Quelle: Eigene Darstellung.</figcaption>
+                </figure>
+
+                <p class="callout">
+                    <strong>Fazit:</strong> Höhere Varietät bringt mehr Leistungsfähigkeit, aber auch Fehlerzustände.
+                    Ein eleganteres Design mit geringerer Varietät erreicht die gleiche Leistungsfähigkeit und ist
+                    gleichzeitig robuster. Ein Widerspruch?
+                </p>
+            </section>
+
+            <section id="section-3" aria-labelledby="title-3">
+                <h2 id="title-3">„Requisite Variety“ – Aussagen über den Beobachter</h2>
+
+                <p>
+                    Der scheinbare Widerspruch geht auf eine Grundlage der Komplexitätstheorie zurück. Ashby leitete
+                    anhand von Logiktabellen das „Gesetz der erforderlichen Varietät“ her:<a aria-label="Zur Endnote 2"
+                        href="#cite-note-2" id="cite-ref-2">[2]</a>
+                </p>
+
+                <figure><img alt='Zitat von Ross Ashby: "only variety can destroy variety"'
+                        src="../assets/img/requisite-variety/requisite-variety.png" />
+                    <figcaption>Law of Requisite Variety laut Ashby (<a id="cite-ref-2" href="#cite-note-2"
+                            aria-label="Zur Endnote 2">[2, S. 207]</a>)</figcaption>
+                </figure>
+
+                <p>
+                    Ein System kann seine Funktion nur dann verlässlich ausführen, wenn es alle auftretenden Störungen
+                    erkennen und behandeln kann. Folglich muss die Varietät $\mathbb{V}$ des Systems mindestens so
+                    hoch sein wie die der Störungen:
+                </p>
+
+                <p>
+                    $$\mathbb{V}_{System}\ge\mathbb{V}_{Störungen}$$
+                </p>
+
+                <p>
+                    Doch in der Praxis liegt die Störungsvielfalt meist weit über dem theoretischen Minimum:
+                </p>
+
+                <p>
+                    $$\mathbb{V}_{System} \ge \mathbb{V}_{Störungen} \gt m^k=m^{\large\frac{n*(n-1)}{2}}$$
+                </p>
+
+                <p>
+                    Selbst bei der eleganteren Lösung mit direkter Internetverbindung ohne ECU und Handy finden wir
+                    deutlich mehr als $m=2$ mögliche Zustände. Das Problem: Wir wissen nicht, <em>wie viele</em> es
+                    tatsächlich sind. Meist erfahren wir es nur durch
+                    Trial &amp; Error. Selbst dann bleibt: Fehlerfreiheit ist nicht beweisbar.<a
+                        aria-label="Zur Endnote 3" href="#cite-note-3" id="cite-ref-3">[3]</a> Deshalb lassen
+                    Safetynormen wie ISO26262<a aria-label="Zur Endnote 4" href="#cite-note-4" id="cite-ref-4">[4]</a>
+                    oder IEC61508<a aria-label="Zur Endnote 5" href="#cite-note-5" id="cite-ref-5">[5]</a> auch für
+                    sicherheitskritische Systeme eine Restfehlerspanne zu.
+                </p>
+
+                <p>
+                    Hinzu kommt: Die Requisite Variety betrachtet nur Funktionalität. Für reale Systemlösungen zählen
+                    z.&nbsp;B. auch Performance, Safety, Security, Verlustleistung, Kühlung, Größe, Updatefähigkeit,
+                    Isolation und Kosten. Das sind keine Störungen, aber entscheidungsrelevant.
+                </p>
+
+                <p>
+                    Penzlin beschreibt analog für die Natur: Kombinatorisch lassen sich unzählige DNA-Basenfolgen
+                    bestimmen. Davon ist nur ein winziger Bruchteil stabil und überlebensfähig, z. B. wegen Energie-
+                    oder
+                    Ressourcenverbrauch.<a aria-label="Zur Endnote 6" href="#cite-note-6" id="cite-ref-6">[6]</a>
+                </p>
+
+                <p class="callout">
+                    <strong>Fazit</strong>: (Erforderliche) Varietät ist weder ein objektives Maß noch praxistauglich.
+                    Sie hängt von der gewählten Bezugsebene des Beobachters ab. Damit sagt sie eher etwas über den
+                    Beobachter aus und nicht über das System. Als „Gesetz“ ist es dann doch etwas hochgegriffen.
+                </p>
+            </section>
+
+            <section id="section-4" aria-labelledby="title-4">
+                <h2 id="title-4">Tyrannei der Permutationen</h2>
+
+                <p>
+                    Im Alltag begegnen uns viele kombinatorische Optimierungsprobleme. Beispiel: Bei einem Fehler meiner
+                    Connectivity-Lösung stellt sich die Frage: In welcher Analysereihenfolge finde ich am
+                    schnellsten die Ursache? Bei $k=5$ Schnittstellen gibt es 
+                </p>
+
+                <p>
+                    $$5!=5*4*3*2*1=120$$
+                </p>
+
+                <p>
+                    mögliche Reihenfolgen. Berücksichtige ich die $z\ge32$ Zustände, explodiert die Zahl:
+                </p>
+
+                <p>
+                    $$32!=2,63*10^{35}$$
+                </p>
+
+                <p>
+                    Plot Twist: Es ist fast immer Bluetooth. Sinnvoller als die Permutation ist die Fehlersuche über
+                    Verteilungen wie die 80-20-Regel<a aria-label="Zur Endnote 7" href="#cite-note-7"
+                        id="cite-ref-7">[7]</a> oder die Weibullverteilung<a aria-label="Zur Endnote 8"
+                        href="#cite-note-8" id="cite-ref-8">[8]</a> einzugrenzen.
+                </p>
+
+                <p>
+                    Ähnliche Heuristiken nutzen wir in der Kryptographie, Rundreisen (Travelling Salesman<a
+                        aria-label="Zur Endnote 9" href="#cite-note-9" id="cite-ref-9">[9]</a>) , Knapsack-Problem<a
+                        aria-label="Zur Endnote 10" href="#cite-note-10" id="cite-ref-10">[10]</a>, Produktionsplanung
+                    (lineare Optimierung<a aria-label="Zur Endnote 11" href="#cite-note-11" id="cite-ref-11">[11]</a>).
+                    Und als Schweizer Taschenmesser:
+                    „evolutionäre Algorithmen“.<a aria-label="Zur Endnote 12" href="#cite-note-12"
+                        id="cite-ref-12">[12]</a>
+                </p>
+
+                <p class="callout">
+                    <strong>Fazit</strong>: Für kombinatorische Optimierungsprobleme ist die Idee der (erforderlichen)
+                    Varietät irrelevant. Sie beeinflusst nicht die Funktionsweise der eingesetzten Heuristiken.
+                </p>
+            </section>
+
+            <section id="section-5" aria-labelledby="title-5">
+                <h2 id="title-5">Organisationsentwicklung durch Permutationen</h2>
+
+                <p>
+                    Glaubt man dem LinkedIn-Mainstream der Organisationsberatung, dann steckt in der Varietät ein
+                    Heilsversprechen: Man müsse Organisationen nur besser – intelligenter – vernetzen, schon steige ihre
+                    Leistungsfähigkeit.<a aria-label="Zur Endnote 13" href="#cite-note-13" id="cite-ref-13">[13]</a> Das
+                    dezentrale, selbstorganisierte Team
+                    wird zur Allzwecklösung stilisiert; die Hierarchie zum Übel, das es zu bewältigen gilt.
+                </p>
+
+                <p>
+                    Das ist eine unhaltbare Vereinfachung. Dezentralisierung bringt auch Dysfunktionen: weniger
+                    Stetigkeit, unklare Zuständigkeiten, zähere Entscheidungen<a aria-label="Zur Endnote 14"
+                        href="#cite-note-14" id="cite-ref-14">[14]</a> – vor allem, wenn unvereinbare Zielkonflikte und
+                    „interne Empfindlichkeiten“ berührt werden.<a aria-label="Zur Endnote 15" href="#cite-note-15"
+                        id="cite-ref-15">[15]</a> Auch das gehört zur Wahrheit.
+                </p>
+
+                <p>
+                    Die Synthese: föderale Ansätze. Autonome Einheiten kümmern sich um die Belange vor Ort; die
+                    Hierarchie koordiniert zwischen ihnen. Systemtheoretisch verkompliziert, findet sich dieser
+                    Mittelweg
+                    im „<em>Viable System Model</em>“.<a aria-label="Zur Endnote 16" href="#cite-note-16"
+                        id="cite-ref-16">[16]</a>
+                </p>
+
+                <p class="callout">
+                    Analog zu biologischen und technischen Systemen gilt auch für Organisationen:
+                    <strong>Leistungsfähigkeit ist nicht allein Frage der Permutationen oder Varietät.</strong>
+                </p>
+            </section>
+
+            <section id="section-6" aria-labelledby="title-6">
+                <h2 id="title-6">Macht Varietät Organisationen wirklich intelligenter?</h2>
+
+                <p>
+                    Varietät bringe mehr Intelligenz und Kreativität. Das Gehirn mit seinen 100 Billionen Synapsen gilt
+                    als Paradebeispiel. Doch Intelligenz beruht nicht allein auf der Menge an Verbindungen, sondern
+                    auf selbstorganisierter Musterbildung („Autopoiesis“<a aria-label="Zur Endnote 17"
+                        href="#cite-note-17" id="cite-ref-17">[17]</a> und
+                    „Neuroplastizität“). Sonst wäre ein Wassertropfen mit Milliarden Wassermolekülen auch intelligent.
+                </p>
+
+                <p>
+                    „Viele Köche verderben den Brei“ bringt es auf den Punkt: Ein kleines, schlagkräftiges Projektteam
+                    kann oft mehr leisten als ein großes; schlicht, weil der Koordinationsaufwand sinkt.
+                </p>
+
+                <p>
+                    Noch schlagkräftiger ist der Großmeister (Stichwort: Shu Ha Ri<a aria-label="Zur Endnote 18"
+                        href="#cite-note-18" id="cite-ref-18">[18]</a>), der im Alleingang ein ganzes Team ersetzen
+                    kann. Nur sind Normalos wie ich auf einen kleinen Kompetenzbereich spezialisiert. Vernetzung ist
+                    daher eine praktische
+                    Notwendigkeit.
+                </p>
+
+                <p class="callout">
+                    <strong>Varietät ergibt sich aus dieser Arbeitsteilung;</strong> sie ist weder notwendige noch
+                    hinreichende Bedingung für Intelligenz und Kreativität in Organisationen.
+                </p>
+            </section>
+
+            <section id="section-7" aria-labelledby="title-7">
+                <h2 id="title-7">Workshops mathematisch präzise</h2>
+
+                <p>
+                    Herkömmliche Teamarbeit, Meetings, Konferenzen sind für Hochleistung angeblich untauglich. Zu
+                    schwach. Zu langsam. Zu viel Menscheln. Stattdessen, so versichern uns Berater, müsse die Varietät
+                    der Organisation hochgekurbelt werden.<a aria-label="Zur Endnote 19" href="#cite-note-19"
+                        id="cite-ref-19">[19]</a>
+                </p>
+
+                <p>
+                    Die Lösung: Workshops, die optimal – was sonst – mittels Graphen organisiert werden. Themen sind
+                    Knoten, Menschen sind Kanten. Je nach Graph entstehen verschiedene Workshopdesigns. Beispiele mit
+                    $n=12$ Themen:
+                </p>
+
+                <div class="image-grid">
+                    <div>
+                        <figure><img alt="Zwölfeck mit vernetzten Knoten als Graph für Brainstorming und Open Space"
+                                src="../assets/img/requisite-variety/dodekagon.png" />
+                            <figcaption>Alle gleichzeitig beteiligt, z. B. Brainstorming, Open Space. (Quelle:
+                                Eigene Darstellung)</figcaption>
+                        </figure>
+                    </div>
+                    <div>
+                        <figure><img alt="Zwölfeck, wo nur der Umfang mit Kanten verknüpft ist."
+                                src="../assets/img/requisite-variety/dodekagon-outer.png" />
+                            <figcaption>Zwei Personen bearbeiten ein Thema. Sechs Themen laufen parallel.
+                                Quelle: Eigene Darstellung.</figcaption>
+                        </figure>
+                    </div>
+                    <div>
+                        <figure><img alt="Ikosaeder als Graph für Syntegration. Nur die Außenknoten sind vernetzt"
+                                src="../assets/img/requisite-variety/syntegration.png" />
+                            <figcaption>Fünf Personen bearbeiten ein Thema. Zwei Themen laufen parallel, z. B.
+                                Syntegration. (Quelle: <a id="cite-ref-20" href="#cite-note-20"
+                                    aria-label="Zur Endnote 20">[20]</a>) </figcaption>
+                        </figure>
+                    </div>
+                </div>
+
+                <p class="callout">
+                    Die Vernetzung des Graphen bestimmt, <strong>wie viele Personen parallel an welchen Themen
+                        arbeiten</strong> können.
+                </p>
+
+                <p>
+                    Besonders optimal: platonische Körper wie der Ikosaeder.<a aria-label="Zur Endnote 20"
+                        href="#cite-note-20" id="cite-ref-20">[20]</a> Sie
+                    sollen die Distanz zwischen Personen und Themen minimieren.<a aria-label="Zur Endnote 21"
+                        href="#cite-note-21" id="cite-ref-21">[21]</a>
+                    Methodisch heißt das: geometrische Symmetrieeigenschaften werden auf soziale Vorgänge übertragen.
+                    Das ist, als würde man eine Beobachtung aus dem Chemiebaukasten direkt auf den menschlichen
+                    Organismus extrapolieren. Nicht sauber, klingt aber mathematisch präzise – und bei Weitem
+                    ansehnlicher als 2D-Graphen.
+                </p>
+
+                <p class="callout">
+                    Workshops gehören zweifellos zum Repertoire des Problemlösens. Nur: Ob die Wirksamkeit aus optimalen
+                    Graphen stammt oder schlicht daher, dass <strong>Experten endlich Zeit und Fokus für ein
+                        gemeinsames Thema haben</strong>, ist bislang nicht untersucht. Ich tippe eher auf Letzteres.
+                </p>
+            </section>
+
+            <section id="section-8" aria-labelledby="title-8">
+                <h2 id="title-8">Science is broken: Varietäts-Scientismus</h2>
+
+                <p>
+                    Im Artikel über <a href="../texte/vuca-cynefin-stacey-debunked.html"
+                        title="Bitte keine VUCA-Dünnbrettbohrer">VUCA, Cynefin &amp; Co</a>. zeigte ich auf, warum
+                    Vierfeldermatizen keine Orientierung in einer
+                    komplexen Welt geben. Auch die Requisite Variety wurde in eine Matrix gepresst, und willkürlich in
+                    „einfach“, „komplex“ und „chaotisch“ segmentiert:<a aria-label="Zur Endnote 23" href="#cite-note-23"
+                        id="cite-ref-23">[23]</a>
+                </p>
+
+                <figure><img
+                        alt="Störvarietät und Reglervarietät sind in einer Matrix mit einfach, komplex und chaotisch geordnet"
+                        src="../assets/img/requisite-variety/ashby-space.png" />
+                    <figcaption>"Ashby Space" unterstellt eine lineare Funktion zwischen System- und
+                        Störvarietät (Quelle: <a id="cite-ref-23" href="#cite-note-23"
+                            aria-label="Zur Endnote 23">[23]</a>) </figcaption>
+                </figure>
+
+                <p>
+                    Tatsächlich müssten die Achsen logarithmisch skaliert sein, weil Permutationen deutlich schneller
+                    als exponentiell wachsen. Mit korrekter Skalierung verschwinden die hübschen Geraden und
+                    Kreisausschnitte.
+                </p>
+
+                <p class="callout">
+                    So wird uns eine „Theorie“ vorgegaukelt. Genau der <strong>Szientismus</strong>, den Nassim Taleb
+                    kritisiert.<a aria-label="Zur Endnote 24" href="#cite-note-24" id="cite-ref-24">[24]</a> Ich
+                    schließe mich dem an.
+                </p>
+            </section>
+
+            <section id="section-9" aria-labelledby="title-9">
+                <h2 id="title-9">Schlusswort</h2>
+
+                <p>
+                    Ausgangspunkt war die Hypothese, die Leistungsfähigkeit eines Systems sei proportional zu dessen
+                    (erforderlicher) Varietät. In technischen, biologischen, sozialen, heuristischen, kognitiven und
+                    kollaborativen Bereichen ist sie zu verwerfen. Am Ende bleiben nur die mahnenden Worte Norbert
+                    Wieners:
+                </p>
+
+                <p class="callout" style="text-align: center;">
+                    <strong>“From believing this necessary, they [Berater, Gurus, Weise] come to believe it possible.”
+                        (N. Wiener<a aria-label="Zur Endnote 22" href="#cite-note-22"
+                            id="cite-ref-22">[22]</a>)</strong>
+                </p>
+
+                <div class="signature-icon"></div>
+            </section>
+
+            <section id="section-10" aria-labelledby="title-10">
+                <h2 id="title-10">Endnoten</h2>
+
+                <ol class="ref-sources">
+                    <li id="cite-note-1">
+                        <a aria-label="Zurück zum Text" href="#cite-ref-1">↑</a> Malik, F. (2015). <em>Navigieren in
+                            Zeiten des Umbruchs:
+                            Die Welt neu denken und gestalten</em> (1. Aufl., S. 44). Frankfurt/New York: Campus Verlag.
+                    </li>
+                    <li id="cite-note-2">
+                        <a aria-label="Zurück zum Text" href="#cite-ref-2">↑</a> Ashby, W. R. (1961). <em>An
+                            introduction to
+                            cybernetics</em> (4th impr.). London: Chapman &amp; Hall.
+                    </li>
+                    <li id="cite-note-3">
+                        <a aria-label="Zurück zum Text" href="#cite-ref-3">↑</a> Dijkstra, E. W. (1972). The humble
+                        programmer.
+                        <em>Communications of the ACM, 15</em>(10), 859–866. <a
+                            href="https://doi.org/10.1145/355604.361591" target="_blank"
+                            title="DOI-Link">https://doi.org/10.1145/355604.361591</a>
+                    </li>
+                    <li id="cite-note-4">
+                        <a aria-label="Zurück zum Text" href="#cite-ref-4">↑</a> ISO 26262-5:2018. (2018). <em>Road
+                            vehicles — Functional
+                            safety — Part 5: Product development at the hardware level</em> (2nd ed.). International
+                        Organization for Standardization.
+                    </li>
+                    <li id="cite-note-5">
+                        <a aria-label="Zurück zum Text" href="#cite-ref-5">↑</a> IEC 61508. (2010). <em>Functional
+                            safety of
+                            electrical/electronic/programmable electronic safety-related systems</em>. International
+                        Electrotechnical Commission.
+                    </li>
+                    <li id="cite-note-6">
+                        <a aria-label="Zurück zum Text" href="#cite-ref-6">↑</a> Penzlin, H. (2016). <em>Das Phänomen
+                            Leben: Grundfragen
+                            der Theoretischen Biologie</em> (S. 305f.). Springer Berlin Heidelberg. <a
+                            href="https://doi.org/10.1007/978-3-662-48128-8" target="_blank"
+                            title="DOI-Link">https://doi.org/10.1007/978-3-662-48128-8</a>
+                    </li>
+                    <li id="cite-note-7">
+                        <a aria-label="Zurück zum Text" href="#cite-ref-7">↑</a> Wikipedia. (2025). Paretoprinzip. In
+                        <em>Wikipedia – Die
+                            freie Enzyklopädie</em>. Abgerufen am 17.08.2025 von <a
+                            href="https://de.wikipedia.org/w/index.php?title=Paretoprinzip&amp;oldid=258797128"
+                            target="_blank"
+                            title="Wikipedia: Paretoprinzip">https://de.wikipedia.org/w/index.php?title=Paretoprinzip&amp;oldid=258797128</a>
+                    </li>
+                    <li id="cite-note-8">
+                        <a aria-label="Zurück zum Text" href="#cite-ref-8">↑</a> Wikipedia. (2025). Weibull-Verteilung.
+                        In <em>Wikipedia –
+                            Die freie Enzyklopädie</em>. Abgerufen am 17.08.1985 von <a
+                            href="https://de.wikipedia.org/w/index.php?title=Weibull-Verteilung&amp;oldid=257468721"
+                            target="_blank"
+                            title="Wikipedia: Weibull-Verteilung">https://de.wikipedia.org/w/index.php?title=Weibull-Verteilung&amp;oldid=257468721</a>
+                    </li>
+                    <li id="cite-note-9">
+                        <a aria-label="Zurück zum Text" href="#cite-ref-9">↑</a> Wikipedia. (2025). Problem des
+                        Handlungsreisenden. In
+                        <em>Wikipedia – Die freie Enzyklopädie</em>. Abgerufen am 18.08.2025 von <a
+                            href="https://de.wikipedia.org/w/index.php?title=Problem_des_Handlungsreisenden&amp;oldid=252524720"
+                            target="_blank"
+                            title="Wikipedia: Problem des Handlungsreisenden">https://de.wikipedia.org/w/index.php?title=Problem_des_Handlungsreisenden&amp;oldid=252524720</a>
+                    </li>
+                    <li id="cite-note-10">
+                        <a aria-label="Zurück zum Text" href="#cite-ref-10">↑</a> Wikipedia. (2025). Rucksackproblem. In
+                        <em>Wikipedia –
+                            Die freie Enzyklopädie</em>. Abgerufen am 18.08.2025 von <a
+                            href="https://de.wikipedia.org/w/index.php?title=Rucksackproblem&amp;oldid=252301004"
+                            target="_blank"
+                            title="Wikipedia: Rucksackproblem">https://de.wikipedia.org/w/index.php?title=Rucksackproblem&amp;oldid=252301004</a>
+                    </li>
+                    <li id="cite-note-11">
+                        <a aria-label="Zurück zum Text" href="#cite-ref-11">↑</a> Wikipedia. (2025). Lineare
+                        Optimierung. In <em>Wikipedia
+                            – Die freie Enzyklopädie</em>. Abgerufen am 18.08.2025 von <a
+                            href="https://de.wikipedia.org/w/index.php?title=Lineare_Optimierung&amp;oldid=256915613"
+                            target="_blank"
+                            title="Wikipedia: Lineare Optimierung">https://de.wikipedia.org/w/index.php?title=Lineare_Optimierung&amp;oldid=256915613</a>
+                    </li>
+                    <li id="cite-note-12">
+                        <a aria-label="Zurück zum Text" href="#cite-ref-12">↑</a> Wikipedia. (2025). Evolutionärer
+                        Algorithmus. In
+                        <em>Wikipedia – Die freie Enzyklopädie</em>. Abgerufen am 18.08.2025 von <a
+                            href="https://de.wikipedia.org/w/index.php?title=Evolution%C3%A4rer_Algorithmus&amp;oldid=257549584"
+                            target="_blank"
+                            title="Wikipedia: Evolutionärer Algorithmus">https://de.wikipedia.org/w/index.php?title=Evolution%C3%A4rer_Algorithmus&amp;oldid=257549584</a>
+                    </li>
+                    <li id="cite-note-13">
+                        <a aria-label="Zurück zum Text" href="#cite-ref-13">↑</a> Malik, F. (2015). <em>Navigieren in
+                            Zeiten des Umbruchs:
+                            Die Welt neu denken und gestalten</em> (1. Aufl., Kap. 5). Frankfurt/New York: Campus
+                        Verlag.
+                    </li>
+                    <li id="cite-note-14">
+                        <a aria-label="Zurück zum Text" href="#cite-ref-14">↑</a> Luhmann, N. (1991). <em>Soziale
+                            Systeme: Grundriss einer
+                            allgemeinen Theorie</em> (4. Aufl.). Frankfurt am Main: Suhrkamp.
+                    </li>
+                    <li id="cite-note-15">
+                        <a aria-label="Zurück zum Text" href="#cite-ref-15">↑</a> Kühl, S. (2011). <em>Organisationen:
+                            Eine sehr kurze
+                            Einführung</em> (1. Aufl., S. 71). Wiesbaden: Springer VS.
+                    </li>
+                    <li id="cite-note-16">
+                        <a aria-label="Zurück zum Text" href="#cite-ref-16">↑</a> Beer, S. (2004). <em>Diagnosing the
+                            system for
+                            organizations</em>. Chichester: John Wiley &amp; Sons.
+                    </li>
+                    <li id="cite-note-17">
+                        <a aria-label="Zurück zum Text" href="#cite-ref-17">↑</a> Maturana, H. R., &amp; Varela, F. J.
+                        (1991).
+                        <em>Autopoiesis and cognition: The realization of the living</em>. Dordrecht: Springer
+                        Netherlands.
+                    </li>
+                    <li id="cite-note-18">
+                        <a aria-label="Zurück zum Text" href="#cite-ref-18">↑</a> Wikipedia. (2025). Shuhari. In
+                        <em>Wikipedia – The Free
+                            Encyclopedia</em>. Retrieved 17.08.2025 from <a
+                            href="https://en.wikipedia.org/w/index.php?title=Shuhari&amp;oldid=1303951898"
+                            target="_blank"
+                            title="Wikipedia: Shuhari">https://en.wikipedia.org/w/index.php?title=Shuhari&amp;oldid=1303951898</a>
+                    </li>
+                    <li id="cite-note-19">
+                        <a aria-label="Zurück zum Text" href="#cite-ref-19">↑</a> Malik, F. (2024). Malik
+                        Syntegrations-Methodik. Im
+                        Internet, Stand: 12.08.2025: <a
+                            href="https://www.malik-management.com/wp-content/uploads/2024/05/Malik-Syntegration-InfoSheet.pdf"
+                            target="_blank"
+                            title="PDF: Malik Syntegration InfoSheet">https://www.malik-management.com/wp-content/uploads/2024/05/Malik-Syntegration-InfoSheet.pdf</a>
+                    </li>
+                    <li id="cite-note-20">
+                        <a aria-label="Zurück zum Text" href="#cite-ref-20">↑</a> Nittbaur, G. (2005). Stafford Beer's
+                        syntegration as a
+                        renascence of the ancient Greek agora in present-day organizations. <em>Journal of Universal
+                            Knowledge Management, 1</em>, 59–66.
+                    </li>
+                    <li id="cite-note-21">
+                        <a aria-label="Zurück zum Text" href="#cite-ref-21">↑</a> YouTube. (2025). <em>[Video: Vortrag
+                            zu
+                            Syntegration]</em>. Abgerufen am 18.08.2025 von <a
+                            href="https://youtu.be/TmoT8Zv4cQg?si=1Faz92M73A-1omgB&amp;t=275" target="_blank"
+                            title="YouTube-Video">https://youtu.be/TmoT8Zv4cQg?si=1Faz92M73A-1omgB&amp;t=275</a>
+                    </li>
+                    <li id="cite-note-22">
+                        <a aria-label="Zurück zum Text" href="#cite-ref-22">↑</a> Wiener, N. (2019). <em>Cybernetics:
+                            Or, control and
+                            communication in the animal and the machine</em> (2nd ed.). Cambridge, MA: MIT Press.
+                    </li>
+                    <li id="cite-note-23">
+                        <a aria-label="Zurück zum Text" href="#cite-ref-23">↑</a> Chester, M. V., &amp; Allenby, B.
+                        (2022).
+                        <em>Infrastructure autopoiesis: Requisite variety to engage complexity</em>. <em>Environmental
+                            Research: Infrastructure and Sustainability, 2</em>(1), 012001.
+                        https://doi.org/10.1088/2634-4505/ac48ef
+                    </li>
+                    <li id="cite-note-24">
+                        <a aria-label="Zurück zum Text" href="#cite-ref-24">↑</a> Taleb, N. N. (2018). <em>Skin in the
+                            Game. Das Risiko und
+                            sein Preis</em> (1st ed.). München: Penguin.
+                    </li>
+                </ol>
+            </section>
+        </article>
+    </main>
+
+    <a href="#" class="scroll-up" aria-label="Nach oben scrollen">
+        <svg class="icon">
+            <use href="../assets/img/icons.svg#icon-scrollup"></use>
+        </svg>
+    </a>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <a href="../impressum.html">Impressum</a>
+            <a href="../datenschutz.html">Datenschutz</a>
+        </div>
+    </footer>
+    <script src="../assets/js/lightbox.js"></script>
+</body>
+
+</html>

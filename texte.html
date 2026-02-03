@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Texte von Nico Litschke</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="texte zu Systems Engineering, Safety, Risiko und systemischem Denken.">
+  <link rel="canonical" href="https://www.nicolitschke.com/texte/">
+
+  <link rel="stylesheet" href="assets/css/fonts.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/texte.css">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="site-title" href="../index.html">Nico Litschke</a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="../index.html">Über</a>
+        <a href="texte.html" class="is-active">Texte</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+
+    <h1>Texte</h1>
+
+    <!-- Filter / Kategorien -->
+    <ul class="card-filter-menu">
+      <li class="filter-button active" data-tag="__all">
+        <svg class="icon" aria-hidden="true">
+          <use href="../assets/img/icons.svg#icon-infinity"></use>
+        </svg>
+        <span>Alle Texte</span>
+      </li>
+
+      <li class="filter-button" data-tag="engineering">
+        <svg class="icon" aria-hidden="true">
+          <use href="../assets/img/icons.svg#icon-engineering"></use>
+        </svg>
+        <span>Engineering</span>
+      </li>
+
+      <li class="filter-button" data-tag="fuehren-managen">
+        <svg class="icon" aria-hidden="true">
+          <use href="../assets/img/icons.svg#icon-manage"></use>
+        </svg>
+        <span>Führen & Managen</span>
+      </li>
+
+      <li class="filter-button" data-tag="mastery-lernen">
+        <svg class="icon" aria-hidden="true">
+          <use href="../assets/img/icons.svg#icon-learn"></use>
+        </svg>
+        <span>Mastery & Lernen</span>
+      </li>
+
+      <li class="filter-button" data-tag="safety-risiko">
+        <svg class="icon" aria-hidden="true">
+          <use href="../assets/img/icons.svg#icon-safety"></use>
+        </svg>
+        <span>Safety & Risiko</span>
+      </li>
+
+      <li class="filter-button" data-tag="skills-tools">
+        <svg class="icon" aria-hidden="true">
+          <use href="../assets/img/icons.svg#icon-tools"></use>
+        </svg>
+        <span>Skills & Tools</span>
+      </li>
+
+      <li class="filter-button" data-tag="systemik">
+        <svg class="icon" aria-hidden="true">
+          <use href="../assets/img/icons.svg#icon-system"></use>
+        </svg>
+        <span>System Denken</span>
+      </li>
+
+    </ul>
+
+    <div id="filter-controls" style="margin:15px;">
+      <label><input type="checkbox" id="and-filter-toggle" />Präzise Suche (UND)</label>
+    </div>
+
+    <p id="no-results-message" style="display:none;margin-top:35px;text-align:center">
+      <span
+        style="display:block;margin-top:25px;text-align:center;font-size:40px;color:#777;font-family:system-ui,sans-serif;">(^_^)</span><br />
+      Keine Artikel gefunden
+    </p>
+
+    <div id="card-grid">
+    </div>
+
+    <p id="no-results-message" style="display:none;margin-top:35px;text-align:center">
+      <span
+        style="display:block;margin-top:25px;text-align:center;font-size:40px;color:#777;font-family:system-ui,sans-serif;">(^_^)</span><br />
+      Keine Artikel gefunden
+    </p>
+
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <a href="../impressum.html">Impressum</a>
+      <a href="../datenschutz.html">Datenschutz</a>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="../assets/js/text-grid.js" defer></script>
+
+</body>
+
+</html>

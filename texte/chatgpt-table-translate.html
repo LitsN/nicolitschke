@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <title>ChatGPT und ich scheitern am Zeilenumbruch</title>
+    <meta name="description"
+        content="Kann ich mit ChatGPT Plus meine Produktivität im Engineering und Backoffice steigern? Mein Test zeigt: eher nicht. Wer Ergebnisse mit hoher Güte benötigt, kann kaum auf ChatGPT setzen. Das Übersetzen einer Excel-Tapete wird zum ChatGPT-Stresstest.">
+    <meta name="robots" content="index, follow, archive">
+    <meta name="author" content="Nico Litschke">
+
+    <meta property="og:url" content="https://www.nicolitschke.com/texte/chatgpt-table-translate.html">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:site_name" content="Nico Litschke">
+    <meta property="og:title" content="ChatGPT und ich scheitern am Zeilenumbruch">
+    <meta property="og:description"
+        content="Kann ich mit ChatGPT Plus meine Produktivität im Engineering und Backoffice steigern? Mein Test zeigt: eher nicht. Wer Ergebnisse mit hoher Güte benötigt, kann kaum auf ChatGPT setzen. Das Übersetzen einer Excel-Tapete wird zum ChatGPT-Stresstest.">
+    <meta property="og:image" content="../assets/img/chatgpt-table-translate/hero.png">
+
+    <meta name="google-site-verification" content="1KLRTKWSuSamhN09JbMkQEd-R10iuFCNAHxdYZJVr_M">
+
+    <link rel="canonical" href="https://www.nicolitschke.com/texte/chatgpt-table-translate.html">
+    <link rel="stylesheet" href="../assets/css/fonts.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/article.css">
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+    <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+
+</head>
+
+
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="site-title" href="../index.html">Nico Litschke</a>
+            <nav aria-label="Hauptnavigation" class="site-nav">
+                <a href="../index.html">Über</a>
+                <a href="../texte.html">Texte</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <article>
+            <h1>ChatGPT und ich scheitern am Zeilenumbruch</h1>
+            <ul class="tag-line">
+                <li><a class="tag" data-tag="skills-tools" href="../texte.html?tag=skills-tools"
+                        title="Alle Artikel über Skills &amp; Tools anzeigen">Skills &amp; Tools</a></li>
+                <li><a class="tag" data-tag="fuehren-managen" href="../texte.html?tag=fuehren-managen"
+                        title="Alle Artikel über Führen &amp; Managen anzeigen">Führen &amp; Managen</a></li>
+            </ul>
+            <section aria-labelledby="abstract-title" class="abstract">
+                <h2>Abstract</h2>
+                <p>
+                    Kann ich mit ChatGPT Plus meine Produktivität im Engineering und Backoffice steigern? Mein Test
+                    zeigt: eher nicht. Wer akkurate Ergebnisse benötigt, kann kaum auf ChatGPT setzen. Ich zeige
+                    das anhand der Übersetzung einer Excel-Tapete.
+                </p>
+            </section>
+            <details class="toc">
+                <summary>
+                    <svg class="icon toggle-icon">
+                        <use href="../assets/img/icons.svg#icon-expand"></use>
+                    </svg>
+                    Inhalt
+                </summary>
+                <nav aria-label="Inhaltsverzeichnis">
+                    <ul>
+                        <li><a href="#section-1">Das Mini-Problem: Excel-Tapete übersetzen</a></li>
+                        <li><a href="#section-2">Der vermaledeite Zeilenumbruch!</a></li>
+                        <li><a href="#section-3">Prompts erinnern an Mikromanagement</a></li>
+                        <li><a href="#section-4">Taugt das für Engineering &amp; Projekte?</a></li>
+                        <li><a href="#section-5">Fazit</a></li>
+                    </ul>
+                </nav>
+            </details>
+            <section aria-labelledby="title-1" id="section-1">
+                <h2 id="title-1">Das Mini-Problem: Excel-Tapete übersetzen</h2>
+                <p>
+                    Um das Anliegen zu simulieren, habe ich meine Projekt-Historie verwendet: Eine wunderbar
+                    Ingenieurs-akribische Excel-Tapete, die auf Englisch übersetzt werden muss. „Klasse“, dachte ich,
+                    „das
+                    sollte für ein LLM Sprachmodell ein Klacks sein!“ Bis ich die erste Antwort von ChatGPT las:
+                </p>
+                <figure><img alt="Screenshot der Problemstellung"
+                        src="../assets/img/chatgpt-table-translate/problem.png" />
+                    <figcaption>Ausschnitt der ersten ChatGPT Ausgabe für die zu übersetzende Exceltabelle. Quelle:
+                        ChatGPT Screenshot.</figcaption>
+                </figure>
+                <p>
+                    Ok, geschenkt. Mein erster Prompt war unpräzise:
+                </p>
+                <figure><img alt="Erster Prompt in ChatGPT für die Übersetzung einer Excel-Tabelle"
+                        src="../assets/img/chatgpt-table-translate/1-prompt.png" />
+                    <figcaption>Erster Prompt in ChatGPT für die Übersetzung einer Excel-Tabelle. Quelle:
+                        ChatGPT Screenshot.</figcaption>
+                </figure>
+                <p>
+                    Ich ahnte Böses. ChatGPT wollte mir nicht die englische Übersetzung ausgeben. Stattdessen:
+                </p>
+                <figure><img alt="ChatGPT verweigerte die englische Übersetzung"
+                        src="../assets/img/chatgpt-table-translate/2-prompt.png" />
+                    <figcaption>ChatGPT verweigerte die englische Übersetzung Quelle: ChatGPT Screenshot.</figcaption>
+                </figure>
+                <p>
+                    Nach weiterem verbalen Debuggen gestandt ChatGPT:
+                </p>
+                <figure><img alt="ChatGPT kann anscheinend nicht auf Übersetzungsdienste zugreifen"
+                        src="../assets/img/chatgpt-table-translate/3-prompt.png" />
+                    <figcaption>ChatGPT kann anscheinend nicht auf Übersetzungsdienste zugreifen. Quelle:
+                        ChatGPT Screenshot.</figcaption>
+                </figure>
+                <p>
+                    Also Sackgasse.
+                </p>
+            </section>
+            <section aria-labelledby="title-2" id="section-2">
+                <h2 id="title-2">Der vermaledeite Zeilenumbruch!</h2>
+                <p>
+                    Klartext übersetzen? Kein Problem. Tabellen mit Sonderzeichen? Katastrophe. Bei Datenmigrationen
+                    sind Sonderzeichen ein bekanntes Übel. Hier ein Semikolon, da ein Zeilenumbruch ‚\n‘, dort ein
+                    Pipe ‚|‘ (der Teufel!) und schon sind ganze Datensätze verhagelt. Meine Excel-Tapete war voll davon.
+                    So sah eine typische Zeile aus:
+                </p>
+                <figure><img
+                        alt="Eine Zeile aus meiner Projekt-Historie. Die Sonderzeichen und Zeilenumbrüche in einer Zelle verdaut ChatGPT sehr schlecht."
+                        src="../assets/img/chatgpt-table-translate/4-prompt.png" />
+                    <figcaption>Eine Zeile aus meiner Projekt-Historie. Die Sonderzeichen und Zeilenumbrüche in einer
+                        Zelle verdaut ChatGPT sehr schlecht. Quelle: Eigene Darstellung.</figcaption>
+                </figure>
+                <p>
+                    Zuerst brachte ich ChatGPT bei, wie es mit den Sonderzeichen umgehen sollte. Damit gab ChatGPT
+                    endlich ein „Ergebnis“ aus:
+                </p>
+                <figure><img
+                        alt="Ergebnis, nachdem ich ChatGPT instruierte, we es mit Sonderzeichen und Zeilenumbrüchen umgehen soll"
+                        src="../assets/img/chatgpt-table-translate/5-prompt.png" />
+                    <figcaption>Ergebnis, nachdem ich ChatGPT instruierte, we es mit Sonderzeichen und Zeilenumbrüchen
+                        umgehen soll. Quelle: ChatGPT Screenshot.</figcaption>
+                </figure>
+                <p>
+                    Das ist in etwa 40% akkurat. In den letzten vier Spalten fehlte Text. Viele der Zeilen konnte
+                    ChatGPT nicht auslesen. <strong>Vor allem aber hatte ChatGPT wild halluziniert.</strong> Porsche
+                    wurde zu Tesla, Bosch zu Toyota oder Automotive zu Aerospace. Es wirkte fast, als wolle ChatGPT die
+                    Tabelle ‚aufwerten‘ – leider ohne Rücksprache mit mir.
+                </p>
+                <p>
+                    Ein zweites Problem war, dass mir ChatGPT die englische Übersetzung nicht als Excel-Tapete ausgeben
+                    wollte. Ich bekam sowas:
+                </p>
+                <figure><img alt="ChatGPT konnte die englische Übersetzung nicht in Excel überführen"
+                        src="../assets/img/chatgpt-table-translate/6-prompt.png" />
+                    <figcaption>ChatGPT konnte die englische Übersetzung nicht in Excel überführen. Quelle:
+                        ChatGPT Screenshot.</figcaption>
+                </figure>
+                <p>
+                    bis mir ChatGPT nach einigem verbalen Debugging sagte:
+                </p>
+                <figure><img alt="Fehlermeldung von ChatGPT, warum es keine englische Übersetzung in Excel schreibt"
+                        src="../assets/img/chatgpt-table-translate/7-prompt.png" />
+                    <figcaption>Fehlermeldung von ChatGPT, warum es keine englische Übersetzung in Excel schreibt
+                        Quelle: ChatGPT Screenshot.</figcaption>
+                </figure>
+                <p>
+                    Ja, dumm von mir. Schlecht instruiert. Der typische Anfängerfehler bei Pointer-Programmierung, wenn
+                    der Pointer auf die falsche Speicherzelle zeigt. Da ChatGPT Python, Panda &amp; Co. einsetzt,
+                    war mir klar, wie ich „prompten“ musste.
+                </p>
+            </section>
+            <section aria-labelledby="title-3" id="section-3">
+                <h2 id="title-3">Prompts erinnern an Mikromanagement</h2>
+                <p>
+                    Mit einigem verbalen Debugging entstand folgender Prompt:
+                </p>
+                <pre><code>Übersetze die angefügte Tabelle von Deutsch auf Englisch. Gehe wie folgt vor:
+1.      Ersetze Sonderzeichen und Ausdrücke durch geeignete Platzhalter, z. B. „-“ durch $MINUS, „\n“ oder durch $NEWLINE
+2.      Lade die Tabelle in einen ersten Dataframe "dt". Achte darauf, dass jede Zelle in Anführungsstriche „“ gewrappt wird
+3.      Erstelle einen zweiten Dataframe "en" mit der gleichen Dimension wie der Dataframe "dt" 
+4.      Lese den Inhalt der Zelle A1 des Dataframe "dt" aus und speichere sie in einer Variablen "translate" 
+5.      Übersetze den Inhalt der Variable "translate" von Deutsch auf Englisch
+6.      Schreibe den übersetzten Inhalt von "translate" in die Zelle A1 des Dataframe "en"
+7.      Wiederholte die Schritte 1 bis 6 analog für alle nicht-leeren Zellen, beginnend mit der Zelle A2 im Dataframe „dt“
+8.      Ersetze dann im Dataframe „en“ alle Platzhalter laut Schritt 1 wieder zurück zu den entsprechenden Sonderzeichen/Ausdrücken
+9.      Stelle das Ergebnis als Klartext-Tabelle bereit
+Halluziniere nicht. Erfinde keine Daten. Korrekte Übersetzung hat oberste Priorität.
+</code></pre>
+                <p>
+                    Wenige Kaffee später stand in der Ausgabe:
+                </p>
+                <figure><img alt="ChatGPT-Ausgabe der Übersetzung nach detailliertem Prompt"
+                        src="../assets/img/chatgpt-table-translate/8-prompt.png" />
+                    <figcaption>ChatGPT-Ausgabe der Übersetzung nach detailliertem Prompt Quelle: ChatGPT Screenshot.
+                    </figcaption>
+                </figure>
+                <p>
+                    Das entsprach einer Güte von etwa 45&nbsp;%. Wieder <strong>unvollständig</strong>. Vor allem aber
+                    <strong>weiterhin halluziniert</strong>. Komischerweise <strong>fehlten auch ganze Zeilen</strong>.
+                    Dazu ChatGPT:
+                </p>
+                <figure><img alt="ChatGPT-Fehlermeldung, warum es Inhalte auslässt"
+                        src="../assets/img/chatgpt-table-translate/9-prompt.png" />
+                    <figcaption>ChatGPT-Fehlermeldung, warum es Inhalte auslässt Quelle: ChatGPT Screenshot.
+                    </figcaption>
+                </figure>
+                <p>
+                    Große Datenmengen sind der Zweck von LLM, oder? Daraufhin hat mir ChatGPT diesen Satz um die Ohren
+                    gehauen:
+                </p>
+                <figure><img alt="ChatGPT: Ausreden über Ausreden"
+                        src="../assets/img/chatgpt-table-translate/10-prompt.png" />
+                    <figcaption>ChatGPT: Ausreden über Ausreden Quelle: ChatGPT Screenshot.</figcaption>
+                </figure>
+                <p>
+                    Das sagen Leute, wenn sie keine Ahnung haben; dies aber durch hohe Worte kaschieren wollen…
+                </p>
+            </section>
+            <section aria-labelledby="title-4" id="section-4">
+                <h2 id="title-4">Taugt das für Engineering &amp; Projekte?</h2>
+                <p>
+                    Insgesamt ernüchternd und schade. In Engineering-Projekten haben wir unzählig viele solcher Daten,
+                    die ähnlich aussehen: Log-Dateien, Excel-Tapeten, DOORS, Rhapsody, Enterprise Architect, UMLet,
+                    APIS IQ, und und und. Klar, mit Datenbereinigung, Ausnahmebehandlungen und RegEx-Parsen bekommt man
+                    das hin. Diesen Aufwand wollte ich mit ChatGPT reduzieren. Dazu ChatGPT selbst:
+                </p>
+                <figure><img alt="ChatGPTs Selbsteinschätzung zur Datenbereinigung"
+                        src="../assets/img/chatgpt-table-translate/11-prompt.png" />
+                    <figcaption>ChatGPTs Selbsteinschätzung zur Datenbereinigung Quelle: ChatGPT Screenshot.
+                    </figcaption>
+                </figure>
+                <p>
+                    <strong>Akzeptabel ist das nicht</strong> für Engineering oder anspruchsvollere Büroarbeit wie etwa
+                    Buchführung. Das Tool muss akkurate Ergebnisse liefern. Ich stelle mir vor, wie einfach ein
+                    Sicherheitsmechanismus entfällt. Das würde sicherlich noch auffallen. Was aber, wenn nur subtile
+                    Änderungen erfolgen, z. B. „16V“ zu „18V“ verfälscht werden? So ein unscheinbarer „Bitkipper“
+                    sticht nicht unbedingt ins Auge. Die Folgen können aber katastrophal sein. Es sind schon Raumsonden
+                    auf dem Mars eingeschlagen, weil es einen Dokumentationsfehler der Längeneinheiten gab.<a
+                        id="cite-ref-1" href="#cite-note-1" aria-label="Zur Endnote 1">[1]</a>
+                </p>
+                <p class="callout">
+                    Wer akkurate Ergebnisse benötigt, wird derzeit kaum mit ChatGPT arbeiten können.<br />
+                    Für solche nicht-funktionalen Anforderungen braucht es spezialisierte „Experten-KI“.
+                </p>
+                <p>
+                    Eine weitere Fehlerquelle bin natürlich ich selbst. Ich lerne noch, was gute von schlechten Prompts
+                    unterscheidet und was ChatGPT verdauen kann.
+                </p>
+            </section>
+            <section aria-labelledby="title-5" id="section-5">
+                <h2 id="title-5">Fazit</h2>
+                <p>
+                    Mein Testlauf zeigt: Für die Datenverarbeitung ist <strong>ChatGPT noch ungeeignet, wenn es auf hohe
+                        Güte ankommt</strong>. Vermutlich braucht es eine ‚Experten-KI‘, die solche Aufgaben
+                    zuverlässig lösen kann. Wie sind Ihre Erfahrungen mit ChatGPT? Hätte ich meinen Prompt anders
+                    gestalten sollen? Glauben Sie, dass spezialisierte KI der nächste Schritt ist? Ich bin gespannt
+                    auf Ihre Meinungen!
+                </p>
+                <div class="signature-icon"></div>
+
+            </section>
+            <section aria-labelledby="title-6" id="section-6">
+                <h2 id="title-6">Endnoten</h2>
+                <ol class="ref-sources">
+                    <li id="cite-note-1">
+                        <a href="#cite-ref-1" target="_self" title="zurück">↑</a>Ein bekanntes Beispiel für die Folgen
+                        subtiler Fehler ist die Mars Climate Orbiter-Mission, vgl. Wikipedia (2024). <em>Mars Climate
+                            Orbiter</em>. Abgerufen am 18.11.2024: <a
+                            href="https://en.wikipedia.org/wiki/Mars_Climate_Orbiter"
+                            target="target=">https://en.wikipedia.org/wiki/Mars_Climate_Orbiter</a>
+                    </li>
+                </ol>
+
+            </section>
+        </article>
+    </main>
+    <!-- Followed by standard elements -->
+    <a aria-label="Nach oben scrollen" class="scroll-up" href="#">
+        <svg class="icon">
+            <use href="../assets/img/icons.svg#icon-scrollup"></use>
+        </svg>
+    </a>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <a href="../impressum.html">Impressum</a>
+            <a href="../datenschutz.html">Datenschutz</a>
+        </div>
+    </footer>
+    <script src="../assets/js/lightbox.js"></script>
+</body>
+
+</html>

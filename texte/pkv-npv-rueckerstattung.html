@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <title>PKV: Kosten abrechnen oder Beiträge rückerstatten? Eine Entscheidungshilfe.</title>
+    <meta name="description"
+        content="Kapitalwert-Analyse: Lohnt sich bei meiner PKV die Rückerstattung oder die Kostenabrechnung? Praxisnah erklärt mit Excel-Tool für Ihre Entscheidung.">
+    <meta name="robots" content="index, follow, archive">
+    <meta name="author" content="Nico Litschke">
+
+    <meta property="og:url" content="https://www.nicolitschke.com/texte/pkv-npv-rueckerstattung.html">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:site_name" content="Nico Litschke">
+    <meta property="og:title" content="PKV: Kosten abrechnen oder rückerstatten?">
+    <meta property="og:description"
+        content="Kapitalwert-Analyse: Lohnt sich bei meiner PKV die Rückerstattung oder die Kostenabrechnung? Praxisnah erklärt mit Excel-Tool für Ihre Entscheidung.">
+    <meta property="og:image" content="../assets/img/pkv-npv-rueckerstattung/hero.png">
+
+    <meta name="google-site-verification" content="1KLRTKWSuSamhN09JbMkQEd-R10iuFCNAHxdYZJVr_M">
+
+    <link rel="canonical" href="https://www.nicolitschke.com/texte/pkv-npv-rueckerstattung.html">
+    <link rel="stylesheet" href="../assets/css/fonts.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/article.css">
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+    <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+
+
+    <!-- Mathjax: enable when needed; otherwise disable-->
+    <script src="../assets/js/mathjax-config.js" defer></script>
+    <script src="../assets/js/tex-mml-svg.js" async></script>
+
+</head>
+<style>
+    table {
+        border: 1px solid var(--border);
+        border-collapse: collapse;
+        margin: auto;
+    }
+
+    td,
+    th {
+        text-align: left;
+        padding: 10px;
+        border: 1px solid var(--border);
+        border-collapse: collapse;
+    }
+</style>
+
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="site-title" href="../index.html">Nico Litschke</a>
+            <nav class="site-nav" aria-label="Hauptnavigation">
+                <a href="../index.html">Über</a>
+                <a href="../texte.html">Texte</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <article>
+            <h1>PKV: Kosten abrechnen oder Beiträge rückerstatten? Eine Entscheidungshilfe.</h1>
+
+            <ul class="tag-line">
+                <li><a href="../texte.html?tag=safety-risiko" class="tag" data-tag="safety-risiko"
+                        title="Alle Artikel über Safety &amp; Risiko anzeigen">Safety &amp; Risiko</a></li>
+                <li><a href="../texte.html?tag=skills-tools" class="tag" data-tag="skills-tools"
+                        title="Alle Artikel über Skills &amp; Tools anzeigen">Skills &amp; Tools</a></li>
+            </ul>
+
+            <section class="abstract" aria-labelledby="abstract-title">
+                <h2 id="abstract-title">Abstract</h2>
+                <p>
+                    Jedes Jahr die gleiche Frage: Soll ich die Behandlungskosten an die private Krankenversicherung
+                    (PKV)
+                    abrechnen oder die Beitragsrückerstattung wählen? Laut meiner PKV ist die Rückerstattung
+                    &bdquo;fast immer vorteilhafter&rdquo;. Doch ihre Darstellung ist irreführend: Wichtige Details
+                    fehlen, und
+                    gestaffelte Rückerstattungen werden unvollständig berücksichtigt. Eine Entscheidungshilfe sucht man
+                    vergebens – also entwickeln wir eine eigene, mithilfe des Kapitalwerts.
+                </p>
+            </section>
+
+            <p class="callout">
+                <strong>Der Kapitalwert beziffert den heutigen Wert zukünftiger Zahlungen</strong>. Damit können wir
+                langfristige Investitionen beurteilen und Inflation, Steuern oder Abschreibungen einpreisen.
+                Die Grundlagen habe ich <a href="../texte/kapitalwert-basics.html"
+                    title="Kapitalwert: Der Wert eines Angebots" target="_blank">hier</a> beschrieben.
+            </p>
+
+            <p>
+                &bdquo;Kosten&rdquo; meint hier Behandlungskosten, die ich an die PKV abrechnen kann. Alternativ kann
+                ich bereits gezahlte Monatsbeiträge in Form einer &bdquo;Rückerstattung&rdquo; zurückfordern.
+            </p>
+
+            <details class="toc">
+                <summary>
+                    <svg class="icon toggle-icon">
+                        <use href="../assets/img/icons.svg#icon-expand"></use>
+                    </svg>
+                    Inhalt
+                </summary>
+                <nav aria-label="Inhaltsverzeichnis">
+                    <ul>
+                        <li><a href="#section-1">Gestaffelte Rückerstattungen</a></li>
+                        <li><a href="#section-2">Annahmen</a></li>
+                        <li><a href="#section-3">Kapitalwert der aufgegebenen Rückerstattung</a></li>
+                        <li><a href="#section-4">Entscheiden &amp; Entscheidungshilfe</a></li>
+                        <li><a href="#section-5">Fazit</a></li>
+                    </ul>
+                </nav>
+            </details>
+
+            <section id="section-1" aria-labelledby="title-1">
+                <h2 id="title-1">Gestaffelte Rückerstattungen</h2>
+
+                <p>
+                    Viele PKV-Tarife bieten gestaffelte Rückerstattungen, um kostenbewusstes Verhalten zu fördern (kurz
+                    erklärt bei Finanztip: <a href="https://www.finanztip.de/pkv/pkv-rueckerstattung/" target="_blank"
+                        title="https://www.finanztip.de/pkv/pkv-rueckerstattung/">https://www.finanztip.de/pkv/pkv-rueckerstattung/</a>).
+                </p>
+
+                <p>
+                    Meine PKV staffelt die Rückerstattung in Monatsbeiträgen:
+                </p>
+
+                <figure>
+                    <img src="../assets/img/pkv-npv-rueckerstattung/pkv-angebot.png"
+                        alt="Scan der gestaffelten Rückerstattung." />
+                    <figcaption>Gestaffelte Beitragsrückerstattung meiner PKV (Quelle: Scan des PKV-Flyers).
+                    </figcaption>
+                </figure>
+
+                <p>
+                    Reiche ich keine Kosten ein und bleibt mein Vertrag bestehen, erhalte ich nächstes Jahr garantiert
+                    zwei Monatsbeiträge zurück. Ab dem zweiten Jahr kommt eine &bdquo;erfolgsabhängige&rdquo; Erstattung
+                    hinzu – basierend auf dem Geschäftsjahr der PKV, nicht meinem. Diese steigt jährlich bis zu maximal
+                    vier Monatsbeiträgen. Nach fünf Jahren wären also sechs beitragsfreie Monate möglich. Reiche ich
+                    jedoch Kosten ein, fällt die Rückerstattung auf &bdquo;Null&rdquo; zurück.
+                </p>
+
+                <p class="callout">
+                    Ohne zu rechnen ist klar: Es laufen nur Ausgaben an – ob für Beiträge oder Behandlungskosten. Das
+                    ökonomische Optimum liegt bei minimalen Behandlungskosten und minimalen Beiträgen. Die
+                    analytische Frage lautet somit: <strong>Ab welchem Betrag sollte ich Kosten abrechnen und auf
+                        Rückerstattungen verzichten?</strong>
+                </p>
+
+                <p>
+                    Aber Achtung: Als &bdquo;Monatsbeitrag&rdquo; nahm ich zunächst den Betrag an, den die PKV monatlich
+                    von meinem Konto abbucht. Falsch – die PKV meint den Basisschutz:
+                </p>
+
+                <figure>
+                    <img src="../assets/img/pkv-npv-rueckerstattung/pkv-basisschutz.png"
+                        alt="Scan der Basisschutzklausel" />
+                    <figcaption>Die PKV-Rückerstattung beschränkt sich auf den Basisschutz und nicht auf den vollen
+                        Montasbeitrag (Quelle: Scan des PKV-Flyers)</figcaption>
+                </figure>
+
+                <p>
+                    In meinem Fall zahle ich aktuell 483,09&nbsp;EUR monatlich, wovon 297,52&nbsp;EUR auf den
+                    Basisschutz entfallen. Das Wort &bdquo;Basisschutz&rdquo; taucht im Schreiben nur einmal auf – eine
+                    irreführende Darstellung, die ohne direkt zu lügen, falsche Schlüsse nahelegt.<br>
+                    Auch die jährliche Übersicht der Rückerstattungen greift zu kurz, da sie nur die Rückerstattung für
+                    die kommenden zwei Jahre aufzeigt:
+                </p>
+
+                <figure>
+                    <img src="../assets/img/pkv-npv-rueckerstattung/pkv-erstattung.png"
+                        alt="Scan der geschätzten Erstattung" />
+                    <figcaption>Info über voraussichtliche Rückerstattung für die kommende 2 Jahre (Quelle: Scan des
+                        PKV-Flyers)</figcaption>
+                </figure>
+
+                <p>
+                    Zuletzt dann noch dieses Kauderwelsch:
+                </p>
+
+                <figure>
+                    <img src="../assets/img/pkv-npv-rueckerstattung/vorteilhaftigkeit-claim.png"
+                        alt="Scan der Nutzenbehauptung" />
+                    <figcaption>Rückerstattung angeblich meistens attraktiver (Quelle: Scan des PKV-Flyers)</figcaption>
+                </figure>
+
+                <p>
+                    Hä? Natürlich spart die Rückerstattung Beiträge ein. Doch das ist nicht die Frage.
+                    <strong></strong>Ab welchem Betrag sollte ich Kosten abrechnen?</strong> Darum geht’s! Wir
+                    beantworten das so:
+                </p>
+
+                <ol>
+                    <li>Annahmen aufstellen</li>
+                    <li>Kapitalwert bei aufgegebener Rückerstattung berechnen</li>
+                    <li>Entscheiden</li>
+                </ol>
+            </section>
+
+            <section id="section-2" aria-labelledby="title-2">
+                <h2 id="title-2">Annahmen</h2>
+
+                <p>
+                    Für die Berechnung gelten folgende Annahmen:
+                </p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Kategorie</th>
+                            <th>Annahme</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Beiträge und Rückerstattung</td>
+                            <td>
+                                <p>
+                                    - monatlicher Beitrag 2024: 483,09&nbsp;EUR (davon 297,52&nbsp;EUR
+                                    Basissicherung)<br>
+                                    - monatlicher Beitrag ab 2025: 549,43&nbsp;EUR (davon 360,35&nbsp;EUR
+                                    Basissicherung)
+                                </p>
+
+                                <p>
+                                    - es sind bereits 3 leistungsfreie Jahre angelaufen, also 4x Basisabsicherung an
+                                    Rückerstattung
+                                </p>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Vernachlässigte Faktoren</td>
+                            <td>
+                                <p>
+                                    - Keine Beitragserhöhungen in den Folgejahren (aufgrund der Abzinsung hätte dies
+                                    sowieso geringe Auswirkung)
+                                </p>
+
+                                <p>
+                                    - Behandlungskosten haben steuerlich keine Auswirkung, da keine außergewöhnliche
+                                    Belastung (§33 EStG)
+                                </p>
+
+                                <p>
+                                    - Beiträge und Rückerstattungen haben steuerlich keine Auswirkung, da der
+                                    Höchstbetrag für Vorsorgeaufwendungen ausgeschöpft ist (§10 (4) EStG)
+                                </p>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Referenzzins</td>
+                            <td>
+                                7,5&nbsp;% p.&nbsp;a., basierend auf der langfristigen, realen Rendite eines breit
+                                diversifizierten Weltportfolios<a id="cite-ref-1" href="#cite-note-1"
+                                    aria-label="Zur Endnote 1">[1]</a> (Details: <a
+                                    href="../texte/kapitalwert-basics.html" title="Kapitalwert: Der Wert eines Angebots"
+                                    target="_blank">hier</a>)
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="section-3" aria-labelledby="title-3">
+                <h2 id="title-3">Kapitalwert der aufgegebenen Rückerstattung</h2>
+
+                <p>
+                    Wie hoch ist der Wert der aufgegebenen Beitragsrückerstattung? Am Beispiel: Bei aktuell 3
+                    leistungsfreien Jahren = 4 Monate Beitragsrückerstattungen, würde ich im nächsten Jahr keine
+                    Erstattung erhalten und auf 4 Monate verzichten. Danach baue ich wieder die gestaffelte
+                    Beitragsrückerstattung auf. Im Jahr t2 würde ich 2 Monate zurückerhalten, und auf 5–2&nbsp;= 3
+                    Monate verzichten, usw.:
+                </p>
+
+                <figure>
+                    <img src="../assets/img/pkv-npv-rueckerstattung/npv-erstattung.png"
+                        alt="Transfer der Scans in Monate der Rückerstattung" />
+                    <figcaption>Verlorenen PKV-Rückerstattungen in Monaten, ausgehend von 3 leistungsfreien Jahren
+                        (Quelle: eigene Darstellung)</figcaption>
+                </figure>
+
+                <p>
+                    Die verlorenen Monate an Rückerstattung multiplizieren wir nun mit der Basisabsicherung für dieses
+                    Jahr bzw. die kommenden Jahre und berechnen den Kapitalwert:
+                </p>
+
+                <figure>
+                    <img src="../assets/img/pkv-npv-rueckerstattung/npv-entgagene-erstattung.png"
+                        alt="NPV-Berechnung über sechs Jahre" />
+                    <figcaption>Kapitalwert der aufgegebenen PKV-Rückerstattungen, ausgehend von 3 leistungsfreien
+                        Jahren (Quelle: eigene Darstellung)</figcaption>
+                </figure>
+            </section>
+
+            <section id="section-4" aria-labelledby="title-4">
+                <h2 id="title-4">Entscheiden &amp; Entscheidungshilfe</h2>
+
+                <p>
+                    Mit dem Kapitalwert der verlorenen Rückerstattung können wir entscheiden.
+                </p>
+
+                <div class="callout" style="text-align: center;">
+                    <strong>Rechne ab, wenn</strong>
+                    $$|\textbf{Erstattung } – \textbf{ Selbstbehalt}|&gt;|\textbf{Kapitalwert künftiger Erstattungen}|$$
+                </div>
+
+                <p>
+                    Konkret: Ich zahlte 905&nbsp;EUR an Behandlungskosten. Meine PKV begleicht je nach Vorgang etwa
+                    70&nbsp;% bis 90&nbsp;% der Kosten – hier 635&nbsp;EUR bis 815&nbsp;EUR. Die Differenz ist der
+                    &bdquo;Selbstbehalt&rdquo;. Beides ist deutlich kleiner als der Kapitalwert der verlorenen
+                    Beitragsrückerstattung. Entscheidung: Ich rechne
+                    nicht ab.
+                </p>
+
+                <p>
+                    Mittels Datentabelle können wir uns eine Entscheidungshilfe erzeugen (als Tabelle und Grafik):
+                </p>
+
+                <div class="image-grid">
+                    <div>
+                        <figure>
+                            <img src="../assets/img/pkv-npv-rueckerstattung/npv-rueckerstattung-zins-past.png"
+                                alt="Lookup-Table der NPVs für verschiedene Zeiträume und Zinssätze" />
+                            <figcaption>Kapitalwert der verlorenen Rückerstattung in Abhängigkeit von Zinssatz und alter
+                                Rückerstattung (Quelle: eigene Darstellung)</figcaption>
+                        </figure>
+                    </div>
+                    <div>
+
+                        <figure>
+                            <img src="../assets/img/pkv-npv-rueckerstattung/pkv-entscheidungshilfe.png"
+                                alt="Visualisierung der Entscheidungshilfe" />
+                            <figcaption>Entscheidungshilfe: PKV-Kostenersattung vs Kosten abrechnen, abhängig von
+                                leistungsfreien Monaten und Zinssatz (Quelle: eigene Darstellung)</figcaption>
+                        </figure>
+                    </div>
+                </div>
+
+                <p>
+                    Damit ist es klar:
+                </p>
+
+                <ul>
+                    <li>unter der grünen Kurve: Kosten nicht abrechnen, Beitragsrückerstattung wählen</li>
+                    <li>über der roten Kurve: Kosten abrechnen, Beitragsrückerstattung nicht wählen</li>
+                    <li>dazwischen: schlage in der Tabelle den Kapitalwert nach Monaten und Zinssatz nach (z. B. 7,0
+                        &nbsp;%
+                        p.&nbsp;a., 4 Monate) und entscheide</li>
+                </ul>
+
+                <p>
+                    Klar ist auch: Eine Erstattung ist keineswegs &bdquo;fast immer vorteilhafter&rdquo;, wie die PKV
+                    behauptet. Die vorherige Grafik gibt uns eine deutlich bessere Entscheidungshilfe.
+                </p>
+            </section>
+
+            <section id="section-5" aria-labelledby="title-5">
+                <h2 id="title-5">Fazit</h2>
+
+                <p>
+                    Kosten abrechnen oder Beiträge rückerstatten lassen? Mit den intransparenten Informationen meiner
+                    PKV fällt es mir schwer das zu entscheiden. Mittels Kapitalwert und einer einfachen Darstellung
+                    haben wir selbst eine klare Entscheidungshilfe ermittelt.
+                </p>
+
+                <p>
+                    Im <a href="#section-6" title="siehe unten">Anhang</a> finden Sie das Excel-Beispiel. Passen Sie es
+                    gerne an Ihre eigene Situation an und lassen Sie mich wissen, ob es Ihnen bei Ihrer Entscheidung
+                    geholfen hat.
+                </p>
+
+                <div class="signature-icon"></div>
+
+                <p class="callout">
+                    <span style="font-size: 14px;"><strong>Haftungsausschluss</strong>: Keine Versicherungs-, Finanz-,
+                        Anlage- und/oder Steuerberatung!</span>
+                </p>
+            </section>
+
+            <section id="section-6" aria-labelledby="title-6">
+                <h2 id="title-6">Anhang &ndash; Excel-Download</h2>
+
+                <p>Excel-Tabelle zur Berechnung des Kapitalwerts der verlorenen PKV-Rückerstattung</p>
+
+                <div class="download">
+                    <span>PKV_NPV.xlsx </span>
+                    <a href="../assets/img/pkv-npv-rueckerstattung/PKV_NPV.xlsx" aria-label="Datei herunterladen">
+                        <svg class="icon">
+                            <use href="../assets/img/icons.svg#icon-download"></use>
+                        </svg>
+                    </a>
+                </div>
+            </section>
+
+            <section id="section-7" aria-labelledby="title-7">
+                <h2 id="title-7">Endnoten</h2>
+
+                <ol class="ref-sources">
+                    <li id="cite-note-1">
+                        <a href="#cite-ref-1" aria-label="Zurück zum Text">↑</a>
+                        Jordà, Ò., Knoll, K., Kuvshinov, D., Schularick, M. Taylor, A.M. (2017).
+                        <em>“The Rate of Return on Everything, 1870–2015”</em>
+                        Federal Reserve Bank of San Francisco Working Paper 2017-25.
+                        <a href="https://doi.org/10.24148/wp2017-25" rel="noopener noreferrer" target="_blank">
+                            https://doi.org/10.24148/wp2017-25
+                        </a>
+                    </li>
+                </ol>
+
+                <p>
+                    <span style="font-size: 12px;">Titelbild: generiert mit DALL-E von OpenAI</span>
+                </p>
+            </section>
+        </article>
+    </main>
+
+    <a href="#" class="scroll-up" aria-label="Nach oben scrollen">
+        <svg class="icon">
+            <use href="../assets/img/icons.svg#icon-scrollup"></use>
+        </svg>
+    </a>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <a href="../impressum.html">Impressum</a>
+            <a href="../datenschutz.html">Datenschutz</a>
+        </div>
+    </footer>
+    <script src="../assets/js/lightbox.js"></script>
+</body>
+
+</html>

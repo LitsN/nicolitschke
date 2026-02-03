@@ -1,0 +1,307 @@
+{UTF-8}
+Abbau  = A FUNCTION OF( Dirigistische Eingriffe)
+	~	
+	~		|
+
+Aufbau  = A FUNCTION OF( Dirigistische Eingriffe)
+	~	
+	~		|
+
+Benachteilgigungen der Bürokratieprofiteure 0  = A FUNCTION OF( "Reform zum Bürokratieabbau & Effizienzsteigerungen in der Verwaltung 0"\
+		)
+	~	
+	~		|
+
+Bürokratie  = A FUNCTION OF( -Abbau,Aufbau)
+	~	
+	~		|
+
+Bürokratie 0  = A FUNCTION OF( -Bürokratieabbau 0,Bürokratieaufbau 0)
+	~	
+	~		|
+
+Bürokratieabbau 0  = A FUNCTION OF( Vorgaben zur Umsetzung 0)
+	~	
+	~		|
+
+Bürokratieaufbau 0  = A FUNCTION OF( Vorgaben zur Umsetzung 0)
+	~	
+	~		|
+
+Dirigistische Eingriffe  = A FUNCTION OF( "Reform für Bürokratieabbau & Effizienzsteigerungen"\
+		,Risiko,wahrgenommene Unsicherheit steigt,"Wohlstands- und Produktivitätsverluste"\
+		)
+	~	
+	~		|
+
+Dirigistische Wirtschaftspolitik 0  = A FUNCTION OF( Risiko 0,"Wohlstands- und Produktivitätsverluste 0"\
+		)
+	~	
+	~		|
+
+"drohender Verlust an Einfluss, Macht, Kontrolle 0"  = A FUNCTION OF( Benachteilgigungen der Bürokratieprofiteure 0\
+		,Medialer Druck 0,"Reform zum Bürokratieabbau & Effizienzsteigerungen in der Verwaltung 0"\
+		)
+	~	
+	~		|
+
+"drohender Verlust an Einfluss, Macht, Kontrolle"  = A FUNCTION OF( Mangel an Wille und Fähigkeiten zur Verbesserung\
+		,Medialer Druck,Nachteile für Bürokratieprofiteure,"Reform für Bürokratieabbau & Effizienzsteigerungen"\
+		)
+	~	
+	~		|
+
+Erfüllung der Pfadfinderregel verletzt 0  = A FUNCTION OF( Bürokratieabbau 0,Bürokratieaufbau 0\
+		)
+	~	
+	~		|
+
+"Ermessens- Entscheidungen 0"  = A FUNCTION OF( "Reform zum Bürokratieabbau & Effizienzsteigerungen in der Verwaltung 0"\
+		,regelbasiertes Entscheiden 0)
+	~	
+	~		|
+
+"Ermessens- Entscheidungen"  = A FUNCTION OF( "Reform für Bürokratieabbau & Effizienzsteigerungen"\
+		,regelbasiertes Entscheiden)
+	~	
+	~		|
+
+Mangel an Wille und Fähigkeiten zur Verbesserung  = A FUNCTION OF( "drohender Verlust an Einfluss, Macht, Kontrolle"\
+		,Risiko,Störung etablierter Geschäftsabläufe)
+	~	
+	~		|
+
+Mangel an Wille und Fähigkeiten zur Verbesserung 0  = A FUNCTION OF( Risiko 0,Störung etablierter Geschäftsabläufe 0\
+		)
+	~	
+	~		|
+
+Medialer Druck  = A FUNCTION OF( Nachteile für Bürokratieprofiteure,"Wohlstands- und Produktivitätsverluste"\
+		)
+	~	
+	~		|
+
+Medialer Druck 0  = A FUNCTION OF( Benachteilgigungen der Bürokratieprofiteure 0,"Wohlstands- und Produktivitätsverluste 0"\
+		)
+	~	
+	~		|
+
+Nachteile für Bürokratieprofiteure  = A FUNCTION OF( "Reform für Bürokratieabbau & Effizienzsteigerungen"\
+		)
+	~	
+	~		|
+
+Pfadfinderregel verletzt  = A FUNCTION OF( Abbau,Aufbau)
+	~	
+	~		|
+
+"Reform für Bürokratieabbau & Effizienzsteigerungen"  = A FUNCTION OF( "drohender Verlust an Einfluss, Macht, Kontrolle"\
+		,Mangel an Wille und Fähigkeiten zur Verbesserung,"Wohlstands- und Produktivitätsverluste"\
+		)
+	~	
+	~		|
+
+"Reform zum Bürokratieabbau & Effizienzsteigerungen in der Verwaltung 0"  = A FUNCTION OF\
+		( "drohender Verlust an Einfluss, Macht, Kontrolle 0",Mangel an Wille und Fähigkeiten zur Verbesserung 0\
+		,"Wohlstands- und Produktivitätsverluste 0")
+	~	
+	~		|
+
+regelbasiertes Entscheiden  = A FUNCTION OF( Bürokratie)
+	~	
+	~		|
+
+regelbasiertes Entscheiden 0  = A FUNCTION OF( Vorgaben zur Umsetzung 0)
+	~	
+	~		|
+
+Risiko  = A FUNCTION OF( Pfadfinderregel verletzt)
+	~	
+	~		|
+
+Risiko 0  = A FUNCTION OF( Erfüllung der Pfadfinderregel verletzt 0)
+	~	
+	~		|
+
+Störung etablierter Geschäftsabläufe  = A FUNCTION OF( "Ermessens- Entscheidungen"\
+		,regelbasiertes Entscheiden)
+	~	
+	~		|
+
+Störung etablierter Geschäftsabläufe 0  = A FUNCTION OF( "Ermessens- Entscheidungen 0"\
+		,regelbasiertes Entscheiden 0)
+	~	
+	~		|
+
+Vorgaben zur Umsetzung 0  = A FUNCTION OF( Dirigistische Wirtschaftspolitik 0,"Reform zum Bürokratieabbau & Effizienzsteigerungen in der Verwaltung 0"\
+		,wahrgenommene Unsicherheit steigt 0)
+	~	
+	~		|
+
+wahrgenommene Unsicherheit steigt  = A FUNCTION OF( "Ermessens- Entscheidungen")
+	~	
+	~		|
+
+wahrgenommene Unsicherheit steigt 0  = A FUNCTION OF( "Ermessens- Entscheidungen 0")
+	~	
+	~		|
+
+"Wohlstands- und Produktivitätsverluste 0"  = A FUNCTION OF( Benachteilgigungen der Bürokratieprofiteure 0\
+		,Bürokratie 0,Dirigistische Wirtschaftspolitik 0)
+	~	
+	~		|
+
+"Wohlstands- und Produktivitätsverluste"  = A FUNCTION OF( Bürokratie,Dirigistische Eingriffe\
+		,Nachteile für Bürokratieprofiteure)
+	~	
+	~		|
+
+********************************************************
+	.Control
+********************************************************~
+		Simulation Control Parameters
+	|
+
+FINAL TIME  = 100
+	~	Month
+	~	The final time for the simulation.
+	|
+
+INITIAL TIME  = 0
+	~	Month
+	~	The initial time for the simulation.
+	|
+
+SAVEPER  = 
+        TIME STEP
+	~	Month [0,?]
+	~	The frequency with which output is stored.
+	|
+
+TIME STEP  = 1
+	~	Month [0,?]
+	~	The time step for the simulation.
+	|
+
+\\\---/// Sketch information - do not modify anything except names
+V300  Do not put anything below this section - it will be ignored
+*Complete
+$-1--1--1,0,|12||-1--1--1|-1--1--1|-1--1--1|-1--1--1|-1--1--1|96,96,5,2
+10,1,Bürokratie,964,202,50,22,3,3,0,34,-1,0,0,0,0-0-0,0-0-0,Roboto|||0-0-0,0,0,0,0,0,0
+12,2,48,1258,202,10,8,0,3,0,34,-1,1,0,0,-1--1--1,-1--1--1,Roboto|||0-0-0,0,0,0,0,0,0
+1,3,5,1,100,0,0,22,0,192,0,-1--1--1,,1|(1064,202)|
+1,4,5,2,4,0,0,22,0,192,0,-1--1--1,,1|(1187,202)|
+11,5,0,1121,202,6,9,34,3,0,2,1,0,0,0,0-0-0,0-0-0,|||0-0-0,0,0,0,0,0,0
+10,6,Abbau,1121,229,70,18,40,3,0,34,-1,1,0,0,0-0-0,0-0-0,Roboto|||0-0-0,0,0,0,0,0,0
+12,7,48,680,204,10,8,0,3,0,34,-1,0,0,0,0-0-0,0-0-0,Roboto|||0-0-0,0,0,0,0,0,0
+1,8,10,7,100,0,0,22,0,192,0,-1--1--1,,1|(738,204)|
+1,9,10,1,4,0,0,22,0,192,0,-1--1--1,,1|(856,204)|
+11,10,0,793,204,6,8,34,3,0,2,1,0,0,0,0-0-0,0-0-0,|||0-0-0,0,0,0,0,0,0
+10,11,Aufbau,793,228,65,16,40,3,0,34,-1,0,0,0,0-0-0,0-0-0,Roboto|||0-0-0,0,0,0,0,0,0
+10,12,"Wohlstands- und Produktivitätsverluste",1266,386,77,23,8,3,0,34,-1,0,0,0,0-0-0,0-0-0,Roboto|||0-0-0,0,0,0,0,0,0
+10,13,Dirigistische Eingriffe,964,347,47,21,8,3,0,50,-1,0,0,0,0-0-0,0-0-0,Roboto||B|0-0-0,0,0,0,0,0,0
+1,14,13,6,1,0,43,0,0,64,0,-1--1--1,,1|(977,310)|
+1,15,1,12,1,0,43,0,0,192,0,-1--1--1,,1|(1176,294)|
+1,16,13,11,1,2,43,13,0,192,0,-1--1--1,,1|(919,269)|
+10,17,"Reform für Bürokratieabbau & Effizienzsteigerungen",1012,556,90,27,8,3,0,34,-1,1,0,0,0-0-0,0-0-0,Roboto|||0-0-0,0,0,0,0,0,0
+1,18,12,17,1,0,43,0,0,192,0,-1--1--1,,1|(1196,470)|
+10,19,Nachteile für Bürokratieprofiteure,1375,609,72,27,8,3,4,34,-1,0,0,0,0-0-0,0-0-0,Roboto|||0-0-0,0,0,0,0,0,0
+10,20,"drohender Verlust an Einfluss, Macht, Kontrolle",1186,801,87,25,8,3,2,34,-1,1,0,0,0-0-0,0-0-0,Roboto|||0-0-0,0,0,0,0,0,0
+10,21,Medialer Druck,1526,720,33,20,8,3,5,34,-1,0,0,0,0-0-0,0-0-0,Roboto|||0-0-0,0,0,0,0,0,0
+1,22,17,19,1,4,43,0,0,193,0,-1--1--1,,1|(1257,572)|
+1,23,19,20,1,4,43,0,0,192,0,-1--1--1,,1|(1324,709)|
+1,24,20,17,1,2,45,13,1,192,0,255-0-0,|||0-0-0,1|(1102,735)|
+1,25,19,21,1,5,43,0,1,192,0,128-0-255,|||0-0-0,1|(1460,658)|
+1,26,21,20,1,5,63,0,1,192,0,128-0-255,|||0-0-0,1|(1392,781)|
+1,27,12,21,1,5,43,0,1,192,0,128-0-255,|||0-0-0,1|(1475,525)|
+1,28,19,12,1,4,43,2,0,192,0,-1--1--1,,1|(1330,485)|
+10,29,"Ermessens- Entscheidungen",796,587,58,22,8,3,3,34,-1,1,0,0,0-0-0,0-0-0,Roboto|||0-0-0,0,0,0,0,0,0
+10,30,wahrgenommene Unsicherheit steigt,748,425,66,21,8,3,3,34,-1,0,0,0,0-0-0,0-0-0,Roboto|||0-0-0,0,0,0,0,0,0
+10,31,regelbasiertes Entscheiden,568,549,58,19,8,3,3,34,-1,1,0,0,0-0-0,0-0-0,Roboto|||0-0-0,0,0,0,0,0,0
+10,32,Störung etablierter Geschäftsabläufe,618,722,67,23,8,3,6,34,-1,0,0,0,0-0-0,0-0-0,Roboto|||0-0-0,0,0,0,0,0,0
+10,33,Mangel an Wille und Fähigkeiten zur Verbesserung,847,775,101,28,8,3,6,34,-1,1,0,0,0-0-0,0-0-0,Roboto|||0-0-0,0,0,0,0,0,0
+1,34,17,29,0,3,43,0,0,192,0,-1--1--1,,1|(0,0)|
+1,35,29,32,1,6,43,0,0,192,0,-1--1--1,,1|(719,638)|
+1,36,32,33,1,6,43,0,0,192,0,-1--1--1,,1|(714,751)|
+1,37,33,17,0,6,45,13,1,192,0,255-0-0,|||0-0-0,1|(0,0)|
+1,38,29,30,1,3,43,0,0,193,0,-1--1--1,,1|(728,482)|
+1,39,30,13,1,3,43,0,0,192,0,-1--1--1,,1|(825,374)|
+1,40,31,32,1,6,43,0,0,192,0,-1--1--1,,1|(587,645)|
+1,41,31,29,0,3,45,0,1,192,0,255-0-0,|||0-0-0,1|(0,0)|
+10,42,Pfadfinderregel verletzt,964,112,86,12,8,3,7,34,-1,0,0,0,0-0-0,0-0-0,Roboto|||0-0-0,0,0,0,0,0,0
+10,43,Risiko,964,32,45,17,3,3,7,38,-1,1,0,0,0-0-0,128-255-128,Roboto|||0-0-0,0,0,0,0,0,0
+1,44,10,42,1,7,43,0,0,192,0,-1--1--1,,1|(842,136)|
+1,45,5,42,1,7,45,0,0,192,0,-1--1--1,,1|(1092,146)|
+1,46,42,43,0,7,43,0,1,192,0,0-128-0,|||0-0-0,1|(0,0)|
+10,47,Risiko,818,295,39,16,3,2,7,39,-1,1,0,0,0-128-0,128-255-128,Roboto|||0-0-0,0,0,0,0,0,0
+10,48,Risiko,729,850,39,16,3,2,7,39,-1,1,0,0,0-128-0,128-255-128,Roboto|||0-0-0,0,0,0,0,0,0
+1,49,48,33,1,7,45,0,1,193,0,0-128-0,|||0-0-0,1|(778,817)|
+12,50,0,1063,466,22,22,4,71,0,11,-1,1,0,0,0-128-0,0-0-0,|24||0-128-0,0,0,0,0,0,0
+A
+12,51,0,1059,504,57,14,8,7,0,26,-1,1,0,0,0-0-0,0-0-0,|10|BI|0-128-0,0,0,0,0,0,0
+Bürokratieabbau
+12,52,0,1133,651,25,25,4,7,2,11,-1,1,0,0,255-0-0,-1--1--1,|24||255-0-0,0,0,0,0,0,0
+R1
+12,53,0,1152,711,64,12,8,7,2,27,-1,1,0,0,255-0-0,0-0-0,|10|I|255-0-0,0,0,0,0,0,0
+Werkzeugentzug
+1,54,17,20,1,2,43,0,0,192,0,-1--1--1,,1|(1198,657)|
+12,55,0,1267,643,27,27,4,7,4,11,-1,1,0,0,255-0-0,0-0-0,|24||255-0-0,0,0,0,0,0,0
+R3
+12,56,0,1271,695,34,17,8,7,4,26,-1,1,0,0,0-0-0,0-0-0,|10|I|255-0-0,0,0,0,0,0,0
+Bürokratie-geschäft
+12,57,0,1409,786,80,40,8,3,0,0,-1,1,0,0,0,0,0,0,0,0
+12,58,0,1409,698,23,23,4,7,5,11,-1,1,0,0,128-0-255,0-0-0,|24||128-0-255,0,0,0,0,0,0
+V
+12,59,0,1412,736,42,10,8,7,5,26,-1,1,0,0,0-0-0,0-0-0,|10|I|128-0-255,0,0,0,0,0,0
+Framing
+12,60,0,812,670,25,25,5,7,6,11,-1,1,0,0,255-0-0,0-0-0,|24||255-0-0,0,0,0,0,0,0
+R4
+12,61,0,813,709,68,12,8,7,6,26,-1,1,0,0,0-0-0,0-0-0,|10|I|255-0-0,0,0,0,0,0,0
+Business as Usual
+12,62,0,858,462,25,25,4,7,3,43,-1,1,0,0,255-0-0,0-0-0,Arial|24||255-0-0,0,0,0,0,0,0
+R2
+12,63,0,858,513,44,23,8,7,3,26,-1,1,0,0,0-0-0,0-0-0,|10|I|255-0-0,0,0,0,0,0,0
+Entscheidungs-lücke
+1,64,17,13,1,0,43,0,0,192,0,-1--1--1,,1|(939,449)|
+1,65,33,20,1,6,43,2,0,193,0,-1--1--1,,1|(1053,773)|
+1,66,20,33,1,6,43,2,0,192,0,-1--1--1,,1|(1004,821)|
+1,67,1,31,1,3,43,0,0,192,0,-1--1--1,,1|(692,324)|
+1,68,12,13,1,2,43,13,0,192,0,-1--1--1,,1|(1093,422)|
+1,69,13,12,1,2,43,0,0,192,0,-1--1--1,,1|(1115,332)|
+1,70,47,13,0,7,45,0,1,193,0,0-128-0,|||0-0-0,1|(0,0)|
+12,71,0,1108,366,23,23,4,7,2,11,-1,1,0,0,255-0-0,0-0-0,|24||255-0-0,0,0,0,0,0,0
+B
+12,72,0,1111,403,60,14,8,7,2,58,-1,1,0,0,0-0-0,0-0-0,Arial|10|I|255-0-0,0,0,0,0,0,0
+Bürokratieaufbau
+///---\\\
+:L<%^E!@
+5:Medialer Druck
+9:current
+19:5,0
+24:0
+25:0
+26:0
+23:0
+15:0,0,0,0,0,0
+27:0,
+34:0,
+42:0
+72:0
+73:0
+95:0
+96:0
+97:0
+77:0
+78:0
+102:1
+93:0
+94:0
+92:0
+91:0
+90:0
+87:0
+75:
+43:
+103:8,8,8,3,8
+105:0,0,0,0,0,0,0,0,0,0
+104:Vensim Sans|12||0-0-0|0-0-0|-1--1--1|0-0-255|192-192-192|-1--1--1

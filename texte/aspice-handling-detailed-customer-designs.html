@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport" />
+    <title>A-SPICE: Handling Detailed Customer Design - Nico Litschke</title>
+    <meta
+        content="Automotive SPICE: Addressing practical challenges with customer's detailed design specifications with a lean but compliant solution"
+        name="description" />
+    <meta content="index, follow, archive" name="robots" />
+    <meta content="Nico Litschke" name="author" />
+    <meta content="https://www.nicolitschke.com/texte/aspice-handling-detailed-customer-designs.html"
+        property="og:url" />
+    <meta content="article" property="og:type" />
+    <meta content="de_DE" property="og:locale" />
+    <meta content="Nico Litschke" property="og:site_name" />
+    <meta content="A-SPICE: Handling Detailed Customer Design" property="og:title" />
+    <meta
+        content="Automotive SPICE: Addressing practical challenges with customer's detailed design specifications with a lean but compliant solution"
+        property="og:description" />
+    <meta content="../assets/img/aspice-handling-detailed-customer-designs/hero.png" property="og:image" />
+    <meta content="1KLRTKWSuSamhN09JbMkQEd-R10iuFCNAHxdYZJVr_M" name="google-site-verification" />
+    <link href="https://www.nicolitschke.com/texte/aspice-handling-detailed-customer-designs.html" rel="canonical" />
+    <link href="../assets/css/fonts.css" rel="stylesheet" />
+    <link href="../assets/css/main.css" rel="stylesheet" />
+    <link href="../assets/css/article.css" rel="stylesheet" />
+    <link href="../assets/img/favicon.svg" rel="icon" type="image/svg+xml" />
+    <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="site-title" href="../index.html">Nico Litschke</a>
+            <nav aria-label="Hauptnavigation" class="site-nav">
+                <a href="../index.html">Über</a>
+                <a href="../texte.html">Texte</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <article>
+            <h1>Automotive SPICE – Handling Detailed Customer Designs</h1>
+            <!-- Every article is labeled with at least one tag containing a link to other articles -->
+            <ul class="tag-line">
+                <li><a class="tag" data-tag="skills-tools" href="../texte.html?tag=skills-tools"
+                        title="Alle Artikel über Skills &amp; Tools anzeigen">Skills &amp; Tools</a></li>
+                <li><a class="tag" data-tag="engineering" href="../texte.html?tag=engineering"
+                        title="Alle Artikel über Engineering anzeigen">Engineering</a></li>
+            </ul>
+
+            <section aria-labelledby="abstract-title" class="abstract">
+                <h2>Abstract</h2>
+
+                <p>
+                    Automotive SPICE is the state-of-the-art process reference model in automotive engineering. However,
+                    practical challenges arise when customers specify detailed designs, such as OS versions or
+                    watchdog configurations. These constraints often contradict idealized engineering theory, leading to
+                    waste such as 'abstract re-engineering' of detailed designs. In this article, I propose a
+                    pragmatic and A-SPICE-compliant approach to manage these challenges efficiently.
+                </p>
+            </section>
+            <details class="toc">
+                <summary>
+                    <svg class="icon toggle-icon">
+                        <use href="../assets/img/icons.svg#icon-expand"></use>
+                    </svg>
+                    Inhalt
+                </summary>
+                <nav aria-label="Inhaltsverzeichnis">
+                    <ul>
+                        <li><a href="#section-1">The Problem: Methodical Issues</a></li>
+                        <li><a href="#section-2">Lean Solution: A Priori Design Constraint</a></li>
+                        <li><a href="#section-3">Support the Rational: Rapid-Prototyping or Evidence</a></li>
+                        <li><a href="#section-4">Shifting the Burden of Proof</a></li>
+                        <li><a href="#section-5">Summary</a></li>
+                    </ul>
+                </nav>
+            </details>
+            <section aria-labelledby="title-1" id="section-1">
+                <h2 id="title-1">The Problem: Methodical Issues</h2>
+                <p>
+                    According to A-SPICE SYS.3.BP3 and SWE.2.BP3 we shall not only document design
+                    decisions but also the rationale behind them:
+                </p>
+                <figure>
+                    <img alt="Screenshot from ASPICE SYS.3.BP3"
+                        src="../assets/img/aspice-handling-detailed-customer-designs/aspice-sys3.png" />
+                    <figcaption>Automotive SPICE® SYS.3.BP3. (SWE.2.BP3 is analog to
+                        that). Source: <a id="cite-ref-1" href="#cite-note-1" aria-label="Zur Endnote 1">[1]</a>.
+                    </figcaption>
+                </figure>
+                <p>
+                    In theory, requirements should remain solution-agnostic, focusing solely on functional goals (black
+                    box input-output relations). During the architectural or detailed design phases, engineers
+                    develop the »best satisficing«<a href="#cite-note-2" id="cite-ref-2" name="cite-ref-2"
+                        title="Quelle">[2]</a> technical solution (white box view). This iterative
+                    process, as illustrated in the following picture, ensures that decisions are made at the most
+                    appropriate level of expertise.
+                </p>
+                <figure>
+                    <img alt="Illustration of a modular design with three abstraction levels"
+                        src="../assets/img/aspice-handling-detailed-customer-designs/hierarchical-design.png" />
+                    <figcaption>Hierarchical System Design: A black box at a higher
+                        system level is detailed as a white box containing nested black boxes at lower levels.
+                        Illustration based on <a id="cite-ref-3" href="#cite-note-3" aria-label="Zur Endnote 3">[3]</a>.
+                    </figcaption>
+                </figure>
+                <p>
+                    However, when customers specify detailed designs, this process is undermined. While such constraints
+                    are often necessary—for example, to define system interfaces or ensure safety mechanisms—they
+                    create methodical issues for suppliers. Common issues include:
+                </p>
+                <ul>
+                    <li>
+                        <strong>copy-pasting requirements</strong> along the V-model: This approach introduces
+                        functionality at higher system levels where it cannot be verified. For instance, memory
+                        protection
+                        mechanisms require white box fault injection tests at the driver level.
+                    </li>
+                    <li>
+                        <strong>bypassing the system level</strong>: Directly linking requirements to hardware,
+                        software, or mechanical components creates gaps at the system level. This can result in missing
+                        system
+                        test cases or incomplete traceability.
+                    </li>
+                    <li>
+                        <strong>abstract re-engineering</strong> of the system level: Pretending that the customer’s
+                        detailed design does not exist leads to redundant efforts. This is merely norm fulfillment
+                        without
+                        adding tangible value.
+                    </li>
+                </ul>
+                <p>
+                    These approaches result in waste and fail to meet the intent of SYS.3.BP3 and SWE.2.BP3. While such
+                    practices may still pass superficial audits, a critical auditor might devalue the base
+                    practices, emphasizing their ineffectiveness.
+                </p>
+            </section>
+            <section aria-labelledby="title-2" id="section-2">
+                <h2 id="title-2">Lean Solution: A Priori Design Constraint</h2>
+                <p>
+                    To address these issues, I take a step back from A-SPICE. From an architectural viewpoint we need to
+                    identify what constrains our freedom in design, implementation, processes, and
+                    decision-making.<a href="#cite-note-4" id="cite-ref-4" name="cite-ref-4" title="Quelle">[4]</a>
+                    Constraints have a wide range from project goals (e.g., time, budget),
+                    over business
+                    goals (e.g., product roadmap) to technical limitations. A customer’s detailed design specification
+                    is no more than such a constraint. That is exactly how we can address this topic efficiently
+                    while ensuring A-SPICE compliance: The design constraint was specified and contracted »a priori«.
+                    The following is an example of a generic system requirement:
+                </p>
+                <pre><i>Constraint</i>: The &lt;logical element&gt; shall fulfill the detailed design according to the customer requirements &lt;unambiguous reference&gt;:
+
+    -   &lt;Short summary of the detailed design&gt;
+
+Remark: &lt;verification remarks&gt;.
+</pre>
+
+                <p>
+                    For illustrative purposes, consider the following example:
+                </p>
+
+                <pre><i>Constraint</i>: The CAN communication shall fulfill the detailed design according to the customer requirements LAH_1321 to LAH_1328:
+
+    -   K-Matrix in the newest available version
+
+Remark: The correct CAN-communication shall be verified along with the related system functions. The complete implementation of the K-Matrix can be verified via a SiL model.</pre>
+                <p>
+                    A more extended example:
+                </p>
+                <pre><i>Constraint</i>: The external watchdog shall fulfill the detailed design according to the customer requirements LAH_2006 to LAH_2015:
+
+    -   Configuration in window-mode
+    -   <i>Error Detection</i>: Monitoring of the µC via questions-answer-communication and time out
+    -   <i>Error Reaction</i> (1st level): If the monitoring is invalid, the external watchdog shall reset the µC
+    -   <i>Error Reaction</i> (2nd level): If there are more than three resets within the same driving cycle, the external watchdog shall trigger the system safe state and switch-off CAN-communication within FHTI=60ms.
+    -   <i>Error Healing</i>: No more resets OR T15 reset
+
+Remark: On system level the error reaction (1st and 2nd level) and healing shall be verified via an adequate error injection. The healing shall be verified with positive and negative test cases. The error detection can be verified on software level. The completeness of events that lead to error detection shall be supported by safety analysis.
+</pre>
+                <p class="callout">
+                    <strong>Crucial Condition: The customer’s detailed design is a valid solution for your
+                        system</strong>. If not, renegotiation is unavoidable.
+                </p>
+            </section>
+            <section aria-labelledby="title-3" id="section-3">
+                <h2 id="title-3">Support the Rational: Rapid-Prototyping or Evidence</h2>
+                <p>
+                    A-SPICE SYS.3.BP3 (Figure&nbsp;1) and SWE.2.BP3 require documented rationale. Stating that the
+                    design constraint was specified by the customer should already constitute a valid rationale.
+                    However, some assessors may not accept this reasoning.
+                </p>
+                <p>
+                    To support your rationale, provide evidence from prototypes or early samples that validate the
+                    solution. Ensure a trace between the design constraint and the evidence.
+                </p>
+            </section>
+            <section aria-labelledby="title-4" id="section-4">
+                <h2 id="title-4">Shifting the Burden of Proof</h2>
+                <p>
+                    Since my proposed solution is not explicitly outlined in A-SPICE, some assessors might question
+                    whether it is an accepted methodology within my organization.
+                </p>
+                <p>
+                    We can address this issue with process descriptions. They shift the burden of proof from the people
+                    to the organization. Demonstrating adherence to process descriptions often satisfies audit
+                    requirements. A concise statement in the process description at the system level might be:
+                </p>
+                <pre>Customer’s detailed design specifications shall be referenced and summarized as <i>requirements type = 'constraint'</i>. Alternative solutions can be omitted. V&amp;V remarks may be documented as needed. If there are V&amp;V remarks they become the definition of done for this constraint, i.e. traces to released evidence are required.
+</pre>
+                <p>
+                    Note: In order to comply with A-SPICE Level&nbsp;3 or ISO&nbsp;26262-8, it is essential to have a
+                    process description in place.
+                </p>
+            </section>
+            <section aria-labelledby="title-5" id="section-5">
+                <h2 id="title-5">Summary</h2>
+                <p>
+                    Customers often specify detailed designs for new systems. By reframing these as constraints, they
+                    become structured elements of the system design, streamlining efforts while ensuring A-SPICE
+                    compliance. Support the rationale with test evidence and clear process descriptions.
+                </p>
+                <div class="signature-icon"></div>
+            </section>
+            <section aria-labelledby="title-6" id="section-6">
+                <h2 id="title-6">Endnotes</h2>
+                <ol class="ref-sources">
+                    <li id="cite-note-1">
+                        <a href="#cite-ref-1" title="zurück">↑</a>Automotive SPICE (2023). <em>Automotive
+                            SPICE® Process Assessment / Reference Model</em>. Version 3.991, 06. Juni 2023. Status:
+                        Draft
+                        (Do not use for assessments). Vertraulich: Revision. Im Internet, abgerufen am 01.12.2024: <a
+                            href="https://vda-qmc.de/automotive-spice/automotive-spice-veroeffentlichungen/"
+                            target="_blank">https://vda-qmc.de/automotive-spice/automotive-spice-veroeffentlichungen/</a>.
+                    </li>
+                    <li id="cite-note-2">
+                        <a href="#cite-ref-2" title="zurück">↑</a>Simon, H. A. (1955). <em>A Behavioral
+                            Model of Rational Choice</em>. The Quarterly Journal of Economics, 69(1), S. 99-118. <a
+                            href="https://doi.org/10.2307/1884852" target="_blank">https://doi.org/10.2307/1884852</a>.
+                    </li>
+                    <li id="cite-note-3">
+                        <a href="#cite-ref-3" title="zurück">↑</a>Haberfellner, R., Fricke, E., de Weck,
+                        O., &amp; Vössner, S. (2012). <em>Systems Engineering: Grundlagen und Anwendung</em> (12.,
+                        völlig neu bearbeitete und erweiterte Auflage). Zürich: Orell Füssli.
+                    </li>
+                    <li id="cite-note-4">
+                        <a href="#cite-ref-4" title="zurück">↑</a>Starke, G. (2015). <em>Effektive
+                            Software-Architekturen: Ein praktischer Leitfaden</em> (4., aktualisierte und erweiterte
+                        Auflage).
+                        München: Carl Hanser. <a href="https://doi.org/10.3139/9783446444065.fm"
+                            target="_blank">https://doi.org/10.3139/9783446444065.fm</a>.
+                    </li>
+                </ol>
+            </section>
+
+
+
+
+
+        </article>
+    </main>
+    <!-- Followed by standard elements -->
+    <a aria-label="Nach oben scrollen" class="scroll-up" href="#">
+        <svg class="icon">
+            <use href="../assets/img/icons.svg#icon-scrollup"></use>
+        </svg>
+    </a>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <a href="../impressum.html">Impressum</a>
+            <a href="../datenschutz.html">Datenschutz</a>
+        </div>
+    </footer>
+    <script src="../assets/js/lightbox.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <title>Die soziale Funktion von Prozessen: Legitimation von Handlungen</title>
+    <meta name="description"
+        content="Prozesse legitimieren Handlungen, reduzieren Unsicherheit und entlasten Teams. Nico Litschke erklärt, wie Führung das gezielt nutzt – inkl. Gutachtenstil.">
+    <meta name="robots" content="index, follow, archive">
+    <meta name="author" content="Nico Litschke">
+
+    <meta property="og:url" content="https://www.nicolitschke.com/texte/prozesse-legitimieren-sozial.html">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:site_name" content="Nico Litschke">
+    <meta property="og:title"
+        content="Die soziale Funktion von Prozessen: Die soziale Funktion von Prozessen: Legitimation">
+    <meta property="og:description"
+        content="Prozesse legitimieren Handlungen, reduzieren Unsicherheit und entlasten Teams. Nico Litschke erklärt, wie Führung das gezielt nutzt – inkl. Gutachtenstil.">
+    <meta property="og:image" content="../assets/img/prozesse-legitimieren-sozial/hero.png">
+
+    <meta name="google-site-verification" content="1KLRTKWSuSamhN09JbMkQEd-R10iuFCNAHxdYZJVr_M">
+
+    <link rel="canonical" href="https://www.nicolitschke.com/texte/prozesse-legitimieren-sozial.html">
+    <link rel="stylesheet" href="../assets/css/fonts.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/article.css">
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+    <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+
+    <!-- Mathjax: enable when needed; otherwise disable-->
+    <script src="../assets/js/mathjax-config.js" defer></script>
+    <script src="../assets/js/tex-mml-svg.js" async></script>
+
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="site-title" href="../index.html">Nico Litschke</a>
+            <nav class="site-nav" aria-label="Hauptnavigation">
+                <a href="../index.html">Über</a>
+                <a href="../texte.html">Texte</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <article>
+            <h1>Die soziale Funktion von Prozessen: Legitimation von Handlungen</h1>
+
+            <ul class="tag-line">
+                <li><a href="../texte.html?tag=engineering" class="tag" data-tag="engineering"
+                        title="Alle Artikel über Engineering anzeigen">Engineering</a></li>
+                <li><a href="../texte.html?tag=fuehren-managen" class="tag" data-tag="fuehren-managen"
+                        title="Alle Artikel über Führen & Managen anzeigen">Führen & Managen</a></li>
+            </ul>
+
+            <section class="abstract" aria-labelledby="abstract-title">
+                <h2 id="abstract-title">Abstract</h2>
+                <p>
+                    Prozesse sichern Qualität, vermeiden Fehler, steigern Effizienz. Soweit Konsens. Auch klar: Oft
+                    verkommt das Ganze zum Prozessgehampel. Was dabei fast nie Thema ist: die soziale Funktion
+                    von Prozessen. Sie entlasten. Sie beschleunigen Entscheidungen und reduzieren Einzelverhandlungen.
+                    Wer sich an sie hält, muss sich meist nicht rechtfertigen. Das nennt man Unsicherheitsabsorption .
+                    Ein Effekt, den Fachleute und Engineering Manager gezielt nutzen sollten. In Fällen wie Fehler- und
+                    Risikoanalysen z. B. mit dem „vereinfachten
+                    Gutachtenstil“ – siehe unten.
+                </p>
+            </section>
+
+            <details class="toc">
+                <summary>
+                    <svg class="icon toggle-icon">
+                        <use href="../assets/img/icons.svg#icon-expand"></use>
+                    </svg>
+                    Inhalt
+                </summary>
+                <nav aria-label="Inhaltsverzeichnis">
+                    <ul>
+                        <li><a href="#section-1">Die üblichen Vorteile von Prozessen</a></li>
+                        <li><a href="#section-2">Prozesse legitimieren unsere Handlungen</a></li>
+                        <li><a href="#section-3">Prozesse sind manifestiertes Expertenwissen</a></li>
+                        <li><a href="#section-4">Prozesse: Sichere Leitplanken</a></li>
+                        <li><a href="#section-5">Meta-Prozesse im Engineering. Oder: Welches Problem wird da eigentlich
+                                gelöst?</a></li>
+                        <li><a href="#section-6">Prozessgehampel für Formalien</a></li>
+                        <li><a href="#section-7">Methode: Vereinfachte Gutachtenstil für Engineering</a></li>
+                    </ul>
+                </nav>
+            </details>
+
+            <section id="section-1" aria-labelledby="title-1">
+                <h2 id="title-1">Die üblichen Vorteile von Prozessen</h2>
+                <p>
+                    Die üblichen Vorteile von Qualitäts- und Prozessmanagement lesen sich wie der Wunschzettel eines
+                    Managers. Eine ISO9001-Beratung listet auf:<a aria-label="Zur Endnote 1" href="#cite-note-1"
+                        id="cite-ref-1" name="cite-ref-1" title="Zur Endnote 1">[1]</a>
+                </p>
+                <figure><img
+                        alt="Ein Screenshot von Nutzenversprechen durch die Anwendung ISO9001, insb. Qualität sichern, Fehler vermeiden, Effizienz steigern."
+                        src="../assets/img/prozesse-legitimieren-sozial/prozesse-vorteile.png" />
+                    <figcaption>Typisch genannte Vorteile durch die Anwendung von ISO9001 (Quelle: <a id="cite-ref-1"
+                            href="#cite-note-1" aria-label="Zur Endnote 1">[1]</a>)
+                    </figcaption>
+                </figure>
+                <p>
+                    Bei A-SPICE und ISO26262 ist noch zu ergänzen: Komplexität beherrschen, Fehler früh erkennen, Risiko
+                    und Kosten reduzieren. Klingt alles gut, ist aber umstritten.<a aria-label="Zur Endnote 2"
+                        href="#cite-note-2" id="cite-ref-2" name="cite-ref-2" title="Zur Endnote 2">[2]</a><a
+                        aria-label="Zur Endnote 3" href="#cite-note-3" id="cite-ref-3" name="cite-ref-3"
+                        title="Zur Endnote 3">[3]</a> Darauf will ich hier nicht
+                    hinaus. Denn Prozesse und Normen leisten weit mehr: Sie erfüllen eine <strong>soziale Funktion. Sie
+                        verlagern die
+                        Beweislast.</strong>
+                </p>
+            </section>
+            <section id="section-2" aria-labelledby="title-2">
+                <h2 id="title-2">Prozesse legitimieren unsere Handlungen</h2>
+                <p>
+                    In einem Projekt stießen wir auf einen dubiosen Fehler: Unter bestimmten Konstellationen hätte ein
+                    sicherheitskritischer Sensor einen Fehler unterschlagen. Nach gründlicher Analyse stuften wir
+                    ihn als „unabhängigen Mehrfachfehler“ und damit als „sicher“ ein. Unsere Argumentation stützte sich
+                    auf Bayes-Schätzer, Fehlerbäume und Felddaten.
+                </p>
+                <p>
+                    Doch beim Review mit der höchsten Qualitätsinstanz und den Juristen kam sofort die Frage: „Auf
+                    welcher Norm beruht diese Einschätzung?“ Ich rechnete schon mit sinnlosem Prozessgehampel. Dann fiel
+                    mir Luhmann ein. <strong>Unsicherheitsabsorption</strong>. Ich zeigte den folgenden Passus der
+                    ISO26262:<a aria-label="Zur Endnote 4" href="#cite-note-4" id="cite-ref-4" name="cite-ref-4"
+                        title="Zur Endnote 4">[4]</a>
+                </p>
+                <figure><img
+                        alt="Ausschnitt aus ISO26262:2018-1 3.130, S. 21: Unabhängige Mehrfachfehler sind sichere Fehler"
+                        src="../assets/img/prozesse-legitimieren-sozial/iso26262-safe-faults.png" />
+                    <figcaption>Mehrfachfehler gelten als „sichere Fehler“. (Quelle: <a id="cite-ref-4"
+                            href="#cite-note-4" aria-label="Zur Endnote 4">[ISO26262-1 3.130, S. 21]</a>)</figcaption>
+                </figure>
+                <p>
+                    Zustimmendes Nicken. Feinschliff am Wording. Entscheidung verabschiedet. Unsere Argumentation war
+                    unverändert, aber etwas hatte sich verschoben: Wir mussten uns nicht mehr rechtfertigen. Der
+                    Normverweis übernahm die Legitimation unserer Arbeit. Wie kommt das?
+                </p>
+                <p class="callout">
+                    Zusammenarbeit besteht immer aus zwei Vorgängen:<a aria-label="Zur Endnote 5" href="#cite-note-5"
+                        id="cite-ref-5" name="cite-ref-5" title="Zur Endnote 5">[5]</a>
+                <ol>
+                    <li>Die Arbeit tun
+                    </li>
+                    <li>Die Ergebnisse im sozialen System legitimieren
+                    </li>
+                </ol>
+                </p>
+                <p>
+                    Bei Punkt&nbsp;2 helfen Prozesse. Sie erzeugen eine „Unsicherheitsabsorption“: <a
+                        aria-label="Zur Endnote 6" href="#cite-note-6" id="cite-ref-6" name="cite-ref-6"
+                        title="Zur Endnote 6">[6]</a><a aria-label="Zur Endnote 2" href="#cite-note-2" id="cite-ref-2"
+                        name="cite-ref-2" title="Zur Endnote 2">[2]</a> Denn auch in standardisierten
+                    Abläufen gibt es
+                    immer Abweichungen. Würden wir jede einzeln betrachten, wären wir paralysiert. Prozesse sind etwas
+                    generischer. Sie lassen gewisse Unschärfen zu und erleichtern so die Legitimation. 
+                </p>
+                <p class="callout" style="text-align: center;">
+                    <strong>Wer sich prozesskonform verhält, muss sich selten rechtfertigen.</strong>
+                </p>
+            </section>
+            <section id="section-3" aria-labelledby="title-3">
+                <h2 id="title-3">Prozesse sind manifestiertes Expertenwissen</h2>
+                <p>
+                    Prozesse absorbieren Unsicherheit, weil sie strukturiertes Problemlösungswissen enthalten. Ein
+                    Beispiel aus meinem Alltag: Für die Jahresabschlüsse meiner GmbHs nutze ich einen Prozess, der
+                    teilautomatisiert Steuererklärungen, eBilanzen, Kalkulationen und Checklisten erzeugt. Aufwand: etwa
+                    eine Stunde je GmbH.
+                </p>
+                <p>
+                    Anfangs war das anders: Die Abschlusskosten waren zu hoch. Also begann ich, die Berechnungen mit
+                    Excel selbst zu verstehen. Ich rechnete einen Abschluss manuell durch, berücksichtigte Wahlrechte,
+                    Rückstellungen, Ansatzregeln. Dieses <strong>Wissen war in den Excelformeln eingeschrieben</strong>.
+                    Die Ergebnisse prüfte ich mit der Steuerberaterin. Das Problem war gelöst.
+                </p>
+                <p>
+                    Dann habe ich daraus einen Prozess gemacht: Inputs erfassen, Sonderfälle abfangen, Outputs
+                    generieren, Berechnungen und Ergebnisse prüfen.
+                </p>
+                <p class="callout" style="text-align: center;">
+                    <strong>Prozesse reproduzieren <u>verifiziertes</u> Problemlösungswissen. Dadurch ermöglichen sie
+                        Unsicherheitsabsorption</strong>.
+                </p>
+                <p>
+                    Die nächste Ausbaustufe ist das Automatisieren. Ziel: Knopf drücken, fertig. „Automate the Boring
+                    Stuff.“<a aria-label="Zur Endnote 7" href="#cite-note-7" id="cite-ref-7" name="cite-ref-7"
+                        title="Zur Endnote 7">[7]</a>
+                </p>
+            </section>
+            <section id="section-4" aria-labelledby="title-4">
+                <h2 id="title-4">Prozesse: Sichere Leitplanken</h2>
+                <p>
+                    Eine der wichtigsten, vielleicht die wichtigste Führungsaufgabe besteht darin, Sicherheit zu
+                    schaffen. Was tun wir in dieser konkreten Situation? Drohen Sanktionen oder Nachteile, wenn wir
+                    handeln?
+                </p>
+                <p>
+                    Statt jede Entscheidung neu auszuhandeln, schaffen Prozesse Leitplanken:
+                </p>
+                <ul>
+                    <li>Einzelpersonen legitimieren ihr Handeln über Prozesse der Organisation.
+                    </li>
+                    <li>Organisationen legitimieren ihre Prozesse über Normen und Vorschriften.
+                    </li>
+                </ul>
+                <p>
+                    Der Mechanismus dahinter wird durch folgendes Beispiel klarer: Laugenbrezel vom Bäcker kaufen.
+                    Niemand diskutiert dabei den Wert des Euros (bei niedriger Inflation). Das Eurostück trägt die
+                    Verhandlung inhärent in sich.<a aria-label="Zur Endnote 8" href="#cite-note-8" id="cite-ref-8"
+                        name="cite-ref-8" title="Zur Endnote 8">[8]</a> Analog bei Prozessen:
+                </p>
+                <p class="callout" style="text-align: center;">
+                    <strong>Bei prozesskonformen Verhalten werden Verhandlungen der Ergebnisse extrem verkürzt.</strong>
+                </p>
+                <p>
+                    Deshalb nutzen performante Teams maßgeschneiderte Prozesse. Sie müssen nicht jedes Ergebnis einzeln
+                    aushandeln. Es muss aber zeitgemäß sein. <strong>Welches Problem löst der Prozess
+                        heute?</strong> So klar ist das nicht immer. Vor allem nicht im Engineering. Wir arbeiten streng
+                    genommen mit Meta-Prozessen.
+                </p>
+            </section>
+            <section id="section-5" aria-labelledby="title-5">
+                <h2 id="title-5">Meta-Prozesse im Engineering. Oder: Welches Problem wird da eigentlich gelöst?</h2>
+                <p>
+                    Engineering-Prozesse sind oft so generisch wie dieses Beispiel aus A-SPICE:<a
+                        aria-label="Zur Endnote 9" href="#cite-note-9" id="cite-ref-9" name="cite-ref-9"
+                        title="Zur Endnote 9">[9]</a>
+                </p>
+                <figure><img
+                        alt="Ausschnitt aus A-SPICE PAM 4.0: SYS.2: Engineering Prozesse enthalten keine Problemlösung. Sie sind Meta-Prozesse, die zur Problemlösung führen"
+                        src="../assets/img/prozesse-legitimieren-sozial/aspice-sys2.png" />
+                    <figcaption>Ausschnitt von Base Practices (BP) aus SYS.2 (Quelle: <a id="cite-ref-9"
+                            href="#cite-note-9" aria-label="Zur Endnote 9">[9]</a>)</figcaption>
+                </figure>
+                <p>
+                    Offensichtlich widersprechen diese Base Practices meiner Definition von Prozess: Sie enthalten keine
+                    spezifische Problemlösung. Die entsteht ja gerade erst.
+                </p>
+                <p>
+                    <strong>Engineering-Prozesse sind Meta-Prozesse.</strong> So wie Meta-Kommunikation das Sprechen
+                    über Kommunikation ist, geht es hier um das <strong>Sprechen über das Problemlösen</strong>. Nur:
+                    A-SPICE, ISO26262 und Projektmanagementstandards drehen sich nicht um das Problemlösen, sondern um
+                    das Erkennen von Abweichungen.
+                </p>
+                <p>
+                    Genau darin liegt meine Kritik an diesen Standards: Was sie eigentlich schützen sollten –
+                    Problemlösen, Erkenntnis, Lernen, Transformation – erwähnen sie mit keiner Silbe. Stattdessen regeln
+                    sie
+                    Reviews, Freigaben, Nachverfolgbarkeit. Fraglos wichtig; klingt aber mehr nach Controlling als nach
+                    Schöpferischer Zerstörung.<a aria-label="Zur Endnote 10" href="#cite-note-10" id="cite-ref-10"
+                        name="cite-ref-10" title="Zur Endnote 10">[10]</a>
+                </p>
+                <p>
+                    Dennoch müssen wir beides tun: <strong>Lösungen schaffen und sie sozial legitimieren</strong>. Meine
+                    pragmatische Empfehlung:
+                </p>
+                <ol>
+                    <li>
+                        <strong>Schaffen</strong>: Erarbeite und verifiziere technische Lösungen
+                    </li>
+                    <li>
+                        <strong>Legitimieren</strong>: Beleuchte ihre Entstehung im Lichte der relevanten Prozesse und
+                        Normen
+                    </li>
+                </ol>
+                <p>
+                    Schritt&nbsp;2 gelingt schlicht dadurch, dass wir die <strong>Ergebnisse prozesskonform speichern
+                        und
+                        sauber verlinken</strong> („Traceability“). Zum Beispiel: Anforderungen, Reviews, Bugs und
+                    Tasks in Codebeamer, Code im Git, Tests in Tessy, Konstruktionen in CATIA, Schaltungen in eCAD,
+                    Risikoanalysen in APIS, Links und Namenskonventionen sorgen für die Traceability …
+                </p>
+                <p class="callout">
+                    <strong>Praktisch:</strong> Engineering-Prozesse als Meta-Prozesse können – gerade wegen ihrer
+                    Abstraktheit – auch ganz neue Problemlösungen legitimieren.
+                </p>
+                <p>
+                    Und ja: Wer agilkonform erst codiert, später seine Architekturschulden aufräumt und am Ende
+                    testgetrieben nachweist, dass alles funktioniert – bitte. Der Punkt für Führungskräfte: Gebt den
+                    Teams
+                    diese <strong>Freiheit. Und legitimiert sie z.&nbsp;B. über Cookbooks.</strong>
+                </p>
+                <p class="callout">
+                    <strong>Tipp</strong>: In Spezialfällen wie Sicherheitsnachweis, Risikoanalyse, 8D-Bericht oder
+                    Verifikationsreview ist es oft hilfreich, Normenkonformität explizit zu zeigen.<br />
+                    Dafür hat sich bei mir der „<strong>vereinfachte Gutachtenstil</strong>“ bewährt – siehe <a
+                        href="#section-7">letzter Abschnitt</a>.
+                </p>
+            </section>
+            <section id="section-6" aria-labelledby="title-6">
+                <h2 id="title-6">Prozessgehampel für Formalien</h2>
+                <p>
+                    Ich bin Verfechter guter Prozesse. Aber Prozessgehampel erzeugt bei mir Apathie. Damit meine
+                    ich
+                    Vorgaben, die weder eine verifizierte Problemlösung noch Meta-Prozesse sind.
+                </p>
+                <p>
+                    Beispiel aus dem Alltag: Beim Arzt müssen wir Datenschutz- und Abrechnungsformulare
+                    ausfüllen,
+                    obwohl alle relevanten Informationen längst auf der Chipkarte stehen. Durch konkludentes
+                    Verhalten
+                    im Form des Betretens des Behandlungsraumes stimmen wir beidem auch noch zu. So mein
+                    pragmatisches
+                    Rechtsverständnis. Die Formularform ist reines Ärgernis.
+                </p>
+                <p>
+                    Ein häufiges Ärgernis ist auch die FMEA. Ich kann nicht mehr zählen, wie oft wir die nur
+                    wegen
+                    ISO9001 und ISO26262 befüllt haben. Beide Normen fordern Risikoanalysen. Nur:
+                    Fehlervermeidung,
+                    -erkennung und -behandlung sind in gutem Design verankert und werden durch Tests
+                    abgesichert. In
+                    solchen Fällen ist die FMEA redundant; oder schlimmer: inkonsistent. Erkläre aber mal einem
+                    Richter, warum man die Urpraktik „FMEA“ nicht gemacht hat. Also macht man sie …
+                </p>
+                <p>
+                    <strong>Triggerwarnung – zu viel Pragmatismus</strong>: Schleierhaft sind mir auch viele
+                    unternehmensinterne Engineering-Prozess- und Methodenhandbücher. Dort werden Prozesse aus
+                    A-SPICE,
+                    ISO
+                    26262 oder Methoden aus S(W)EBOK dokumentiert. Aber es sind Meta-Prozesse! Die sind per
+                    definitionem
+                    abstrakt. In 97,&nbsp;% der Fälle heißt das: copy, paste, leicht umformuliert. Irgendwer hat das
+                    mal als Bullshit-Arbeit bezeichnet.<a aria-label="Zur Endnote 11" href="#cite-note-11"
+                        id="cite-ref-11" name="cite-ref-11" title="Zur Endnote 11">[11]</a> Eine
+                    Tabelle
+                    im
+                    Projekthandbuch mit Rollen, Tools und Zuständigkeiten tut es vom Sachverhalt genauso gut.
+                    Wer
+                    tatsächlich mehr wissen will, liest dann direkt in den offiziellen Normen und Handbüchern.
+                </p>
+                <p class="callout">
+                    Meine Kritik an gängigen Qualitäts- und Prozessmanagementstandards lautet: In ihrer
+                    <strong>praktischen Konsequenz stellen sie die Prozessdokumentation über alles</strong>. Dem
+                    müssen
+                    sich die
+                    Arbeitsgruppen endlich annehmen, weil sie die Standards in jenem Controllingduktus
+                    freigegeben haben
+                    …
+                </p>
+            </section>
+            <section id="section-7" aria-labelledby="title-7">
+                <h2 id="title-7">Methode: Vereinfachte Gutachtenstil für Engineering</h2>
+                <p>
+                    Motiviert durch mein Eureka-Moment in der QM-Diskussion habe ich einen „vereinfachten
+                    Gutachtenstil“<a aria-label="Zur Endnote 12" href="#cite-note-12" id="cite-ref-12"
+                        name="cite-ref-12" title="Zur Endnote 12">[12]</a> adaptiert, der <strong>gezielt
+                        Getanes mit Normen und Standards verknüpft</strong>. Das soll die Legitimation erleichtern.
+                </p>
+                <p class="callout">
+                    <strong>Vereinfachte Gutachtenstil für Engineering</strong>
+                <ol>
+                    <li>
+                        <strong>Obersatz:</strong> Kann das Systemverhalten X zu unzulässig hohem Sicherheitsrisiko
+                        führen?
+                    </li>
+                    <li>
+                        <strong>Definition: </strong> Verknüpfung des Systemverhaltens mit Prozessen /
+                        Sicherheitsstandards.
+                    </li>
+                    <li>
+                        <strong>Subsumtion:</strong> Darstellung des Systemverhaltens unter diesem Gesichtspunkt (z. B.
+                        mit UML-Diagrammen, FMEDA, Fehlerbäumen)
+                    </li>
+                    <li>
+                        <strong>Konklusion:</strong> Antwort auf den Obersatz. Liegt unzulässig hohes Sicherheitsrisiko
+                        vor?
+                    </li>
+                </ol>
+                </p>
+                <p>
+                    Das Schöne: Man kann das auch verschachteln. Vereinfacht am obigen Sensorfall:
+                </p>
+                <ol>
+                    <li>
+                        <strong>Obersatz</strong>: Kann der Sensorfehler X zu unzulässig hohem Risiko des
+                        Sicherheitsziels A führen?
+                    </li>
+                    <li>
+                        <strong>Definition</strong>: Dafür müsste eine Verkettung abhängiger Einfachfehler eintreten.
+                        <ol type="a">
+                            <li>
+                                <strong>Obersatz</strong>: Wann sind Einfachfehler abhängig?
+                            </li>
+                            <li>
+                                <strong>Definition</strong>: ISO26262-2 3.78 und 3.30: „… unabhängige Fehler sind
+                                statistisch unabhängig“. Also: $P(A ∩ B ∩ C) = P(A) * P(B) * P(C)$
+                            </li>
+                            <li>
+                                <strong>Subsumtion:</strong> Grafik: Fehlerbaum mit Bayes-Wahrscheinlichkeiten aus
+                                Felddaten.
+                            </li>
+                            <li>
+                                <strong>Konklusion:</strong> Die Einfachfehler sind unabhängig.
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                        <strong>Subsumtion</strong>: UML-Diagramme mit Fehlerketten und Sicherheitsmechanismen.
+                    </li>
+                    <li>
+                        <strong>Konklusion</strong>: Der Sensorfehler ergibt sich aus einer Verkettung unabhängiger
+                        Einzelfehler. Er kann deshalb als sicher eingestuft werden. Ein unzulässig hohes Risiko für
+                        Sicherheitsziel A liegt nicht vor.
+                    </li>
+                </ol>
+                <p>
+                    Diese kompakte Struktur leistet mir im Projektalltag gute Dienste und passt in jeden Anhang von
+                    Berichten. Und: Techniker wie Nicht-Techniker fühlen sich abgeholt. Was denken Sie? Gerne in den
+                    Kommentaren.
+                </p>
+                <div class="signature-icon"></div>
+            </section>
+
+            <section id="section-8" aria-labelledby="title-8">
+                <h2 id="title-8">Endnoten</h2>
+
+                <ol class="ref-sources">
+                    <li id="cite-note-1">
+                        <a aria-label="Zurück zur Textstelle, wo diese Quelle zitiert wurde" href="#cite-ref-1"
+                            title="Zurück zum Text">↑</a> Im Internet: <a
+                            href="https://qualitaetsmanagement.me/qualitaetsmanagement-iso-9001/iso-9001-anforderungen/"
+                            target="_blank"
+                            title="Website zur ISO 9001">https://qualitaetsmanagement.me/qualitaetsmanagement-iso-9001/iso-9001-anforderungen/</a>
+                    </li>
+                    <li id="cite-note-2">
+                        <a aria-label="Zurück zur Textstelle, wo diese Quelle zitiert wurde" href="#cite-ref-2"
+                            title="Zurück zum Text">↑</a> Kühl, S. (2011). <em>Organisationen: eine sehr
+                            kurze
+                            Einführung</em> (1. Aufl.). Wiesbaden: Springer VS.
+                    </li>
+                    <li id="cite-note-3">
+                        <a aria-label="Zurück zur Textstelle, wo diese Quelle zitiert wurde" href="#cite-ref-3"
+                            title="Zurück zum Text">↑</a> Sprenger, R. K. (2015). <em>Das Prinzip
+                            Selbstverantwortung. Wege zur Motivation</em>. Frankfurt am Main: Campus Verlag.
+                    </li>
+                    <li id="cite-note-4">
+                        <a aria-label="Zurück zur Textstelle, wo diese Quelle zitiert wurde" href="#cite-ref-4"
+                            title="Zurück zum Text">↑</a> International Organization for Standardization.
+                        (2018).
+                        <em>ISO 26262 Road Vehicles – Functional Safety – Part 1: Vocabulary</em> (ISO 26262-1:2018, 2nd
+                        Ed.).
+                    </li>
+                    <li id="cite-note-5">
+                        <a aria-label="Zurück zur Textstelle, wo diese Quelle zitiert wurde" href="#cite-ref-5"
+                            title="Zurück zum Text">↑</a> Luhmann spricht von Variation und Selektion von
+                        Sinnmöglichkeiten mit anschließender Retention im sozialen System.<a aria-label="Zur Endnote 6"
+                            href="#cite-note-6" id="cite-ref-6" name="cite-ref-6" title="Zur Endnote 6">[6]</a>
+                    </li>
+                    <li id="cite-note-6">
+                        <a aria-label="Zurück zur Textstelle, wo diese Quelle zitiert wurde" href="#cite-ref-6"
+                            title="Zurück zum Text">↑</a> Luhmann, N. (1991). <em>Soziale Systeme:
+                            Grundriss einer
+                            allgemeinen Theorie</em> (4. Aufl.). Frankfurt am Main: Suhrkamp.
+                    </li>
+                    <li id="cite-note-7">
+                        <a aria-label="Zurück zur Textstelle, wo diese Quelle zitiert wurde" href="#cite-ref-7"
+                            title="Zurück zum Text">↑</a> Sweigart, A. (2015). <em>Automate the Boring
+                            Stuff with
+                            Python. Practical Programming for Total Beginners</em>. San Francisco: No Starch Press.
+                    </li>
+                    <li id="cite-note-8">
+                        <a aria-label="Zurück zur Textstelle, wo diese Quelle zitiert wurde" href="#cite-ref-8"
+                            title="Zurück zum Text">↑</a> Geld und Wahrheit sind so genannte
+                        „symbolisch-generalisierte Medien“. Sie ersetzen aufwändige Kommunikationen.<a
+                            aria-label="Zur Endnote 6" href="#cite-note-6" id="cite-ref-6" name="cite-ref-6"
+                            title="Zur Endnote 6">[6]</a>
+                    </li>
+                    <li id="cite-note-9">
+                        <a aria-label="Zurück zur Textstelle, wo diese Quelle zitiert wurde" href="#cite-ref-9"
+                            title="Zurück zum Text">↑</a> VDA QMC Working Group 13 / Automotive SIG.
+                        (2017).
+                        <em>Automotive SPICE Process Assessment / Reference Model</em> (Version PAM 4.0).
+                    </li>
+                    <li id="cite-note-10">
+                        <a aria-label="Zurück zur Textstelle, wo diese Quelle zitiert wurde" href="#cite-ref-10"
+                            title="Zurück zum Text">↑</a> Schumpeter, J. (1987). <em>Theorie der
+                            wirtschaftlichen
+                            Entwicklung: Eine Untersuchung über Unternehmergewinn, Kapital, Kredit, Zins und den
+                            Konjunkturzyklus</em> (7. Aufl.). Berlin: Duncker &amp; Humblot.
+                    </li>
+                    <li id="cite-note-11">
+                        <a aria-label="Zurück zur Textstelle, wo diese Quelle zitiert wurde" href="#cite-ref-11"
+                            title="Zurück zum Text">↑</a> Graeber, D. (2019). <em>Bullshit Jobs: Vom
+                            wahren Sinn
+                            der</em>. Stuttgart: Klett-Cotta.
+                    </li>
+                    <li id="cite-note-12">
+                        <a aria-label="Zurück zur Textstelle, wo diese Quelle zitiert wurde" href="#cite-ref-12"
+                            title="Zurück zum Text">↑</a> Wikipedia-Autoren. (2025). Juristische
+                        Fallbearbeitung.
+                        In <em>Wikipedia – Die freie Enzyklopädie</em>. Im Internet, Stand 01.08.2025: <a
+                            href="https://de.wikipedia.org/w/index.php?title=Juristische_Fallbearbeitung&amp;oldid=254346962"
+                            target="_blank"
+                            title="Wikipedia-Artikel zur juristischen Fallbearbeitung">https://de.wikipedia.org/w/index.php?title=Juristische_Fallbearbeitung&amp;oldid=254346962</a>
+                    </li>
+                </ol>
+            </section>
+        </article>
+    </main>
+
+    <a href="#" class="scroll-up" aria-label="Nach oben scrollen">
+        <svg class="icon">
+            <use href="../assets/img/icons.svg#icon-scrollup"></use>
+        </svg>
+    </a>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <a href="../impressum.html">Impressum</a>
+            <a href="../datenschutz.html">Datenschutz</a>
+        </div>
+    </footer>
+    <script src="../assets/js/lightbox.js"></script>
+</body>
+
+</html>

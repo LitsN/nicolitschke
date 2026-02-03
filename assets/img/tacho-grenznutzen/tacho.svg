@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 450" role="img" preserveAspectRatio="xMidYMid meet" aria-labelledby="tacho-title tacho-desc">
+  <title id="tacho-title">Gerhingerechter Tachometer</title>
+    <desc id="tacho-desc">
+    Erweiterung eines klassischen Tachometers. Je Geschwindigkeit wird je Geschwindigkeit die Fahrtdauer für eine Strecke von 100 km angezeigt. Dadurch wird der abnehmende Grenznutzen klar. Höhere Geschwindigkeiten führen nicht proportional zu geringeren Fahrzeiten. Der Nutzen ab und wird rasch unbedeutend. Durch den Tacho ist dem Fahrer der Zusammenhang ohne Nachdenken im Auto präsent und kann direkt über weiteres Beschleunigen entscheiden.
+  </desc>
+  
+  <defs>
+	<style>
+		.text-clock{fill:#5b91e5;  font-size:10px;}
+		.text-speed-major{fill:#333;font-size:14px;}
+		.text-speed-minor{fill:#333;font-size:10px;}
+	</style>
+
+  </defs>
+  <g  font-family="Roboto" >
+  
+	<!-- Semi Circles -->
+    <path d="M 250 430 C 150.589 430 70 349.411 70 250 C 70 150.589 150.589 70 250 70 C 349.411 70 430 150.589 430 250" style="fill: none; stroke: #333;" ry="186.246"></path>
+    <path d="M 89.784 342.06 C 74.177 314.957 65.25 283.521 65.25 250 C 65.25 147.965 147.965 65.25 250 65.25 C 352.035 65.25 434.75 147.965 434.75 250" style="fill: none; stroke: #5b91e5;" ry="186.246"></path>
+	
+	<!-- separator lines -->
+	<g stroke="#333" stroke-width="1px">
+		<line style="transform-origin:250px 250px 0px;" x1="250" y1="62.462" x2="250" y2="72.462"></line>
+		<line style="transform-origin:250px 250px 0px;" x1="274.478" y1="64.067" x2="273.173" y2="73.981"></line>
+		<line style="transform-origin:250px 250px 0px;" x1="298.539" y1="68.853" x2="295.951" y2="78.512"></line>
+		<line style="transform-origin:250px 250px 0px;" x1="321.768" y1="76.738" x2="317.941" y2="85.977"></line>
+		<line style="transform-origin:250px 250px 0px;" x1="343.769" y1="87.586" x2="338.769" y2="96.246"></line>
+		<line style="transform-origin:250px 250px 0px;" x1="364.167" y1="101.217" x2="358.08" y2="109.15"></line>
+		<line style="transform-origin:250px 250px 0px;" x1="382.61" y1="117.39" x2="375.539" y2="124.461"></line>
+		<line style="transform-origin:250px 250px 0px;" x1="398.785" y1="135.835" x2="390.851" y2="141.923"></line>
+		<line style="transform-origin:250px 250px 0px;" x1="412.412" y1="156.232" x2="403.752" y2="161.232"></line>
+		<line style="transform-origin:250px 250px 0px;" x1="423.263" y1="178.234" x2="414.024" y2="182.06"></line>
+		<line style="transform-origin:250px 250px 0px;" x1="431.148" y1="201.462" x2="421.489" y2="204.05"></line>
+		<line style="transform-origin:250px 250px 0px;" x1="435.934" y1="225.522" x2="426.019" y2="226.827"></line>
+		<line style="transform-origin:250px 250px 0px;" x1="250.001" y1="62.463" x2="250.001" y2="72.463" transform="matrix(0, 1, -1, 0, 0, 0)"></line>
+		<line style="transform-origin:250px 250px 0px;" x1="62.462" y1="250" x2="72.462" y2="250"></line>
+		<line style="transform-origin:250px 250px 0px;" x1="274.479" y1="64.065" x2="273.174" y2="73.98" transform="matrix(0, -1, 1, 0, 0, 0)"></line>
+		<line style="transform-origin:250px 250px 0px;" x1="298.538" y1="68.853" x2="295.949" y2="78.512" transform="matrix(0, -1, 1, 0, 0, 0)"></line>
+		<line style="transform-origin:250px 250px 0px;" x1="321.769" y1="76.738" x2="317.942" y2="85.977" transform="matrix(0, -1, 1, 0, 0, 0)"></line>
+		<line style="transform-origin:250px 250px 0px;" x1="343.769" y1="87.586" x2="338.769" y2="96.246" transform="matrix(0, -1, 1, 0, 0, 0)"></line>
+		<line style="transform-origin:250px 250px 0px;" x1="364.166" y1="101.216" x2="358.078" y2="109.149" transform="matrix(0, -1, 1, 0, 0, 0)"></line>
+		<line style="transform-origin:250px 250px 0px;" x1="382.611" y1="117.391" x2="375.54" y2="124.462" transform="matrix(0, -1, 1, 0, 0, 0)"></line>
+		<line style="transform-origin:250px 250px 0px;" x1="398.784" y1="135.833" x2="390.85" y2="141.92" transform="matrix(0, -1, 1, 0, 0, 0)"></line>
+		<line style="transform-origin:250px 250px 0px;" x1="412.413" y1="156.231" x2="403.753" y2="161.231" transform="matrix(0, -1, 1, 0, 0, 0)"></line>
+		<line style="transform-origin:250px 250px 0px;" x1="423.263" y1="178.233" x2="414.024" y2="182.06" transform="matrix(0, -1, 1, 0, 0, 0)"></line>
+		<line style="transform-origin:250px 250px 0px;" x1="431.148" y1="201.459" x2="421.489" y2="204.047" transform="matrix(0, -1, 1, 0, 0, 0)"></line>
+		<line style="transform-origin:250px 250px 0px;" x1="250" y1="62.462" x2="250" y2="72.462"></line>
+		<line style="transform-origin:250px 250px 0px;" x1="250.002" y1="427.001" x2="250.002" y2="433.001"></line>
+		<line style="transform-origin:250px 250px 0px;" x1="423.263" y1="178.233" x2="414.024" y2="182.06" transform="matrix(-1, 0, 0, -1, 0, 0)"></line>
+		<line style="transform-origin:250px 250px 0px;" x1="431.148" y1="201.459" x2="421.489" y2="204.047" transform="matrix(-1, 0, 0, -1, 0, 0)"></line>
+		<line style="transform-origin:250px 250px 0px;" x1="435.934" y1="225.523" x2="426.02" y2="226.828" transform="matrix(-1, 0, 0, -1, 0, 0)"></line>
+		<line style="transform-origin:250px 250px 0px;" x1="250" y1="426.997" x2="250.001" y2="432.997" transform="matrix(0.707107, 0.707107, -0.707107, 0.707107, 0, 0)"></line>
+		<line style="transform-origin:250px 250px 0px;" x1="250" y1="426.997" x2="250.001" y2="432.997" transform="matrix(0.965926, 0.258819, -0.258819, 0.965926, 0, 0)"></line>
+		<line style="transform-origin:250px 250px 0px;" x1="250" y1="426.997" x2="250.001" y2="432.997" transform="matrix(0.866025, 0.5, -0.5, 0.866025, 0, 0)"></line>
+		<line style="transform-origin:250px 250px 0px;" x1="250" y1="426.997" x2="250.001" y2="432.997" transform="matrix(0.793353, 0.608762, -0.608762, 0.793353, 0, 0)"></line>
+		<line style="transform-origin:250px 250px 0px;" x1="250" y1="426.997" x2="250.001" y2="432.997" transform="matrix(0.573576, 0.819152, -0.819152, 0.573576, 0, 0)"></line>
+	</g>
+	<!-- Red Indicator -->
+	<g stroke="#e63946" stroke-width="2px" fill="none" transform-origin="250px 250px 0px">
+		<line style="transform-origin: 250px 250px 0px;" x1="435.934" y1="225.523" x2="426.02" y2="226.828" transform="matrix(0, -1, 1, 0, 0, 0)"></line>
+		<line style="transform-origin: 250px 250px 0px;" x1="412.413" y1="156.231" x2="403.753" y2="161.231" transform="matrix(-1, 0, 0, -1, 0, 0)"></line>
+		<line style="transform-origin: 250px 250px 0px;" x1="62.462" y1="249.999" x2="72.462" y2="249.999"></line>
+	</g>
+	<!-- Pointer --> 
+	<polygon style="fill: rgb(230, 57, 70); transform-origin: 250px 250px 0px;" points="250 260 240 249.375 250 90 260 249.375" transform="matrix(0.989182, -0.146696, 0.146696, 0.989182, 0, 0)"></polygon>
+    
+	<text class="text-speed-major" x="237.776" y="85.06">140</text>
+    <text class="text-speed-major" x="402.091" y="255.664">260</text>
+    <text class="text-speed-major" x="320.326" y="109.825">180</text>
+    <text class="text-speed-minor" x="361.601" y="133.803">200</text>
+    <text class="text-speed-major" x="380.077" y="171.54">220</text>
+    <text class="text-speed-minor" x="403.663" y="209.278">240</text>
+    <text class="text-speed-minor" x="284.947" y="87.811">160</text>
+    <text class="text-speed-minor" x="197.965" y="88.428">120</text>
+    <text class="text-speed-major" x="153.878" y="109.119">100</text>
+    <text class="text-speed-minor" x="122.087" y="133.153">80</text>
+    <text class="text-speed-major" x="97.769" y="169.806">70</text>
+    <text class="text-speed-minor" x="80.87" y="209.879">60</text>
+    <text class="text-speed-major" x="72.922" y="254.811">50</text>
+    <text class="text-speed-major" x="97.334" y="340.688">30</text>
+    <text class="text-speed-major" x="159.235" y="400.846">10</text>
+    <text class="text-speed-major" x="246.42" y="424.821">0</text>
+    <text class="text-speed-minor" x="125.334" y="374.658">20</text>
+    <text class="text-speed-minor" x="81.306" y="296.628">40</text>
+    <text class="text-clock" x="2.802" y="-1.121"><tspan x="65.459" y="352.326" style="word-spacing: 0px;">3:20</tspan><tspan style="word-spacing: -2px;"> </tspan><tspan style="letter-spacing: -2px; word-spacing: 0px;"> </tspan><tspan style="font-size: 8px; word-spacing: 0px;">h</tspan></text>
+    <text class="text-clock" x="3.923"><tspan x="44.207" y="306.667" style="word-spacing: 0px;">2:30</tspan><tspan style="word-spacing: -2px;"> </tspan><tspan style="letter-spacing: -2px; word-spacing: -2px;"> </tspan><tspan style="font-size: 8px; word-spacing: 0px;">h</tspan></text>
+    <text class="text-clock" x="4.483" y="-0.56"><tspan x="37.038" y="252.818" style="word-spacing: 0px;">2:00</tspan><tspan style="word-spacing: -2px;"> </tspan><tspan style="letter-spacing: -2px; word-spacing: -2px;"> </tspan><tspan style="font-size: 8px; word-spacing: 0px;">h</tspan></text>
+    <text class="text-clock" x="3.362" y="-0.56"><tspan x="42.019" y="204.003" style="word-spacing: 0px;">1:40</tspan><tspan style="word-spacing: -2px;"> </tspan><tspan style="letter-spacing: -2px; word-spacing: 0px;"> </tspan><tspan style="font-size: 8px; word-spacing: 0px;">h</tspan></text>
+    <text class="text-clock" x="2.802"><tspan x="61.392" y="156.562" style="word-spacing: 0px;">1:25</tspan><tspan style="word-spacing: -2px;"> </tspan><tspan style="font-size: 8px; word-spacing: 0px;">h</tspan></text>
+    <text class="text-clock" x="1.681" y="1.121"><tspan x="92" y="117.411" style="word-spacing: 0px;">1:15</tspan><tspan style="word-spacing: -2px;"> </tspan><tspan style="font-size: 9px; word-spacing: 0px;">h</tspan></text>
+    <text class="text-clock" x="1.681" y="0.56"><tspan x="188.003" y="65.188" style="word-spacing: 0px;">50</tspan><tspan style="word-spacing: -2px;"> </tspan><tspan style="font-size: 8px; word-spacing: 0px;">min</tspan></text>
+    <text class="text-clock"><tspan x="237.333" y="58.038">43</tspan><tspan style="word-spacing: -2px;">  </tspan><tspan style="font-size: 8px;">min</tspan></text>
+    <text class="text-clock"><tspan x="292.494" y="65.035">38</tspan><tspan style="word-spacing: -2px;">  </tspan><tspan style="font-size: 8px;">min</tspan></text>
+    <text class="text-clock"><tspan x="338.461" y="84.154">33</tspan><tspan style="word-spacing: -2px;">  </tspan><tspan style="font-size: 8px;">min</tspan></text>
+    <text class="text-clock"><tspan x="379.14" y="115.477">30</tspan><tspan style="word-spacing: -2px;">  </tspan><tspan style="font-size: 8px;">min</tspan></text>
+    <text class="text-clock"><tspan x="411.276" y="154.529">27</tspan><tspan style="word-spacing: -2px;">  </tspan><tspan style="font-size: 8px;">min</tspan></text>
+    <text class="text-clock"><tspan x="432.836" y="203.75">25</tspan><tspan style="word-spacing: -2px;">  </tspan><tspan style="font-size: 8px;">min</tspan></text>
+    <text class="text-clock"><tspan x="438.531" y="252.971">23</tspan><tspan style="word-spacing: -2px;">  </tspan><tspan style="font-size: 8px;">min</tspan></text>
+    <text class="text-clock"><tspan x="139.541" y="84.561">60</tspan><tspan style="word-spacing: -2px;"> </tspan><tspan style="font-size: 8px;">min</tspan></text>
+    
+	<!-- Centered text --> 
+    <text style="fill: rgb(51, 51, 51);  font-size: 12px; text-anchor: middle;" x="250" y="363.101">km/h</text>
+    <text style="fill: rgb(91, 145, 229);  font-size: 10px; text-anchor: middle;"><tspan x="250" y="383.101" style="word-spacing: 0px;">Dauer/100</tspan><tspan style="word-spacing: -2px;"> </tspan><tspan style="word-spacing: 0px;">km</tspan></text>
+
+  </g>
+</svg>

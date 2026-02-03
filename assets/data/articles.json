@@ -1,0 +1,223 @@
+{
+  "articles": [
+    {
+      "title": "Die '4-Stunden-Woche' als systemisches Risiko",
+      "name": "vier-stunden-woche",
+      "tags": [
+        "skills-tools",
+        "safety-risiko"
+      ],
+      "date": "2026-03-02",
+      "excerpt": "Freiheit durch radikale Effizienz – das verspricht die 4-Stunden-Woche von Tim Ferriss. Die Versprechen sind jedoch riskant für Reputation und Tragfähigkeit des Geschäfts. Die vier Stunden beruhen auf systematischen Verkürzungen: Arbeit ist eng definiert, der Aufwand für Aufbau und Weiterentwicklung ausgeblendet, Produkte und Kunden stark trivialisiert. Unklar bleibt zudem, wie aufgeblähte Standardmethoden des Zeitmanagements zum behaupteten Geschäftserfolg beitragen; sie dienen eher als Füllstoff denn als notwendiges Handwerkszeug. Der Artikel ordnet die Postulate systemisch ein und zeigt die daraus entstehenden Risiken auf."
+    },
+    {
+      "title": "Systemkomplexität reduzieren und auf Ziele optimieren: Fallbeispiel „Vermögensaufbau“",
+      "name": "mdo-ipa-mc-vermoegensystem",
+      "tags": [
+        "systemik",
+        "engineering"
+      ],
+      "date": "2026-01-10",
+      "excerpt": "Systemverhalten wird an Zielen bemessen, die jedoch häufig widersprüchlich zueinander sind. So steht die Leistungsfähigkeit eines elektrischen Antriebs („Freude am Fahren“) im Spannungsfeld zu Safety, Lebensdauer und Verbrauch. Zudem sind zahlreiche Fachbereiche an der Entwicklung beteiligt. Das Gesamtsystem lässt sich als multidimensionales, nichtlineares Optimierungsproblem beschreiben. Systems Engineering (SE) muss hierfür nicht nur die organisatorische Klammer bilden, sondern auch geeignete Analysewerkzeuge bereitstellen. Dieser Beitrag zeigt, wie sich die Werkzeuge Multidisziplinäre Design Optimierung (MDO), Isoperformance-Analyse (IPA) und Monte-Carlo-Simulation (MC) kombinieren lassen, um ein solches System strukturiert zu optimieren. Die Anwendung wird am Beispiel des komplexen, vernetzten Systems „Vermögensaufbau“ demonstriert. Ergebnis ist eine Komplexitätsreduktion, durch die das ursprüngliche Optimierungsproblem auf ein einfaches Kriterium zurückgeführt wird."
+    },
+    {
+      "title": "Was ist ein (Sicherheits-)Konzept?",
+      "name": "safety-concept",
+      "tags": [
+        "safety-risiko",
+        "engineering"
+      ],
+      "date": "2025-12-16",
+      "excerpt": "Sicherheitskonzepte sind zentrale Bestandteile der ISO 26262. Die Norm beschreibt detailliert, mit welchen Artefakten und Methoden Sicherheitskonzepte zu erstellen, zu analysieren und zu testen sind. Unklar bleibt jedoch, was ein Sicherheitskonzept ist, was es leisten soll, und was nicht. In der Praxis driften viele Sicherheitskonzepte frühzeitig ins Detailed Design ab. Sie verfehlen damit ihren eigentlichen Zweck: Safety ist eine Systemeigenschaft. Sicherheitskonzepte sollen zeigen, wie Schutzmaßnahmen zusammenwirken, um unzumutbar hohe Risiken durch Fehlverhalten oder variierende Umweltbedingungen zu begrenzen. Der Beitrag greift die klassische Konzeptdefinition des Systems Engineering auf. Übertragen auf Safety bedeutet das: Ein Sicherheitskonzept bildet sicherheitsrelevantes (Fehl-)Verhalten auf die Systemstruktur ab. Diese begriffliche Schärfung legt die Basis für eine verständliche und schlanke Konzeptdokumentation, ohne vorschnell ins Detailed Design abzudriften."
+    },
+    {
+      "title": "Wer schneller fährt, kommt kaum früher an – der Grenznutzen des Schnellerfahrens",
+      "name": "tacho-grenznutzen",
+      "tags": [
+        "systemik",
+        "engineering"
+      ],
+      "date": "2025-11-18",
+      "excerpt": "Wie schnell sollte man eigentlich fahren? Wer 10 % schneller fährt, kommt nicht 10 % früher an. Der Grenznutzen des Schnellerfahrens wird rasch unbedeutend. Das ist kontraintuitiv, trotz einfachster Physik. Ein „gehirngerechter“ Tacho zeigt unmittelbar, ab wann eine höhere Geschwindigkeit kaum noch Zeit spart. Er macht auch deutlich, warum Nutzen und Risiken immer absolut betrachtet werden sollten und wie sehr die Darstellung von Zahlen unser Urteil beeinflusst. Die Antwort auf diese scheinbar triviale Frage bündelt Erkenntnisse aus mehreren Disziplinen."
+    },
+    {
+      "title": "Safety lässt sich nicht hineinprüfen – die Schlagseite von ISO 26262 und ASPICE",
+      "name": "iso26262-aspice-verification-bias",
+      "tags": [
+        "safety-risiko",
+        "engineering"
+      ],
+      "date": "2025-11-09",
+      "excerpt": "Safety lässt sich nicht in Systeme hineinprüfen. Trotzdem entsteht oft der Eindruck, man könne genau das tun – besonders, wenn man in Safetynormen wie ISO 26262 oder in Compliancestandards wie Automotive SPICE blickt. ISO 26262 beschreibt, wie man die Systemeigenschaft Safety prüft; ASPICE bewertet, wie reif Prozesse sind. Doch prüfen und bewerten lässt sich nur, was bereits existiert. Wie es entsteht, bleibt offen. Die Folge: Die Standards haben eine Schlagseite zum Prozesscontrolling. Controlling verschlingt mehr Zeit, Geld und Aufmerksamkeit als das Problemlösen. Die eigentliche Wertschöpfung wird verdrängt."
+    },
+    {
+      "title": "Droge Varietät: Vernetzter, intelligenter, leistungsfähiger?",
+      "name": "requisite-variety",
+      "tags": [
+        "systemik",
+        "engineering"
+      ],
+      "date": "2025-08-18",
+      "excerpt": "„Varietät“ gilt populärwissenschaftlich als Rohstoff für leistungsfähigere, intelligentere Systeme. Je mehr Knoten und Kanten vernetzt sind, desto besser. Doch der Beipackzettel fehlt oft: Varietät bringt auch Fehler, Dysfunktionen und hohen Energieverbrauch. Viele theoretische Permutationen bleiben praktisch unbrauchbar. Fazit: Varietät ist zweifellos wichtig, taugt aber als alleiniges Kriterium nicht zur wirksamen Systemgestaltung."
+    },
+    {
+      "title": "Die soziale Funktion von Prozessen: Legimitation von Handlungen",
+      "name": "prozesse-legitimieren-sozial",
+      "tags": [
+        "engineering",
+        "fuehren-managen"
+      ],
+      "date": "2025-08-05",
+      "excerpt": "Prozesse legitimieren Handlungen, reduzieren Unsicherheit und entlasten Teams. Nico Litschke erklärt, wie Führung das gezielt nutzt – inkl. Gutachtenstil."
+    },
+    {
+      "title": "System-Safety: Schmetterlingseffekt und praktische Konsequenzen",
+      "name": "schmetterlingseffekt",
+      "tags": [
+        "safety-risiko",
+        "systemik"
+      ],
+      "date": "2025-04-28",
+      "excerpt": "Simulationen helfen, Systeme besser zu verstehen – sie sind aber fehleranfällig. Der Schmetterlingseffekt zeigt: Rundungsfehler können große Unterschiede erzeugen. Was das für Safety-Systeme praktisch bedeutet, erläutert dieser Artikel."
+    },
+    {
+      "title": "GmbH als Steueroase – Wahr oder Scam?",
+      "name": "gmbh-steueroase-scam",
+      "tags": [
+        "safety-risiko",
+        "fuehren-managen"
+      ],
+      "date": "2025-04-11",
+      "excerpt": "GmbHs gelten in den sozialen Medien als Steueroase. Doch der Schein trügt: Hohe Abgaben und lange Amortisation fressen den Vorteil auf. Wer nicht über 100.000&nbsp;€ Vorsteuergewinn oder 350.000&nbsp;€ Einlage mitbringt, zahlt oft drauf. Mit Rechenbeispiel."
+    },
+    {
+      "title": "Stetigkeit – das vernachlässigte Erfolgskriterium",
+      "name": "stetigkeit-effektivitaet-effizienz",
+      "tags": [
+        "fuehren-managen",
+        "skills-tools"
+      ],
+      "date": "2025-03-21",
+      "excerpt": "Managementlehre, Berater und Coaches unterscheiden zwischen effektiv und effizient. Doch das reicht in der Praxis nicht. Ein Vorgehen muss auch durchhaltbar sein. Stetigkeit ist die dritte, oft vernachlässigte Dimension – und suboptimale Vorgehen führen oft zu besseren Ergebnissen."
+    },
+    {
+      "title": "Bitte keine VUCA-Dünnbrettbohrer.",
+      "name": "vuca-cynefin-stacey-debunked",
+      "tags": [
+        "systemik",
+        "skills-tools"
+      ],
+      "date": "2025-03-02",
+      "excerpt": "VUCA, Stacey-Matrix und Cynefin versprechen Orientierung in einer ungewissen Zukunft. Doch genau daran scheitern sie. Ich zeige, warum diese Modelle Komplexität nicht erfassen, sondern in Effekthascherei enden – und wer davon profitiert."
+    },
+    {
+      "title": "Systemisch analysiert: Buy-and-Hold des Weltportfolios gewinnt",
+      "name": "anlagestrategien-simuliert-analysiert",
+      "tags": [
+        "safety-risiko",
+        "systemik"
+      ],
+      "date": "2025-02-19",
+      "excerpt": "Buy-and-Hold eines Weltportfolios ist einfach und rentabel. Geht es besser? Testen Sie es selbst im Stock-Flow-Modell. Ich gehe der Frage mit systemischer Risikoanalyse, Backtests, Monte-Carlo-Simulationen und statistischem Number Crunching nach. Der Gewinner ist eindeutig."
+    },
+    {
+      "title": "Kosten fressen Rendite: Der mathematische Beweis",
+      "name": "beweis-investitionen-optimieren",
+      "tags": [
+        "skills-tools",
+        "safety-risiko"
+      ],
+      "date": "2025-01-06",
+      "excerpt": "„Reich werden mit diesem Steuertrick“ – eine häufige Lüge auf Social Media. Entscheidend ist kostengünstiges Investieren – wie ich es auch in Vorträgen und Workshops von FinChamp betone. Hier der mathematische Beweis."
+    },
+    {
+      "title": "Löst KI Agency-Risiken? Ein Finanzbeispiel",
+      "name": "ki-agency-problem-solved",
+      "tags": [
+        "safety-risiko",
+        "fuehren-managen"
+      ],
+      "date": "2024-12-30",
+      "excerpt": "Selbst-Beratung mit KI mindert Agency-Risiken, bei denen sich Berater auf Kosten der Klienten bereichern. Ein Finanzbeispiel."
+    },
+    {
+      "title": "PKV: Kosten abrechnen oder Beiträge rückerstatten? Eine Hilfe",
+      "name": "pkv-npv-rueckerstattung",
+      "tags": [
+        "safety-risiko",
+        "skills-tools"
+      ],
+      "date": "2024-12-23",
+      "excerpt": "Kapitalwert-Analyse: Lohnt sich bei meiner PKV die Rückerstattung oder die Kostenabrechnung? Praxisnah erklärt mit Excel-Tool für Ihre Entscheidung."
+    },
+    {
+      "title": "Kapitalwert: Der Wert eines Angebots",
+      "name": "kapitalwert-basics",
+      "tags": [
+        "safety-risiko",
+        "skills-tools"
+      ],
+      "date": "2024-12-17",
+      "excerpt": "Wie berechnen wir als Kunden den Wert eines Angebots und das Risiko, das wir damit eingehen? Mit dem Kapitalwert (NPV) zeige ich an konkreten Beispielen, wie wir den Wert berechnen und was das für uns bedeutet."
+    },
+    {
+      "title": "Fluchen: Der übersehene Performance-Booster",
+      "name": "fluchen-performance-booster",
+      "tags": [
+        "mastery-lernen",
+        "fuehren-managen"
+      ],
+      "date": "2024-12-07",
+      "excerpt": "Fluchen als Performance-Booster: reduziert Stress, steigert kurzfristig die Performance und stärkt den Teamzusammenhalt. Was es zu beachten gilt."
+    },
+    {
+      "title": "Automotive SPICE – Handling Detailed Customer Designs",
+      "name": "aspice-handling-detailed-customer-designs",
+      "tags": [
+        "skills-tools",
+        "engineering"
+      ],
+      "date": "2024-12-01",
+      "excerpt": "Automotive SPICE: Addressing practical challenges with customer's detailed design specifications with a lean but compliant solution."
+    },
+    {
+      "title": "ChatGPT und ich scheitern am Zeilenumbruch",
+      "name": "chatgpt-table-translate",
+      "tags": [
+        "skills-tools",
+        "fuehren-managen"
+      ],
+      "date": "2024-11-17",
+      "excerpt": "Kann ich mit ChatGPT Plus meine Produktivität im Engineering und Backoffice steigern? Mein Test zeigt: eher nicht. Wer akkurate Ergebnisse benötigt, kann kaum auf ChatGPT setzen. Ich zeige das anhand der Übersetzung einer Excel-Tapete."
+    },
+    {
+      "title": "Bürokratieabbau – ein vertracktes Problem mit versteckten Hürden",
+      "name": "buerokratie-systemik-risiko",
+      "tags": [
+        "systemik"
+      ],
+      "date": "2024-11-24",
+      "excerpt": "Bürokratieabbau scheitert systemisch: Politiker und Bürokraten tragen kein Risiko – Unternehmen und Bürger hingegen schon. Ohne Anreize und Eigenverantwortung bleibt der Abbau ineffizient. Eine Malus-Regel könnte Lösungen fördern, indem sie Kosten gerecht verteilt und Eigeninitiative stärkt."
+    },
+    {
+      "title": "Daumenregeln im Alltag",
+      "name": "daumenregeln",
+      "tags": [
+        "mastery-lernen",
+        "skills-tools"
+      ],
+      "date": "2024-04-10",
+      "excerpt": "Wie wir mit Daumenregeln korrekter, schneller und weniger riskant entscheiden können. Ich erkläre in diesem Beitrag kurz, warum das so ist und welche Daumenregeln ich nutze."
+    },
+    {
+      "title": "Ineffizienz im Projektalltag in sieben Akten",
+      "name": "ineffizienzen-projektalltag",
+      "tags": [
+        "mastery-lernen",
+        "fuehren-managen"
+      ],
+      "date": "2021-03-03",
+      "excerpt": "Lean, Scrum, Automotive SPICE und Organisationsprojekte bieten sich seit über zwanzig Jahren ein Kopf-an-Kopf-Rennen in der Automobil-Industrie. Jüngst hat KI aufgeschlossen und liegt klar vorne. Das Rennen: vorhersagbarer, produktiver und kostengünstiger Entwickeln. In jedem der Ansätze werden Optimierungen meist geradlinig angegangen. Es gibt Abläufe, die haben einen gewissen Flow und sollen einen Nutzen liefern. Klingt wie ein Maschinenmodell und ist es auch. Die Strategie aber hat einen Schnitzer: Was als nützlich gilt, wird durch unsere Erwartungen, den Konventionen der Professionalität, vorbestimmt. Mit diesem Artikel möchte ich in sieben Akten auf Beispiele realer Stilblüten der Ineffizienz aufmerksam machen. Sie basieren alle auf Erwartungen. Dem ließe sich nur mit offenem Diskurs über Erwartungen beikommen. Der Diskurs aber scheitert wiederum an eingefahrenen Erwartungen."
+    }
+  ]
+}

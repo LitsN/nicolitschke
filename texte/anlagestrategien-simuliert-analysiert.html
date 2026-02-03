@@ -1,0 +1,1840 @@
+<!DOCTYPE html>
+
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport" />
+    <title>Systemisch analysiert: Buy-and-Hold gewinnt</title>
+    <meta
+        content="Buy-and-Hold eines Weltportfolios ist die einfachste und rentabelste Anlagestrategie. Geht es besser? Finden Sie es heraus – oder testen Sie selbst! "
+        name="description" />
+    <meta content="index, follow, archive" name="robots" />
+    <meta content="Nico Litschke" name="author" />
+    <meta content="http://www.nicolitschke.com/anlagestrategien-simuliert-analysiert/" property="og:url" />
+    <meta content="article" property="og:type" />
+    <meta content="de_DE" property="og:locale" />
+    <meta content="Nico Litschke" property="og:site_name" />
+    <meta content="Systemisch analysiert: Buy-and-Hold gewinnt" property="og:title" />
+    <meta
+        content="Buy-and-Hold eines Weltportfolios ist die einfachste und rentabelste Anlagestrategie. Geht es besser? Finden Sie es heraus – oder testen Sie selbst!"
+        property="og:description" />
+    <meta content="../assets/img/anlagestrategien-simuliert-analysiert/hero.png" property="og:image" />
+    <meta content="1KLRTKWSuSamhN09JbMkQEd-R10iuFCNAHxdYZJVr_M" name="google-site-verification" />
+    <link href="https://www.nicolitschke.com/anlagestrategien-simuliert-analysiert/" rel="canonical" />
+    <link href="../assets/css/fonts.css" rel="stylesheet" />
+    <link href="../assets/css/main.css" rel="stylesheet" />
+    <link href="../assets/css/article.css" rel="stylesheet" />
+    <link href="../assets/img/favicon.svg" rel="icon" type="image/svg+xml" />
+    <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+    <!-- Mathjax: enable when needed; otherwise disable-->
+    <script defer="" src="../assets/js/mathjax-config.js"></script>
+    <script async="" src="../assets/js/tex-mml-svg.js"></script>
+</head>
+<style>
+    table {
+        border: 1px solid var(--border);
+        border-collapse: collapse;
+        margin: auto;
+    }
+
+    td,
+    th {
+        text-align: right;
+        padding: 10px;
+        border: 1px solid var(--border);
+        border-collapse: collapse;
+    }
+
+    td:first-child,
+    th:first-child {
+        text-align: left;
+    }
+
+    #tab5 td,
+    #tab5 th {
+        text-align: left;
+    }
+</style>
+
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="site-title" href="../index.html">Nico Litschke</a>
+            <nav aria-label="Hauptnavigation" class="site-nav">
+                <a href="../index.html">Über</a>
+                <a href="../texte.html">Texte</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <article>
+            <h1>Systemisch analysiert: Warum Buy-and-Hold des Weltportfolios langfristig gewinnt</h1>
+            <!-- Every article is labeled with at least one tag containing a link to other articles -->
+            <ul class="tag-line">
+                <li><a class="tag" data-tag="safety-risiko" href="../texte.html?tag=safety-risiko"
+                        title="Alle Artikel über Safety &amp; Risiko anzeigen">Safety &amp; Risiko</a></li>
+                <li><a class="tag" data-tag="systemik" href="../texte.html?tag=systemik"
+                        title="Alle Artikel über Systemdenken anzeigen">Systemdenken</a></li>
+            </ul>
+
+            <section aria-labelledby="abstract-title" class="abstract">
+                <h2>Abstract</h2>
+                <p>
+                    Anleger suchen nach der perfekten Anlagestrategie: Market-Timing? Stock Picking? Gold als
+                    Absicherung? Beim Salto Mortale der Anlagestrategien wird eines übersehen: <strong>Abweichungen vom
+                        einfachen Buy-and-Hold eines Weltportfolios (B&amp;H) führen systematisch zu schlechteren
+                        Ergebnissen</strong>. Stock Picker hoffen auf wenige Glückstreffer, Market-Timer verpassen oft
+                    Rendite
+                    durch zu langes Warten, und Gold – als ‚sicherer Hafen‘ gepriesen – erhöht beim Weltportfolio meist
+                    nur die Streuung, ohne echten Mehrwert für den Vermögensaufbau zu liefern. In diesem Beitrag
+                    gehe ich den gängigen Anlagestrategien mit systemischer Risikoanalyse und einem Stock-Flow-Modell
+                    auf den Grund. Mit Backtests historischer Daten, MonteCarlo-Simulationen und statistischer
+                    Analysen zeige ich, warum Optimierungsversuche der Rendite eher Zeitverschwendung sind.
+                </p>
+            </section>
+            <details class="toc">
+                <summary>
+                    <svg class="icon toggle-icon">
+                        <use href="../assets/img/icons.svg#icon-expand"></use>
+                    </svg>
+                    Inhalt
+                </summary>
+                <nav aria-label="Inhaltsverzeichnis">
+                    <ul>
+                        <!--TOC contains the text of the heading, numbering is done automatically 
+                        Abtract, Attachments (Anhang) and Endnotes are not refered here -->
+
+
+
+                        <li><a href="#section-1">Kernaussagen</a></li>
+                        <li><a href="#section-2">Methodik: Daten, Modell, Simulationen, Auswertung</a></li>
+                        <li><a href="#section-3">Analyse der Anlagestrategien</a></li>
+                        <li><a href="#section-4">Anhang 1: Quell-, Simulations- und Analysedaten</a></li>
+                        <li><a href="#section-5">Anhang 2 - MonteCarlo und Backtest in InsightMaker automatisieren</a>
+                        </li>
+                        <li><a href="#section-6">Anhang 3 - Mathematische und statistische Methoden</a></li>
+                        <li><a href="#section-7">Anhang 4 - Modell Parameter und Settings</a></li>
+                    </ul>
+                </nav>
+            </details>
+            <section aria-labelledby="title-1" id="section-1">
+                <h2 id="title-1">Kernaussagen</h2>
+                <p>
+                    Die wichtigsten Ergebnisse sind:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Buy-and-Hold eines Weltportfolios</strong> (real 7,5&nbsp;% p.a.<a href="#cite-note-1"
+                            id="cite-ref-1" name="cite-ref-1" title="Quelle">[1]</a>) schlägt langfristig
+                        alle andere Strategien
+                    </li>
+                    <li>
+                        <strong>Stock Picking</strong> ist eine Wette und häufig ein Verlustgeschäft
+                    </li>
+                    <li>
+                        <strong>Market-Timing und Cost Averaging</strong> schneiden meist schlechter ab
+                    </li>
+                    <li>
+                        <strong>Gold</strong> wird vor allem in der Entnahmephase relevant; ist aber auch eine Wette.
+                    </li>
+                    <li>
+                        <strong>Arbeitseinkommen steigern</strong> ist wichtiger, als die Rendite zu optimieren.
+                    </li>
+                </ul>
+                <p>
+                    Das bedeutet nicht, dass Anleihen und riskante Einzeltitel wie Gold, Kryptos oder Immobilien im
+                    Portfolio nichts verloren hätten. Sondern: <strong>Mit taktischem Geschick lässt sich der
+                        Anlageerfolg gegenüber B&amp;H des Weltportfolios dauerhaft kaum steigern.</strong> Ich habe
+                    deshalb gezielt durch eine Risikobrille analysiert. Die Frage ist nicht, ob man den Markt schlagen
+                    kann, sondern ob eine Katastrophe frühere Gewinne und das gesamte Kapital ausradiert. Das ist die
+                    Krux beim Anlegen: <strong>erfolgreiche Investoren sind gute
+                        Risikomanager.</strong>
+                </p>
+                <p>
+                    Da Abweichungen von B&amp;H systematisch schlechter abschneiden, sollte der Fokus nicht auf der
+                    Optimierung der Anlageperformance liegen, sondern auf der <strong>Steigerung des
+                        Arbeitseinkommens</strong>. Investieren Sie in Weiterbildung, Persönlichkeitsentwicklung,
+                    Karriere, Selbstständigkeit und Unternehmertum – das ist nachhaltiger und aussichtsreicher als
+                    Rendite-Optimierungen.
+                </p>
+                <p class="callout">
+                    Entscheiden wir uns für eine Investition, dann sollte diese mit minimalen Transaktionskosten
+                    ausgeführt werden, um Gewinn und Rendite nicht unnötig zu schmälern. Das habe ich hier vorgerechnet:
+                    <a href="../texte/beweis-investitionen-optimieren.html"
+                        title="Kosten fressen Rendite: Der mathematische Beweis">https://www.nicolitschke.com/beweis-investitionen-optimieren/</a>
+                </p>
+                <h3>
+                    Können Sie B&amp;H schlagen?</h3>
+                <p>
+                    Mit folgendem Stock-Flow-Modell können Sie verschiedene Strategien testen. Sie können sich ein
+                    Portfolio aus Aktien und Anleihen oder Aktien und Gold oder gehebelte Aktien zusammenstellen und
+                    gegen historische oder fiktive Kursverläufe testen. Können Sie B&amp;H schlagen?
+                </p>
+
+                <figure id="abb1">
+
+                    <img src="../assets/img/anlagestrategien-simuliert-analysiert/stockflow-model.png" alt="Stock-Flow-Modell zur Simulation von Anlagestrategien, eingebettet in
+                        InsightMaker" />
+
+                    <figcaption>Stock-Flow-Modell für die Simulation von Anlagestrategien. Link zum Modell: <a
+                            href="https://insightmaker.com/insight/7KWNMdMJAFfXJIeO9KozNP"
+                            title="Link zum Stockflow-Modell für die Simulation der Anlagestrategie"
+                            target="_blank">https://insightmaker.com/insight/7KWNMdMJAFfXJIeO9KozNP</a>
+                    </figcaption>
+                </figure>
+                </a>
+                <p>
+                    Die Bedienung ist weitestgehend selbsterklärend. Ich empfehle die kurze Modelleinführung "Start
+                    Story". Die Parameter und Einstellungen sind in <a href="#section-7">Anhang&nbsp;4</a>
+                    beschrieben.
+                </p>
+                <h3>Hinweise zur Analyse und Einschränkungen</h3>
+                <p>
+                    Die Ergebnisse beziehen sich ausschließlich auf das Anlagekapital – also das <strong>Kapital nach
+                        Lebenshaltungskosten, Notgroschen, Schulden etc.</strong> Nur der MSCI World wurde betrachtet,
+                    nicht der passendere ACWI IMI, da für Letzteren keine ausreichend lange Historie verfügbar ist.
+                    Historische Kursverläufe sind keine Garantie für die Zukunft. MonteCarlo-Simulationen (MC)
+                    kompensieren diese Einschränkung: Sie generieren unendlich viele fiktive Kursverläufe, wobei das
+                    Modell sowohl „Normale Zeiten“ als auch „Finanzkrisen“ enthält. Die Parameter der MC wurden
+                    konservativ aus den historischen Daten des MSCI geschätzt – dadurch ähneln die simulierten
+                    Kursverläufe zwangsläufig dem MSCI. Insgesamt sind die Ergebnisse konsistent mit aktuellen
+                    Forschungsergebnissen und bestätigen obige Schlussfolgerungen.
+                </p>
+                <p class="callout">
+                    <strong>Wichtig</strong>: Ich betrachte in diesem Beitrag <strong>nur den Vermögensaufbau</strong>;
+                    nicht die Entnahme, die eine Modifikation der Strategie erfordert.
+                </p>
+                <p>
+                    Im Folgenden erläutere ich die Methoden und Analysen, die diesen Ergebnissen zugrunde liegen.
+                    Feedback und Gegenrechnungen sind herzlich willkommen. Lassen Sie uns das Thema gemeinsam
+                    weiterdenken – vielleicht beim nächsten <a href="https://www.finchamp.de" target="_blank"
+                        title="www.finchamp.de">FinChamp-Seminar</a>?
+                </p>
+                <div class="signature-icon"></div>
+                <p class="callout" style="font-size: .8em;">
+                    <strong>Haftungsausschluss</strong>: Keine Versicherungs-, Finanz-, Anlage- und/oder Steuerberatung!
+                </p>
+            </section>
+            <section aria-labelledby="title-2" id="section-2">
+                <h2 id="title-2">Methodik: Daten, Modell, Simulationen, Auswertung</h2>
+                <p>
+                    Dieser Abschnitt fast kurz das methodische Vorgehen zusammen: Daten sammeln und verarbeiten, Modell
+                    entwerfen und simulieren, Ergebnisse analysieren.
+                </p>
+                <h3>Daten – MSCI World und Goldpreise</h3>
+                <p>
+                    Der MSCI World (kurz MSCI) steht stellvertretend für ein Weltportfolio. Besser wäre der All Country
+                    World Index Investable Market (ACWI IMI). Allerdings fehlen für diesen Index langfristige
+                    Datenreihen. Daher verwende ich den MSCI ab Dezember 1978 – frühere Zeiträume wären durch
+                    Weltkriege, zerstörte Volkswirtschaften und anschließende Wachstumsphasen verzerrt.
+                </p>
+                <p>
+                    MSCI-Kurse (in EUR) stammen von Curvo<a href="#cite-note-2" id="cite-ref-2" name="cite-ref-2"
+                        title="Quelle">[2]</a>, Goldpreise (EUR/Unze) von Gold.de<a href="#cite-note-3" id="cite-ref-3"
+                        name="cite-ref-3" title="Quelle">[3]</a>. Alle Berechnungen
+                    basieren auf monatlichen, nominalen Werten, eine Inflationsbereinigung wurde nicht vorgenommen. Die
+                    Berechnungsmethodik ist detailliert in <a href="#section-6">Anhang 3</a> dokumentiert
+                </p>
+                <h3>Modell</h3>
+                <p>
+                    Das Stock-Flow-Modell in <a href="#abb1">Bild&nbsp;1</a> simuliert die Kapitalflüsse
+                    eines Anlegers. Die Grundlogik lautet: Der Anleger hält eine niedrig verzinste
+                    Investitionsreserve (IR), die entweder direkt in ein Depot investiert oder aus dem Depot
+                    zurückgeführt wird. Der Depotstand verändert sich durch die logarithmierten Renditen. Eine
+                    Entscheidungslogik bestimmt, wie die IR investiert wird – beispielsweise durch eine einmalige
+                    Vollinvestition oder gestaffelte monatliche Einzahlungen. So lassen sich verschiedene
+                    Anlagestrategien simulieren.
+                </p>
+                <p>
+                    Durch Parameter lassen sich verschiedenste Portfolios konfigurieren, z. B. das klassische 80/20
+                    Portfolio aus Aktien und Anleihen, ein Aktien-Geld-Portfolio, ein Aktien-Gold-Portfolio oder in
+                    erster Annäherung ein 'All-Weather-Portfolio'. <a href="#section-7">Anhang&nbsp;4</a> beschreibt die
+                    wichtigsten Parameter und Einstellungen für die Konfiguration der Strategien.
+                </p>
+                <p>
+                    Die Entscheidungslogik läuft algorithmisch ab und folgt dem in Bild&nbsp;2 dargestellten
+                    Prinzip:
+                </p>
+                <ul>
+                    <li>Bei einem kumulierten Kursrückgang von z. B. 20&nbsp;% seit dem letzten Hoch wird die IR
+                        vollständig
+                        investiert
+                    </li>
+                    <li>Das Kapital bleibt investiert, bis der Markt das vorherige Hoch erreicht
+                    </li>
+                    <li>In Normalphasen wird die IR durch Rebalancing auf ihrem Zielwert gehalten
+                    </li>
+                </ul>
+                <figure>
+                    <img alt="Entscheidungslogik für die Anlage von Investitionsreserven für ein Stock-Flow-Modell"
+                        src="../assets/img/anlagestrategien-simuliert-analysiert/drawdown-design.svg" />
+                    <figcaption>Grundprinzip der IR-Entscheidungslogik. Quelle: Eigene Darstellung.</figcaption>
+                </figure>
+                <p>
+                    Für die logarithmischen Renditen können die historischen Renditen des MSCI, Gold oder eine
+                    Mischung
+                    aus beiden verwendet werden. Alternativ lassen sich für den MSCI fiktive Kursverläufe auf Basis
+                    der Verteilung N(Ŷ; σ²) generieren. Bild&nbsp;3 zeigt eine Markov-Kette, die verschiedene
+                    Marktregime simuliert: Normalregime und
+                    Krisenregime mit unterschiedlichen Schätzern für Erwartungswerte und Streuung.
+                </p>
+                <figure>
+                    <img alt="Markov-Kette im für Normalregime und Krisenregime.Quelle: Eigene Darstellung."
+                        src="../assets/img/anlagestrategien-simuliert-analysiert/regime-state-machine.svg" />
+                    <figcaption>Markov-Kette im für Normalregime und
+                        Krisenregime. Die Übergangswahrscheinlichkeiten basieren auf der
+                        gleichverteilten Zufallsvariable $P(X) ~ U(0,1)$, wobei ein Übergang ins Krisenregime erfolgt,
+                        wenn $P(X) ≤
+                        0,01$, und ein Rückwechsel ins Normalregime, wenn $P(X) &gt; 0,01$. Quelle: Eigene Darstellung.
+                    </figcaption>
+                </figure>
+
+                <p>
+                    Die Simulationen berechnen das Gesamtvermögen über den Anlagehorizont:
+                    $$\text{Gesamtvermögen}_t = \text{IR}_t + \text{Depot}_t - \text{Fremdkapital}_t$$
+                </p>
+                <p>
+                    Das Endvermögen nach n&nbsp;Jahren ergibt sich dann aus:
+                    $$\text{Endvermögen}_n = \text{Gesamtvermögen}_{t=n}$$
+                </p>
+                <p>
+                    wobei n die Dauer der Simulation bestimmt (z. B. $10\&nbsp;Jahre = 120\ Monate$). Steuerliche
+                    Effekte
+                    wurden nicht berücksichtigt, um verschiedene Steuerregime vergleichbar zu halten. Transaktionskosten
+                    wurden als vernachlässigbar gering angenommen, da Investitionen in kostengünstige ETFs auf
+                    breite Marktindizes erfolgen.
+                </p>
+                <p>
+                    Wird das Modell mit einer IR-Quote = 0 bzw. mit Gold und IR-Quote=1 parametrisiert, entspricht
+                    der
+                    simulierte Kursverlauf nahezu exakt den historischen MSCI- bzw. Golddaten aus der Excel-Datei im
+                    <a href="#section-4">Anhang&nbsp;1</a> bzw. den im Internet verfügbaren Daten. Minimale
+                    Abweichungen ergeben sich lediglich durch Rundungsdifferenzen. Bei der Verwendung historischer
+                    Kurse verhält sich das Modell deterministisch. Bei simulierten Kursen treten keine Bifurkationen
+                    oder divergierende Zustände auf.
+                </p>
+                <h3>Simulationen</h3>
+                <p>
+                    Eine aussagekräftige Analyse darf sich nicht auf einzelne Zeitpunkte oder isolierte Marktphasen
+                    stützen. Der gewählte Zeitraum kann immer so eingepasst werden, dass eine Anlagestrategie gut
+                    oder
+                    schlecht abschneidet. Um dieses Risiko zu minimieren, nutzen wir zwei Verfahren: Backtesting
+                    (BT)
+                    und MonteCarlo-Simulation (MC).
+                </p>
+                <p>
+                    Bild&nbsp;4 zeigt, wie BT funktioniert. Wir wählen ein Zeitfenster $\Delta t$. Zu Beginn jedes
+                    Zeitfensters erfolgt die Investition gemäß der gewählten Strategie. Zum Ende des Zeitfensters liegt
+                    ein Endvermögen vor. DurchVariation der Fensterbreite $\Delta t$ und das Verschieben über die
+                    gesamte Historie erfassen wir sowohl steigende als auch fallende Marktphasen.
+                </p>
+                <figure>
+                    <img alt="Backtesting: Analysezeitfenster Δt wird über die komplette Historie verschoben" class=""
+                        src="../assets/img/anlagestrategien-simuliert-analysiert/backtest-chart.png" />
+                    <figcaption>Beim BT wird das Analysezeitfenster Δt über die
+                        komplette Historie verschoben. Quelle: Eigene Darstellung.</figcaption>
+                </figure>
+                <p>
+                    In den historischen Daten sind $n=552\ Monate$ enthalten. Tabelle&nbsp;1schlüsselt die Anzahl $n$
+                    für verschiedene Zeitfenster $\Delta t$ auf. Eine automatisierte
+                    Durchführung des Backtesting ist in <a href="#section-5">Anhang&nbsp;2</a> beschrieben.
+                </p>
+                <table id="tab1" style="margin:auto; ">
+
+                    <thead>
+                        <tr>
+                            <th>
+                                Zeitfenster
+                            </th>
+                            <th>
+                                $\Delta t$
+                            </th>
+                            <th>
+                                $n$
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                45&nbsp;Jahre
+                            </td>
+                            <td>
+                                540
+                            </td>
+                            <td>
+                                12
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                40&nbsp;Jahre
+                            </td>
+                            <td>
+                                480
+                            </td>
+                            <td>
+                                72
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                30&nbsp;Jahre
+                            </td>
+                            <td>
+                                360
+                            </td>
+                            <td>
+                                192
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                20&nbsp;Jahre
+                            </td>
+                            <td>
+                                240
+                            </td>
+                            <td>
+                                312
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                10&nbsp;Jahre
+                            </td>
+                            <td>
+                                120
+                            </td>
+                            <td>
+                                432
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                5&nbsp;Jahre
+                            </td>
+                            <td>
+                                60
+                            </td>
+                            <td>
+                                492
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+                <p style="text-align: center;">
+                    Tabelle&nbsp;1: Zeitfenster $\Delta t$ und Anzahl $n$ in den historischen Daten. (Quelle: Eigene
+                    Darstellung)
+                </p>
+                <p>
+                    Ein reines BT würde noch immer eine systematische Verzerrung enthalten: Auch wenn wir sowohl
+                    steigende als auch fallende Marktphasen erfassen, bleibt die Analyse vergangenheitsbezogen.
+                    Damit
+                    lassen sich keine allgemeinen Aussagen über zukünftige Marktphasen treffen. Um dieses Risiko
+                    auszuschalten, generieren wir fiktive Kursverläufe mittels MonteCarlo Simulation (MC). Bei der
+                    MC
+                    wird
+                    in jedem Rechenschritt (monatlich) eine Zufallsrendite generiert. Bild&nbsp;5 zeigt ein Beispiel von
+                    100 zufälligen Kursverläufen. Durch eine große Anzahl an Simulationen können wir überprüfen, wie
+                    robust die Anlagestrategien bei typischen Kursverläufen und bei Extremereignissen abschneiden. (Da
+                    Goldpreise bei der Schätzung ein geringes Bestimmtheitsmaß aufweisen, habe ich sie nicht in die MC
+                    aufgenommen.)
+                </p>
+                <figure>
+                    <img alt=" Monte-Carlo-Pfaddiagramm für 100 Simulationsläufe"
+                        src="../assets/img/anlagestrategien-simuliert-analysiert/mc-randpath.png" />
+                    <figcaption>MonteCarlo Pfaddiagramm für 100 Simulationsläufe. Quelle: Eigene Darstellung.
+                    </figcaption>
+                </figure>
+                <p>
+                    Mit der MC können wir beliebig lange Zeithorizonte simulieren – auch 100&nbsp;Jahre oder mehr. Zur
+                    Vergleichbarkeit mit dem BT halten wir uns jedoch an die Zeitfenster aus Tabelle&nbsp;1.
+                </p>
+                <p>
+                    Bei MC-Simulationen ist man schnell geneigt, Millionen von Läufen durchzuführen – in der
+                    Hoffnung, den absurdesten Fall zu erwischen. Für unser Modell reicht eine deutlich geringere Anzahl
+                    an Iterationen aus. Die Analyse in Bild&nbsp;6 zeigt, dass die Ergebnisse der MC-Simulation bei
+                    $n=1.250$ Iterationen konvergieren.
+                </p>
+                <figure>
+                    <img alt="Konvergenzanalyse der Monte-Carlo-Simulation: Entwicklung von Schätzern in Abhängigkeit der Iterationen"
+                        src="../assets/img/anlagestrategien-simuliert-analysiert/mc-convergence.png" />
+                    <figcaption>Konvergenzanalyse der MC. Entwicklung von Schätzern in
+                        Abhängigkeit der Iterationen. Quelle: Eigene Darstellung.</figcaption>
+                </figure>
+                <h3>Auswertung</h3>
+                <p>
+                    Die Anlagestrategien bilden unabhängige Untergruppen, die mit paarweisen t-Tests auf
+                    Mittelwertsunterschiede geprüft werden:
+                </p>
+                <ul>
+                    <li>
+                        $H_0: r_1=r_2=r_3=4\text{ (alle Strategien sind gleich gut)}$
+                    </li>
+                    <li>
+                        $H_1: r_i \neq r_j \text{ für mindestens ein Paar i,j (mindestens eine Strategie ist anders)}$
+                    </li>
+                </ul>
+
+                <p>
+                    Die Berechnungsmethodik ist detailliert in <a href="#section-6">Anhang&nbsp;3</a>
+                    dokumentiert.
+                </p>
+                <p>
+                    Die Mittelwertunterschiede (MW-Unterschiede) werden wie in Bild&nbsp;7 grafisch dargestellt.
+                    Die Daten sind als Funktion der Strategie abgetragen – dargestellt als MW mit einer
+                    Standardabweichung nach oben und unten ($MW \pm SD$)
+                    sowie den $5\%$- und $95\%$-Quantilen. Um die Unterschiede hervorzuheben, wurden die MW durch Linien
+                    verbunden – auch wenn die x-Achse nur diskrete Kategorien enthält.
+                </p>
+                <figure>
+                    <img alt="Grafische Darstellung der Mittelwert-Unterschiede als Boxplots"
+                        src="../assets/img/anlagestrategien-simuliert-analysiert/bt_30.png" />
+                    <figcaption>Grafische Darstellung der MW-Unterschiede. Quelle: Eigene Darstellung.</figcaption>
+                </figure>
+                <p>
+                    Mit diesen Werkzeugen wenden wir uns nun der Analyse der Anlagestrategien zu.
+                </p>
+            </section>
+            <section aria-labelledby="title-3" id="section-3">
+                <h2 id="title-3">Analyse der Anlagestrategien</h2>
+                <p>
+                    In diesem Abschnitt analysiere ich die Anlagestrategien – von Buy-and-Hold über Hebel bis hin zu
+                    Gold. Ich überprüfe verbreitete Annahmen und quantifiziere die Effekte auf das Endvermögen. Ziel
+                    ist es, zu beurteilen, welche Strategien besser und welche schlechter abschneiden.
+                </p>
+                <h3>Stock Picking und der Survivorship Bias von Marktindizes</h3>
+                <p>
+                    Machen wir es kurz: Aktien sind nachweislich die stabilste und ertragreichste Anlageklasse. Doch
+                    zuverlässig die Gewinner aus dem Aktienuniversum herauszupicken („Stock Picking“) ist extrem
+                    unwahrscheinlich. Das spektakuläre Wachstum des US-Aktienmarktes von 1926 bis 2016 geht auf nur
+                    4&nbsp;% der 26.000 Unternehmen zurück.<a href="#cite-note-5" id="cite-ref-5" name="cite-ref-5"
+                        title="Quelle">[5]</a> Weltweit waren es zwischen 1990 und 2018 lediglich
+                    1,33&nbsp;% von 61.981 Unternehmen.<a href="#cite-note-6" id="cite-ref-6" name="cite-ref-6"
+                        title="Quelle">[6]</a> Die Gewinne und Verluste aller anderen Aktien summieren
+                    sich auf null.
+                    Erfolgreiches Stock Picking erfordert also nicht nur Glück bei der Auswahl, sondern auch stoische
+                    Ruhe – selbst nach 1.000&nbsp;% Gewinn. Stock Picking rangiert so gesehen irgendwo zwischen Losen
+                    und
+                    Wetten.
+                </p>
+                <p>
+                    Bei Marktindizes ist das anders. Das liegt an deren Konstruktion: Gewinner aufnehmen, Verlierer
+                    aussortieren. Marktindizes gewichten Unternehmen nach Marktkapitalisierung und passen sich dadurch
+                    kontinuierlich an. Diese permanente Selektion der Gewinner – auch "Survivorship Bias" genannt, führt
+                    zu einem inhärenten Aufwärtstrend (vgl. Bild&nbsp;8) bzw. zu einer inhärent positiven Rendite (vgl.
+                    Bild&nbsp;9) des MSCI.<a href="#cite-note-7" id="cite-ref-7" name="cite-ref-7"
+                        title="Quelle">[7]</a>&thinsp;<a href="#cite-note-8" id="cite-ref-8" name="cite-ref-8"
+                        title="Quelle">[8]</a>&thinsp;<a href="#cite-note-9" id="cite-ref-9" name="cite-ref-9"
+                        title="Quelle">[9]</a>
+                </p>
+                <figure>
+                    <img alt="Vermögensentwicklung von 10.000 € im MSCI World (1978-2024)"
+                        src="../assets/img/anlagestrategien-simuliert-analysiert/hist-msci.png" />
+                    <figcaption style="width: 900px">Bild&nbsp;8: Vermögensentwicklung von 10.000 € im MSCI World von
+                        1978-2024. Quelle: Eigene Darstellung.</figcaption>
+                </figure>
+                <p class="callout">
+                    <strong>Mini-Exkurs:</strong> B&amp;H basiert genauso wie die Momentumstrategie auf Trendfolge.
+                    Allerdings wird bei der Momentumstrategie mit kurzfristigen Eingriffen versucht, diese Trendfolge
+                    zu verstärken. Das ist für Privat- und Kleinanleger nicht nur knifflig – sondern auch teuer und in
+                    Krisenzeiten instabil. Deshalb belasse ich es bei B&amp;H.
+                </p>
+                <figure>
+                    <img alt="Verteilung der monatlichen logarithmierten Renditen des MSCI. Erwartungswert (Ŷ) hochsignifikant. R² = 92&nbsp;% der Streuung erklärbar durch den inhärenten Aufwärtstrend – Bestätigung der systematischen Wertsteigerung des MSCI."
+                        src="../assets/img/anlagestrategien-simuliert-analysiert/histo-market-yield.png" />
+                    <figcaption>Verteilung der monatlichen ln-Renditen des MSCI. Für den Erwartungswert $\hat{Y}$ werden
+                        $ R^2 = 92\% $ der Streuung durch den inhärenten Aufwärtstrend erklärt, was die systematische
+                        Wertsteigerung des MSCI bestätigt.Quelle: Eigene Darstellung.
+                    </figcaption>
+                </figure>
+
+                <p>
+                    Laut Jordà et al. wächst ein Weltportfolio nominal mit 12,97&nbsp;% p.a. (vor Inflation) und real
+                    mit 8,3&nbsp;% p.a. (nach Inflation). Wohlgemerkt: Das gilt für den MSCI als Ganzes – nicht für
+                    einzelne
+                    Aktien, Regionen oder Branchen. Auch für einzelne Immobilien oder Gold ist mir diese Eigenschaft
+                    nicht bekannt – ihnen fehlt die permanente Selektion.
+                </p>
+                <p>
+                    <strong>Ergebnisse:</strong>
+                </p>
+                <ul>
+                    <li>Aktien sind langfristig die stabilste und ertragreichste Anlageklasse
+                    </li>
+                    <li>Die gezielte Auswahl rentabler Aktien ist höchst unwahrscheinlich
+                    </li>
+                    <li>Marktindizes übernehmen diese Selektion automatisch
+                    </li>
+                    <li>Ein Weltportfolio ist konstruktionsbedingt auf langfristiges Wachstum ausgelegt
+                    </li>
+                </ul>
+                <p class="callout">
+                    Die Konsequenz daraus: <strong>Mit Buy-and-Hold eines Weltportfolios verfolgen wir eine Strategie
+                        mit inhärent positiven Gewinnerwartungen</strong>. Gibt es Strategien, die B&amp;H schlagen?
+                </p>
+                <h3>Buy-and-Hold vs. Investitionsreserve &amp; Cost Averaging</h3>
+                <p>
+                    Anlagestrategien lassen sich auf einem Spektrum anordnen:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Am einen Ende steht B&amp;H</strong>: Eine einmalige Investition, ohne Rücksicht auf
+                        aktuelle Kurse oder Nachrichten. Kein Handeln, kein Market-Timing, keine Gewinnmitnahmen – das
+                        Kapital bleibt dauerhaft investiert.
+                    </li>
+                    <li>
+                        <strong>Am anderen Ende steht High-Frequency Trading (HFT)</strong>: Das Gegenteil von B&amp;H.
+                        Hier wird fortlaufend gehandelt, um minimale Preisschwankungen auszunutzen.
+                    </li>
+                    <li>
+                        <strong>Dazwischen Strategien mit Investitionsreserve (IR)</strong>: Ein Teil des Kapitals
+                        bleibt in Tagesgeld oder Anleihen, um nach starken Kursrückgängen nachzukaufen. Synonym:
+                        Buy-the-Dip, Buy-the-Crash, antizyklisches Investieren, Contrarian Investing, ‚Marktkorrekturen
+                        zum Nachkaufen‘ nutzen oder ‚Kaufen, wenn die Kanonen donnern‘, 80/20, 60/40.<a
+                            href="#cite-note-10" id="cite-ref-10" name="cite-ref-10" title="Quelle">[10]</a>
+                    </li>
+                </ul>
+                <p>
+                    HFT betrachte ich nachfolgend nicht – gemäß dem Motto ‚Hin und Her macht die Taschen leer‘. Die
+                    gängige Faustregel für die IR beträgt 20&nbsp;% (IR20%), weshalb ich diesen Wert für die folgende
+                    Analyse wähle.
+                </p>
+                <p>
+                    Beim Cost Averaging (CA) – auch Phaseninvestment genannt – wird die IR nicht auf einmal investiert,
+                    sondern gestaffelt über mehrere Monate. Die Annahme: Bei fallenden Kursen erzielt man so einen
+                    besseren Durchschnittspreis, erhöht die Rendite und senkt das Risiko.
+                </p>
+                <p class="callout">
+                    <strong>Mini-Exkurs:</strong> Ist monatliches B&amp;H dasselbe wie CA? Nein, es gibt einen
+                    entscheidenden Unterschied. Bei B&amp;H investieren wir Geld, sobald es verfügbar ist. Bei CA haben
+                    wir
+                    Geld, halten es aber bewusst zurück – in der Hoffnung auf bessere Einstiegspunkte oder Schnäppchen.
+                </p>
+                <p>
+                    Der IR und dem CA steht eine theoretische Überlegung entgegen: Wenn das Weltportfolio einen
+                    inhärenten Aufwärtstrend hat, und Aktien höhere Renditen als die IR erzielen, und wir den
+                    Kursverlauf
+                    nicht exakt vorhersagen können, dann war der beste Zeitpunkt zum Investieren: gestern – und zwar als
+                    Vollinvestment. Folglich:
+                </p>
+
+                <ul>
+                    <li>
+                        $H_0:\text{ alle Strategien sind gleich gut}$
+                    </li>
+                    <li>
+                        $H_1:\text{ mindestens eine Strategie ist anders}$
+                    </li>
+                </ul>
+
+
+                <p>
+                    Tabelle&nbsp;2 vergleicht die vier Strategien paarweise und markiert, ob die Unterschiede im
+                    Mittelwert (MW) statistisch belegbar
+                    sind.
+                </p>
+
+                <table>
+                    <img src="../assets/img/anlagestrategien-simuliert-analysiert/summary-CA.png"
+                        alt="Übersicht der Anlagestrategien B&amp;H vs. IR – jeweils mit und ohne CA. Getestet mit Backtesting und Monte-Carlo-Simulation über verschiedene Zeiträume." />
+                    <caption style="width:100%">Tabelle&nbsp;2: Übersicht der Anlagestrategien B&amp;H vs. IR – jeweils
+                        mit und ohne CA. Getestet mit BT und MC über verschiedene Zeiträume. (Quelle: eigene
+                        Darstellung)</caption>
+                </table>
+                <p>
+                    Zum Beispiel hat B&amp;H (IR0%, ohne CA) nach 30&nbsp;Jahren im BT einen MW von 101.020 EUR und
+                    7,9&nbsp;% p.a. erzielt, während es in der MC 150.415 EUR und 8,4&nbsp;% p.a. waren. Im paarweisen
+                    BT-Vergleich weist B&amp;H einen höheren MW als die anderen Strategien auf. Der Unterschied zwischen
+                    B&amp;H mit und ohne CA ist nicht oder nur schwach signifikant. Wir verwerfen die
+                    Nullhypothese H<sub>0</sub>.
+                </p>
+                <p>
+                    Bild&nbsp;10 zeigt die Boxplots für einen Zeitraum von 20&nbsp;Jahren. Die vollständigen Ergebnisse
+                    für
+                    weitere Zeiträume sind in der Excel-Liste im <a href="#section-4">Anhang&nbsp;1</a> enthalten –
+                    ergeben aber ein ähnliches Bild:
+                </p>
+                <figure>
+                    <img alt="Boxplots der Anlagestrategien B&amp;H vs. IR mit und ohne CA für verschiedene Zeiträume"
+                        src="../assets/img/anlagestrategien-simuliert-analysiert/boxplots-CA.png" />
+                    <figcaption>Boxplots der Anlagestrategien B&amp;H vs. IR
+                        mit/ohne CA für verschiedene Zeiträume. (Quelle: eigene Darstellung)</figcaption>
+                </figure>
+
+                <p>
+                    Der Vergleich der Boxplots zwischen BT und MC zeigt, dass BT und MC ähnliche Ergebnisse liefern. Das
+                    spricht für die Reliabilität der Rechnenmethodik.
+                </p>
+                <p>
+                    Die langfristige Rendite (45&nbsp;Jahre) für B&amp;H beträgt laut Tabelle&nbsp;2 nominal
+                    10,3&nbsp;% p.a. Jordá et al. ermitteln für den weltweiten Aktienmarkt nach 1950 eine vergleichbare
+                    Rendite von 10,26&nbsp;% p.a.<a href="#cite-note-1" id="cite-ref-1" name="cite-ref-1"
+                        title="Quelle">[1]</a> Das
+                    Deutsche Aktieninstitut (DAI) gibt für die letzten 30&nbsp;Jahre 8,0&nbsp;% p.a.<a
+                        href="#cite-note-11" id="cite-ref-11" name="cite-ref-11" title="Quelle">[11]</a>
+                    an – im Vergleich zu
+                    7,9&nbsp;% p.a. in meinen Berechnungen (vgl. Bild&nbsp;11). Diese Werte stimmen weitgehend überein,
+                    dennoch gibt es
+                    methodische Unterschiede: Das DAI nutzt Daten erst ab 1999 und unterstellt konstante monatliche
+                    Sparbeträge.
+                </p>
+                <figure>
+                    <img alt="Rendite-Intervall für verschiedene Zeiträume. Eigene Berechnung (links) vs. Angaben des Deutschen Aktieninstituts (rechts). Quelle links: eigene Darstellung; Quelle rechts: Deutsche Aktieninstitut e.V., 2023"
+                        src="../assets/img/anlagestrategien-simuliert-analysiert/hist-yield-interval.png" />
+                    <figcaption>Rendite-Intervall für verschiedene Zeiträume. Eigene
+                        Berechnung (links) vs. Angaben des Deutschen Aktieninstituts (rechts, <a id="cite-ref-11"
+                            href="#cite-note-11" aria-label="Zur Endnote 11">[11]</a>).</figcaption>
+                </figure>
+
+                <p>
+                    Renditeangaben reagieren sensitiv auf Datenbasis und Berechnungsmethoden. Dennoch stützen weitere
+                    Studien obiges Ergebnis: Auch Park (2022)<a href="#cite-note-12" id="cite-ref-12" name="cite-ref-12"
+                        title="Quelle">[12]</a> sowie Bonini et al. (2023)<a href="#cite-note-13" id="cite-ref-13"
+                        name="cite-ref-13" title="Quelle">[13]</a> untersuchen
+                    verschiedene
+                    Anlagestrategien und identifizieren eine Outperformance von B&amp;H.
+                </p>
+                <p>
+                    <strong>Ergebnisse:</strong>
+                </p>
+                <ul>
+                    <li>Signifikante Unterschiede im Endvermögen
+                    </li>
+                    <li>
+                        <strong>B&amp;H schlägt alle anderen Strategien</strong>
+                    </li>
+                    <li>Verzicht auf IR führt zu besseren Ergebnissen
+                    </li>
+                    <li>Ohne CA erzeilt meist höhere Renditen, aber nicht immer signifikant
+                    </li>
+                    <li>Ergebnisse sind sensitiv gegenüber Methodik, Datenbasis und Rechenansätzen, z. B. rollierende
+                        Zeiträume, statistische Glättung der Renditen
+                    </li>
+                </ul>
+                <p class="callout">
+                    <strong>B&amp;H hat sich als dominante Strategie erwiesen</strong> – finden wir einen Weg, das zu
+                    verstärken? Das analysieren wir im nächsten Kapitel.
+                </p>
+                <h3>B&amp;H mit Hebel – eine Strategie für Risikobewusste?</h3>
+                <p>
+                    Wer bereit ist, mehr Risiko einzugehen, fragt sich: Lässt sich Buy-and-Hold mit einem moderaten
+                    Hebel optimieren – oder ist das eine gefährliche Illusion? D.h.
+                </p>
+
+                <ul>
+                    <li>
+                        $H_0:\text{ Gehebelt und ungehebelt sind gleich gut}$
+                    </li>
+                    <li>
+                        $H_1:\text{ Gehebelt und ungehebelt sind unterschiedlich}$
+                    </li>
+                </ul>
+
+                <p>
+                    Tabelle&nbsp;3vergleicht die
+                    Ergebnisse von B&amp;H mit und ohne 10%igem Fremdkapitalhebel über verschiedene Zeiträume. Die
+                    Symbole kennzeichnen wieder, ob die Unterschiede der MW statistisch belegbar sind.
+                </p>
+                <table>
+                    <img alt="Übersicht der Anlagestrategien B&amp;H mit und ohne 10&nbsp;% Hebel. Jeweils getestet mit Backtesting und Monte-Carlo-Simulation für verschiedene Zeiträume."
+                        src="../assets/img/anlagestrategien-simuliert-analysiert/summary-hebel.png" />
+                    <caption style="width:100%">Tabelle&nbsp;3: Übersicht der Anlagestrategien B&amp;H mit/ohne
+                        10&nbsp;% Hebel. Jeweils getestet mit BT und MC für verschiedene Zeiträume. (Quelle: eigene
+                        Darstellung)
+                    </caption>
+                </table>
+                <p>
+                    Ein moderater Hebel kann langfristig das Endvermögen steigern, erhöht aber das mittel- und
+                    kurzfristige Totalverlustrisiko (vgl. Bild&nbsp;12):
+                </p>
+                <figure>
+                    <img alt="Boxplots der Anlagestrategien B&amp;H mit und ohne 10&nbsp;% Hebel für verschiedene Zeiträume."
+                        src="../assets/img/anlagestrategien-simuliert-analysiert/boxplot-hebel.png" />
+                    <figcaption>Boxplots der Anlagestrategien B&amp;H mit/ohne 10&nbsp;%
+                        Hebel für verschiedene Zeiträume. (Quelle: eigene Darstellung).</figcaption>
+                </figure>
+                <p>
+                    Ich konnte keine wissenschaftliche Literatur finden, die ein langfristig gehaltenes Weltportfolio
+                    mit moderatem Hebel untersucht. Stattdessen liegt der Fokus meist auf High-Frequency Trading
+                    (HFT) oder gehebelten ETFs.<a href="#cite-note-14" id="cite-ref-14" name="cite-ref-14"
+                        title="Quelle">[14]</a>&thinsp;<a href="#cite-note-15" id="cite-ref-15" name="cite-ref-15"
+                        title="Quelle">[15]</a>&thinsp;<a href="#cite-note-16" id="cite-ref-16" name="cite-ref-16"
+                        title="Quelle">[16]</a>&thinsp;<a href="#cite-note-17" id="cite-ref-17" name="cite-ref-17"
+                        title="Quelle">[17]</a>
+                    Es besteht im Wesentlichen breiter Konsens, dass die erhöhte Gefahr eines Totalverlust in
+                    Krisenzeiten, die bessere Rendite in guten&nbsp;Jahren nicht
+                    aufwiegt – insbesondere, wenn mit 1.000% oder gar 10.000% gehebelt wird. Aus diesem Grund wurde in
+                    der Analyse ein moderater 10&nbsp;%-Hebel gewählt – er toleriert Verluste von bis zu 91&nbsp;% – ein
+                    Szenario, das für ein Weltportfolio äußerst unwahrscheinlich ist (<a href="#section-3">siehe oben
+                        "Survivorship Bias"</a>).
+                </p>
+                <p>
+                    <strong>Ergebnisse:</strong>
+                </p>
+                <ul>
+                    <li>Ein moderater Hebel kann funktionieren, muss aber extrem diszipliniert und mit niedriger Quote
+                        genutzt werden.
+                    </li>
+                    <li>In Marktkrisen steigt das Risiko eines Totalverlusts erheblich
+                    </li>
+                </ul>
+                <p>
+                    Ein weiterer oft diskutierter Weg zur Diversifikation ist Gold. Viele Anleger versprechen sich eine
+                    solide Absicherung gegen Krisen. Doch hält es wirklich, was es verspricht?
+                </p>
+                <h3>Gold – ein riskanter Einzeltitel mit wackliger Rendite?</h3>
+                <p>
+                    Finanzratgeber und Krisenpropheten sind sich weitgehend einig: Gold gehört ins Portfolio – es soll
+                    stabilisieren und das Risiko reduzieren. Anders als eine IR mit fixem Zinssatz, sollten
+                    schwankende Goldpreise die Streuung ausgleichen. Damit Gold diese Rolle erfüllt, müsste es zumindest
+                    unkorreliert mit dem MSCI sein:
+                </p>
+                <ul>
+                    <li>
+                        $H_{a0}:\text{ MSCI und Gold sind unkorreliert}$
+                    </li>
+                    <li>
+                        $H_{a1}:\text{ MSCI und Gold sind korreliert}$
+                    </li>
+                </ul>
+
+                <p>
+                    Außerdem sollte die Streuung im Portfolio aus Aktien und Gold reduziert werden:
+                </p>
+
+                <ul>
+                    <li>
+                        $H_{b0}:\text{ Die Streuung des Portfolios ist mit Gold höher}$
+                    </li>
+                    <li>
+                        $H_{b1}:\text{ Die Streuung des Portfolios ist mit Gold niedriger}$
+                    </li>
+                </ul>
+
+                <p>
+                    Schließlich stellt sich die Frage, ob unser Portfolio ohne oder mit Gold besser performt:
+                </p>
+
+                <ul>
+                    <li>
+                        $H_{c0}:\text{ B & H mit und Gold sind gleich gut}$
+                    </li>
+                    <li>
+                        $H_{c1}:\text{ B & H mit und Gold sind unterschiedlich}$
+                    </li>
+                </ul>
+
+                <p>
+                    Bild&nbsp;13zeigt, dass sich die
+                    Goldstory je nach betrachtetem Zeitraum ändert.<a href="#cite-note-18" id="cite-ref-18"
+                        name="cite-ref-18" title="Quelle">[18]</a> Bis etwa 2005 war Gold ein
+                    Rohrkrepierer, seither wächst es beachtlich und hat den MSCI geschlagen. Das legt für mich zwei
+                    Thesen nahe:
+                    Erstens, Gold erschien ab 2005 (linkes Bild) wie ein Schnäppchen. Nach der desaströsen
+                    Wertentwicklung der vorangegangenen Jahrzehnte war es schlicht 'unglaublich billig'. Möglicherweise
+                    sehen
+                    wir hier nur eine Preiskorrektur. Zweitens, seit 2005 stocken insbesondere nichtwestliche
+                    Zentralbanken wie Russland, China und Indien ihre Goldreserven auf, um ihre Bilanzen zu
+                    stabilisieren und
+                    die Abhängigkeit vom US-Dollar als Reservewährung zu reduzieren.<a href="#cite-note-28"
+                        id="cite-ref-28" name="cite-ref-28" title="Quelle">[28]</a>
+                </p>
+                <figure>
+                    <img alt="Entwicklung eines Investments von 10.000 € in MSCI World vs. Gold über die letzten 45 und 20&nbsp;Jahre."
+                        src="../assets/img/anlagestrategien-simuliert-analysiert/history-gold.png" />
+                    <figcaption>Entwicklung eines Investments von 10.000 € in MSCI
+                        World vs. Gold über die letzten 45 und 20&nbsp;Jahre (Quelle: eigene Darstellung)</figcaption>
+                </figure>
+
+                <p>
+                    Räumen wir mit dem Mythos auf, Gold sei "wertstabiler" als ein Weltportfolio. Bild&nbsp;14
+                    vergleicht die monatlichen ln-Renditen seit 1978 bzw. seit 2005 mit denen des MSCI World. In beiden
+                    Zeiträumen ist die Streuung (SD) von Gold höher. Langfristig schwankte der Goldpreis um die
+                    Nullrendite, während er seit 2005 ähnlich rentiert wie der MSCI – umgerechnet: Gold 7,6&nbsp;% p.a.
+                    vs. MSCI 9,2&nbsp;% p.a.<a href="#cite-note-19" id="cite-ref-19" name="cite-ref-19"
+                        title="Quelle">[19]</a>
+                </p>
+                <figure>
+                    <img alt="Verteilung des monatlichen Wachstums von Gold vs. MSCI World seit 1978 und seit 2005. Der Erwartungswert (Ŷ) von Gold ist in beiden Zeiträumen geringer, die Streuung (SD) jedoch jeweils höher."
+                        src="../assets/img/anlagestrategien-simuliert-analysiert/histogramm-yield-gold.png" />
+                    <figcaption style="width: 1140px">Bild&nbsp;14: Verteilung des monatlichen Wachstums von Gold vs.
+                        MSCI World seit 1978 und seit 2005. Der Erwartungswert $\hat{Y}$ von Gold ist in beiden
+                        Zeiträumen geringer, die Streuung (SD) hingegen jeweils höher. (Quelle: eigene Darstellung)
+                    </figcaption>
+                </figure>
+
+                <p>
+                    Das zeigt, wie irreführend Renditeangaben sein können: In absoluten Euro hätten wir lautBild&nbsp;13
+                    ab 2005 mit Gold mehr verdient. Der Grund liegt in der SD. Gold wies in den letzten 20&nbsp;Jahren
+                    stark
+                    schwankende Zuwachsraten auf, die sich in einer Zeitreihe zu höherem Gesamtwachstum aufaddierten.
+                    <strong>Die SD von Gold war sowohl seit 1978 ($p = 0,01$) als auch seit 2005 ($p = 0,018$) größer
+                        als
+                        die des MSCI.</strong> Das bedeutet: Gold streut stärker – und ist damit riskanter. Die
+                    Hypothese $H_{b0}$ wird somit nicht verworfen. Von höherer Wertstabilität kann keine Rede sein.
+                </p>
+                <p>
+                    In Bild&nbsp;14 (links unten, Gold seit 2005) zeigt sich ein weiterer zentraler Punkt: 84&nbsp;% der
+                    SD (Bestimmtheitsmaß
+                    R²) werden allein durch den Trend erklärt. Umgekehrt bedeutet das: Gold reagiert weder
+                    gleichgerichtet noch gegenläufig auf den MSCI. Die Hypothese $H_{a0}$ wird somit nicht
+                    verworfen. Gold kann folglich gar nicht als aktiver "Hedge" im Portfolio dienen.<a
+                        href="#cite-note-20" id="cite-ref-20" name="cite-ref-20" title="Quelle">[20]</a>
+                    Warum, zeigt Bild&nbsp;15 – Gold und der MSCI sind de facto unkorreliert:
+                </p>
+                <figure>
+                    <img alt="Korrelation zwischen MSCI und Gold seit 1978 und seit 2005. Gold ist de facto unkorreliert, bestenfalls schwach korreliert."
+                        src="../assets/img/anlagestrategien-simuliert-analysiert/history-correlation.png" />
+                    <figcaption>Korrelation zwischen MSCI und Gold seit 1978 und
+                        seit 2005. Gold ist de facto unkorreliert, bestenfalls schwach korreliert. (Quelle: eigene
+                        Darstellung)</figcaption>
+                </figure>
+
+                <p class="callout">
+                    Merke: <strong>Gold kann kein verlässlicher Hedge <em>zum MSCI</em> sein</strong>. Zwar ist es meist
+                    unkorreliert zum MSCI, doch seine hohe Streuung (SD) und niedrigere Rendite machen es im Portfolio
+                    nicht systematisch vorteilhaft. Gold verhält sich eher wie ein Einzeltitel – mit allen dazugehörigen
+                    Risiken. (<a href="#section-3">siehe oben "Stock Picking"</a>).
+                </p>
+                <p>
+                    Daraus folgt die Frage: In welchem Umfang sollten wir Gold dem Anlageportfolio beimischen? Als
+                    Orientierungsgröße: Apple hat heute (02/2025) mit etwa 5,5&nbsp;% den größten Anteil im MSCI. Ich
+                    runde das großzügig auf 10&nbsp;% auf und folge damit gängigen Empfehlungen.Tabelle&nbsp;4 zeigt die
+                    MW für B&amp;H mit und ohne 10&nbsp;% Goldanteil, aufgeteilt in die Zeiträume 1978–2024 und
+                    2005–2024. Die Symbole markieren, wie zuvor, ob die Unterschiede der MW statistisch belegbar sind.
+                </p>
+                <table>
+                    <img alt="Übersicht der Anlagestrategien B&amp;H mit und ohne 10&nbsp;% Goldanteil für 1978–2024 und 2005–2024. Nur Backtesting, keine Monte-Carlo-Simulation."
+                        src="../assets/img/anlagestrategien-simuliert-analysiert/summary-gold.png" />
+                    <caption style="width:100%">Übersicht der Anlagestrategien B&amp;H mit/ohne 10&nbsp;% Goldanteil für
+                        1978–2024 und 2005–2024. Nur BT, keine MC. (Quelle: eigene Darstellung)
+                    </caption>
+                </table>
+                <p>
+                    Von 2005 bis 2024 sind die Unterschiede für 10-jährige Zeiträume mit Gold signifikant, für 5-jährige
+                    Zeiträume hingegen nicht. Das bedeutet: Das Beimischen von Gold hat weder einen merklichen
+                    positiven noch negativen Effekt auf unser Endvermögen. Auch auf die Streuung wirkt sich der
+                    10&nbsp;% Goldanteil nur unwesentlich aus. Bild&nbsp;16 zeigt repräsentativ die Boxplots für einen
+                    Zeitraum von 5&nbsp;Jahren, dass sich die SD mit und ohne Gold in den jeweiligen Zeiträumen kaum
+                    unterscheidet. Eine
+                    Reduktion
+                    der Streuung lässt sich nicht nachweisen. Folglich werden die Hypothese H<sub>b0</sub> und
+                    H<sub>c0</sub> nicht verworfen. Unser Risiko wird nicht diversifiziert. Die vollständigen Ergebnisse
+                    für
+                    weitere Zeiträume sind in der Excel-Datei im <a href="#section-4">Anhang&nbsp;1</a>
+                    enthalten.
+                </p>
+                <figure>
+                    <img alt="Boxplots der Anlagestrategien B&amp;H mit und ohne 10-%-igem Goldanteil, getestet mit Backtesting für 1978–2024 und 2005–2024. Mittelwerte, Mediane und Quantile dargestellt."
+                        src="../assets/img/anlagestrategien-simuliert-analysiert/boxplot-gold.png" />
+                    <figcaption>Boxplots der Anlagestrategien B&amp;H mit/ohne
+                        10-%-igem Goldanteil, getestet mit BT für 1978–2024 und 2005–2024. MW mit einer SD nach oben und
+                        unten. Mediane sowie 5-%- und 95-%-Quantile dargestellt. MW sind mit horizontalen Linien
+                        verbunden. (Quelle: eigene Darstellung)</figcaption>
+                </figure>
+
+                <p>
+                    Der Grund: Der Goldanteil ist zu gering – oder der MSCI ist zu dominant. Das lässt sich grafisch
+                    verdeutlichen. Bild&nbsp;17 stellt B&amp;H mit 1&nbsp;% bzw. 40&nbsp;% Goldanteil als Funktion von
+                    B&amp;H ohne Gold dar. Das hohe Bestimmtheitsmaß $ R^2 = 97\% $ bei 1&nbsp;% Goldanteil zeigt, dass
+                    die Performance des MSCI das Portfolio dominiert. Bei 40&nbsp;% Goldanteil kippt die Gerade nach
+                    rechts – der MSCI dominiert die Performance nicht mehr allein ($ R^2 = 60\% $).
+                </p>
+                <figure>
+                    <img alt="Scatterplot und Regressionsgerade für B&amp;H mit 1&nbsp;% und 40&nbsp;% Goldanteil als Funktion von B&amp;H ohne Gold. Die x-Achse zeigt das Endvermögen ohne Gold, die y-Achse das Endvermögen mit Gold."
+                        src="../assets/img/anlagestrategien-simuliert-analysiert/scatterplot-gold-1per.png" />
+                    <figcaption>Scatterplot und Regressionsgerade für B&amp;H mit 1&nbsp;% und 40&nbsp;% Goldanteil als
+                        Funktion von B&amp;H ohne Gold. Die x-Achse zeigt das Endvermögen ohne Gold, die y-Achse das
+                        Endvermögen mit Gold. (Quelle: eigene Darstellung)</figcaption>
+                </figure>
+                <p>
+                    Das verallgemeinern wir für verschiedene Goldanteile und visualisieren die Zusammenhänge im
+                    "Phasenraum mit Goldisolinien". Bild&nbsp;18 zeigt das für beide Zeiträume:
+                </p>
+                <figure>
+                    <img alt="Phasenraum mit Goldisolinien für die Zeiträume 1978–2024 und 2005–2024" class=""
+                        src="../assets/img/anlagestrategien-simuliert-analysiert/isolinie-gold.png" />
+                    <figcaption>Phasenraum mit Goldisolinien für die Zeiträume 1978–2024 und 2005–2024. (Quelle: eigene
+                        Darstellung)</figcaption>
+                </figure>
+
+                <p>
+                    Bild&nbsp;18 enthält zwei wichtige Aspekte: Ab 1978 waren mindestens 30&nbsp;% Goldanteil nötig,
+                    damit der MSCI die Performance nicht mehr allein dominierte. Ab 2005 reichten dafür etwas mehr als
+                    20&nbsp;%.Bild&nbsp;19 zeigt die Scatterplots für 30&nbsp;% bzw. 20&nbsp;% Goldanteil:
+                </p>
+                <figure>
+                    <img alt="Scatterplots B&amp;H mit 30&nbsp;% bzw. 20&nbsp;% Goldanteil, bei denen der MSCI World nicht mehr allein die Performance bestimmt"
+                        src="../assets/img/anlagestrategien-simuliert-analysiert/scatterplot-gold-20per.png" />
+                    <figcaption>Scatterplots B&amp;H mit 30&nbsp;% bzw. 20&nbsp;% Goldanteil bei denen der MSCI World
+                        nicht mehr allein die Performance bestimmt. (Quelle: eigene Darstellung)</figcaption>
+                </figure>
+
+                <p>
+                    Interessanterweise streuen in Bild&nbsp;19 die Endvermögen stärker um die Regressionsgeraden als bei
+                    1&nbsp;% Goldanteil (Bild&nbsp;17, links). Das ist kein Zufall.Bild&nbsp;20 zeigt, dass die
+                    Unsicherheit mit steigendem Goldanteil zunimmt – laut der These "Gold als sicherer Hafen" müsste sie
+                    jedoch sinken! Ein Widerspruch? Nicht zu den empirischen Daten: Gold weist eine höhere SD als der
+                    MSCI auf (vgl. Bild&nbsp;14) und ist unkorreliert. Daraus folgt: Mit steigendem Goldanteil nimmt die
+                    nicht-erklärte Streuung zu. Dies deutet darauf hin, dass die Unsicherheit im Portfolio wächst – und
+                    damit potenziell auch das Risiko. Treffender wäre sogar: <strong>Die Beimischung von MSCI zu einem
+                        Goldportfolio senkt das Risiko.</strong>
+                </p>
+                <figure>
+                    <img alt="Nicht-erklärte Streuung der Goldisolinien in Abhängigkeit vom Goldanteil. Mit steigendem Goldanteil nimmt das potenzielle Risiko zu."
+                        src="../assets/img/anlagestrategien-simuliert-analysiert/variance-residual-gold.png" />
+                    <figcaption>Nicht-erklärte Streuung der Goldisolinien in Abhängigkeit vom Goldanteil. Mit steigendem
+                        Goldanteil nimmt das potenzielle Risiko zu. (Quelle: eigene Darstellung)</figcaption>
+                </figure>
+
+                <p>
+                    Die obigen Ergebnisse sind stimmig mit Erkenntnissen der Forschung. Tatsächlich ist die
+                    Diversifikation durch Gold nur für Wechselkursrisiken<a href="#cite-note-21" id="cite-ref-21"
+                        name="cite-ref-21" title="Quelle">[21]</a> und für regionale Indizes<a href="#cite-note-22"
+                        id="cite-ref-22" name="cite-ref-22" title="Quelle">[22]</a>
+                    mit höherer SD als Gold nachgewiesen. Gegen Inflation schützt Gold erst seit 2005 – dagegen von 1978
+                    bis 2005 nicht. <a href="#cite-note-23" id="cite-ref-23" name="cite-ref-23"
+                        title="Quelle">[23]</a>&thinsp;<a href="#cite-note-24" id="cite-ref-24" name="cite-ref-24"
+                        title="Quelle">[24]</a>
+                </p>
+                <p class="callout">
+                    <strong>Mini-Exkurs</strong>: Weder der MSCI noch Gold korrelieren mit Inflation. Meistens liegt
+                    ihre nominale Rendite über der Inflationsrate, sodass das Vermögen real erhalten bleibt. Bei
+                    galoppierender Inflation oder Hyperinflation versagt dieser Schutz jedoch.
+                </p>
+                <p>
+                    Bei Systembrüchen wie Hyperinflation oder Währungszusammenbrüchen verhält sich Gold zunächst
+                    unkorreliert zu den großen Indizes, folgt ihnen dann nach unten, erholt sich wiederum schneller.
+                    <a href="#cite-note-24" id="cite-ref-24" name="cite-ref-24" title="Quelle">[24]</a>&thinsp;
+                    <a href="#cite-note-25" id="cite-ref-25" name="cite-ref-25" title="Quelle">[25]</a>&thinsp;<a
+                        href="#cite-note-26" id="cite-ref-26" name="cite-ref-26" title="Quelle">[26]</a>
+                    In solchen Phasen zählt Liquidität – Unternehmen benötigen sofort
+                    verfügbare Mittel, Gold bietet diese Funktion nicht. Das zeigte sich auch in jüngeren Krisen.
+                    Studien zur Finanzkrise 2007–2009 und zur Covid-19-Pandemie belegen, dass Gold keinen zuverlässigen
+                    Schutz geboten hat.<a href="#cite-note-27" id="cite-ref-27" name="cite-ref-27"
+                        title="Quelle">[27]</a>
+                </p>
+                <p>
+                    Gold mag als Tauschmittel denkbar sein, doch das garantiert weder Werthaltigkeit noch eine
+                    Fortsetzung der Rally seit 2005. Auch technologisch ist Gold nur ein sekundärer Rohstoff für
+                    Kontakte und Beschichtungen, wo es nicht durch günstigere Materialien ersetzt werden kann. Hinzu
+                    kommt die fehlende Praktikabilität: In größeren Mengen erfordert Gold sichere Verwahrung und
+                    Versicherung – was Kosten und Aufwand bedeutet. Gold kann aber in der Entnahmephase sehr attraktiv
+                    werden und die Entnahmeunsicherheiten reduzieren.<a href="#cite-note-29" id="cite-ref-29"
+                        name="cite-ref-29" title="Quelle">[29]</a>
+                </p>
+                <p>
+                    Ergebnisse:
+                </p>
+                <ul>
+                    <li>Keine signifikanten Unterschiede im Endvermögen
+                    </li>
+                    <li>
+                        <strong>Gold verhält sich wie ein Einzeltitel: seit 2005 MSCI-ähnliche Rendite, aber höhere
+                            Streuung</strong>
+                    </li>
+                    <li>In normalen Marktphasen unkorreliert zum MSCI, in Krisen tendiert es mit nach unten
+                    </li>
+                    <li>Höhere Goldanteile erhöhen die Unsicherheit im MSCI Portfolio und senken die erwartete Rendite
+                    </li>
+                    <li>MSCI-Beimischung reduziert das Risiko eines Goldportfolios, nicht umgekehrt
+                    </li>
+                    <li>Kein verlässlicher Schutz vor Finanzkrisen oder Inflation
+                    </li>
+                    <li>Unpraktisch in Lagerung, Versicherung und Umtausch
+                    </li>
+                </ul>
+                <p class="callout">
+                    Unterm Strich sehe ich <strong>keinen vernünftigen Anwendungsfall für die Ansparphase von
+                        Investoren, die B&amp;H eines Weltportfolios betreiben.</strong> Für die Entnahmephase könnte
+                    Gold
+                    durchaus attraktiv werden.
+                </p>
+                <h3>Die Gretchenfrage: Einkommen oder Rendite optimieren?</h3>
+                <p>
+                    In der Finanzwelt dreht sich fast alles um höhere Rendite und geringere Streuung:
+
+                    $$\text{Endvermögen}=\text{EV}=\text{Anlagekapital}*(1+\underbrace{\text{Rendite}}_{\text{max!}})^t$$
+                </p>
+                <p>
+                    Doch das ist der falsche Fokus. Wer sein Endvermögen maximieren will, sollte nicht an der Rendite
+                    schrauben – sondern am eigenen Einkommen:
+                    $$\text{EV}=\underbrace{\text{Anlagekapital}}_{\text{max!}}*(1+\text{Rendite})^t$$
+                </p>
+
+                <p>
+                    Eine höhere Rendite als der MSCI zu erzielen, ist ohnehin schwierig – dies über Jahrzehnte zu
+                    halten, nahezu unmöglich. Erfolgreiches Stock Picking oder Market Timing ist empirisch
+                    unwahrscheinlich (<a href="#section-3">siehe oben</a>).
+                </p>
+                <p class="callout">
+                    Viel wahrscheinlicher: <strong>Anleger verschlechtern durch Interventionen in B&amp;H ihre
+                        Erträge</strong>.Die rationalere Strategie lautet deshalb: Mehr Geld investieren.
+                </p>
+
+                <p>
+                    Ich höre schon das Ächzen der Finanzgelehrten: "Die Rendite ist der stärkere Hebel!" Korrekt!
+                    Rechnen wir das nach: Der MSCI erzielt eine durchschnittliche nominale Rendite von 8,3&nbsp;%
+                    p.a. Angenommen, wir möchten die Rendite um y-% steigern. Um denselben Effekt auf das
+                    Endvermögen zu erzielen, um wie viel x-% müssten wir stattdessen unser Einkommen steigern?
+
+                    $$\text{Anlagekapital}*(1+x)*1,083^t=\text{Anlagekapital}*(1+0,83*(1+y))^t$$
+                    $$x=\left(\frac{1+0,83*(1+y)}{1,083} \right)^t-1$$
+                </p>
+
+                <p>
+                    Bild&nbsp;21 zeigt für verschiedene Renditesteigerungen, um wie viel Prozent das Einkommen
+                    äquivalent steigen müsste, um denselben Effekt auf das Endvermögen zu erzielen.
+                </p>
+                <figure>
+                    <img alt="Diagramm, das die Steigerung des Anlagevermögens in Abhängigkeit von Renditeanstieg und Anlagedauer zeigt, mit verschiedenen Linien für unterschiedliche Renditewerte (1% bis 50%) über einen Zeitraum von 0 bis 45&nbsp;Jahren."
+                        src="../assets/img/anlagestrategien-simuliert-analysiert/theoretical-cumulated-yield.png" />
+                    <figcaption>Steigerung des Anlagevermögens in Abhängigkeit von Renditeanstieg und Anlagedauer.
+                        Quelle: Eigene Darstellung.</figcaption>
+                </figure>
+
+                <p>
+                    Eindeutig, <em>theoretisch</em> ist die Rendite der stärkere Hebel – aber gelingt das praktisch und
+                    dauerhaft? Wir müssen uns eines klarmachen: Die Rendite des Weltportfolios ist die Summe aller
+                    Anlagestrategien. Der Übergewinn des einen geht auf Kosten eines anderen. Der andere wird aber
+                    darauf reagieren und seine Strategie anpassen. Dadurch nähern sich die Anlagestrategien langfristig
+                    wieder dem Weltportfolio an. Mehr dazu in meinem kommenden Buch.
+                </p>
+                <p class="callout">
+                    Entscheiden wir uns für eine Investition, dann sollte diese mit minimalen Transaktionskosten
+                    ausgeführt werden, um Gewinn und Rendite nicht unnötig zu schmälern. Das habe ich hier vorgerechnet:
+                    <a href="../texte/beweis-investitionen-optimieren.html"
+                        title="Kosten fressen Rendite: Der mathematische Beweis">https://www.nicolitschke.com/beweis-investitionen-optimieren/</a>
+                </p>
+                <p>
+                    <strong>Ergebnisse</strong>
+                </p>
+                <ul>
+                    <li>Theoretisch haben Renditesteigerungen den höchsten Hebel auf das Endvermögen
+                    </li>
+                    <li>Praktisch ist jedoch das Arbeitseinkommen der beeinflussbarere Faktor
+                    </li>
+                </ul>
+                <p class="callout">
+                    Mein klares Plädoyer: <strong>Investiere deine knappe Zeit lieber in die Erhöhung deines
+                        Arbeitseinkommens</strong> – nicht in die Optimierung deiner Rendite.
+                </p>
+
+                </div>
+            </section>
+            <section aria-labelledby="title-4" id="section-4">
+                <h2 id="title-4">Anhang 1: Quell-, Simulations- und Analysedaten</h2>
+                <p>
+                    Die folgende Datei enthält die Quelldaten, Simulationsdaten und statistischen Analysen, auf denen
+                    der Blog-Artikel basiert.
+                </p>
+
+                <div class="download">
+                    <span>Excel-Tabelle zur Berechnung des Kapitalwerts der verlorenen PKV-Rückerstattung</span>
+                    <a href="../assets/img/pkv-npv-rueckerstattung/PKV_NPV.xlsx" aria-label="Datei herunterladen">
+                        <svg class="icon">
+                            <use href="../assets/img/icons.svg#icon-download"></use>
+                        </svg>
+                    </a>
+                </div>
+
+
+                <div class="download">
+                    <span>20250219_Design_Grafiken.drawio</span>
+                    <a href="../assets/img/anlagestrategien-simuliert-analysiert/20250219_Design_Grafiken.drawio"
+                        aria-label="Datei herunterladen">
+                        <svg class="icon">
+                            <use href="../assets/img/icons.svg#icon-download"></use>
+                        </svg>
+                    </a>
+                </div>
+
+            </section>
+            <section aria-labelledby="title-5" id="section-5">
+                <h2 id="title-5">Anhang&nbsp;2 - MonteCarlo und Backtest in InsightMaker automatisieren</h2>
+                <p>
+                    InsightMaker<a href="#cite-note-4" id="cite-ref-4" name="cite-ref-4" title="Quelle">[4]</a> bietet
+                    von Haus aus eine MonteCarlo Simulation. Deaktivieren Sie im Model
+                    die "historische Renditen" und über die InsightMaker-Funktion "Sensitivity Testing" können Sie
+                    beliebig viele Berechnungen ausführen.
+                </p>
+                <p>
+                    Leider bietet InsightMaker keine BT-Funktion und erlaubt über die API nur eine einzelne Simulation
+                    pro Aufruf – eine direkte Zählschleife ist daher nicht möglich. Der Workaround: Die BT-Funktion
+                    wird über einen Button im Modell implementiert, der folgenden Code ausführt:
+                </p>
+                <pre>
+var sTime = getTimeStart();
+setTimeStart(sTime+1)
+runModel({
+    silent: true,
+    onSuccess: function(results){
+            console.log(getTimeStart(), ";", results.lastValue(findName("Gesamtvermögen")), ";");
+    }
+});
+</pre>
+                <p>
+                    Da der Button im Modell keine eindeutige ID, Klasse, ALT- oder aria-Label besitzt, lässt er sich
+                    nicht direkt ansteuern. Um den Button automatisiert zu betätigen, kommt AutoHotKey (AHK) zum
+                    Einsatz. Die Anzahl der BT-Durchläufe wird über iCnt gesteuert und sollte auf n gesetzt werden. Die
+                    erforderlichen Fensterkoordinaten lassen sich mit dem AHK-Tool "Window Spy" bestimmen.
+                </p>
+                <pre>#Persistent ; Hält das AHK-Skript aktiv
+CoordMode, Mouse, Screen ; Setzt die Koordinaten auf den Bildschirmmodus
+xPos := 1055 ; X-Koordinate der Zielstelle
+yPos := 390 ; Y-Koordinate der Zielstelle
+pPos := 270 ; Y-Koordinate für Pause-Stelle
+iCnt := 3 ; Anzahl Rechendurchgänge
+
+; Reset des Browser Caches
+Click,&nbsp;%xPos%,&nbsp;%pPos%
+Send, ^{F5}
+Sleep, 2500
+
+Loop,&nbsp;%iCnt% {
+    Click,&nbsp;%xPos%,&nbsp;%pPos%
+    Click,&nbsp;%xPos%,&nbsp;%yPos%
+    Sleep, 10
+}
+ExitApp
+</pre>
+                <p>
+                    Die Ergebnisse der n BT-Durchläufe für verschiedene Δt-Werte erscheinen in der Browserkonsole und
+                    können dort herauskopiert werden. Damit das BT korrekt funktioniert, sollte das Modell in den
+                    "Settings" mit "Simulation Start = 0" und "Simulation length = Δt" initialisiert werden.
+                </p>
+            </section>
+            <section aria-labelledby="title-6" id="section-6">
+                <h2 id="title-6">Anhang&nbsp;3 - Mathematische und statistische Methoden</h2>
+                <p>
+                    Dieser Anhang beschreibt die mathematischen und statistischen Grundlagen, die in der Analyse
+                    verwendet wurden. Neben der Berechnung von Renditen und Korrelationen wird auch die statistische
+                    Testmethodik erläutert.
+                </p>
+                <h3>
+                    Logarithmierte Preise und Renditen
+                </h3>
+                <p>
+                    Die Berechnungen basieren auf logarithmierten Preisen und Renditen:
+                    $$
+                    \ln P_t = \ln(P_t)
+                    $$
+                    $$
+                    r_t = \ln\left(\frac{P_t}{P_{t-1}}\right)
+                    $$
+
+                </p>
+
+                <p>
+                    Die nominale Rendite wird durch Rücktransformation berechnet:
+                    $$
+                    r_{\text{nominal}} = e^{r_t} - 1
+                    $$
+
+                </p>
+
+                <h3>Erwartete Renditen (Mittelwert, MW) per linearer Regression</h3>
+                <p>
+                    Die erwartete Rendite ergibt sich aus der linearen Regression der logarithmierten Preise:
+                    $$
+                    \hat{P}_t = \alpha + \beta t + \epsilon_t
+                    $$
+
+                </p>
+
+                <p>
+                    Die erwartete Rendite (MW) ist:
+                    $$
+                    MW = \hat{Y} = \beta
+                    $$
+
+                </p>
+
+                <p>
+                    Das Bestimmtheitsmaß $R^2$ gibt an, wie gut die Renditen durch die
+                    Zeitreihe erklärt werden.
+                </p>
+                <h3>Standardabweichung der Renditen</h3>
+                <p>
+                    Die Standardabweichung der logarithmierten Renditen wird als folgt berechnet:
+                    $$
+                    \sigma = \sqrt{\frac{1}{n-1}\sum_{t=1}^{n}\left(r_t - \bar{r}\right)^2}
+                    $$
+
+                </p>
+                <p>
+                    Mit dem Mittelwert der Renditen
+                    $$
+                    \bar{r} = \frac{1}{n}\sum_{t=1}^{n} r_t
+                    $$
+
+                </p>
+
+                <h3>Verteilung der Renditen</h3>
+                <p>
+                    Für MSCI und Gold kann mit $n=552\ Monaten$ eine approximative Normalverteilung der
+                    Renditen angenommen werden:
+                    $$
+                    r_t \sim N(\hat{Y}, \sigma^2)
+                    $$
+
+                </p>
+
+                <h3>Korrelation zwischen MSCI und Gold</h3>
+                <p>
+                    Die Korrelation zwischen den Renditen von MSCI und Gold wird mit folgender Formel berechnet:
+                    $$
+                    \rho
+                    =
+                    \frac{\sum_{t=1}^{n}
+                    \left(r_{\mathrm{MSCI},t} - \bar{r}_{\mathrm{MSCI}}\right)
+                    \left(r_{\mathrm{Gold},t} - \bar{r}_{\mathrm{Gold}}\right)
+                    }
+                    {
+                    \sqrt{\sum_{t=1}^{n}
+                    \left(r_{\mathrm{MSCI},t} - \bar{r}_{\mathrm{MSCI}}\right)^2
+                    }
+                    \;\sqrt{\sum_{t=1}^{n}
+                    \left(r_{\mathrm{Gold},t} - \bar{r}_{\mathrm{Gold}}\right)^2
+                    }
+                    }
+                    $$
+
+                </p>
+
+                <p>
+                    Mit dem Mittelwert der Renditen für MSCI und Gold:
+                    $$
+                    \bar{r} = \frac{1}{n}\sum_{t=1}^{n} r_t
+                    $$
+
+                </p>
+
+                <h3>Gleitende Durchschnitte der Korrelationen</h3>
+                <p>
+                    Zur Analyse längerfristiger Entwicklungen werden gleitende Durchschnitte der Korrelationen
+                    berechnet:
+                    $$
+                    \bar{\rho}_t = \frac{1}{k}\sum_{i=t-k+1}^{t} \rho_i
+                    $$
+
+                </p>
+
+                <h3>Fisher-Z-Transformation der Korrelationen</h3>
+                <p>
+                    Um Korrelationen einer Normalverteilung zu unterwerfen und Konfidenzintervalle berechnen zu können,
+                    werden die Rohwerte der Korrelationen mit der Fisher-Z-Transformation linearisiert:
+                    $$
+                    Z_i = \frac{1}{2}\ln\left(\frac{1+\rho_i}{1-\rho_i}\right)
+                    $$
+
+                </p>
+
+                <p>
+                    Der Mittelwert der transformierten Werte ergibt sich zu:
+                    $$
+                    \bar{Z} = \frac{1}{n}\sum_{i=1}^{n} Z_i
+                    $$
+
+                </p>
+
+                <p>
+                    Das 95-%-Konfidenzintervall für $\bar{Z}$ lautet:
+                    $$
+                    Z_{KI} = \left[\bar{Z} \pm 1{,}96 \cdot \frac{1}{\sqrt{n-3}}\right]
+                    $$
+
+                </p>
+
+                <p>
+                    Die Rücktransformation in den ursprünglichen Korrelationskoeffizienten erfolgt durch:
+                    $$
+                    \bar{\rho} = \frac{e^{2\bar{Z}} - 1}{e^{2\bar{Z}} + 1}
+                    $$
+
+                </p>
+
+                <h3>Hypothesentests für Mittelwertsunterschiede (T-Tests)</h3>
+                <p>
+                    Zur Analyse der Endvermögen, jährlichen Renditen und Korrelationen wird ein paarweiser t-Test für
+                    unabhängige Stichproben mit Bonferroni-Korrektur durchgeführt. Die Prüfgröße basiert auf der
+                    Differenz der Mittelwerte (MW):
+                    $$
+                    \left(\bar{R}_i - \bar{R}_j\right)
+                    $$
+
+                </p>
+
+                <p>
+                    Mit den Mittelwerten der Stichproben $i$ und $j$:
+                    $$
+                    \bar{R}_i = \frac{1}{n}\sum_{t=1}^{n} i_t,
+                    \qquad und \qquad
+                    \bar{R}_j = \frac{1}{m}\sum_{t=1}^{m} j_t
+                    $$
+
+                </p>
+
+                <p>
+                    Da für jede Anlagestrategie und jedes Zeitfenster $n=m>30$ gilt, sind die Mittelwerte $\bar{R_i}$
+                    und $\bar{R_j}$ approximativ normalverteilt, und die geschätzten Varianzen $S_i^2$ und $S_j^2$
+                    konvergieren gegen die tatsächlichen Parameter $\sigma_i^2$ und $\sigma_j^2$. Daraus ergibt sich die
+                    Prüfgröße:
+                    $$
+                    T
+                    =
+                    \frac{\bar{R}_i - \bar{R}_j}
+                    {\sqrt{\frac{s_i^2}{n} + \frac{s_j^2}{m}}}
+                    \sim N(0,1)
+                    $$
+
+                </p>
+
+                <p>
+                    Das Signifikanzniveau beträgt $\alpha = 5\%$ für den Vergleich von zwei Strategien. Bei vier
+                    Strategien wird es nach der Bonferroni-Korrektur reduziert auf
+                    $$
+                    \alpha_{\text{adj}} = \frac{5\%}{k} = 0{,}83\%,
+                    \qquad
+                    k = \binom{4}{2} = \frac{4!}{2!\,2!} = 6
+                    $$
+                </p>
+
+                <h3>Hypothesentests für Unterschiede der Standardabweichungen (F-Tests)</h3>
+                <p>
+                    Analog zum t-Test wird mit dem F-Test auf unterschiedliche Streuungen getestet:
+                    $$
+                    \frac{S_y^2}{S_x^2} \sim F(m-1, n-1)
+                    $$
+
+                </p>
+
+                <p>
+                    Für jede Anlagestrategie und jedes Zeitfenster gilt $n=m>30$ und die geschätzten Varianzen $S_i^2$
+                    und $S_j^2$ konvergieren gegen die tatsächlichen Parameter $\sigma_i^2$ und $\sigma_j^2$.
+            </section>
+
+            <section aria-labelledby="title-7" id="section-7">
+                <h2 id="title-7">Anhang&nbsp;4 - Modell Parameter und Settings</h2>
+                <p>
+                    Tabelle&nbsp;5 zeigt die veränderbaren Parameter des Modells und deren
+                    Bedeutung.
+                    Durch Parameterkombinationen können Sie verschiedene Portfoliostrukturen, z.B. 80/20, und
+                    Anlagestrategien, wie "Buy-the-Dip", aktivieren.
+                </p>
+                <table id="tab5">
+                    <caption>
+                        Tabelle&nbsp;5: Änderbare Modellparameter und Bedeutung
+                    </caption>
+                    <tbody>
+                        <tr>
+                            <th>
+                                Parameter
+                            </th>
+                            <th>
+                                Erklärung
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                Investitions-Reserve (IR)
+                            </td>
+                            <td>
+                                Betrag, den du investieren möchtest
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Anteil Investitions-Reserve
+                            </td>
+                            <td>
+                                Prozentualer Anteil der IR am Geamtvermögen, der in normalen Marktphasen
+                                aufrechterhalten werden soll
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Aktiviere Buy the Dip
+                            </td>
+                            <td>
+                                Investiert bei Kursrückgängen, die dem Drawdown entsprechen. Der Drawdown bezeichnet den
+                                Kursverlust vom letzten Hoch.<br />
+                                Beachte: "Buy-the-Dip" steht stellvertretend für jede Form von Kursrückgängen.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Drawdown für Vollinvestition
+                            </td>
+                            <td>
+                                Legt fest, wie stark der Markt fallen muss, um die IR vollständig zu investieren
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Staffelung Cost Averaging
+                            </td>
+                            <td>
+                                Staffelt die IR in gleich große Investitionen. Beispiel: Bei einem Wert von '10' wird
+                                die IR über 10 Monate investiert.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Aktiviere Hebel
+                            </td>
+                            <td>
+                                Verwendung von Fremdkapital zur Hebelung
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                historische Renditen
+                            </td>
+                            <td>
+                                Verwendung historischer Marktrenditen
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                mit Gold absichern
+                            </td>
+                            <td>
+                                Gold als Absicherung anstatt Geldzinssatz
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Geldzinssatz der IR
+                            </td>
+                            <td>
+                                Zinssatz für die sichere Anlage, z. B. von Tagesgeld oder Anleihen
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>
+                    Nachfolgende Bild&nbsp;22 zeigt exemplarisch, wie die Simulation auf die letzten fünf&nbsp;Jahre von
+                    Anfang 2020 bis Ende 2024 eingestellt wird.
+                </p>
+                <p>
+                    <strong><span style="color: #cc0000;">Beachte</span></strong>: Die Summe aus <strong>Simulation
+                        Start</strong> und <strong>Simulation Length</strong> darf höchstens 552 betragen – andernfalls
+                    berechnet das Modell falsche Werte.
+                </p>
+                <figure>
+                    <img src="../assets/img/anlagestrategien-simuliert-analysiert/simulation-settings.png"
+                        alt="Einstellung des InsightMakter Stock-Flow-Modells für die Simulation verschiedener Zeiträume" />
+                    <figcaption>Einstellung des Modells auf verschiedene Zeiträume Quelle: Eigene Darstellung.
+                    </figcaption>
+                </figure>
+            </section>
+            <section aria-labelledby="title-8" id="section-8">
+                <h2 id="title-8">Endoten</h2>
+                <ol class="ref-sources">
+                    <li id="cite-note-1">
+                        <a href="#cite-ref-1" title="zurück">↑</a>Jordà, Ò., Knoll, K., Kuvshinov, D.,
+                        Schularick, M., &amp; Taylor, A. M. (2019). <em>The rate of return on everything,
+                            1870–2015</em>.
+                        The quarterly journal of economics, 134(3), 1225-1298. <a
+                            href="https://doi.org/10.1093/qje/qjz012"
+                            target="_blank">https://doi.org/10.1093/qje/qjz012</a>
+                    </li>
+                    <li id="cite-note-2">
+                        <a href="#cite-ref-2" title="zurück">↑</a><a
+                            href="https://curvo.eu/backtest/de/markt-index/msci-world?currency=eur"
+                            target="_blank">https://curvo.eu/backtest/de/markt-index/msci-world?currency=eur</a>
+                    </li>
+                    <li id="cite-note-3">
+                        <a href="#cite-ref-3" title="zurück">↑</a><a href="https://www.gold.de/kurse/goldpreis/"
+                            target="_blank">https://www.gold.de/kurse/goldpreis/</a>
+                    </li>
+                    <li id="cite-note-4">
+                        <a href="#cite-ref-4" title="zurück">↑</a>Fortmann-Roe, S. (2014). <em>Insight
+                            Maker: A general-purpose tool for web-based modeling &amp; simulation</em>. Simulation
+                        Modelling
+                        Practice and Theory, 47, 28-45. <a href="https://doi.org/10.1016/j.simpat.2014.03.013"
+                            target="_blank">https://doi.org/10.1016/j.simpat.2014.03.013</a>
+                    </li>
+                    <li id="cite-note-5">
+                        <a href="#cite-ref-5" title="zurück">↑</a>Bessembinder, Hendrik (Hank) (2018).
+                        <em>Do Stocks Outperform Treasury Bills?</em> Journal of Financial Economics (JFE), Forthcoming.
+                        <a href="https://dx.doi.org/10.2139/ssrn.2900447"
+                            target="_blank">http://dx.doi.org/10.2139/ssrn.2900447</a>
+                    </li>
+                    <li id="cite-note-6">
+                        <a href="#cite-ref-6" title="zurück">↑</a>Bessembinder, Hendrik (Hank), Chen,
+                        Te-Feng, Choi, Goeun, &amp; Wei, Kuo-Chiang (John) (2023). <em>Long-Term Shareholder Returns:
+                            Evidence from 64,000 Global Stocks</em>. Financial Analysts Journal, Forthcoming. <a
+                            href="https://dx.doi.org/10.2139/ssrn.3710251"
+                            target="_blank">http://dx.doi.org/10.2139/ssrn.3710251</a>
+                    </li>
+                    <li id="cite-note-7">
+                        <a href="#cite-ref-7" title="zurück">↑</a>Dies gilt jedoch nicht für alternative
+                        Index-Konstruktionen mit planwirtschaftlichen Elementen, etwa »Environmental, Social,
+                        Governance« (ESG), die Unternehmen nach nicht-finanziellen Kriterien priorisieren. Die jüngste
+                        Abkehr großer Vermögensverwalter wie BlackRock und Banken von ESG-Strategien deutet darauf hin,
+                        dass diese zu Ineffizienzen führen können, vgl. Kerber, R. (2025). <em>BlackRock quits climate
+                            group as Wall Street lowers environmental profile</em>. Reuters. Im Internet (12.02.2025):
+                        <a href="https://www.reuters.com/sustainability/blackrock-quits-climate-group-wall-streets-latest-environmental-step-back-2025-01-09/"
+                            target="_blank">https://www.reuters.com/sustainability/blackrock-quits-climate-group-wall-streets-latest-environmental-step-back-2025-01-09/</a>
+                    </li>
+                    <li id="cite-note-8">
+                        <a href="#cite-ref-8" title="zurück">↑</a>Lorie, J. H., &amp; Fisher, L. (1964).
+                        <em>Rates of Return on Investments in Common Stocks</em>. Journal of Business, 37(1), 1-21.
+                        <a href="https://www.jstor.org/stable/2351197"
+                            target="_blank">https://www.jstor.org/stable/2351197</a>
+                    </li>
+                    <li id="cite-note-9">
+                        <a href="#cite-ref-9" title="zurück">↑</a>Chen, N.-F., Roll, R., &amp; Ross, S.
+                        A. (1986). <em>Economic Forces and the Stock Market</em>. Journal of Business, 59(3), 383-403.
+                        <a href="https://www.jstor.org/stable/2352710"
+                            target="_blank">https://www.jstor.org/stable/2352710</a>
+                    </li>
+                    <li id="cite-note-10">
+                        <a href="#cite-ref-10" title="zurück">↑</a>Siehe Kommer, G. &amp; Riemensperger,
+                        J. (2025). <em>„Buy the Dip“ – Wie gut funktioniert diese Anlagestrategie?</em>. Im Internet
+                        (Stand: 17.02.2025): <a href="https://gerd-kommer.de/buy-the-dip/"
+                            target="_blank">https://gerd-kommer.de/buy-the-dip/</a>
+                    </li>
+                    <li id="cite-note-11">
+                        <a href="#cite-ref-11" title="zurück">↑</a>Deutsches Aktien Institut (2022).
+                        <em>Aktien aus aller Welt</em>. Im Internet (Stand: 23.01.2025): <a
+                            href="https://www.dai.de/fileadmin/user_upload/221231_MSCI_World-Rendite-Dreick_Web.pdf"
+                            target="_blank">https://www.dai.de/fileadmin/user_upload/221231_MSCI_World-Rendite-Dreick_Web.pdf</a>
+                    </li>
+                    <li id="cite-note-12">
+                        <a href="#cite-ref-12" title="zurück">↑</a>Park, Sangkyun (2021). <em>Stock
+                            Market Reaction to Recession and Buying the Dips</em>. The Journal of Investing, 31(5),
+                        105-117,
+                        August 2022. Available at SSRN: <a href="https://ssrn.com/abstract=3953887"
+                            target="_blank">https://ssrn.com/abstract=3953887</a> or <a
+                            href="https://dx.doi.org/10.2139/ssrn.3953887"
+                            target="_blank">http://dx.doi.org/10.2139/ssrn.3953887</a>
+                    </li>
+                    <li id="cite-note-13">
+                        <a href="#cite-ref-13" title="zurück">↑</a>Bonini, Stefano, Shohfi, Thomas, &amp;
+                        Simaan, Majeed (2023). <em>Buy the Dip?</em> Forthcoming: European Financial Management.
+                        Available at SSRN: <a href="https://ssrn.com/abstract=3835376"
+                            target="_blank">https://ssrn.com/abstract=3835376</a> or <a
+                            href="https://dx.doi.org/10.2139/ssrn.3835376"
+                            target="_blank">http://dx.doi.org/10.2139/ssrn.3835376</a>
+                    </li>
+                    <li id="cite-note-14">
+                        <a href="#cite-ref-14" title="zurück">↑</a>Bhattacharya, U., Loos, B., Meyer, S.,
+                        &amp; Hackethal, A. (2016). <em>Abusing ETFs</em>. Review of Finance, 21(3), 1217–1250.
+                        Available at: <a href="https://doi.org/10.1093/rof/rfw036"
+                            target="_blank">https://doi.org/10.1093/rof/rfw036</a>
+                    </li>
+                    <li id="cite-note-15">
+                        <a href="#cite-ref-15" title="zurück">↑</a>Davydov, D., &amp; Peltomäki, J.
+                        (2022). <em>Investor Attention and the Use of Leverage</em>. Financial Review, 57(3), 419–446.
+                        Available at: <a href="https://doi.org/10.1111/fire.12337"
+                            target="_blank">https://doi.org/10.1111/fire.12337</a>
+                    </li>
+                    <li id="cite-note-16">
+                        <a href="#cite-ref-16" title="zurück">↑</a>Heimer, R., &amp; Imas, A. (2022).
+                        <em>Biased by Choice: How Financial Constraints Can Reduce Financial Mistakes</em>. Review of
+                        Financial Studies, 35(4), 1825–1859. Available at: <a href="https://doi.org/10.1093/rfs/hhab098"
+                            target="_blank">https://doi.org/10.1093/rfs/hhab098</a>
+                    </li>
+                    <li id="cite-note-17">
+                        <a href="#cite-ref-17" title="zurück">↑</a>Pessina, C., &amp; Whaley, R.E.
+                        (2020). <em>Levered and Inverse ETPs: Blessing or Curse?</em> SSRN Electronic Journal. Available
+                        at:
+                        <a href="https://doi.org/10.2139/ssrn.3572981"
+                            target="_blank">https://doi.org/10.2139/ssrn.3572981</a>
+                    </li>
+                    <li id="cite-note-18">
+                        <a href="#cite-ref-18" title="zurück">↑</a>Goldpreise vor 1971 sind nicht
+                        aussagekräftig. Bis dahin galt der Goldstandard (Bretton-Woods-System). Mit dessen Aufgabe kam
+                        es zum
+                        Systembruch. Erst ab 1971 wurde der Goldpreis durch den freien Markt bestimmt. Ab 1975 hat sich
+                        diese Dynamik nivelliert. Ich habe dann den Zeitraum passend zum MSCI World verwendet.
+                    </li>
+                    <li id="cite-note-19">
+                        <a href="#cite-ref-19" title="zurück">↑</a>Da ich die ln-Renditen Ŷ verwendet
+                        habe, müssen diese zurückgerechnet werden, z. B. <mjx-container
+                            class="MathJax CtxtMenu_Attached_0" ctxtmenu_counter="43" jax="SVG"
+                            style="position: relative;" tabindex="0"><svg aria-hidden="true" focusable="false"
+                                height="2.207ex" role="img" style="vertical-align: -0.186ex;"
+                                viewbox="0 -893.3 10918.7 975.3" width="24.703ex" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <g fill="currentColor" stroke="currentColor" stroke-width="0" transform="scale(1,-1)">
+                                    <g data-mml-node="math">
+                                        <g data-mml-node="mi">
+                                            <use data-c="1D45F" xlink:href="#MJX-TEX-I-1D45F"></use>
+                                        </g>
+                                        <g data-mml-node="mo" transform="translate(728.8,0)">
+                                            <use data-c="3D" xlink:href="#MJX-TEX-N-3D"></use>
+                                        </g>
+                                        <g data-mml-node="msup" transform="translate(1784.6,0)">
+                                            <g data-mml-node="mi">
+                                                <use data-c="1D452" xlink:href="#MJX-TEX-I-1D452"></use>
+                                            </g>
+                                            <g data-mjx-texclass="ORD" data-mml-node="TeXAtom"
+                                                transform="translate(499,363) scale(0.707)">
+                                                <g data-mml-node="mo">
+                                                    <use data-c="28" xlink:href="#MJX-TEX-N-28"></use>
+                                                </g>
+                                                <g data-mml-node="mn" transform="translate(389,0)">
+                                                    <use data-c="31" xlink:href="#MJX-TEX-N-31"></use>
+                                                    <use data-c="32" transform="translate(500,0)"
+                                                        xlink:href="#MJX-TEX-N-32"></use>
+                                                </g>
+                                                <g data-mml-node="mo" transform="translate(1389,0)">
+                                                    <use data-c="D7" xlink:href="#MJX-TEX-N-D7"></use>
+                                                </g>
+                                                <g data-mml-node="mn" transform="translate(2167,0)">
+                                                    <use data-c="30" xlink:href="#MJX-TEX-N-30"></use>
+                                                    <use data-c="2E" transform="translate(500,0)"
+                                                        xlink:href="#MJX-TEX-N-2E"></use>
+                                                    <use data-c="30" transform="translate(778,0)"
+                                                        xlink:href="#MJX-TEX-N-30"></use>
+                                                    <use data-c="30" transform="translate(1278,0)"
+                                                        xlink:href="#MJX-TEX-N-30"></use>
+                                                    <use data-c="37" transform="translate(1778,0)"
+                                                        xlink:href="#MJX-TEX-N-37"></use>
+                                                </g>
+                                                <g data-mml-node="mo" transform="translate(4445,0)">
+                                                    <use data-c="29" xlink:href="#MJX-TEX-N-29"></use>
+                                                </g>
+                                            </g>
+                                        </g>
+                                        <g data-mml-node="mo" transform="translate(5973.9,0)">
+                                            <use data-c="2212" xlink:href="#MJX-TEX-N-2212"></use>
+                                        </g>
+                                        <g data-mml-node="mn" transform="translate(6974.2,0)">
+                                            <use data-c="31" xlink:href="#MJX-TEX-N-31"></use>
+                                        </g>
+                                        <g data-mml-node="mo" transform="translate(7751.9,0)">
+                                            <use data-c="3D" xlink:href="#MJX-TEX-N-3D"></use>
+                                        </g>
+                                        <g data-mml-node="mn" transform="translate(8807.7,0)">
+                                            <use data-c="38" xlink:href="#MJX-TEX-N-38"></use>
+                                            <use data-c="2E" transform="translate(500,0)" xlink:href="#MJX-TEX-N-2E">
+                                            </use>
+                                            <use data-c="38" transform="translate(778,0)" xlink:href="#MJX-TEX-N-38">
+                                            </use>
+                                        </g>
+                                        <g data-mml-node="mi" transform="translate(10085.7,0)">
+                                            <use data-c="25" xlink:href="#MJX-TEX-N-25"></use>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg><mjx-assistive-mml display="inline" unselectable="on"><math
+                                    xmlns="http://www.w3.org/1998/Math/MathML">
+                                    <mi>r</mi>
+                                    <mo>=</mo>
+                                    <msup>
+                                        <mi>e</mi>
+                                        <mrow data-mjx-texclass="ORD">
+                                            <mo stretchy="false">(</mo>
+                                            <mn>12</mn>
+                                            <mo>×</mo>
+                                            <mn>0.007</mn>
+                                            <mo stretchy="false">)</mo>
+                                        </mrow>
+                                    </msup>
+                                    <mo>−</mo>
+                                    <mn>1</mn>
+                                    <mo>=</mo>
+                                    <mn>8.8</mn>
+                                    <mi mathvariant="normal">%</mi>
+                                </math></mjx-assistive-mml></mjx-container>.
+                    </li>
+                    <li id="cite-note-20">
+                        <a href="#cite-ref-20" title="zurück">↑</a>Siehe auch Taleb, N. N. (2013).
+                        <em>Antifragilität: Anleitung für eine Welt, die wir nicht verstehen</em>. Albrecht Knaus
+                        Verlag.
+                    </li>
+                    <li id="cite-note-21">
+                        <a href="#cite-ref-21" title="zurück">↑</a>Siehe stellvertretend: Nguyen, Q. N.,
+                        Bedoui, R., Majdoub, N., Guesmi, K., &amp; Chevallier, J. (2020). <em>Hedging and safe-haven
+                            characteristics of Gold against currencies: An investigation based on multivariate dynamic
+                            copula theory</em>. Resources Policy, 68, 101766. <a
+                            href="https://doi.org/10.1016/j.resourpol.2020.101766"
+                            target="_blank">https://doi.org/10.1016/j.resourpol.2020.101766</a>
+                    </li>
+                    <li id="cite-note-22">
+                        <a href="#cite-ref-22" title="zurück">↑</a>Siehe Ourir, A., Bouri, E., &amp;
+                        Essaadi, E. (2023). <em>Hedging the risks of MENA stock markets with gold: Evidence from the
+                            spectral approach</em>. Computational Economics, 61(1), 197-231. <a
+                            href="https://doi.org/10.1007/s10614-021-10204-8"
+                            target="_blank">https://doi.org/10.1007/s10614-021-10204-8</a>
+                    </li>
+                    <li id="cite-note-23">
+                        <a href="#cite-ref-23" title="zurück">↑</a>Siehe die Zusammenfassung und
+                        Ausführungen in: Van Hoang, T. H., Lahiani, A., &amp; Heller, D. (2016). <em>Is gold a hedge
+                            against
+                            inflation? New evidence from a nonlinear ARDL approach</em>. Economic Modelling, 54, 54-66.
+                        <a href="https://doi.org/10.1016/j.econmod.2015.12.013"
+                            target="_blank">https://doi.org/10.1016/j.econmod.2015.12.013</a>
+                    </li>
+                    <li id="cite-note-24">
+                        <a href="#cite-ref-24" title="zurück">↑</a>Siehe Speck, D. (2013). <em>The
+                            Strange Behaviour of Gold during Crises</em>. In <em>The Gold Cartel: Government
+                            Intervention in
+                            Gold, the Mega-Bubble in Paper, and What This Means for Your Future</em> (pp. 8-15). London:
+                        Palgrave Macmillan UK. <a href="https://doi.org/10.1057/9781137286437_3"
+                            target="_blank">https://doi.org/10.1057/9781137286437_3</a>
+                    </li>
+                    <li id="cite-note-25">
+                        <a href="#cite-ref-25" title="zurück">↑</a>Siehe Taleb, N. N. (2013). <em>Narren
+                            des Zufalls: die unterschätzte Rolle des Zufalls in unserem Leben</em>. btb Verlag.
+                    </li>
+                    <li id="cite-note-26">
+                        <a href="#cite-ref-26" title="zurück">↑</a>Generell richten sich Korrelationen in
+                        Krisenzeiten gleichaus, vgl. Junior, L. S., &amp; Franca, I. D. P. (2012). <em>Correlation of
+                            financial markets in times of crisis</em>. Physica A: Statistical Mechanics and its
+                        Applications, 391(1-2), 187-208. <a href="https://doi.org/10.1016/j.physa.2011.07.023"
+                            target="_blank">https://doi.org/10.1016/j.physa.2011.07.023</a>
+                    </li>
+                    <li id="cite-note-27">
+                        <a href="#cite-ref-27" title="zurück">↑</a>Drake, P. P. (2022). <em>The
+                            gold-stock market relationship during COVID-19</em>. Finance Research Letters, 44, 102111.
+                        <a href="https://doi.org/10.1016/j.frl.2021.102111"
+                            target="_blank">https://doi.org/10.1016/j.frl.2021.102111</a>
+                    </li>
+                    <li id="cite-note-28">
+                        <a href="#cite-ref-28" title="zurück">↑</a>Gold.de (2024). <em>Goldreserven
+                            Zentralbanken</em>. Im Internet (Stand: 21.02.2025): <a
+                            href="https://www.gold.de/goldreserven/"
+                            target="_blank">https://www.gold.de/goldreserven/</a>
+                    </li>
+                    <li id="cite-note-29">
+                        <a href="#cite-ref-29" title="zurück">↑</a>finanzen-erklaert.de (2020). <em>Wann
+                            kann ein Investment in Gold sinnvoll sein?</em>. Im Internet (Stand: 21.02.2025): <a
+                            href="https://www.finanzen-erklaert.de/wann-kann-ein-investment-in-gold-sinnvoll-sein/"
+                            target="_blank">https://www.finanzen-erklaert.de/wann-kann-ein-investment-in-gold-sinnvoll-sein/</a>
+                    </li>
+                </ol>
+
+            </section>
+
+
+
+
+
+        </article>
+    </main>
+    <!-- Followed by standard elements -->
+    <a aria-label="Nach oben scrollen" class="scroll-up" href="#">
+        <svg class="icon">
+            <use href="../assets/img/icons.svg#icon-scrollup"></use>
+        </svg>
+    </a>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <a href="../impressum.html">Impressum</a>
+            <a href="../datenschutz.html">Datenschutz</a>
+        </div>
+    </footer>
+    <script src="../assets/js/lightbox.js"></script>
+</body>
+
+</html>

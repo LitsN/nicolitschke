@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <title>Some Great Title</title>
+    <meta name="description" content="meta SEO description with does not exeed 600px (roughly 140 characters)">
+    <meta name="robots" content="index, follow, archive">
+    <meta name="author" content="Nico Litschke">
+
+    <meta property="og:url" content="https://www.nicolitschke.com/texte/name.html">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:site_name" content="Nico Litschke">
+    <meta property="og:title" content="OG title does not exeed 600px (roughly 140 characters)">
+    <meta property="og:description" content="OG description roughly between 60 and 100 characters">
+    <meta property="og:image" content="../assets/img/<name>/hero.png">
+
+    <meta name="google-site-verification" content="1KLRTKWSuSamhN09JbMkQEd-R10iuFCNAHxdYZJVr_M">
+
+    <link rel="canonical" href="https://www.nicolitschke.com/texte/name.html">
+    <link rel="stylesheet" href="../assets/css/fonts.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/article.css">
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+    <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+
+
+    <!-- Mathjax: enable when needed; otherwise disable-->
+    <script src="../assets/js/mathjax-config.js" defer></script>
+    <script src="../assets/js/tex-mml-svg.js" async></script>
+
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="site-title" href="../index.html">Nico Litschke</a>
+            <nav class="site-nav" aria-label="Hauptnavigation">
+                <a href="../index.html">Über</a>
+                <a href="../texte.html">Texte</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <article>
+            <h1>Awesome Heading</h1>
+
+            <!-- Every article is labeled with at least one tag containing a link to other articles -->
+            <ul class="tag-line">
+                <li><a href="../texte.html?tag=systemik" class="tag" data-tag="systemik"
+                        title="Alle Artikel über Systemdenken anzeigen">Systemdenken</a></li>
+                <li><a href="../texte.html?tag=engineering" class="tag" data-tag="engineering"
+                        title="Alle Artikel über Engineering anzeigen">Engineering</a></li>
+
+                <!-- possible tags are:
+                <li><a href="../texte.html?tag=mastery-lernen" class="tag" data-tag="mastery-lernen" title="Alle Artikel über Mastery & Lernen anzeigen">Mastery & Lernen</a></li>
+                <li><a href="../texte.html?tag=engineering" class="tag" data-tag="engineering" title="Alle Artikel über Engineering anzeigen">Engineering</a></li>
+                <li><a href="../texte.html?tag=fuehren-managen" class="tag" data-tag="fuehren-managen" title="Alle Artikel über Führen & Managen anzeigen">Führen & Managen</a></li>
+                <li><a href="../texte.html?tag=safety-risiko" class="tag" data-tag="safety-risiko" title="Alle Artikel über Safety & Risiko anzeigen">Safety & Risiko</a></li>
+                <li><a href="../texte.html?tag=skills-tools" class="tag" data-tag="skills-tools" title="Alle Artikel über Skills & Tools anzeigen">Skills & Tools</a></li>
+                <li><a href="../texte.html?tag=systemik" class="tag" data-tag="systemik" title="Alle Artikel über Systemdenken anzeigen">Systemdenken</a></li>
+                -->
+            </ul>
+
+            <!-- optional: if there is a substack version of this text, it is linked here
+            <p style="text-align: right;">
+                DE | <a href="https://nicolitschke.substack.com/p/<substack-path>" target="_blank" title="Englische Artikel auf substack">EN</a>
+            </p>
+             -->
+
+            <section class="abstract" aria-labelledby="abstract-title">
+                <h2>Abstract</h2>
+                <p>
+                    There is an abstract for every article.
+                </p>
+            </section>
+
+            <details class="toc">
+                <summary>
+                    <svg class="icon toggle-icon">
+                        <use href="../assets/img/icons.svg#icon-expand"></use>
+                    </svg>
+                    Inhalt
+                </summary>
+                <nav aria-label="Inhaltsverzeichnis">
+                    <ul>
+                        <!--TOC contains the text of the heading, numbering is done automatically 
+                        Abtract, Attachments (Anhang) and Endnotes are not refered here -->
+                        <li><a href="#section-1">Normal Text Chapter</a></li>
+                        <li><a href="#section-2">Mathjax Formulas</a></li>
+                        <li><a href="#section-3">Last Chapter before Attachment and Signature</a></li>
+                    </ul>
+                </nav>
+            </details>
+
+            <section id="section-1" aria-labelledby="title-1">
+                <h2 id="title-1">Normal Text Chapter</h2>
+
+                <p>
+                    Text chapters have text.
+                </p>
+
+                <p class="callout">
+                    They can have a callout to emphasize an important idea or takeaway
+                </p>
+
+                <p>
+                    Text can be referenced to endnotes via <a id="cite-ref-1" href="#cite-note-1"
+                        aria-label="Zur Endnote 1">[1]</a>
+                    Some many text.
+                    And a next reference.<a id="cite-ref-2" href="#cite-note-2" aria-label="Zur Endnote 2">[2]</a>
+
+                    If references follow each other, the space is protected via a thin space, i.e.<a id="cite-ref-3"
+                        href="#cite-note-3" aria-label="Zur Endnote 3">[3]</a>&thinsp;<a id="cite-ref-4"
+                        href="#cite-note-4" aria-label="Zur Endnote 4">[4]</a>
+                </p>
+
+                <figure>
+                    <!-- For every article, there is a folder that contains the images and attachments: folderpath: ../assets/img/name -->
+                    <img alt="alt text of the figure" src="../assets/img/name/image-name.png" />
+                    <figcaption>Pictures have always a caption. The numbering is done via css automatically. (Quelle:
+                        Eigene Darstellung)</figcaption>
+                </figure>
+
+                <p>
+                    The space between Numbers and related Symbols is always protected, e.g.
+                    100&nbsp;€, 250&nbsp;EUR, 7&nbsp;%, ISO&nbsp;26262, 3&nbsp;years, Bild&nbsp;1.
+                </p>
+            </section>
+
+            <section id="section-2" aria-labelledby="title-2">
+                <h2 id="title-2">Mathjax Formulas</h2>
+
+                <p>This is some great inline formula: $\frac{1}{2}$. And quite correct. Formulas can also be written as
+                    blocks:</p>
+
+                <p>$$\frac{1}{\sqrt{2}}$$</p>
+            </section>
+
+            <section id="section-3" aria-labelledby="title-3">
+                <h2 id="title-3">Last Chapter before Attachment and Signature</h2>
+
+                <p>The last chapter ends with the very same signature:</p>
+
+                <div class="signature-icon"></div>
+            </section>
+
+            <section id="section-4" aria-labelledby="title-4">
+                <h2 id="title-4">Anhang &ndash; Grafiken</h2>
+                <!-- Attachments are provided as downloads in the folderpath: ../assets/img/name -->
+                <div class="download">
+                    <span>example.drawio </span>
+                    <a href="../assets/img/name/example.drawio" aria-label="Datei herunterladen">
+                        <svg class="icon">
+                            <use href="../assets/img/icons.svg#icon-download"></use>
+                        </svg>
+                    </a>
+                </div>
+            </section>
+
+            <section id="section-5" aria-labelledby="title-5">
+                <h2 id="title-5">Endnoten</h2>
+
+                <!-- Endnotes contain the references from above in APA style and with a backlink.-->
+                <ol class="ref-sources">
+                    <li id="cite-note-1">
+                        <a href="#cite-ref-1" aria-label="Zurück zum Text">↑</a>
+                        Dörner, D. (2002). <em>Die Logik des Mißlingens: Strategisches Denken in komplexen
+                            Situationen</em> (15. Aufl.). Reinbek bei Hamburg: Rowohlt.
+                    </li>
+                    <li id="cite-note-2">
+                        <a href="#cite-ref-2" aria-label="Zurück zum Text">↑</a>
+                        Agte, J., de Weck, O., Sobieszczanski-Sobieski, J., Arendsen, P., Morris, A., &amp; Spieck, M.
+                        (2009). MDO: Assessment and direction for advancement—An opinion of one international group.
+                        <em>Structural and Multidisciplinary Optimization</em>,
+                        40(1–6), 17–33.
+                        <a href="https://doi.org/10.1007/s00158-009-0381-5" rel="noopener noreferrer" target="_blank">
+                            https://doi.org/10.1007/s00158-009-0381-5
+                        </a>
+                    </li>
+                    <li id="cite-note-3">
+                        <a href="#cite-ref-3" aria-label="Zurück zum Text">↑</a>
+                        de Weck, O. L., &amp; Jones, M. B. (2006). Isoperformance: Analysis and design of complex
+                        systems with desired outcomes. <em>Systems Engineering</em>, 9(1), 45–61.
+                        <a href="https://doi.org/10.1002/sys.20043" rel="noopener noreferrer" target="_blank">
+                            https://doi.org/10.1002/sys.20043
+                        </a>
+                    </li>
+                    <li id="cite-note-4">
+                        <a href="#cite-ref-4" aria-label="Zurück zum Text">↑</a>
+                        Bundesministerium der Finanzen (BMF). (2026). Berechnungen und Informationen zur
+                        Einkommensteuer.
+                        <a href="https://www.bmf-steuerrechner.de/ekst/eingabeformekst.xhtml" rel="noopener noreferrer"
+                            target="_blank">
+                            https://www.bmf-steuerrechner.de/ekst/eingabeformekst.xhtml
+                        </a>
+                    </li>
+                </ol>
+            </section>
+        </article>
+    </main>
+
+    <!-- Followed by standard elements -->
+    <a href="#" class="scroll-up" aria-label="Nach oben scrollen">
+        <svg class="icon">
+            <use href="../assets/img/icons.svg#icon-scrollup"></use>
+        </svg>
+    </a>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <a href="../impressum.html">Impressum</a>
+            <a href="../datenschutz.html">Datenschutz</a>
+        </div>
+    </footer>
+    <script src="../assets/js/lightbox.js"></script>
+</body>
+
+</html>

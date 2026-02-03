@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <title>System-Safety: Schmetterlingseffekt und praktische Konsequenzen</title>
+    <meta name="description"
+        content="Der Schmetterlingseffekt beschreibt Vorhersageprobleme in Simulationen. Was das für Safety-Engineering und stabile Systeme bedeutet, erfahren Sie hier.">
+    <meta name="robots" content="index, follow, archive">
+    <meta name="author" content="Nico Litschke">
+
+    <meta property="og:url" content="https://www.nicolitschke.com/texte/schmetterlingseffekt.html">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:site_name" content="Nico Litschke">
+    <meta property="og:title" content="System-Safety: Schmetterlingseffekt und praktische Konsequenzen">
+    <meta property="og:description"
+        content="Der Schmetterlingseffekt beschreibt Vorhersageprobleme in Simulationen. Was das für Safety-Engineering und stabile Systeme bedeutet, erfahren Sie hier.">
+    <meta property="og:image" content="../assets/img/schmetterlingseffekt/hero.png">
+
+    <link rel="canonical" href="https://www.nicolitschke.com/texte/schmetterlingseffekt.html">
+    <link rel="stylesheet" href="../assets/css/fonts.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/article.css">
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+    <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+
+    <script src="../assets/js/mathjax-config.js" defer></script>
+    <script src="../assets/js/tex-mml-svg.js" async></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="site-title" href="../index.html">Nico Litschke</a>
+            <nav class="site-nav" aria-label="Hauptnavigation">
+                <a href="../index.html">Über</a>
+                <a href="../texte.html">Texte</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <article>
+            <h1>System-Safety: Schmetterlingseffekt und praktische Konsequenzen</h1>
+
+            <ul class="tag-line">
+                <li><a href="../texte.html?tag=safety-risiko" class="tag" data-tag="safety-risiko"
+                        title="Alle Artikel über Safety &amp; Risiko anzeigen">Safety &amp; Risiko</a></li>
+                <li><a href="../texte.html?tag=systemik" class="tag" data-tag="systemik"
+                        title="Alle Artikel über Systemdenken anzeigen">Systemdenken</a></li>
+            </ul>
+
+            <section class="abstract" aria-labelledby="abstract-title">
+                <h2 id="abstract-title">Abstract</h2>
+                <p>
+                    Safety ist eine Systemeigenschaft. Deshalb müssen wir systemtheoretisch denken und entwerfen, so
+                    Nancy Leveson, führende Safety-Expertin am MIT.<a id="cite-ref-1" href="#cite-note-1"
+                        aria-label="Zur Endnote 1">[1]</a> Einer dieser Ansätze ist der
+                    „Schmetterlingseffekt“, wonach homöopathische Impulse extreme Wirkungen
+                    haben können.<a id="cite-ref-2" href="#cite-note-2" aria-label="Zur Endnote 2">[2]</a> Aus
+                    Safety-Sicht ist das ungewünscht.
+                    „Unkontrolliertes Springen“ von Signalen ist ein Anzeichen von Fehlern oder Gefahr. Originär
+                    beschreibt der Schmetterlingseffekt ein numerisches Problem von Computern – nicht von realen
+                    Systemen.
+                    Technisch begegnen wir diesen Risiken unter anderem mit Kybernetik, Redundanzen, Tool Qualifikation
+                    und Verifikation &amp; Validierung. Außerhalb der Naturwissenschaft ist der
+                    Schmetterlingseffekt zum Marketing verkommen: Er wird als pseudo-naturwissenschaftliche Legitimation
+                    für das Herumdoktern an Systemen bemüht.
+                </p>
+            </section>
+
+            <details class="toc">
+                <summary>
+                    <svg class="icon toggle-icon">
+                        <use href="../assets/img/icons.svg#icon-expand"></use>
+                    </svg>
+                    Inhalt
+                </summary>
+                <nav aria-label="Inhaltsverzeichnis">
+                    <ul>
+                        <li><a href="#section-1">Das numerische Vorhersageproblem „Schmetterlingseffekt“</a></li>
+                        <li><a href="#section-2">Der wahre Wert einer Simulation</a></li>
+                        <li><a href="#section-3">Risiken aus dem Schmetterlingseffekt beherrschen</a></li>
+                        <li><a href="#section-4">Systemrisiken durch Scientismus</a></li>
+                    </ul>
+                </nav>
+            </details>
+
+            <section id="section-1" aria-labelledby="title-1">
+                <h2 id="title-1">Das numerische Vorhersageproblem „Schmetterlingseffekt“</h2>
+                <p>
+                    Natürliche Phänomene wie Wetter und Klima, Seuchenausbreitung, Warteschlangenlängen, Planeten- und
+                    Flugbahnen, Belastbarkeit von Konstruktionen, Bankenkrisen simulieren wir mit Markov-Ketten,
+                    Vektor-Modellen oder Stock-Flow-Modellen. Bei diesen Berechnungen setzen wir das Ergebnis des
+                    vorangegangenen Rechenschritts in den nachfolgenden ein.
+                </p>
+
+                <p>
+                    Vereinfacht können wir uns das an einer Differentialgleichung verdeutlichen:
+                </p>
+
+                <p>
+                    $$ x_{n+1} = 4 x_n ( 1 - x_n ) \quad mit \quad x_n \in ( 0, 1 ), n \in \mathbb{Z} $$
+                </p>
+
+                <p>
+                    Wir wählen einen vernünftigen Startwert und setzen das Ergebnis wiederholt ein:
+                </p>
+
+                <p>
+                    $$ x_0 = 0, 8 ⟶ x_1 = 0, 64 ⟶ x_2 = 0,921 6 ⟶ ⋯ $$
+                </p>
+
+                <p>
+                    Idealerweise konvergiert das Ergebnis – auch wenn hier nicht der Fall.
+                </p>
+
+                <p>
+                    Das Problem: Computer können Differentialgleichungen nur numerisch lösen. Das führt zu
+                    Rundungsdifferenzen, die sich im Simulationsverlauf immer weiter aufschaukeln. Eine zweite
+                    Fehlerquelle sind
+                    die endlichen Kommastellen von PCs. Irgendwann schneiden sie das Ergebnis einfach ab. Auch das
+                    schaukelt sich auf.
+                </p>
+
+                <p>
+                    Das können wir im Excel demonstrieren. Wir multiplizieren die Klammer aus:
+                </p>
+
+                <p>
+                    $$ 4 x ( 1 - x ) = 4 x - 4 x^2 $$
+                </p>
+
+                <p>
+                    Ziehen wir die rechte von der linken Seite ab, muss bei jeder wiederholten Berechnung die
+                    Differenz <em>\epsilon</em> ‚Null‘ ergeben:
+                </p>
+
+                <p>
+                    $$ \epsilon = 4 x ( 1 - x ) - ( 4 x - 4 x^2 ) \stackrel{!}{=} 0 $$
+                </p>
+
+                <p>
+                    Aber in Excel sieht es anders aus. Die folgende Grafik zeigt die Abweichung <em>\epsilon</em> nach
+                    $n$-Rechenschritten:
+                </p>
+
+                <figure>
+                    <img src="../assets/img/schmetterlingseffekt/schmetterlingseffekt.png"
+                        alt="Visualisierung des Schmetterlingseffekts." />
+                    <figcaption>Schmetterlingseffekt: Numerische Rundungsdifferenzen führen zu abweichenden
+                        Simulationsergebnissen. Quelle: Eigene Darstellung.</figcaption>
+                </figure>
+                <p>
+                    Bereits beim vierten Rechenschritt sehen wir die Ursache:
+                </p>
+
+                <p>
+                    $$ x_4 = 0,289 0137 600000000 $$
+                    $$x_4 = 0,289 0137 599999990 $$
+                </p>
+
+                <p>
+                    Diese Rundungsdifferenzen schwingen sich in der weiteren Simulationen auf und führen zu den
+                    Abweichungen $\epsilon$ in Bild&nbsp;1. Das Abschneiden der Nachkommastellen konnte ich mit dieser
+                    einfachen Formel nicht nachstellen. Es bleibt aber eine weitere Fehlerquelle.
+                </p>
+
+                <p>
+                    Die Abweichung beträgt teilweise fast 100 %. Das könnte in einem Safety-System bedeuten: Die eine
+                    Berechnung gibt „alles ok“ aus; die andere „Kurzschluss“.
+                </p>
+
+                <p class="callout">
+                    Der Schmetterlingseffekt betrifft die <strong>Güte von Simulationsergebnissen und von
+                        Vorhersagen</strong>. Daraus abgeleitete Entscheidungen sind folglich <strong>riskant.</strong>
+                </p>
+            </section>
+
+            <section id="section-2" aria-labelledby="title-2">
+                <h2 id="title-2">Der wahre Wert einer Simulation</h2>
+                <p>
+                    Es ist paradox: Der eigentliche Wert einer Simulation liegt weniger im Ergebnis, sondern im
+                    Entwerfen. Ausgehend von einem einfachen Modell, wie die vorherige Differentialgleichung, reichern
+                    wir
+                    das Modell immer weiter an, bis es zur Realität passt. So lernen wir ein Problem immer besser
+                    verstehen. Die finale Simulation ist codiertes Wissen. Ähnlich hat es bereits Naur 1985 in
+                    „Programming as Theory Building“ beschrieben.<a aria-label="Zur Endnote 3" href="#cite-note-3"
+                        id="cite-ref-3" name="cite-ref-3" title="Zur Endnote 3">[3]</a>
+                </p>
+
+                <p class="callout">
+                    Folglich liegt die eigentliche <strong>Wertschöpfung im Simulationsentwurf</strong>. Das
+                    Simulationsergebnis dient vor allem dazu, Entscheidungen nachvollziehbar zu machen – etwa gegenüber
+                    Kunden
+                    oder Auditoren.
+                </p>
+
+                <p>
+                    Aber: Rechenfehler sind unvermeidbar. Dieses Risiko müssen wir handhaben.
+                </p>
+            </section>
+
+            <section id="section-3" aria-labelledby="title-3">
+                <h2 id="title-3">Risiken aus dem Schmetterlingseffekt beherrschen</h2>
+                <p>
+                    Im Safety-Engineering greifen mehrere Ansätze ineinander, um die Rechenfehler zu handhaben:
+                </p>
+
+
+                <h3>
+                    Kybernetische Rückkopplung:
+                </h3>
+                <p>
+                    Bei vielen Simulationen stoßen wir sie an, lassen sie ungestört rechnen, und Rechendifferenzen
+                    können sich aufschaukeln. Genau das vermeiden wir, indem wir a) die Rechenergebnisse fortwährend
+                    mit realen physikalischen Messgrößen abgleichen und b) den Zeithorizont begrenzen – in Embedded
+                    Systemen wenige Millisekunden, Wettermodelle täglich, Flugzeuge und Autos turnusmäßig.
+                </p>
+
+
+                <p>
+                    Unlautere Praxis ist jedoch die langfristige Prognose. Wettermodelle sind aus gutem Grund auf 10 bis
+                    14 Tage begrenzt.<a aria-label="Zur Endnote 4" href="#cite-note-4" id="cite-ref-4" name="cite-ref-4"
+                        title="Zur Endnote 4">[4]</a> <a aria-label="Zur Endnote 5" href="#cite-note-5" id="cite-ref-5"
+                        name="cite-ref-5" title="Zur Endnote 5">[5]</a> Wer die
+                    Zukunft über Jahrzehnte vorhersagt, betreibt unseriösen Scientismus und sollte sein Gehalt aus
+                    Steuergeldern zurückzahlen.
+                </p>
+
+
+                <h3>
+                    Redundanzen:
+                </h3>
+                <p>
+                    Kybernetische Systeme messen, übertragen, berechnen und reagieren über mehrere unabhängige Pfade.
+                    Weichen die Ergebnisse zu stark ab, folgt eine Fehlerreaktion. Das entspricht dem anerkannten
+                    Stand der Technik, etwa dem E-GAS Konzept.<a aria-label="Zur Endnote 6" href="#cite-note-6"
+                        id="cite-ref-6" name="cite-ref-6" title="Zur Endnote 6">[6]</a>
+                </p>
+
+
+                <p>
+                    Dasselbe Prinzip gilt auch prozessual: Zum Beispiel hatte ich im Artikel „<a
+                        href="../texte/anlagestrategien-simuliert-analysiert.html"
+                        title="Systemisch analysiert: Warum Buy-and-Hold des Weltportfolios langfristig gewinnt">Systemische
+                        Portfolio-Strategie</a>“ die InsightMaker-Simulation mit Excel-Berechnungen abgeglichen.
+                </p>
+
+
+                <h3>
+                    Verifikation &amp; Validierung (V&amp;V):
+                </h3>
+                <p>
+                    Wir entwerfen in Automotive ganze Fahralgorithmen mit PC-Simulationen. Wir prüfen im realen
+                    Fahrzeug, ob die Simulation korrekt rechnet (Verifikation) und ob der Algorithmus überhaupt der
+                    richtige ist (Validierung).
+                </p>
+
+
+
+                <h3>
+                    Tool Qualifikation:
+                </h3>
+                <p>
+                    V&amp;V ist Pflicht, aber aufwändig, teuer und träge. Wie können wir die Verifikation minimieren und
+                    dem Simulationsergebnis direkt vertrauen? Die Safety-Antwort darauf lautet „Tool
+                    Qualifikation“ (ISO&nbsp;26262‑9:2018 Kapitel&nbsp;11). Wir entwickeln die PC-Simulation mit
+                    höchster Sorgfalt
+                    und testen sie auf Herz und Nieren (V&amp;V). Damit ersetzen wir die
+                    (wiederholte) Verifikation der Simulationsergebnisse durch die (einmalige) Qualifikation der
+                    Simulation selbst.
+                </p>
+
+
+                <p>
+                    Aber diese Möglichkeit ist begrenzt. Tool Qualifikation reduziert V&amp;V; ersetzt sie nicht
+                    gänzlich. Manche Modelle können wir mangels Empirie nicht direkt verifizieren, z. B. Langzeit
+                    Klimasimulationen oder die Ausbreitung eines Virus. Außerdem gibt es emergente Effekte, die man erst
+                    im realen System entdecken kann. Siehe dazu den Artikel über Emergenz (to be done).
+                </p>
+
+
+                <h3>
+                    Sensitivitätsanalysen:
+                </h3>
+                <p>
+                    Als Teil der Modellverifikation prüfen wir, wie empfindlich Simulationsergebnisse auf
+                    Parameteränderungen reagieren. Das gibt direkt gute Hinweise, in welchen Grenzen
+                    Simulationsergebnisse
+                    vertrauenswürdiger sind und wo weniger.
+                </p>
+
+
+                <p class="callout">Fazit: Mit diesen ineinandergreifenden Techniken lässt sich das Risiko des
+                    Schmetterlingseffekts wirksam minimieren.</p>
+            </section>
+
+            <section id="section-4" aria-labelledby="title-4">
+                <h2 id="title-4">Systemrisiken durch Scientismus</h2>
+                <p>
+                    Die Beobachtung, dass homöopathische Abweichungen wie Rundungsdifferenzen große Auswirkungen haben
+                    können, weckt Begehrlichkeiten und Fantasien. Ist doch jeder noch so kleine Systemeingriff
+                    naturwissenschaftlich legitim. In Heilpraktik, Psychologie, Ökonomie und Management, Beratung und
+                    Coaching, Sozial- und Geisteswissenschaft, Klima- und Umweltschutz wird der Schmetterlingseffekt
+                    bemüht, „… wo immer irgendwelche Umschwünge in Systemen, Organismen oder Gesellschaften in Rede
+                    stehen.“<a id="cite-ref-7" href="#cite-note-7" aria-label="Zur Endnote 7">[7, S.&nbsp;164]</a></a>
+                </p>
+
+                <p>
+                    Das ist aber ein rein <strong>rhetorisches Bild und grober Unfug</strong>. Es basiert auf verdrehter
+                    Rhetorik: Nur weil es den Schmetterlingseffekt im Modell(!) gibt, sollten kleinste
+                    Abweichungen den Umbruch auch im realen System(!) herbeiführen.
+                </p>
+
+                <p>
+                    Edward Lorenz, der Urheber des Schmetterlingseffekts, sprach explizit von numerischen Problemen
+                    seiner Wettermodelle und über <strong>Vorhersageprobleme:</strong>
+                    „<em><strong>Predictability</strong>: Does the Flap of a Butterfly’s Wings in Brazil Set off a
+                        Tornado in Texas?</em>“ (Hervorhebung d.V. <a id="cite-ref-2" href="#cite-note-2"
+                        aria-label="Zur Endnote 2">[2, S.&nbsp;181]</a>) Er führt
+                    auch aus, dass minimale Abweichungen wie ein <strong>Flügelschlag keine realen Wetterphänomene
+                        auslösen:</strong>
+                </p>
+
+                <p>
+                    Analog für biologische, soziale und psychische Systeme: Sie verfügen über Feedback- und
+                    Lernschleifen, die kleine Störungen ausgleichen. Außerdem verhindern lebende Systeme Abweichungen.
+                    Sie
+                    bilden auf der Makroebene Muster aus, die die Teile in ein bestimmtes Verhalten zwingen
+                    („versklaven“).  Abweichungen von diesen Mustern werden korrigiert. Nur bei massiven Krisen oder
+                    existenziellen Bedrohungen kommt es zu echten Umbrüchen.<a aria-label="Zur Endnote 8"
+                        href="#cite-note-8" id="cite-ref-8" name="cite-ref-8" title="Zur Endnote 8">[8]</a>
+                </p>
+
+                <p>
+                    So entsteht ein <strong>Managementrisiko</strong>: Wer glaubt, mit homöopathischen Eingriffen
+                    Systeme zu steuern, irrt sich fundamental. Meine eigene anekdotische Evidenz aus über zwanzig Jahren
+                    Projektarbeit und vielen Change Projekten: Ständiges „Herumdoktern“ an Teams oder Organisationen
+                    verbessert nichts. Es nervt und vertreibt gute Leute. Positiv wirkt sich indes aus, wenn wir
+                    ungestört arbeiten können. Wer Systemumbrüche braucht, nutzt andere Instrumente wie etwa
+                    Spin-Offs.<a aria-label="Zur Endnote 9" href="#cite-note-9" id="cite-ref-9" name="cite-ref-9"
+                        title="Zur Endnote 9">[9]</a>
+                </p>
+
+                <p class="callout">
+                    <strong>Fazit</strong>: Der Schmetterlingseffekt ist ein Modellproblem. Gutes und richtiges (Safety)
+                    Management schützt Systeme, indem es stabilisiert, nicht Chaos erzeugt.
+                </p>
+
+                <p>
+                    Wenn Sie mehr über Systemdenken in Safety-Engineering erfahren wollen, abonnieren Sie gerne meinen
+                    Blog oder vernetzen wir uns auf LinkedIn.
+                </p>
+
+                <div class="signature-icon"></div>
+            </section>
+
+            <section id="section-5" aria-labelledby="title-5">
+                <h2 id="title-5">Anhang &ndash; Excel Berechnung</h2>
+                <div class="download">
+                    <span>Schmetterlingseffekt_Beispiel.xlsx</span>
+                    <a href="../assets/img/schmetterlingseffekt/Schmetterlingseffekt_Beispiel.xlsx"
+                        aria-label="Datei herunterladen">
+                        <svg class="icon">
+                            <use href="../assets/img/icons.svg#icon-download"></use>
+                        </svg>
+                    </a>
+                </div>
+            </section>
+
+            <section id="section-6" aria-labelledby="title-6">
+                <h2 id="title-6">Endnoten</h2>
+                <ol class="ref-sources">
+                    <li id="cite-note-1">
+                        <a aria-label="Zurück zur Textstelle, wo diese Quelle zitiert wurde" href="#cite-ref-1"
+                            title="Zurück zum Text">↑</a> Leveson, N. G. (2011). <em>Engineering a Safer
+                            World.
+                            Systems Thinking Applied to Safety</em> (p. 534). Cambridge, London: MIT Press.
+                    </li>
+                    <li id="cite-note-2">
+                        <a aria-label="Zurück zur Textstelle, wo diese Quelle zitiert wurde" href="#cite-ref-2"
+                            title="Zurück zum Text">↑</a> Lorenz, E. N. (1993). <em>The Essence of
+                            Chaos</em>.
+                        Seattle: University of Washington Press.
+                    </li>
+                    <li id="cite-note-3">
+                        <a aria-label="Zurück zur Textstelle, wo diese Quelle zitiert wurde" href="#cite-ref-3"
+                            title="Zurück zum Text">↑</a> Naur, P. (1985). <em>Programming as Theory
+                            Building</em>.
+                        <em>Microprocessing and Microprogramming, 15</em>(5), 253–261. <a
+                            href="https://doi.org/10.1016/0165-6074(85)90032-8" target="_blank"
+                            title="DOI-Link zur Publikation">https://doi.org/10.1016/0165-6074(85)90032-8</a>
+                    </li>
+                    <li id="cite-note-4">
+                        <a aria-label="Zurück zur Textstelle, wo diese Quelle zitiert wurde" href="#cite-ref-4"
+                            title="Zurück zum Text">↑</a> ECMWF. (2015). <em>Forecast Skill Horizon</em>.
+                        Im
+                        Internet: <a
+                            href="https://www.ecmwf.int/sites/default/files/elibrary/2015/8450-forecast-skill-horizon.pdf"
+                            target="_blank"
+                            title="Link zum Dokument">https://www.ecmwf.int/sites/default/files/elibrary/2015/8450-forecast-skill-horizon.pdf</a>
+                    </li>
+                    <li id="cite-note-5">
+                        <a aria-label="Zurück zur Textstelle, wo diese Quelle zitiert wurde" href="#cite-ref-5"
+                            title="Zurück zum Text">↑</a> SciJinks. (n.d.). <em>Forecast
+                            Reliability</em>. Im
+                        Internet: <a href="https://scijinks.gov/forecast-reliability/" target="_blank"
+                            title="Link zur Website">https://scijinks.gov/forecast-reliability/</a>
+                    </li>
+                    <li id="cite-note-6">
+                        <a aria-label="Zurück zur Textstelle, wo diese Quelle zitiert wurde" href="#cite-ref-6"
+                            title="Zurück zum Text">↑</a> Arbeitskreis EGAS. (2015). <em>Standardisiertes
+                            E-Gas
+                            Überwachungskonzept für Benzin und Diesel Motorensteuerungen</em> (Version 6). Im Internet:
+                        <a href="https://www.pff.de/wcf/file-download/166565/" target="_blank"
+                            title="Link zum Dokument">https://www.pff.de/wcf/file-download/166565/</a>
+                    </li>
+                    <li id="cite-note-7">
+                        <a aria-label="Zurück zur Textstelle, wo diese Quelle zitiert wurde" href="#cite-ref-7"
+                            title="Zurück zum Text">↑</a> Brügge, P. (1993). Mythos aus dem Computer.
+                        <em>Der
+                            Spiegel</em>. Im Internet: <a href="https://www.spiegel.de/spiegel/print/d-13683414.html"
+                            target="_blank"
+                            title="Artikel bei Der Spiegel">https://www.spiegel.de/spiegel/print/d-13683414.html</a>
+                    </li>
+                    <li id="cite-note-8">
+                        <a aria-label="Zurück zur Textstelle, wo diese Quelle zitiert wurde" href="#cite-ref-8"
+                            title="Zurück zum Text">↑</a> Haken, H. (1990). <em>Synergetik. Eine
+                            Einführung.
+                            Nichtgleichgewichts-Phasenübergänge und Selbstorganisation in Physik, Chemie und
+                            Biologie</em> (3., erweiterte Auflage). Berlin, Heidelberg: Springer-Verlag.
+                    </li>
+                    <li id="cite-note-9">
+                        <a aria-label="Zurück zur Textstelle, wo diese Quelle zitiert wurde" href="#cite-ref-9"
+                            title="Zurück zum Text">↑</a> Im Kontext von Unternehmen, vgl. Christensen,
+                        C. M.
+                        (2025). <em>The Innovator’s Dilemma</em> (K. Matzler &amp; S. F. von den Eichen, Eds., 2.
+                        erweiterte Auflage). München: Verlag Franz Vahlen.
+                    </li>
+                </ol>
+            </section>
+
+        </article>
+    </main>
+
+    <a href="#" class="scroll-up" aria-label="Nach oben scrollen">
+        <svg class="icon">
+            <use href="../assets/img/icons.svg#icon-scrollup"></use>
+        </svg>
+    </a>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <a href="../impressum.html">Impressum</a>
+            <a href="../datenschutz.html">Datenschutz</a>
+        </div>
+    </footer>
+    <script src="../assets/js/lightbox.js"></script>
+</body>
+
+</html>

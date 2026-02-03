@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <title>Löst KI Agency-Risiken? Ein Finanzbeispiel.</title>
+    <meta name="description"
+        content="Selbst-Beratung mit KI mindert Agency-Risiken, bei denen sich Berater auf Kosten der Klienten bereichern. Ein Finanzbeispiel.">
+    <meta name="robots" content="index, follow, archive">
+    <meta name="author" content="Nico Litschke">
+
+    <meta property="og:url" content="https://www.nicolitschke.com/texte/ki-agency-problem-solved.html">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:site_name" content="Nico Litschke">
+    <meta property="og:title" content="Löst KI Agency-Risiken? Ein Finanzbeispiel.">
+    <meta property="og:description"
+        content="Selbst-Beratung mit KI mindert Agency-Risiken, bei denen sich Berater auf Kosten der Klienten bereichern.">
+    <meta property="og:image" content="../assets/img/ki-agency-problem-solved/hero.png">
+
+    <meta name="google-site-verification" content="1KLRTKWSuSamhN09JbMkQEd-R10iuFCNAHxdYZJVr_M">
+
+    <link rel="canonical" href="https://www.nicolitschke.com/texte/ki-agency-problem-solved.html">
+    <link rel="stylesheet" href="../assets/css/fonts.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/article.css">
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+    <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+</head>
+<style>
+    ul.checklist {
+        list-style-type: none;
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    ul.checklist li {
+        position: relative;
+        padding-left: 1.6em;
+        margin-bottom: 0.5em;
+        line-height: 1.5;
+    }
+
+    ul.checklist li::before {
+        content: "✔";
+        position: absolute;
+        left: 0;
+        color: var(--t-engineering);
+    }
+</style>
+
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="site-title" href="../index.html">Nico Litschke</a>
+            <nav class="site-nav" aria-label="Hauptnavigation">
+                <a href="../index.html">Über</a>
+                <a href="../texte.html">Texte</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <article>
+            <h1>Löst KI Agency-Risiken? Ein Finanzbeispiel.</h1>
+
+            <ul class="tag-line">
+                <li><a href="../texte.html?tag=safety-risiko" class="tag" data-tag="safety-risiko"
+                        title="Alle Artikel über Safety & Risiko anzeigen">Safety & Risiko</a></li>
+                <li><a href="../texte.html?tag=fuehren-managen" class="tag" data-tag="fuehren-managen"
+                        title="Alle Artikel über Führen & Managen anzeigen">Führen & Managen</a></li>
+            </ul>
+
+            <section class="abstract" aria-labelledby="abstract-title">
+                <h2>Abstract</h2>
+                <p>
+                    Beratung kann dem Berater mehr dienen als dem Klienten – ein bekanntes Problem, das in der
+                    Finanzwissenschaft als Agency-Problem bezeichnet wird. KIs wie ChatGPT könnten das lösen: Sie
+                    bieten Informationen ohne Eigeninteressen. Können wir mit Selbst-Beratung mittels KI besser
+                    entscheiden? Einiges spricht dafür – solide Pläne lassen sich mit KI einfach erstellen und
+                    Agency-Kosten minimieren. In diesem Artikel zeige ich, wie das geht, wo die Grenzen liegen und wie
+                    Sie es selbst ausprobieren können.
+                </p>
+            </section>
+
+            <details class="toc">
+                <summary>
+                    <svg class="icon toggle-icon">
+                        <use href="../assets/img/icons.svg#icon-expand"></use>
+                    </svg>
+                    Inhalt
+                </summary>
+                <nav aria-label="Inhaltsverzeichnis">
+                    <ul>
+                        <li><a href="#section-1">Das Agency-Problem in a Nutshell</a></li>
+                        <li><a href="#section-2">ChatGPT für Selbst-Beratung?</a></li>
+                        <li><a href="#section-3">Ist Selbst-Beratung effektiv(er)?</a></li>
+                        <li><a href="#section-4">Ist Selbst-Beratung effizient(er)?</a></li>
+                        <li><a href="#section-5">Grenzen der Selbst-Beratung</a></li>
+                        <li><a href="#section-6">ChatGPT Prompt zur Anlage-Beratung</a></li>
+                        <li><a href="#section-7">Fazit</a></li>
+                    </ul>
+                </nav>
+            </details>
+
+            <section id="section-1" aria-labelledby="title-1">
+                <h2 id="title-1">Das Agency-Problem in a Nutshell</h2>
+
+                <p>
+                    Das Agency-Problem tritt auf, wenn eine Person (der sogenannte Prinzipal) einen Experten (den
+                    sogenannten Agenten) konsultiert. Der Experte kann sich aufgrund seines Wissensvorsprungs auf
+                    Kosten des Prinzipals bereichern:<a id="cite-ref-4" href="#cite-note-4"
+                        aria-label="Zur Endnote 4">[4]</a>
+                </p>
+
+                <ul>
+                    <li>
+                        <strong>Moral Hazard:</strong> Der Experte empfiehlt Dinge, die vor allem ihm zum Vorteil
+                        gereichen
+                    </li>
+                    <li>
+                        <strong>Hidden Action:</strong> Der Experte verschleiert, verfälscht oder unterschlägt
+                        Informationen, um sich einen Vorteil zu verschaffen
+                    </li>
+                </ul>
+
+                <p>
+                    Folgende Abbildung zeigt schematisch das Agency-Problem:
+                </p>
+
+                <figure>
+                    <img alt="Prinzipal-Agenten-Problem: Der Kunde beauftragt einen Agenten, der ein für sich lukratives Produkt wählt und Infos verzerrt."
+                        src="../assets/img/ki-agency-problem-solved/agency-problem.png" />
+                    <figcaption>Prinzipal-Agenten-Problem: Der Kunde beauftragt einen Agenten, der ein für sich
+                        lukratives Produkt wählt und Infos verzerrt. Der Kunde kann das Angebot nicht bewerten, trägt
+                        Risiko – und im Schadensfall die Beweislast. Quelle: Eigene Darstellung.</figcaption>
+                </figure>
+
+                <p>
+                    <strong>Beispiel:</strong> Gerade Facharbeiter geworden, ließ ich mir einen Bausparvertrag andrehen
+                    – &bdquo;perfekt für den Vermögensaufbau&rdquo;, hieß es. Aber ich wollte gar nicht bauen. Jahre
+                    später wurde
+                    mir klar, dass ich ohne Bau keine staatliche Förderung erhielt und wie schlecht die Performance
+                    wirklich war. Die Verkäuferin strich ihre Provision ein. Ich trug den Schaden.
+                </p>
+
+                <p>
+                    Fairerweise: Ich glaube, die Verkäuferin meinte es gut. Sie erklärte mir, wie sie das in ihrer
+                    Familie handhabte. Mir lagen auch alle Infos vor – in einem Stapel an Formularen und Prospekten im
+                    Juristenjargon. Bevor ich das las, hatte ich das Beratungsprotokoll unterschrieben und die
+                    Verkäuferin damit <em>ent-schuldigt</em>. Agency-Probleme sind oft systembedingt und in Strukturen
+                    verankert.
+                </p>
+
+                <p>
+                    Theoretisch beugt man Agency-Problemen mit Sanktionen und Konditionalstrafen vor.<a id="cite-ref-4"
+                        href="#cite-note-4" aria-label="Zur Endnote 4">[4]</a> Aber wer würde dem zustimmen? Solche
+                    Maßnahmen setzen voraus, dass der Prinzipal eine starke Position gegenüber dem Agenten einnimmt. Das
+                    ist bei einzelnen Kunden nicht der Fall. Und, um klar zu sein: Agency-Probleme sind kein exklusives
+                    Phänomen der Finanz- und Versicherungsbranche. Sie können überall auftreten – in der Politik, im
+                    Krankenhaus, im Coaching, im Engineering, im Fitnessstudio oder sogar in der Vereinsarbeit.
+                </p>
+            </section>
+
+            <section id="section-2" aria-labelledby="title-2">
+                <h2 id="title-2">ChatGPT für Selbst-Beratung?</h2>
+
+                <p>
+                    Auch ChatGPT verfügt über mehr Informationen als wir – aber keine eigene Agenda. Es arbeitet
+                    neutral, es sei denn, wir weisen es explizit anders an. Das bietet entscheidende Vorteile:
+                </p>
+
+                <ul>
+                    <li>
+                        <strong>Keine Agenda:</strong> ChatGPT verfolgt keine Verkaufsprovisionen, keine Karriere, keine
+                        Macht
+                    </li>
+                    <li>
+                        <strong>Transparenz:</strong> Die Vorschläge basieren ausschließlich auf den eingegebenen Daten
+                        und lassen sich leicht nachvollziehen
+                    </li>
+                    <li>
+                        <strong>Kontinuität:</strong> Regelmäßige Abfragen helfen, Strategien langfristig anzupassen und
+                        zu optimieren
+                    </li>
+                    <li>
+                        <strong>Perspektivität:</strong> Wir können ChatGPT verschiedene Expertenrollen einnehmen lassen
+                        und so unterschiedliche Sichtweisen einholen
+                    </li>
+                    <li>
+                        <strong>Unemotional:</strong> ChatGPT hat keinen schlechten Tag – und es spielt keine Rolle, ob
+                        wir sympathisch wirken oder nicht
+                    </li>
+                </ul>
+
+                <p>
+                    Moral Hazard können wir nahezu ausschließen. Hidden Information bleibt jedoch ein Risiko: Durch
+                    unvollständige Eingaben oder sogenannte Halluzinationen können fehlerhafte Antworten entstehen. Mit
+                    gezielten Prompts und kritischen Nachfragen lässt sich dieses Risiko jedoch minimieren. Wie das
+                    funktioniert, erkläre ich im Abschnitt <a href="#section-6">ChatGPT Prompt zur
+                        Anlage-Beratung</a>.
+                </p>
+            </section>
+
+            <section id="section-3" aria-labelledby="title-3">
+                <h2 id="title-3">Ist Selbst-Beratung effektiv(er)?</h2>
+
+                <p>
+                    &bdquo;Beratung und Coaching müssen individuell auf die Person zugeschnitten werden&rdquo;, heißt
+                    es. Doch was erleben wir? Standardformulare und Prospekte mit vorgefertigten Lösungen. Berater und
+                    Coaches nutzen oft standardisierte Ansätze – genau wie ChatGPT. Und in vielen Fällen kann die KI das
+                    genauso gut, wenn nicht besser. Doch der Punkt ist ein anderer: Pläne sind wertlos.
+                </p>
+
+                <p>
+                    <strong>Individualität zeigt sich im Tun, in der Ausführung – im Können, nicht im Wissen.</strong>
+                    Sie wird in außergewöhnlichen Situationen relevant, wenn ein Experte mit all seinem Können eine
+                    passende Lösung erarbeitet. Doch im Alltag? Meistens bewegen wir uns im Rahmen der Norm – hier
+                    reichen standardisierte Ansätze aus. Diese liefert ChatGPT ohne Agency-Probleme. Es beeinflusst uns
+                    nicht, suboptimale Entscheidungen zu treffen.
+                </p>
+
+                <p>
+                    Ein weiterer Vorteil ist die stärkere Betonung der Selbstverantwortung. Das Kernproblem des
+                    Agency-Problems ist, dass Menschen mehr Risiko eingehen, wenn sie es nicht selbst tragen.
+                    Selbst-Beratung löst diesen Konstruktionsfehler auf: Wir tragen die volle Verantwortung für unsere
+                    Entscheidungen – und handeln dadurch umsichtiger.<a id="cite-ref-5" href="#cite-note-5"
+                        aria-label="Zur Endnote 5">[5]</a> In folgender Abbildung ist das durch den Lernprozess
+                    dargestellt:<a id="cite-ref-5b" href="#cite-note-5" aria-label="Zur Endnote 5"></a>
+                </p>
+
+                <figure>
+                    <img alt="Lösung des Prinzipal-Agenten-Problems mit KI"
+                        src="../assets/img/ki-agency-problem-solved/agency-ki-solution.png" />
+                    <figcaption>Lösung des Prinzipal-Agenten-Problems mit KI: Der Kunde prüft Angebote mithilfe von KI
+                        und überwacht den Verlauf. So reduziert er Risiken und wird weniger abhängig vom Agenten.
+                        Quelle: Eigene Darstellung.</figcaption>
+                </figure>
+
+                <p>
+                    <strong>Insgesamt:</strong> Warum sollte ChatGPT nicht mindestens ebenso gute Pläne liefern wie ein
+                    erfahrener Fachexperte? Am Ende liegt es an uns, die Wirksamkeit des Plans zu überwachen –
+                    unabhängig von der Beratungsform.
+                </p>
+            </section>
+
+            <section id="section-4" aria-labelledby="title-4">
+                <h2 id="title-4">Ist Selbst-Beratung effizient(er)?</h2>
+
+                <p>
+                    Wenn Effektivität gegeben ist, können wir nach (Kosten-) Effizienz fragen:
+                </p>
+
+                <ul>
+                    <li>
+                        <strong>Geringere Opportunitätskosten:</strong> effektiver(e) Produktwahl reduziert
+                        Agency-Kosten (siehe zuvor)
+                    </li>
+                    <li>
+                        <strong>Geringerer Initialaufwand:</strong> Selbst-Beratung kann jederzeit gestartet werden –
+                        bequem von der Couch, ohne Termin und Anfahrt
+                    </li>
+                    <li>
+                        <strong>Wegfall von Provisionen und Honoraren:</strong> Selbst-Beratung spart direkt an
+                        Beraterkosten
+                    </li>
+                    <li>
+                        <strong>Keine Zusatzkosten:</strong> Weder für Standardschulungen noch für versteckte
+                        Verkaufsveranstaltungen wie Webinare.
+                    </li>
+                    <li>
+                        <strong>Rendite maximieren:</strong> Niedrige Kosten bedeuten fast immer höhere Gewinne.
+                    </li>
+                </ul>
+            </section>
+
+            <section id="section-5" aria-labelledby="title-5">
+                <h2 id="title-5">Grenzen der Selbst-Beratung</h2>
+
+                <p class="callout">
+                    Ob KI-Assistent oder persönliche Beratung: <strong>Wir sind für unsere Entscheidungen selbst
+                        verantwortlich.</strong>
+                </p>
+
+                <div class="image-grid">
+                    <div>
+                        <h3>Das können KI-Assistenten...</h3>
+                        <ul>
+                            <li>Informationen und Fakten sammeln</li>
+                            <li>Vergleiche / Alternativen aufbereiten</li>
+                            <li>Impulse für kritische Fragen</li>
+                            <li>Kriterien oder Checklisten anwenden</li>
+                            <li>Plausibilisieren</li>
+                            <li>Strategie, Pläne und Schritte vorschlagen</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>... und das nicht</h3>
+                        <ul>
+                            <li>Für uns Lernen</li>
+                            <li>Beurteilen, Auswählen, <strong>Entscheiden</strong></li>
+                            <li>Ausführen</li>
+                            <li>Verifizieren und Validieren</li>
+                            <li>Kontrollieren und Anpassen</li>
+                            <li>Risiken abwägen</li>
+                            <li>Ethische und moralische Kompass</li>
+                            <li>anspruchsvolle Probleme lösen ⇒ <strong>Spezialist(en) konsultieren!</strong></li>
+                        </ul>
+                    </div>
+                </div>
+                <p>
+                    Gleichzeitig sollten wir uns die Stärken <strong>guter(!)</strong> Berater und Coaches (kurz: Coach)
+                    verdeutlichen:
+                </p>
+
+                <ul>
+                    <li>
+                        <strong>Strategie und Langfristigkeit:</strong> Ein guter Coach weiß, dass Veränderungen Zeit
+                        brauchen – sei es bei der Entwicklung von Gehirn, Muskeln, Strukturen oder dem Zinseszins. Er
+                        hilft, die richtigen Weichen zu stellen und Anpassungen vorzunehmen, wenn die Zeit reif ist.
+                    </li>
+                    <li>
+                        <strong>Außenperspektive auf inkonsistente Ausführung:</strong> Viele Dinge scheitern an
+                        lückenhafter Umsetzung – sei es beim Training, der Ernährung oder dem Vermögensaufbau. Anstatt
+                        den Plan komplett umzuwerfen, hilft ein guter Coach, die Umsetzung zu verbessern.
+                    </li>
+                    <li>
+                        <strong>Empathie und Skepsis:</strong> ChatGPT vertraut auf korrekte Eingaben, erkennt aber
+                        keine Widersprüche zwischen Verhalten und Worten. Ein Coach hingegen hinterfragt und gibt
+                        Feedback.
+                    </li>
+                    <li>
+                        <strong>Emotionale Unterstützung:</strong> Gerade hier zeigt sich wahre Individualität. Ein
+                        empathischer Coach erkennt, wo der Prinzipal in der Umsetzung strauchelt, und hilft gezielt
+                        weiter.
+                    </li>
+                </ul>
+
+                <p class="callout">
+                    Anders gesagt: <strong>Ein guter Coach zeigt seine Stärke in der Umsetzungsbegleitung.</strong>
+                    Durch seine Außenperspektive sorgt er für eine bessere Ausführung. Doch wenn ein Coach das nicht
+                    leisten kann, unterscheidet er sich kaum von ChatGPT – und das Agency-Risiko überwiegt den Nutzen
+                    des Coachings.
+                </p>
+            </section>
+
+            <section id="section-6" aria-labelledby="title-6">
+                <h2 id="title-6">ChatGPT Prompt zur Anlage-Beratung</h2>
+
+                <p>
+                    Ein Beispiel, wie ChatGPT für die Selbst-Beratung genutzt werden kann:
+                </p>
+
+                <pre><code>Ich habe 10.000€ geerbt. Du bist ein Anlageberater mit 20 Jahren Erfahrung. Tue so, als ob du mein Geld für dich selbst und nicht für mich anlegen würdest. Wie würdest du einen hohen Ertrag erzielen, ohne das Geld zu riskieren? Frag nach Details, die du für eine präzise Antwort benötigst. Nachdem die Details geklärt sind, erstellen wir einen mittel- und kurzfristigen Aktionsplan.</code></pre>
+
+                <p>
+                    Diese Rückfragen von ChatGPT kennen wir auch von Finanzberatern – dazu meine Antworten:
+                </p>
+
+                <div class="image-grid">
+                    <div>
+                        <figure>
+                            <img alt="Rückfragen von ChatGPT um die Details zu verstehen"
+                                src="../assets/img/ki-agency-problem-solved/ki-questions.png" />
+                            <figcaption>Rückfragen von ChatGPT um die Details zu verstehen</figcaption>
+                        </figure>
+                    </div>
+                    <div>
+                        <figure>
+                            <img alt="... und meine Antworten"
+                                src="../assets/img/ki-agency-problem-solved/ki-answers.png" />
+                            <figcaption>... und meine Antworten</figcaption>
+                        </figure>
+                    </div>
+                </div>
+                <p>
+                    Bemerkenswert. <strong>In einer Bank oder Versicherung habe ich das so noch nicht gesehen:</strong>
+                </p>
+
+
+                <div class="image-grid">
+                    <div>
+                        <figure>
+                            <img alt="Top! ETFs bieten das beste Preis-Leistungs-Risikoprofil"
+                                src="../assets/img/ki-agency-problem-solved/ki-recommendation-strategy.png" />
+                            <figcaption>Top! ETFs bieten das beste Preis-Leistungs-Risikoprofil</figcaption>
+                        </figure>
+                    </div>
+                    <div>
+                        <figure>
+                            <img alt="Solide Aufteilung und Empfehlungen"
+                                src="../assets/img/ki-agency-problem-solved/ki-recommendation-split.png" />
+                            <figcaption>Solide Aufteilung und Empfehlungen</figcaption>
+                        </figure>
+                    </div>
+                    <div>
+                        <figure>
+                            <img alt="Arbeitsplan - (fast) nichts zu monieren"
+                                src="../assets/img/ki-agency-problem-solved/ki-recommendation-actions.png" />
+                            <figcaption>Arbeitsplan - (fast) nichts zu monieren</figcaption>
+                        </figure>
+                    </div>
+                    <div>
+                        <figure>
+                            <img alt="Langfristige Ausblick mit realistischer Durchschnittsrendite"
+                                src="../assets/img/ki-agency-problem-solved/ki-recommendation-actions-mid.png" />
+                            <figcaption>Langfristige Ausblick mit realistischer Durchschnittsrendite
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div>
+                        <figure>
+                            <img alt="Weltportfolio: ACWI IMI"
+                                src="../assets/img/ki-agency-problem-solved/ki-recommendation.png" />
+                            <figcaption>Weltportfolio: ACWI IMI</figcaption>
+                        </figure>
+                    </div>
+                </div>
+
+
+                <ul class="checklist">
+                    <li>ETF: grundsolide, mit gutem Preis-Leistungs-Risikoverhältnis. Der MSCI World hat nur
+                        einen
+                        Nachteil: Small Caps fehlen...
+                    </li>
+                    <li>Staatsanleihen: sinnvoll, da ich Sicherheit betonte. Ich würde eher deutsche
+                        Staatsanleihen
+                        nehmen.
+                    </li>
+                    <li>REITs: bemerkenswert! Hatte ich nicht erwartet. Anteile an Immobilien für das kleine
+                        Portemonnaie.
+                    </li>
+                    <li>Thesaurierende ETFs: steuerlich marginal günstiger
+                    </li>
+                    <li>Kosten (TER): &lt;0,3&nbsp;% p.a. ist realistisch. Ich würde eher auf Tracking Difference<a
+                            id="cite-ref-2" href="#cite-note-2" aria-label="Zur Endnote 2">[2]</a> zum Index
+                        achten; ist
+                        aber Minioptimierung.
+                    </li>
+                    <li>Cost-Averaging auf einen Jahreszeitraum ist eine psychische Optimierung. Bei mehr als
+                        einem Jahr
+                        rate ich davon ab:<a id="cite-ref-3" href="#cite-note-3" aria-label="Zur Endnote 3">[3]</a>
+                        &bdquo;money in the market, beats timing the market&rdquo.
+                    </li>
+                    <li>Rendite und Vermögenswachstum: reale 5&nbsp;% bis 7&nbsp;% p.a. (also nach Inflation) sind
+                        realistisch und
+                        von Studien abgestützt.<a id="cite-ref-1" href="#cite-note-1" aria-label="Zur Endnote 1">[1]</a>
+                    </li>
+                </ul>
+
+                <p>
+                    Ich bin schwer begeistert. Und dann noch dieser Satz:
+                </p>
+
+                <p class="callout">
+                    <strong>&bdquo;Keine Panik bei Kursschwankungen – halte dich an den Plan!&rdquo;</strong>
+                </p>
+
+                <p>
+                    Bravo! Jetzt holen wir noch mehr Perspektiven rein:
+                </p>
+
+                <pre><code>Nenne fünf anerkannte Fachexperten für dieses Thema. Wie würden sie den Aktionsplan beurteilen, was würden sie loben und was verbessern?</code></pre>
+
+                <div class="image-grid">
+                    <div>
+                        <figure>
+                            <img alt="Renomierte Experten" src="../assets/img/ki-agency-problem-solved/experts.png" />
+                            <figcaption>Renomierte Experten</figcaption>
+                        </figure>
+                    </div>
+                    <div>
+                        <figure>
+                            <img alt="Das Lob teile ich" src="../assets/img/ki-agency-problem-solved/lob.png" />
+                            <figcaption>Das Lob teile ich</figcaption>
+                        </figure>
+                    </div>
+                    <div>
+                        <figure>
+                            <img alt="Da sind sie! Die Small Caps"
+                                src="../assets/img/ki-agency-problem-solved/verbesserungen.png" />
+                            <figcaption>Da sind sie! Die Small Caps</figcaption>
+                        </figure>
+                    </div>
+                    <div>
+                        <figure>
+                            <img alt="ACWI IMI als Empfehlung" src="../assets/img/ki-agency-problem-solved/acwi.png" />
+                            <figcaption>Weltportfolio: ACWI IMI</figcaption>
+                        </figure>
+                    </div>
+                </div>
+
+                <p>
+                    Ah! Small Caps! Ich habe ChatGPT ausgefragt, was das ist und wie ich darin mit einem einzelnen ETF
+                    investieren kann. Und siehe da: <strong>Das Weltportfolio</strong> – der All Country World
+                    Investable Markets Index (ACWI IMI) taucht auf. <strong>Dem kann ich nichts hinzufügen. Kaufen.
+                        Warten. Fertig.</strong>
+                </p>
+
+                <p>
+                    Damit können wir loslegen. Zuvor sichern wir noch die nächsten Schritte ab:
+                </p>
+
+                <pre><code>Wie sollte ich den Fortschritt und die Wirksamkeit des Plans überwachen? Welche Indikatoren sind wichtig, und wie oft sollte ich sie überprüfen?</code></pre>
+
+                <p>
+                    Die Antwort darauf fasst ChatGPT so zusammen:
+                </p>
+
+                <figure>
+                    <img alt="ChatGPT Tipps zur Fortschritts- und Wirksamkeitsüberwachung"
+                        src="../assets/img/ki-agency-problem-solved/ki-progress-tracking.png" />
+                    <figcaption>ChatGPT Tipps zur Fortschritts- und Wirksamkeitsüberwachung</figcaption>
+                </figure>
+
+                <p>
+                    Auch dem kann ich nichts beifügen. Jedes Wort und jeden Schritt, die man nicht versteht, kann man
+                    sich von ChatGPT en détail erklären lassen. Bleibt nur noch zu sagen: <strong>Umsetzen!</strong>
+                </p>
+            </section>
+
+            <section id="section-7" aria-labelledby="title-7">
+                <h2 id="title-7">Fazit</h2>
+
+                <p>
+                    Lösen KI Agency-Probleme? Moralische Probleme werden zweifellos gelöst, und Fehlinformationen können
+                    wir durch Perspektiven-Prompts begegnen. Insgesamt führt die Selbst-Beratung mit ChatGPT zu einer
+                    erheblichen Reduktion von Risiken. Doch eines bleibt entscheidend: Wissen gewinnt nur noch den
+                    Trostpreis. Wenn etwas schiefgeht, liegt es selten am Wissen, sondern an einem Mangel an Können und
+                    Selbstverantwortung, am Tun. Doch das lernen wir nur in der Praxis – und genau hier kann ChatGPT
+                    unseren Lernweg beschleunigen.
+                </p>
+
+                <p>
+                    <strong>Am Ende zählt Können.</strong> Erreichen wir, was wir uns wünschen. ChatGPT gibt den Plan
+                    vor. Worauf warten? Es liegt nur noch an uns, in die Gänge zu kommen.
+                </p>
+
+                <div class="signature-icon"></div>
+
+                <p class="callout">
+                    <span style="font-size: 14px;"><strong>Haftungsausschluss</strong>: Keine Versicherungs-, Finanz-,
+                        Anlage- und/oder Steuerberatung!</span>
+                </p>
+            </section>
+
+            <section id="section-8" aria-labelledby="title-8">
+                <h2 id="title-8">Endnoten</h2>
+
+                <ol class="ref-sources">
+                    <li id="cite-note-1">
+                        <a href="#cite-ref-1" aria-label="Zurück zum Text">↑</a>
+                        Jordà, Ò., Knoll, K., Kuvshinov, D., Schularick, M. Taylor, A.M. (2017). <em>“The Rate of Return
+                            on Everything, 1870–2015”</em> Federal Reserve Bank of San Francisco Working Paper 2017-25.
+                        <a href="https://doi.org/10.24148/wp2017-25" rel="noopener noreferrer"
+                            target="_blank">https://doi.org/10.24148/wp2017-25</a>
+                    </li>
+                    <li id="cite-note-2">
+                        <a href="#cite-ref-2" aria-label="Zurück zum Text">↑</a>
+                        <a href="https://www.trackingdifferences.com/" rel="noopener noreferrer"
+                            target="_blank">https://www.trackingdifferences.com/</a>
+                    </li>
+                    <li id="cite-note-3">
+                        <a href="#cite-ref-3" aria-label="Zurück zum Text">↑</a>
+                        Kommer, G. (2017). <em>Die Legende vom Cost Averaging Effect</em>. Im Internet, 07.01.2025: <a
+                            href="https://gerd-kommer.de/legende-vom-cost-averaging-effect/" rel="noopener noreferrer"
+                            target="_blank">https://gerd-kommer.de/legende-vom-cost-averaging-effect/</a>.
+                    </li>
+                    <li id="cite-note-4">
+                        <a href="#cite-ref-4" aria-label="Zurück zum Text">↑</a>
+                        Pratt, J.W. und Zeckhauser, R.J. (2017). <em>Principals and Agents: An Overview</em> In:
+                        Principals and Agents: The Structure of Business, Boston, Harvard Business School Press, 1985,
+                        S. 1-25.
+                    </li>
+                    <li id="cite-note-5">
+                        <a href="#cite-ref-5" aria-label="Zurück zum Text">↑</a>
+                        Taleb, N.N. (2018). <em>Skin in the Game: Hidden Asymmetries in Daily Life</em>. New York:
+                        Random House.
+                    </li>
+                </ol>
+            </section>
+        </article>
+    </main>
+
+    <a href="#" class="scroll-up" aria-label="Nach oben scrollen">
+        <svg class="icon">
+            <use href="../assets/img/icons.svg#icon-scrollup"></use>
+        </svg>
+    </a>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <a href="../impressum.html">Impressum</a>
+            <a href="../datenschutz.html">Datenschutz</a>
+        </div>
+    </footer>
+    <script src="../assets/js/lightbox.js"></script>
+</body>
+
+</html>

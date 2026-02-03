@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <title>Safety lässt sich nicht hineinprüfen – die Schlagseite von ISO 26262 und ASPICE</title>
+    <meta name="description"
+        content="Safety lässt sich nicht in Systeme hineinprüfen. ISO 26262 und ASPICE erwecken jedoch genau diesen Eindruck. Probleme in der Praxis sind vorprogrammiert.">
+    <meta name="robots" content="index, follow, archive">
+    <meta name="author" content="Nico Litschke">
+
+    <meta property="og:url" content="https://www.nicolitschke.com/texte/iso26262-aspice-verification-bias.html">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:site_name" content="Nico Litschke">
+    <meta property="og:title" content="Safety lässt sich nicht hineinprüfen – die Schlagseite von ISO 26262 und ASPICE">
+    <meta property="og:description"
+        content="Safety lässt sich nicht in Systeme hineinprüfen. ISO 26262 und ASPICE erwecken jedoch genau diesen Eindruck.">
+    <meta property="og:image" content="../assets/img/iso26262-aspice-verification-bias/hero.png">
+
+    <meta name="google-site-verification" content="1KLRTKWSuSamhN09JbMkQEd-R10iuFCNAHxdYZJVr_M">
+
+    <link rel="canonical" href="https://www.nicolitschke.com/texte/iso26262-aspice-verification-bias.html">
+    <link rel="stylesheet" href="../assets/css/fonts.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/article.css">
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+    <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+
+    <script src="../assets/js/mathjax-config.js" defer></script>
+    <script src="../assets/js/tex-mml-svg.js" async></script>
+
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="site-title" href="../index.html">Nico Litschke</a>
+            <nav class="site-nav" aria-label="Hauptnavigation">
+                <a href="../index.html">Über</a>
+                <a href="../texte.html">Texte</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <article>
+            <h1>Safety lässt sich nicht hineinprüfen – die Schlagseite von ISO 26262 und ASPICE</h1>
+
+            <ul class="tag-line">
+                <li><a href="../texte.html?tag=safety-risiko" class="tag" data-tag="safety-risiko"
+                        title="Alle Artikel über Safety & Risiko anzeigen">Safety & Risiko</a></li>
+                <li><a href="../texte.html?tag=engineering" class="tag" data-tag="engineering"
+                        title="Alle Artikel über Engineering anzeigen">Engineering</a></li>
+            </ul>
+
+            <section class="abstract" aria-labelledby="abstract-title">
+                <h2 id="abstract-title">Abstract</h2>
+                <p>
+                    Safety lässt sich nicht in Systeme hineinprüfen. Trotzdem entsteht oft der Eindruck, man könne genau
+                    das tun – besonders, wenn man in Safetynormen wie ISO 26262 oder in Compliancestandards wie
+                    Automotive SPICE blickt. ISO 26262 beschreibt, wie man die Systemeigenschaft Safety prüft; ASPICE
+                    bewertet, wie reif Prozesse sind. Doch prüfen und bewerten lässt sich nur, was bereits existiert.
+                    Wie es entsteht, bleibt offen. Die Folge: Die Standards haben eine Schlagseite zum
+                    Prozesscontrolling. Controlling verschlingt mehr Zeit, Geld und Aufmerksamkeit als das Problemlösen.
+                    Die eigentliche Wertschöpfung wird verdrängt.
+                </p>
+            </section>
+
+            <details class="toc">
+                <summary>
+                    <svg class="icon toggle-icon">
+                        <use href="../assets/img/icons.svg#icon-expand"></use>
+                    </svg>
+                    Inhalt
+                </summary>
+                <nav aria-label="Inhaltsverzeichnis">
+                    <ul>
+                        <li><a href="#section-1">Ausgangslage: Synthese und Analyse</a></li>
+                        <li><a href="#section-2">Safety- und Compliancestandards legen nur die Analyse fest</a></li>
+                        <li><a href="#section-3">Problem: Safety lässt sich nicht hineinprüfen</a></li>
+                        <li><a href="#section-4">Problem: Methodismus</a></li>
+                        <li><a href="#section-5">Problem: Zeig mir die Anreizstrukturen</a></li>
+                        <li><a href="#section-6">Was tun? Risiko Disclaimer</a></li>
+                    </ul>
+                </nav>
+            </details>
+
+            <section id="section-1" aria-labelledby="title-1">
+                <h2 id="title-1">Ausgangslage: Synthese und Analyse</h2>
+
+                <p>
+                    Um zu verstehen, warum die Standards eine Schlagseite haben, betrachten wir das Grundprinzip
+                    technischer Entwicklung.
+                </p>
+
+                <p>
+                    Ein Entwickler soll ein Problem lösen. Die gewünschten Eigenschaften der Lösung übersetzt er in
+                    Anforderungen. Anschließend legt er Merkmale von Bauteilen fest oder codiert. Danach prüft er, ob
+                    die IST-Eigenschaften den SOLL-Eigenschaften entsprechen. Die Merkmale kann er direkt gestalten; die
+                    Eigenschaften entstehen aus ihrem Zusammenspiel. So bewegt er sich ständig zwischen Synthese und
+                    Analyse, wie Bild 1 schematisch zeigt:
+                </p>
+
+                <figure>
+                    <img alt="Diagramm Zusammenhang Synthese und Analyse"
+                        src="../assets/img/iso26262-aspice-verification-bias/eigenschaften-merkmale.png" />
+                    <figcaption>Synthese und Analyse in der Entwicklung. Entwickler legen Merkmale fest, deren
+                        Zusammenspiel die Systemeigenschaften bestimmt. (Quelle: eigene Darstellung)</figcaption>
+                </figure>
+
+                <p>
+                    Das Safetykonzept legt fest, unter welchen Belastungen und Bedingungen das System über die
+                    Lebensdauer fehlerfrei funktionieren soll und wie es im Fehlerfall ausfällt. Es grenzt damit den
+                    Lösungsraum ein, fügt sich aber nahtlos in diese Logik.
+                </p>
+
+                <p>
+                    Für größere Systeme mit mehreren Fachdomänen wird diese Logik kaskadiert. Nach dem Verfahren des
+                    „General Problem Solvers“<a id="cite-ref-1" href="#cite-note-1" aria-label="Zur Endnote 1">[1]</a>
+                    werden die obersten Eigenschaften in Unter-/Untereigenschaften zerlegt, bis Merkmale festgelegt
+                    werden können. Die so ausgelegten Bauteile oder Code werden rekursiv zum System integriert und die
+                    IST-Eigenschaften gegen die SOLL-Eigenschaften laut Anforderungen geprüft. So entfaltet sich das
+                    V-Modell.
+                </p>
+
+                <p>
+                    Für unsere Betrachtung genügen jedoch Synthese und Analyse.
+                </p>
+            </section>
+
+            <section id="section-2" aria-labelledby="title-2">
+                <h2 id="title-2">Safety- und Compliancestandards legen nur die Analyse fest</h2>
+
+                <p>
+                    Bild 2 erweitert Synthese und Analyse um konkrete methodische Ansätze und Kriterien, wie sie etwa in
+                    der ISO 26262 festgelegt sind:
+                </p>
+
+                <figure>
+                    <img alt="Safety Systems Engineering – Zusammenspiel von Systemgestaltung und Nachweis"
+                        src="../assets/img/iso26262-aspice-verification-bias/safety-se.svg" />
+                    <figcaption>Safetynormen und Compliancestandards formalisieren den Nachweis (rechts),
+                        während Safety in der Systemgestaltung (links) umgesetzt wird. Quelle: Eigene Darstellung.
+                    </figcaption>
+                </figure>
+
+                <p>
+                    Die Schlagseite der Standards ist unverkennbar: Sie legen fest, womit verifiziert, validiert und
+                    bestätigt (engl. „confirmation“) wird. So gibt ASPICE Prozessgebiete, Base und Generic Practices
+                    sowie Prüfmaßstäbe vor, um etablierte Prozesse zu bewerten. Alles rechts in Bild 2. Ebenso ISO
+                    26262: Sie lässt offen, welches Design tatsächlich sicher ist. Stattdessen liefert sie Methoden und
+                    Kriterien, um die Systemeigenschaft Safety eines bestehenden Designs zu prüfen.
+                </p>
+
+                <p class="callout" style="text-align: center;">
+                    <strong>Die Synthese (links im Bild 2) fehlt in Safetynormen und Compliancestandards.</strong>
+                </p>
+
+                <p>
+                    Damit stehen sie nicht allein. In Cybersecurity (ISO/SAE 21434), S(W)EBOK<a id="cite-ref-2"
+                        href="#cite-note-2" aria-label="Zur Endnote 2">[2]</a> <a id="cite-ref-3" href="#cite-note-3"
+                        aria-label="Zur Endnote 3">[3]</a>, NASA System Engineering Handbook<a id="cite-ref-4"
+                        href="#cite-note-4" aria-label="Zur Endnote 4">[4]</a>, PMBOK<a id="cite-ref-5"
+                        href="#cite-note-5" aria-label="Zur Endnote 5">[5]</a> oder ISO 9001<a id="cite-ref-6"
+                        href="#cite-note-6" aria-label="Zur Endnote 6">[6]</a> finden wir stets das gleiche Bild: Es
+                    geht um Überwachen, Bewerten, Nachweisen, Prüfen, Argumentieren – nicht um Gestalten, Schaffen oder
+                    Verstehen.
+                </p>
+
+                <p>
+                    Diese Schlagseite schafft Probleme. Um nicht missverstanden zu werden: Die Aktivitäten der rechten
+                    Seite sind unbestritten notwendig. Doch sie reichen allein nicht, um erfolgreiche Produkte oder
+                    sichere Systeme zu entwickeln. Gleiches gilt für andere Systemeigenschaften wie Performance oder
+                    Verfügbarkeit.
+                </p>
+            </section>
+
+            <section id="section-3" aria-labelledby="title-3">
+                <h2 id="title-3">Problem: Safety lässt sich nicht hineinprüfen</h2>
+
+                <p>
+                    Wie wir gesehen haben, lassen sich nur Merkmale gestalten, aus deren Zusammenspiel
+                    Systemeigenschaften entstehen. Wer zum ersten Mal eine Norm wie ISO 26262 umsetzt, merkt schnell:
+                    Mit „ein bisschen Prozessarbeit“ ist es bei Safety nicht getan. Safety muss im System selbst durch
+                    Merkmale angelegt sein.<a id="cite-ref-17" href="#cite-note-17" aria-label="Zur Endnote 17">[17]</a>
+                    Beispiele sind:
+                </p>
+
+                <ul>
+                    <li>Funktionsüberwachung</li>
+                    <li>Hardwareüberwachung</li>
+                    <li>Latentfehlerdiagnosen</li>
+                    <li>Redundante und unabhängige Signalpfade, Sensoren, Aktoren, µC, Speicherbereiche, und
+                        Mechanismen, die Grenzüberschreitungen zur Laufzeit stoppen</li>
+                    <li>Entprellung, Degradationen und Abschaltpfade</li>
+                    <li>Diversitäre Bauteile und Code</li>
+                    <li>Andere Technologien, etwa Pyrofuse oder Kühlung</li>
+                </ul>
+
+                <p>
+                    Nicht zu vergessen: Safety steht zudem im ständigen Zielkonflikt mit Performance, Verfügbarkeit und
+                    Stückkosten. Alles Themen, die auf der linken Seite in Bild 2 gelöst werden müssen. ISO 26262 hilft
+                    dabei kaum; eine der wenigen positiven Ausnahmen ist Band 5, Anhang D.
+                </p>
+            </section>
+
+            <section id="section-4" aria-labelledby="title-4">
+                <h2 id="title-4">Problem: Methodismus</h2>
+
+                <p>
+                    In den letzten Jahren hatte ich Gelegenheit, mit erfahrenen Ingenieuren aus verschiedenen Branchen
+                    zu arbeiten. So unterschiedlich ihre Fachgebiete auch waren, eines verband sie alle: Sie entwarfen
+                    zuerst ein tragfähiges Design (links in Bild 2), das die geforderten Eigenschaften erfüllte – und
+                    zogen erst danach die Standards heran, um den Nachweis zu argumentieren (rechts). Eigentlich
+                    selbstverständlich: <em>Man kann nur prüfen, was existiert.</em>
+                </p>
+
+                <p>
+                    Heute ist das oft umgekehrt. Projekte, die erstmals Safety erreichen sollen, beginnen mit dem
+                    Prüfverfahren. Kein Wunder: in der Norm steht wenig anderes. Das führt zu Methodismus.<a
+                        id="cite-ref-7" href="#cite-note-7" aria-label="Zur Endnote 7">[7]</a>
+                </p>
+
+                <p class="callout">
+                    Methodismus ist der unhinterfragte Einsatz von Methoden, ohne dass deren fachliche Bedingungen
+                    erfüllt sind.<a id="cite-ref-8" href="#cite-note-8" aria-label="Zur Endnote 8">[8]</a>
+                </p>
+
+                <p>
+                    Das erzeugt unwirksames Management. Erst kürzlich erhielt ich einen Projektplan mit dem singulären
+                    Arbeitspaket <em>Technische Sicherheitskonzept (TSC)</em>. Völlig substanzlos. Ein <em>TSC</em>
+                    besteht aus Dutzenden, teils Hunderten Sicherheitsfunktionen und -restriktionen, an denen viele
+                    Fachdomänen mitwirken. Dafür braucht es mindestens eine <em>TSC Breakdown Structure</em> oder ein
+                    <em>Komponentendiagramm</em>. <em>TSC</em> mag für eine Norm korrekt abstrahiert sein und reicht für
+                    die Checkfrage im Gate Review; für die Umsetzung ist es aber nicht plan- und steuerbar.
+                </p>
+
+                <p>Typische <em>Auswüchse des Methodismus</em>:</p>
+
+                <ul>
+                    <li>künstlich erzeugte Systemanforderungen, obwohl ausschließlich Software entwickelt wird.<br>
+                        <em>Copy-Paste-Umformulieren. Abstraktionsleistung: Null.</em>
+                    </li>
+                    <li>zwanghaftes Dokumentieren von Designalternativen, obwohl der OEM die wichtigen Entscheidungen
+                        meist schon in der RFQ-Phase gefällt hat.<br>
+                        <em>Bürokratie ohne Mehrwert.</em>
+                    </li>
+                    <li>Unittest, die direkt aus Code generiert werden. 100 % MC/DC Coverage, 100 % effizient,<br>
+                        <em>100 % nutzlos – weil nichts verifiziert wird; bestenfalls Regression.</em>
+                    </li>
+                    <li>Scheinredundanzen, die erst nach dem ADC den Signalpfad aufspalten.<br>
+                        <em>Gleiche Common Causes: Sensor, ADC und Signalstrecke dazwischen.</em>
+                    </li>
+                    <li>Back-to-Backtests, obwohl nur handgeschriebener Code existiert.<br>
+                        <em>Eine „highly recommended“ Methode erzwungen.</em>
+                    </li>
+                    <li>System-FMEA, die Merkmale, Fehlermoden und Robustheit prüft.<br>
+                        <em>Scheinsicherheit: Safety ist eine Eigenschaft, kein Merkmal. Robust heißt nicht automatisch
+                            sicher.<a id="cite-ref-9" href="#cite-note-9" aria-label="Zur Endnote 9">[9]</a></em>
+                    </li>
+                </ul>
+
+                <p>
+                    Die Schlagseite der Norm fördert diesen Methodismus, hausgemachte Bürokratie. Verstärkt wird sie
+                    durch eine <strong>Unsitte unserer Zunft: Methoden werden verschrieben, ohne ihre Bedingungen
+                        anzugeben</strong>. Das ist, als würde man Medikamente ohne Beipackzettel zu Risiken und
+                    Nebenwirkungen verteilen.
+                </p>
+            </section>
+
+            <section id="section-5" aria-labelledby="title-5">
+                <h2 id="title-5">Problem: Zeig mir die Anreizstrukturen und ich sage dir das Ergebnis</h2>
+
+                <p>
+                    Unter Investoren ist es ein bekanntes Phänomen: Bonistrukturen steuern operative Entscheidungen.
+                    Schlechte Anreize führen zu Fehlsteuerung und lassen sich als Prädiktor späterer Ergebnisse lesen.<a
+                        id="cite-ref-10" href="#cite-note-10" aria-label="Zur Endnote 10">[10]</a>
+                </p>
+
+                <p>
+                    Ein Beispiel: In einem Projekt gab es zu viele Bugs. Das Projektmanagement von OEM und Tier 1
+                    forderte den „Bug Burndown“ (rechts in Bild 2), entlastete das Program Increment aber nicht von
+                    neuen Funktionen. Der Burndown kam – gemessen an geschlossenen Tickets. Gelöste Bugs (links in Bild
+                    2) dagegen kaum. In der nächsten Testkampagne waren rund 90 % der Tickets wieder offen. Die einen
+                    waren entrüstet, die anderen genervt. Ähnliche Erfahrungen beschreibt Gunther Dueck anschaulich in
+                    „Schwarmdumm“.<a id="cite-ref-11" href="#cite-note-11" aria-label="Zur Endnote 11">[11]</a>
+                </p>
+
+                <p>
+                    Automotive OEMs und damit auch Tier 1 nutzen ASPICE inzwischen als hartes Auswahlkriterium für
+                    Lieferanten. Einen stärkeren Anreiz zur ASPICE-Anwendung gibt es kaum. Was also ist der Prädiktor?
+                    ASPICE prüft Prozessreife (rechts in Bild 2). Wenig überraschend werden Entwickler plötzlich aus
+                    Projekten abgezogen, weil anderswo ein ASPICE-Audit ansteht. Die Doku muss auf Vordermann gebracht
+                    werden. Um ISO 26262 ist es nicht viel besser bestellt. Im Safety Assessment wird nicht geprüft, ob
+                    das Design tatsächlich „unzumutbar hohe Gefährdungen abwendet“ (links in Bild 2), sondern ob die
+                    eingesetzten Methoden plausibel waren. Ob ein System sicher ist, muss der Hersteller selbst
+                    beurteilen.
+                </p>
+
+                <p>
+                    In beiden Fällen stellt sich die Gretchenfrage: Werden die Assessments antizipiert und dadurch
+                    vorauseilend<a id="cite-ref-12" href="#cite-note-12" aria-label="Zur Endnote 12">[12]</a> Güte und
+                    Sorgfalt erhöht? Laut der Organisationsforschung ist die Antwort ein klares Nein. Untersuchungen zu
+                    ISO 9001<a id="cite-ref-6" href="#cite-note-6" aria-label="Zur Endnote 6">[6]</a> oder PMBOK<a
+                        id="cite-ref-5" href="#cite-note-5" aria-label="Zur Endnote 5">[5]</a> zeigen: Das Getane wird
+                    nachträglich so dargestellt, als seien die Standards eingehalten worden; tatsächlich passten
+                    Aktivitäten und Standards kaum zusammen.<a id="cite-ref-13" href="#cite-note-13"
+                        aria-label="Zur Endnote 13">[13]</a> <a id="cite-ref-14" href="#cite-note-14"
+                        aria-label="Zur Endnote 14">[14]</a> Was man sagt, was man tut, und was man tatsächlich tut,
+                    sind oft verschiedene Dinge.<a id="cite-ref-15" href="#cite-note-15"
+                        aria-label="Zur Endnote 15">[15]</a> Und die Engineering-Forschung? Totalausfall. Sie
+                    wiederholt artig die Behauptungen von Gurus.<a id="cite-ref-16" href="#cite-note-16"
+                        aria-label="Zur Endnote 16">[16]</a>
+                </p>
+            </section>
+
+            <section id="section-6" aria-labelledby="title-6">
+                <h2 id="title-6">Was tun? Risiko Disclaimer</h2>
+
+                <p>
+                    Eigentlich müssten ISO 26262 und ASPICE auf der Titelseite eine Warnung tragen:
+                </p>
+
+                <p class="callout" style="text-align: center;">
+                    „Gefahr! Die Anwendung dieser Standards ist notwendig, aber nicht hinreichend für die Gefährdungs-
+                    und Risikovermeidung technischer Systeme!“
+                </p>
+
+                <p>
+                    Das ist das Dilemma: Die Schlagseite hin zum Prüfen und Bewerten bündelt Zeit, Geld und
+                    Aufmerksamkeit im Prozesscontrolling. Doch Controlling kann nur feststellen, ob ein IST vom SOLL
+                    abweicht. Meistens werden dafür nichtfachliche Kennzahlen wie Aufwand oder Kosten herangezogen. Es
+                    kann weder fachliche Probleme lösen noch benennen. Genau dort aber entsteht Wertschöpfung.
+                </p>
+
+                <p>
+                    Wir sollten nicht der Versuchung erliegen, den Anwendern die Schuld zu geben. „Man muss die
+                    Standards nur richtig anwenden!“, ist eine beliebte Floskel. So einfach ist es nicht. Bei
+                    Safetykonzepten müssen wir vorhersehbare Zweckentfremdungen antizipieren. Warum sind Standards von
+                    diesem Anspruch befreit?
+                </p>
+
+                <p>
+                    Wenn so viele Unternehmen mit vergleichbaren Schwierigkeiten bei der Anwendung kämpfen, liegt die
+                    Ursache vielleicht nicht beim Anwender, sondern in den Standards selbst. Die aufgezeigte Schlagseite
+                    anzunehmen und gezielt zu korrigieren, wäre ein erster Schritt, um das Schiff wieder aufzurichten.
+                </p>
+
+                <div class="signature-icon"></div>
+            </section>
+
+            <section id="section-7" aria-labelledby="title-7">
+                <h2 id="title-7">Endnoten</h2>
+
+                <ol class="ref-sources">
+                    <li id="cite-note-1">
+                        <a href="#cite-ref-1" aria-label="Zurück zum Text">↑</a>
+                        Simon, H. A. (1973). <em>The Structure of Ill Structured Problems.</em> <em>Artificial
+                            Intelligence, 4</em>(3–4), 181–201. <a href="https://doi.org/10.1016/0004-3702(73)90011-8"
+                            target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/0004-3702(73)90011-8</a>
+                    </li>
+                    <li id="cite-note-2">
+                        <a href="#cite-ref-2" aria-label="Zurück zum Text">↑</a>
+                        SWEBOK. (2025). <em>Guide to the Software Engineering Body of Knowledge (Version 4.0a)</em> (H.
+                        Washizaki, Ed.). IEEE Computer Society Press. <a href="https://doi.org/10.3403/30314312"
+                            target="_blank" rel="noopener noreferrer">https://doi.org/10.3403/30314312</a>
+                    </li>
+                    <li id="cite-note-3">
+                        <a href="#cite-ref-3" aria-label="Zurück zum Text">↑</a>
+                        SEBoK. (2024). <em>The Guide to the Systems Engineering Body of Knowledge (Version 2.12).</em>
+                        Stevens Institute of Technology Systems Engineering Research Center. <a
+                            href="https://www.sebokwiki.org" target="_blank"
+                            rel="noopener noreferrer">www.sebokwiki.org</a>
+                    </li>
+                    <li id="cite-note-4">
+                        <a href="#cite-ref-4" aria-label="Zurück zum Text">↑</a>
+                        NASA. (2016). <em>NASA Systems Engineering Handbook</em> (2nd ed., p. 298). Washington:
+                        CreateSpace Independent Publishing Platform.
+                    </li>
+                    <li id="cite-note-5">
+                        <a href="#cite-ref-5" aria-label="Zurück zum Text">↑</a>
+                        PMBOK. (2004). <em>A Guide to the Project Management Body of Knowledge</em> (Version 3). Newtown
+                        Square, PA: Project Management Institute.
+                    </li>
+                    <li id="cite-note-6">
+                        <a href="#cite-ref-6" aria-label="Zurück zum Text">↑</a>
+                        ISO 9001. (2015). <em>Qualitätsmanagementsysteme – Anforderungen</em> (ISO 9001:2015-09).
+                    </li>
+                    <li id="cite-note-7">
+                        <a href="#cite-ref-7" aria-label="Zurück zum Text">↑</a>
+                        Clausewitz, C. v. (2014). <em>Vom Kriege</em> (6. vollständige Ausgabe). Hamburg: Nikol.
+                    </li>
+                    <li id="cite-note-8">
+                        <a href="#cite-ref-8" aria-label="Zurück zum Text">↑</a>
+                        Dörner, D. (2002). <em>Die Logik des Mißlingens: Strategisches Denken in komplexen
+                            Situationen</em> (15. Aufl.). Reinbek bei Hamburg: Rowohlt.
+                    </li>
+                    <li id="cite-note-9">
+                        <a href="#cite-ref-9" aria-label="Zurück zum Text">↑</a>
+                        Leveson, N. G. (2011). <em>Engineering a Safer World: Systems Thinking Applied to Safety</em>
+                        (p. 534). Cambridge, London: MIT Press.
+                    </li>
+                    <li id="cite-note-10">
+                        <a href="#cite-ref-10" aria-label="Zurück zum Text">↑</a>
+                        Clark, D. (2018). <em>Das Tao des Charlie Munger</em> (C. T. Munger &amp; E. Neumüller, Hrsg.).
+                        Kulmbach: Börsenbuchverlag.
+                    </li>
+                    <li id="cite-note-11">
+                        <a href="#cite-ref-11" aria-label="Zurück zum Text">↑</a>
+                        Dueck, G. (2015). <em>Schwarmdumm: So blöd sind wir nur gemeinsam.</em> Frankfurt/New York:
+                        Campus.
+                    </li>
+                    <li id="cite-note-12">
+                        <a href="#cite-ref-12" aria-label="Zurück zum Text">↑</a>
+                        Coenenberg, A., Fischer, T. M., &amp; Günther, T. (2009). <em>Kostenrechnung und
+                            Kostenanalyse</em> (7., überarb. und erw. Aufl.). Stuttgart: Schäffer-Poeschel.
+                    </li>
+                    <li id="cite-note-13">
+                        <a href="#cite-ref-13" aria-label="Zurück zum Text">↑</a>
+                        Kühl, S. (2011). <em>Organisationen: Eine sehr kurze Einführung</em> (1. Aufl.). Wiesbaden:
+                        Springer VS.
+                    </li>
+                    <li id="cite-note-14">
+                        <a href="#cite-ref-14" aria-label="Zurück zum Text">↑</a>
+                        Kühl, S. (2016). <em>Projekte führen: Eine kurze organisationstheoretisch informierte
+                            Handreichung</em>. Wiesbaden: Springer VS. <a
+                            href="https://doi.org/10.1007/978-3-658-13427-3" target="_blank"
+                            rel="noopener noreferrer">https://doi.org/10.1007/978-3-658-13427-3</a>
+                    </li>
+                    <li id="cite-note-15">
+                        <a href="#cite-ref-15" aria-label="Zurück zum Text">↑</a>
+                        Argyris, C. (2000). Teaching Smart People How to Learn. In <em>Strategic Learning in a Knowledge
+                            Economy</em> (pp. 279–295). Elsevier. <a
+                            href="https://doi.org/10.1016/b978-0-7506-7223-8.50015-0" target="_blank"
+                            rel="noopener noreferrer">https://doi.org/10.1016/b978-0-7506-7223-8.50015-0</a>
+                    </li>
+                    <li id="cite-note-16">
+                        <a href="#cite-ref-16" aria-label="Zurück zum Text">↑</a>
+                        Ralph, P. (2018). <em>The two paradigms of software development research.</em> <em>Science of
+                            Computer Programming, 156</em>, 68–89. <a href="https://doi.org/10.1016/j.scico.2018.01.002"
+                            target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.scico.2018.01.002</a>
+                    </li>
+                    <li id="cite-note-17">
+                        <a href="#cite-ref-17" aria-label="Zurück zum Text">↑</a>
+                        Battershell, A. L. (1999). <em>The DOD C-17 Versus the Boeing 777: A Comparison of Acquisition
+                            and Development</em>. CreateSpace Independent Publishing Platform.
+                    </li>
+                </ol>
+            </section>
+        </article>
+    </main>
+
+    <a href="#" class="scroll-up" aria-label="Nach oben scrollen">
+        <svg class="icon">
+            <use href="../assets/img/icons.svg#icon-scrollup"></use>
+        </svg>
+    </a>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <a href="../impressum.html">Impressum</a>
+            <a href="../datenschutz.html">Datenschutz</a>
+        </div>
+    </footer>
+    <script src="../assets/js/lightbox.js"></script>
+</body>
+
+</html>
