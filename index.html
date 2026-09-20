@@ -7,10 +7,13 @@
   <title>Über – Nico Litschke</title>
 
   <meta name="description"
-    content="Nico Litschke arbeitet im System-Safety-Engineer und multidispziplinärer Entscheidungsfindung. Er schreibt über Unsicherheiten und Risiken in Projekten.">
+    content="Nico Litschke verantwortet die Safety software-intensiver Systeme: Safety Lifecycle, Engineering und Sicherheitsnachweis für Automotive und Robotik.">
   <meta name="author" content="Nico Litschke">
   <meta name="google-site-verification" content="9K5gRpD8lVvdUS2zdHdAgyj8zjDG6efQrcAhqpLxZHU">
   <link rel="canonical" href="https://www.nicolitschke.com/">
+  <link rel="alternate" hreflang="de" href="https://www.nicolitschke.com/">
+  <link rel="alternate" hreflang="en" href="https://www.nicolitschke.com/en/index.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.nicolitschke.com/">
   <link rel="stylesheet" href="assets/css/fonts.css">
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
@@ -35,50 +38,205 @@
       DE | <a href="en/index.html" lang="en" title="English Version">EN</a>
     </p>
 
-    <h1 style="text-align:center; font-size:3rem;">Nico Litschke</h1>
+    <div class="home">
 
-    <section style="display: 
-      flex; flex-wrap: wrap;
-      gap: 28px;
-      align-items: start;
-      justify-content: center;">
+      <aside class="side">
+        <div>
+          <img class="portrait" src="assets/img/me.png" alt="Portraitfoto von Nico Litschke" width="160" height="160"
+            loading="lazy">
+          <h1>Nico Litschke</h1>
+          <p class="role">System Safety Engineer</p>
+          <p class="tagline">Ich webe Safety in eAutos und Roboter ein.</p>
 
-      <div style="flex: 0 0 180px;">
-        <img src="assets/img/me.png" alt="Portraitfoto von Nico Litschke" width="160" height="160" loading="lazy" style="border-radius: 50%;
-                      object-fit: cover; 
-                      object-position: 50% 15%;
-                      display: block;
-                      margin: 0 auto;" />
+          <p class="avail">Neue Projekte laufend &bull; remote oder weltweit vor Ort.<br>
+            Sie wollen Safety umsetzen? Schreiben Sie mir.
+            <a href="mailto:info@nicolitschke.com">info@nicolitschke.com</a>
+          </p>
+
+          <nav class="nav" aria-label="Inhalt dieser Seite">
+            <a href="#ueber">&Uuml;ber</a>
+            <a href="#leistungen">Leistungen</a>
+            <a href="#experience">Erfahrung</a>
+            <a href="texte.html">Texte</a>
+          </nav>
+        </div>
+        <div class="social">
+          <a href="mailto:info@nicolitschke.com" aria-label="E-Mail an Nico Litschke" title="E-Mail">
+            <svg viewBox="3 5 18 14" aria-hidden="true">
+              <path
+                d="M3 6.5A1.5 1.5 0 0 1 4.5 5h15A1.5 1.5 0 0 1 21 6.5v11a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5v-11Z" />
+              <path d="m4 7 8 5.5L20 7" class="stroke" />
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/nico-litschke" aria-label="LinkedIn-Profil von Nico Litschke"
+            title="LinkedIn" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 509.64" fill-rule="evenodd" clip-rule="evenodd"
+              aria-hidden="true">
+              <rect width="512" height="509.64" rx="115.61" ry="115.61" />
+              <path class="ko"
+                d="M204.97 197.54h64.69v33.16h.94c9.01-16.16 31.04-33.16 63.89-33.16 68.31 0 80.94 42.51 80.94 97.81v116.92h-67.46l-.01-104.13c0-23.81-.49-54.45-35.08-54.45-35.12 0-40.51 25.91-40.51 52.72v105.86h-67.4V197.54zm-38.23-65.09c0 19.36-15.72 35.08-35.08 35.08-19.37 0-35.09-15.72-35.09-35.08 0-19.37 15.72-35.08 35.09-35.08 19.36 0 35.08 15.71 35.08 35.08zm-70.17 65.09h70.17v214.73H96.57V197.54z" />
+            </svg>
+          </a>
+          <a href="https://substack.com/@nicolitschke" aria-label="Substack von Nico Litschke" title="Substack"
+            target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 511.471" fill-rule="evenodd" clip-rule="evenodd"
+              aria-hidden="true">
+              <path
+                d="M0 0h448v62.804H0V0zm0 229.083h448v282.388L223.954 385.808 0 511.471V229.083zm0-114.542h448v62.804H0v-62.804z" />
+            </svg>
+          </a>
+        </div>
+      </aside>
+
+      <div class="col-main">
+
+        <section id="ueber">
+          <p class="lead"><b>Hallo!</b></p>
+          <p>Ich bin Nico Litschke und verantworte die Safety software-intensiver Systeme.</p>
+
+          <p>Vom Teamleiter bis zum CTO h&ouml;re ich in F&amp;E immer dieselben Fragen:</p>
+          <ul>
+            <li>Welches Design erf&uuml;llt gleichzeitig die Funktionen, Merkmale und Safety des Systems?</li>
+            <li>Was kann ich tun, damit meine Entwickler und Experten Verantwortung f&uuml;r ihren Safetyanteil
+              &uuml;bernehmen?</li>
+            <li>Wie setze ich unsere begrenzten Ressourcen zielgerichtet ein?</li>
+            <li>Wie minimiere ich technische, &ouml;konomische, &ouml;kologische und haftungsrechtliche Risiken?</li>
+            <li>Wie belege ich das mit einem Sicherheitsnachweis und welche Safetynormen sind dabei relevant?</li>
+            <li>Neuerdings: Wie kann ich KI für Systemfunktionen und in der Safetyentwicklung einsetzen?</li>
+          </ul>
+
+          <p>Die Antwort auf diese Fragen ist mein Tagesgesch&auml;ft. Als System Safety Engineer
+            habe ich funktionale und technische Sicherheitskonzepte von QM bis ASIL D
+            geschrieben und verantwortet;
+            die Systeme sind heute in Millionen Fahrzeugen unterwegs. Darunter elektrische Antriebe,
+            Bremsen sowie durch KI-Modelle ersetzte Sensoren. Zuletzt hat sich dasselbe Vorgehen in der Industrierobotik
+            bew&auml;hrt, bei einer
+            sicheren Objekterkennung bis PL e.</p>
+        </section>
+
+        <section id="leistungen" style="margin-top:10em;">
+          <h2>Leistungen</h2>
+
+          <div class="leistung">
+            <h3>Lifecycle</h3>
+            <p>Aus den geltenden Normen ermittle ich die relevanten Teile und f&uuml;ge sie zu Ihrem
+              individuellen Safety Lifecycle zusammen &ndash; einschlie&szlig;lich der Frage, welche Methoden und
+              Testumf&auml;nge f&uuml;r welchen Systemteil n&ouml;tig sind.</p>
+            <p class="ergebnis"><span>Ergebnis</span>Ein Tailoring des Safety Lifecycles auf Basis der relevanten
+              Normen. Eine Safety Work Breakdown Structure und ein Safety Plan, die nur
+              noch in Ihre Projektplanung einzuarbeiten sind.</p>
+            <p class="inventar"><span>Normen und Planung</span>ISO 26262 &bull; IEC 61508 &bull; ISO 13849 &bull;
+              ISO 21448 (SOTIF) &bull; ISO/PAS 8800 (KI-Safety) &bull;
+              ISO 6469 (HV-Safety) &bull; EU-Maschinenverordnung 2023/1230 &bull; Automotive SPICE &bull;
+              Lifecycle Tailoring &bull; Impact Analysis &bull; Safety WBS &bull; Safety Plan &bull;
+              Safety-Projektmanagement</p>
+          </div>
+
+          <div class="leistung">
+            <h3>Engineering</h3>
+            <p>Von der Gef&auml;hrdungsanalyse &uuml;ber die Sicherheitsziele bis zum funktionalen und technischen
+              Sicherheitskonzept: welche Funktion unter welchen Bedingungen sicher bleiben muss, und was
+              Hardware und Software daf&uuml;r leisten müssen.</p>
+            <p class="ergebnis"><span>Ergebnis</span>Pr&uuml;fbare Anforderungen, die Ihr Team
+              implementieren,
+              integrieren und testen kann. Eine Dokumentation des Safety-Designs, für die weitere Projektplanung und
+              Kommunikation.</p>
+            <p class="inventar"><span>Artefakte und Werkzeuge</span>Safety Requirements &bull; ConOps &bull;
+              Context/Item-Sicht &bull; FSC
+              &bull; TSC &bull; State Machines &bull; Partitionierung &amp; Dekomposition &bull; Auswahl von
+              Safety-Mechanismen &bull; HSI &bull;
+              AUTOSAR &bull; QNX &bull; RTOS &bull;
+              EGAS &bull; IBM DNG / RTC / RQM &bull; DOORS &bull; Polarion &bull;
+              Codebeamer &bull; PTC Integrity &bull; Medini &bull; Rhapsody &bull; Enterprise Architect &bull;
+              UMLet &bull;
+              ASCET &bull; Jira/Confluence &bull; git &bull; SVN &bull; shell &bull; python &bull; Cursor
+              &bull; Claude Code &bull; Visual Studio
+            </p>
+          </div>
+
+          <div class="leistung">
+            <h3>Nachweis</h3>
+            <p>Ich f&uuml;hre Sicherheitskonzept, Umsetzung, Integration und Verifikation sowie Safety
+              Assessment zum Safety Case zusammen.</p>
+            <p class="ergebnis"><span>Ergebnis</span>Ein freigegebener Safety Case und ein bestandenes Safety
+              Assessment.
+              Dazu beurteile ich das Risiko einer Freigabe und empfehle, f&uuml;r welchen Nutzungsfall
+              Sie Ihr System freigeben k&ouml;nnen.</p>
+            <p class="inventar"><span>Analysen und Nachweise</span>HARA &bull; FMEA &bull; FMEDA &bull; FTA
+              &bull; DFA &bull; SOTIF-Analyse &bull;
+              Kontroll- und Datenflussanalyse &bull; Safety Case &bull; Safety Audit &bull; Safety Assessment &bull;
+              Confirmation Measures &bull; Goal Structuring Notation (GSN) &bull; APIS IQ &bull; Isograph Reliability Workbench</p>
+          </div>
+        </section>
+
+        <section id="experience" style="margin-top:10em;">
+          <h2>Erfahrung</h2>
+
+          <div class="station">
+            <div class="when">seit 2025</div>
+            <div>
+              <h3>Infotainment und Assistenzsysteme</h3>
+              <p class="who">Safety Coach und Safety Manager &bull; ASIL A bis ASIL D</p>
+              <p>Ich schneide Safety Lifecycle und Methoden zu, bewerte Anforderungen und bin Safety Key
+                Account.</p>
+            </div>
+          </div>
+
+          <div class="station">
+            <div class="when">2026</div>
+            <div>
+              <h3>Sichere Objekterkennung, Industrierobotik</h3>
+              <p class="who">System-Safety-Ingenieur &bull; PL e / SIL 3</p>
+              <p>Gefährdungsanalysen und Sicherheitskonzept für sichere Objekterkennung erstellt.
+                <b>On quality, on budget, on time abgeschlossen.</b>
+              </p>
+            </div>
+          </div>
+
+          <div class="station">
+            <div class="when">2016 &ndash; 2024</div>
+            <div>
+              <h3>Elektrische Achse und deren Teilsysteme</h3>
+              <p class="who">System-Safety-Ingenieur und Safety Manager &bull; QM bis ASIL D</p>
+              <p>Sicherheitsentwicklung für ungewollte Beschleunigung, HV-Sicherheit und thermische Sicherheit
+                &uuml;ber
+                die gesamte Serienentwicklung koordiniert und begleitet. Safety Key Account zum Autohersteller.
+                Sensoren durch KI-Modelle ersetzt.
+                <b>Mehrere Serienfreigaben mit bestandenen Safety Assessments und freigegebenem Safety Case.</b>
+              </p>
+            </div>
+          </div>
+
+          <div class="station">
+            <div class="when">2012 &ndash; 2016</div>
+            <div>
+              <h3>Embedded Software Beratung</h3>
+              <p class="who">Angestellter Berater &bull; zuletzt Vector Consulting Services</p>
+              <p>Regionale und internationale Projekte zur Pilotierung und Einführung von ISO 26262, Automotive SPICE,
+                Projektmanagement und Qualitätssicherung. Tailoring und Anwendung von Prozessen und
+                Entwicklungswerkzeugen. <b>Größte Erfolge: Automotive SPICE Level 3 eingeführt, Project Management
+                  Office aufgebaut, Safety Dashboard eingeführt.</b>
+              </p>
+            </div>
+          </div>
+
+          <div class="station">
+            <div class="when">2002 &ndash; 2012</div>
+            <div>
+              <h3>Vom Facharbeiter zum Ingenieur</h3>
+              <p class="who">Projekttechniker &bull; zweiter Bildungsweg &bull; Studium</p>
+              <p>Nach meiner Berufsausbildung zum IT-Systemelektroniker war ich als Projekttechniker und in der IT
+                tätig. <b>Nebenberuflich Abitur und Studium abgeschlossen.</b>
+              </p>
+            </div>
+          </div>
+
+          <p class="anfrage">Meine vollst&auml;ndige Projekthistorie erhalten Sie auf Anfrage: <a
+              href="mailto:info@nicolitschke.com">info@nicolitschke.com</a></p>
+        </section>
+
       </div>
-
-      <div style="flex: 1 1 300px; min-width: 0;">
-        <p style="margin-top: 0;">
-          Ich arbeite an der Schnittstelle von Systems Engineering, Safety, Risiko
-          und multidisziplinärer Entscheidungsfindung in der Produkt- und
-          Systementwicklung.
-        </p>
-
-        <p>
-          In den vergangenen Jahren war ich für die Safety von software-intensiven,
-          sicherheitskritischen Systemen im automobilen Umfeld tätig, darunter
-          Elektromobilität, elektrische Antriebe und KI-basierte Assistenzsysteme.
-        </p>
-
-        <p>
-          Eine ausführliche Projekthistorie stelle ich auf Anfrage zur Verfügung.
-          Sie finden mich auf <a href="https://www.linkedin.com/in/nico-litschke" target="_blank"
-            rel="noopener noreferrer">LinkedIn</a>
-          oder per E-Mail unter <a href="mailto:info@nicolitschke.com">info@nicolitschke.com</a>.
-        </p>
-
-        <p>
-          In meinen <a href="texte.html">Texten</a> und auf
-          <a href="https://substack.com/@nicolitschke" target="_blank" rel="noopener noreferrer">Substack</a>
-          befasse ich mich mit Unsicherheiten und Risiken im Alltag, in der
-          Produktentwicklung und in komplexen Systemen.
-        </p>
-      </div>
-    </section>
+    </div>
   </main>
 
 
