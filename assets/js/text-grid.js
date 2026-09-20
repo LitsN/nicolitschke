@@ -1,21 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
   (function () {
-    // ---------- Konstanten ----------
-    const LABELS = {
-      "engineering": "Engineering",
-      "fuehren-managen": "Führen & Managen",
-      "mastery-lernen": "Mastery & Lernen",
-      "safety-risiko": "Safety & Risiko",
-      "skills-tools": "Skills & Tools",
-      "systemik": "Systemdenken"
-    };
-
-
-    const CANONICAL = new Set(Object.keys(LABELS));
-
-    const DATA_URL = "assets/data/articles.json";
-    const HERO_SRC = (name) => `assets/img/${name}/hero.png`;
-    const ARTICLE_HREF = (name) => `texte/${name}.html`;
+    // Die Kacheln stehen fest im HTML. Dieses Skript filtert sie nur.
+    const CANONICAL = new Set([
+      "engineering", "fuehren-managen", "mastery-lernen",
+      "safety-risiko", "skills-tools", "systemik"
+    ]);
 
     const grid = document.getElementById('card-grid');
     const noMsg = document.getElementById('no-results-message');
@@ -24,73 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!grid) return;
 
-    function normalizeTags(tags) {
-      if (!Array.isArray(tags)) return [];
-      const seen = new Set(), out = [];
-      for (const t of tags) {
-        if (CANONICAL.has(t) && !seen.has(t)) { seen.add(t); out.push(t); }
-      }
-      return out;
-    }
-
-    // ---------- Card-Generator ----------
-    function createCard(a) {
-      const { title, name, tags, excerpt } = a;
-      const tagsNorm = normalizeTags(tags);
-
-      const art = document.createElement('article');
-      art.className = 'card';
-      art.setAttribute('data-tags', tagsNorm.join(', '));
-
-      const imgWrap = document.createElement('div');
-      imgWrap.className = 'card-img';
-      const img = document.createElement('img');
-      img.src = HERO_SRC(name);
-      img.alt = "";
-      imgWrap.appendChild(img);
-
-      const body = document.createElement('div');
-      body.className = 'card-body';
-
-      // Die Liste (Container)
-      const tagLine = document.createElement('ul');
-      tagLine.className = 'card-tag-line';
-
-      tagsNorm.forEach(t => {
-        const li = document.createElement('li');
-        li.className = 'card-tag';
-        li.dataset.tag = t;
-        li.textContent = LABELS[t] || t;
-        tagLine.appendChild(li);
-      });
-
-      const h2 = document.createElement('h2');
-      const mainLink = document.createElement('a');
-      mainLink.href = ARTICLE_HREF(name);
-      mainLink.className = 'card-title-link';
-      mainLink.textContent = title;
-      h2.appendChild(mainLink);
-
-      const pText = document.createElement('p');
-      pText.className = 'card-text';
-      pText.innerHTML = excerpt;
-
-      body.append(tagLine, h2, pText);
-      art.append(imgWrap, body);
-      return art;
-    }
-
-    function renderArticles(articles) {
-      grid.innerHTML = '';
-      const frag = document.createDocumentFragment();
-      articles.forEach(a => frag.appendChild(createCard(a)));
-      grid.appendChild(frag);
-    }
-
-    // ---------- Filter Logik ----------
     let activeTags = [];
 
-    // NEU: Diese Funktion prüft beim Start die URL
+    // Aufruf aus einem Artikel heraus: texte.html?tag=systemik
     function checkUrlForFilters() {
       const params = new URLSearchParams(window.location.search);
       const tag = params.get('tag');
@@ -148,23 +73,9 @@ document.addEventListener('DOMContentLoaded', () => {
       if (andFilterToggle) andFilterToggle.addEventListener('change', applyFilter);
     }
 
-    // ---------- Init ----------
-    fetch(DATA_URL, { cache: "no-store" })
-      .then(res => res.json())
-      .then(data => {
-        const arr = Array.isArray(data) ? data : (data.articles || []);
-        const articles = arr
-          .filter(a => a?.title && a?.name)
-          .map(a => ({ ...a, tags: normalizeTags(a.tags) }))
-          .sort((a, b) => String(b.date).localeCompare(String(a.date)));
-
-        checkUrlForFilters(); // 1. URL Parameter checken
-        renderArticles(articles);
-        wireFilters();
-        syncFilterButtons(); // 2. Buttons basierend auf URL aktivieren
-        applyFilter();       // 3. Sofort filtern
-      })
-      .catch(err => console.error("Fehler:", err));
-
+    checkUrlForFilters();
+    wireFilters();
+    syncFilterButtons();
+    applyFilter();
   })();
 });
