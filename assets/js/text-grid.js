@@ -2,9 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
   (function () {
     // Die Kacheln stehen fest im HTML. Dieses Skript filtert sie nur.
     const CANONICAL = new Set([
-      "engineering", "fuehren-managen", "mastery-lernen",
-      "safety-risiko", "skills-tools", "systemik"
+      "safety-risiko", "engineering", "systemik", "fuehren-managen"
     ]);
+    // Frühere Kategorien, die in "Projektmanagement" aufgegangen sind
+    const LEGACY = { "mastery-lernen": "fuehren-managen", "skills-tools": "fuehren-managen" };
 
     const grid = document.getElementById('card-grid');
     const noMsg = document.getElementById('no-results-message');
@@ -18,7 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Aufruf aus einem Artikel heraus: texte.html?tag=systemik
     function checkUrlForFilters() {
       const params = new URLSearchParams(window.location.search);
-      const tag = params.get('tag');
+      let tag = params.get('tag');
+      if (tag && LEGACY[tag]) tag = LEGACY[tag];
       if (tag && CANONICAL.has(tag)) {
         activeTags = [tag];
       }
@@ -51,8 +53,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function syncFilterButtons() {
       tagButtons.forEach(btn => {
         const t = btn.dataset.tag;
-        if (t === '__all') btn.classList.toggle('active', activeTags.length === 0);
-        else btn.classList.toggle('active', activeTags.includes(t));
+        const on = t === '__all' ? activeTags.length === 0 : activeTags.includes(t);
+        btn.classList.toggle('active', on);
+        btn.setAttribute('aria-pressed', on ? 'true' : 'false');
       });
     }
 

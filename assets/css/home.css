@@ -1,0 +1,481 @@
+/*********************************************************************/
+/* Startseite (index.html, en/index.html)
+/*********************************************************************/
+.home section>.wrap {
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+
+.home h2 {
+  margin: 0;
+  font-size: clamp(1.7rem, 3.2vw, 2.25rem);
+}
+
+.home .section-head {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.home .section-head p.intro {
+  margin: 8px 0 0;
+  max-width: 40em;
+  font-size: 1.125rem;
+}
+
+.band-surface {
+  background: var(--surface);
+}
+
+.band-dark {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.band-dark .intro {
+  color: var(--on-dark);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 24px;
+}
+
+/*********************************************************************/
+/* Einstieg: dunkle Flaeche, Portraet mit Schraege
+/*********************************************************************/
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.home .hero>.wrap {
+  position: relative;
+  z-index: 1;
+  padding-top: 104px;
+  padding-bottom: 104px;
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: min(100%, 620px);
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 5vw, 3.75rem);
+}
+
+.hero .lead {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: var(--on-dark);
+}
+
+.hero .actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.hero .btn {
+  padding: 14px 24px;
+}
+
+.hero .avail {
+  margin: 0;
+  font-size: .875rem;
+  color: var(--on-dark-muted);
+}
+
+/* Das Feld ist um 12 Grad geschert, das Bild darin zurueckgeschert.
+   So bleibt der Winkel bei jeder Hoehe gleich. */
+.hero-photo {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 60%;
+  width: 60%;
+  overflow: hidden;
+  background: var(--photo);
+  border-left: 14px solid var(--signal);
+  transform: skewX(calc(-1 * var(--slant)));
+  transform-origin: 0 100%;
+}
+
+.hero-photo img {
+  position: absolute;
+  top: 0;
+  left: -12%;
+  width: 80%;
+  height: 100%;
+  max-width: none;
+  margin: 0;
+  object-fit: cover;
+  object-position: 50% 30%;
+  transform: skewX(var(--slant));
+  transform-origin: 0 100%;
+}
+
+@media (max-width: 1100px) {
+  .hero-photo {
+    left: 66%;
+  }
+
+  .hero-text {
+    width: min(100%, 56vw);
+  }
+}
+
+@media (max-width: 860px) {
+  .home .hero>.wrap {
+    padding-top: 56px;
+    padding-bottom: 40px;
+  }
+
+  .hero-text {
+    width: 100%;
+  }
+
+  .hero-photo {
+    position: relative;
+    left: auto;
+    width: 100%;
+    height: 340px;
+    transform: none;
+    border-left: 0;
+    border-top: 8px solid var(--signal);
+  }
+
+  .hero-photo img {
+    left: 0;
+    width: 100%;
+    transform: none;
+    object-position: 50% 22%;
+  }
+}
+
+/*********************************************************************/
+/* Belege
+/*********************************************************************/
+.proof {
+  border-bottom: 1px solid var(--line);
+}
+
+.home .proof>.wrap {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 28px 32px;
+  padding-top: 36px;
+  padding-bottom: 36px;
+}
+
+.proof .fact {
+  margin: 0;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 1.625rem;
+  line-height: 1.15;
+}
+
+.proof .note {
+  margin: 6px 0 0;
+  font-size: .875rem;
+  color: var(--grey);
+}
+
+/*********************************************************************/
+/* Fragen
+/*********************************************************************/
+.questions {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 24px;
+}
+
+.questions li {
+  margin: 0;
+  padding-top: 16px;
+  border-top: 2px solid var(--ink);
+}
+
+.questions li.is-new {
+  padding: 16px;
+  border-top: 0;
+  background: var(--signal);
+  font-weight: 600;
+}
+
+/*********************************************************************/
+/* Ansatz
+/*********************************************************************/
+.approach {
+  border-top: 1px solid var(--line);
+}
+
+.home .approach>.wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  gap: 32px 64px;
+}
+
+.approach h2 {
+  margin-top: 12px;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  line-height: 1.1;
+}
+
+.approach .body {
+  font-size: 1.125rem;
+}
+
+.approach .body p {
+  margin: 0 0 20px;
+}
+
+.approach .body a {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+@media (max-width: 860px) {
+  .home .approach>.wrap {
+    grid-template-columns: 1fr;
+  }
+}
+
+/*********************************************************************/
+/* Leistungen
+/*********************************************************************/
+.service {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 32px;
+  background: var(--paper);
+}
+
+.service h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.service ul {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.service li {
+  margin: 0;
+}
+
+.service .result {
+  margin: auto 0 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  font-size: .9375rem;
+}
+
+.service details {
+  font-size: .875rem;
+}
+
+.service summary {
+  display: inline-block;
+  padding: 10px 0;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: .18em;
+  cursor: pointer;
+  list-style: none;
+}
+
+.service summary::-webkit-details-marker {
+  display: none;
+}
+
+.service summary::after {
+  content: " +";
+}
+
+.service details[open] summary::after {
+  content: " \2212";
+}
+
+.service summary:hover {
+  background: var(--signal);
+}
+
+.service details p {
+  margin: 4px 0 0;
+  line-height: 1.8;
+  color: var(--grey);
+}
+
+/*********************************************************************/
+/* Einsatzfelder
+/*********************************************************************/
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 28px;
+  border: 1px solid var(--grey);
+}
+
+.field.is-new {
+  border-color: var(--signal);
+}
+
+.field h3 {
+  margin: 0;
+  font-size: 1.375rem;
+}
+
+.field p {
+  margin: 0;
+  color: var(--on-dark);
+}
+
+.field .norms {
+  margin-top: auto;
+  padding-top: 4px;
+  font-size: .875rem;
+  color: var(--on-dark-muted);
+}
+
+/*********************************************************************/
+/* Erfahrung
+/*********************************************************************/
+.station {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 8px 32px;
+  padding: 24px 0;
+  border-top: 1px solid var(--line);
+}
+
+.station:last-of-type {
+  border-bottom: 1px solid var(--line);
+}
+
+.station .when {
+  margin: 0;
+  font-family: var(--font-head);
+  font-weight: 700;
+}
+
+.station h3 {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.station .who {
+  margin: 2px 0 8px;
+  font-size: .875rem;
+  color: var(--grey);
+}
+
+.station p {
+  margin: 0;
+  max-width: 46em;
+}
+
+.home .education {
+  margin: 24px 0 0;
+  font-size: .9375rem;
+  color: var(--grey);
+}
+
+.home .education b {
+  color: var(--ink);
+}
+
+@media (max-width: 640px) {
+  .station {
+    grid-template-columns: 1fr;
+  }
+}
+
+/*********************************************************************/
+/* Texte-Anreisser
+/*********************************************************************/
+.home .section-head.with-link {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.home .section-head.with-link a {
+  font-weight: 600;
+  padding: 8px 0;
+}
+
+.teaser {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+}
+
+.teaser img {
+  width: 100%;
+  height: 160px;
+  margin: 0;
+  object-fit: cover;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+}
+
+.teaser .body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px;
+}
+
+.teaser .cat {
+  margin: 0;
+  font-size: .8125rem;
+  font-weight: 600;
+  color: var(--grey);
+}
+
+.teaser h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.25;
+}
+
+.teaser h3 a {
+  text-decoration: none;
+}
+
+.teaser h3 a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.teaser:hover h3 a,
+.teaser h3 a:hover {
+  background: var(--signal);
+}

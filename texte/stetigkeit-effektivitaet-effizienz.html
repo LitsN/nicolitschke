@@ -47,23 +47,33 @@
 </style>
 
 <body>
-    <header class="site-header">
-        <div class="header-inner">
-            <a class="site-title" href="../index.html">Nico Litschke</a>
-            <nav aria-label="Hauptnavigation" class="site-nav">
-                <a href="../index.html">Über</a>
-                <a href="../index.html#leistungen">Leistungen</a>
-                <a href="../texte.html">Texte</a>
-            </nav>
-        </div>
-    </header>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html" aria-label="Nico Litschke, Startseite">
+        <span class="mark" aria-hidden="true"><span>NL</span></span>
+        <span class="brand-name">Nico Litschke</span>
+      </a>
+      <nav class="site-nav" aria-label="Hauptnavigation">
+        <a href="../index.html#leistungen">Leistungen</a>
+        <a href="../index.html#einsatzfelder">Einsatzfelder</a>
+        <a href="../index.html#erfahrung">Erfahrung</a>
+        <a href="../texte.html" class="is-active">Texte</a>
+      </nav>
+      <div class="header-side">
+        <a class="btn btn-signal" href="mailto:info@nicolitschke.com">Projekt anfragen</a>
+      </div>
+    </div>
+  </header>
     <main>
         <article>
-            <h1>Stetigkeit – das vernachlässigte Erfolgskriterium</h1>
-            <ul class="tag-line">
-                <li class="artikel-tag" data-tag="fuehren-managen">Führen &amp; Managen</li>
-                <li class="artikel-tag" data-tag="skills-tools">Skills &amp; Tools</li>
-            </ul>
+            <header class="page-head on-dark">
+              <a class="back" href="../texte.html">Alle Texte</a>
+              <h1>Stetigkeit – das vernachlässigte Erfolgskriterium</h1>
+              <ul class="tag-line">
+                <li><a href="../texte.html?tag=fuehren-managen" class="tag" data-tag="fuehren-managen"
+                    title="Alle Texte zu Projektmanagement anzeigen">Projektmanagement</a></li>
+              </ul>
+            </header>
             <!-- Every article is labeled with at least one tag containing a link to other articles -->
 
             <!-- optional: if there is a substack version of this text, it is linked here
@@ -418,8 +428,7 @@
                 </p>
                 <p>
                     Wer kontinuierlich in ein Weltportfolio investiert, hat die besten Chancen auf langfristigen Erfolg.
-                    Das habe ich <a href="../texte/anlagestrategien-simuliert-analysiert.html"
-                        title="Systemisch analysiert: Warum Buy-and-Hold des Weltportfolios langfristig gewinnt">hier</a>
+                    Das habe ich hier
                     ausführlich analysiert.
                 </p>
                 <h3>Dienstleistungen</h3>
@@ -556,13 +565,32 @@
             <use href="../assets/img/icons.svg#icon-scrollup"></use>
         </svg>
     </a>
-    <footer class="site-footer">
-        <div class="footer-inner">
-            <a href="../impressum.html">Impressum</a>
-            <a href="../datenschutz.html">Datenschutz</a>
-        </div>
-    </footer>
+  <section class="contact-band is-compact" aria-labelledby="kontakt-titel">
+    <div class="wrap">
+      <div>
+        <h2 id="kontakt-titel">Sie wollen Safety umsetzen?</h2>
+        <p>Schreiben Sie mir.</p>
+      </div>
+      <div class="actions">
+        <a class="btn btn-dark" href="mailto:info@nicolitschke.com">info@nicolitschke.com</a>
+        <a href="https://www.linkedin.com/in/nico-litschke" target="_blank" rel="noopener noreferrer">LinkedIn-Profil</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>Nico Litschke &bull; System-Safety-Engineering</span>
+      <span class="footer-links">
+        <a href="https://www.linkedin.com/in/nico-litschke" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://substack.com/@nicolitschke" target="_blank" rel="noopener noreferrer">Substack</a>
+        <a href="../impressum.html">Impressum</a>
+        <a href="../datenschutz.html">Datenschutz</a>
+      </span>
+    </div>
+  </footer>
     <script src="../assets/js/lightbox.js"></script>
+  <script src="../assets/js/toc.js" defer></script>
 </body>
 
 </html>

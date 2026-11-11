@@ -1,43 +1,103 @@
 /*********************************************************************/
-/* Tag line
+/* Artikel: Satzspiegel
 /*********************************************************************/
+main>article:not(.page) {
+    font-family: var(--font-serif);
+    font-size: 1.125rem;
+    line-height: 1.7;
+}
+
+main>article:not(.page)>section,
+main>article:not(.page)>details,
+main>article:not(.page)>p,
+main>article:not(.page)>div {
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+main>article:not(.page) h2 {
+    margin: 2.4em 0 .6em;
+    font-size: clamp(1.4rem, 2.6vw, 1.75rem);
+}
+
+main>article:not(.page) h3 {
+    font-size: 1.25rem;
+}
+
+/*********************************************************************/
+/* Seitenkopf: Rueckweg, Titel, Kategorien
+/*********************************************************************/
+.page-head .back {
+    display: inline-block;
+    padding: 8px 0;
+    font-family: var(--font-sans);
+    font-size: .875rem;
+    font-weight: 600;
+    color: var(--on-dark);
+}
+
+.page-head .back::before {
+    content: "\2190\00a0";
+}
+
+article .page-head h1 {
+    max-width: 22em;
+    margin: 16px 0 0;
+    font-size: clamp(1.9rem, 4vw, 3rem);
+}
+
 .tag-line {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
     padding: 0;
-    margin: 1rem 0;
+    margin: 24px 0 0;
     list-style: none;
-    justify-content: center;
+}
+
+.tag-line li {
+    margin: 0;
 }
 
 .tag {
-    background-color: var(--tag-color, #eee);
-    color: #fefefe;
-    font-size: 0.75rem;
-    padding: 3px 10px;
-    border-radius: 4px;
-    list-style: none;
-    font-weight: 500;
+    display: inline-block;
+    padding: 6px 12px;
+    border: 1px solid var(--on-dark-muted);
+    color: var(--paper);
+    font-family: var(--font-sans);
+    font-size: .8125rem;
+    font-weight: 600;
     text-decoration: none;
 }
 
-/*********************************************************************/
-/* Abstract Container je Artile
-/*********************************************************************/
-.abstract {
-    padding: 35px 45px;
-    border-radius: 5px;
-    box-shadow: 0 15px 40px -10px var(--border);
-    line-height: 34px;
+.tag:hover {
+    border-color: var(--signal);
 }
 
-.abstract h2 {
-    text-align: center;
-    margin: 0;
+/*********************************************************************/
+/* Abstract Container je Artikel
+/*********************************************************************/
+.abstract {
+    padding: 28px 32px;
+    background: var(--surface);
+    border-top: 4px solid var(--ink);
+}
+
+.abstract h2,
+main>article:not(.page) .abstract h2 {
+    margin: 0 0 8px;
     scroll-margin-top: 0;
-    font-style: italic;
-    font-weight: 400;
+    font-family: var(--font-sans);
+    font-size: .8125rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--grey);
+}
+
+.abstract p {
+    margin: 0;
 }
 
 /*********************************************************************/
@@ -54,32 +114,34 @@ article section:not(.abstract) h2 {
 
 article section:not(.abstract) h2::before {
     content: counter(section-counter) ". ";
-    font-family: var(--font-serif);
-    font-size: 1.1rem;
-    margin-right: 0.5rem;
-    vertical-align: middle;
 }
 
 /*********************************************************************/
 /* TOC with Summary, Details, Counter */
 /*********************************************************************/
 .toc {
-    border: 1px solid var(--border, #ccc);
-    border-radius: 5px;
-    margin: 20px auto;
-    padding: 10px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    padding: 8px 20px;
+    border: 1px solid var(--line);
+    font-family: var(--font-sans);
+    font-size: 1rem;
 }
 
 .toc summary {
     cursor: pointer;
-    font-weight: 700;
-    padding: 5px;
-    /* Wir lassen den Standard-Pfeil (Dreieck) jetzt einfach da */
+    font-weight: 600;
+    padding: 8px 0;
+}
+
+.toc summary:hover {
+    background: none;
 }
 
 .toc nav {
-    margin-top: 10px;
-    border-top: 1px solid #eee;
+    margin: 4px 0 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--line);
 }
 
 .toc ul {
@@ -92,23 +154,20 @@ article section:not(.abstract) h2::before {
 .toc li {
     counter-increment: toc-counter;
     display: block;
-}
-
-.toc li:hover {
-    background: #F2F2F2;
+    margin: 0;
 }
 
 .toc li a::before {
     content: counter(toc-counter) ". ";
-    font-weight: bold;
+    font-weight: 600;
     margin-right: 5px;
-    color: var(--tag-color);
 }
 
 .toc a {
     display: block;
+    padding: 8px 0;
     text-decoration: none;
-    font-size: .9em;
+    font-size: .9375rem;
 }
 
 summary {
@@ -116,7 +175,6 @@ summary {
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
-    outline: none;
 }
 
 /* Den Standard-Pfeil verstecken */
@@ -169,16 +227,20 @@ figure img {
 
 figcaption::before {
     content: "Bild " counter(figure-count) ": ";
-    font-style: italic;
-    font-family: var(--font-serif);
+    font-weight: 600;
 }
 
 figcaption,
 caption {
-    margin: auto;
+    margin: 10px auto 0;
     text-align: center;
-    font-style: italic;
-    font-family: var(--font-serif);
+    font-family: var(--font-sans);
+    font-size: .875rem;
+    color: var(--grey);
+}
+
+figure img {
+    background: #fff;
 }
 
 /* Image Grid */
@@ -269,15 +331,14 @@ article figure img:hover {
 /* Callouts
 /*********************************************************************/
 .callout {
-    padding: 5px 10px;
-    margin: 10px 0;
-    box-shadow: 2px 2px 5px 0 #dadada;
-    line-height: 1.7em;
-    background: #fff;
-}
-
-.callout:hover {
-    transform: translate(2px, -2px);
+    padding: 20px 24px;
+    margin: 1.4em 0;
+    background: var(--surface);
+    border-top: 2px solid var(--ink);
+    font-family: var(--font-head);
+    font-weight: 500;
+    font-size: 1.1875rem;
+    line-height: 1.45;
 }
 
 /*********************************************************************/
@@ -286,11 +347,12 @@ article figure img:hover {
 pre {
     white-space: pre-wrap;
     word-wrap: break-word;
-    border: 1px solid var(--border);
-    border-radius: 8px;
+    border: 1px solid var(--line);
     padding: 20px;
     margin: 1em 0;
     background: #fff;
+    font-size: .875rem;
+    line-height: 1.5;
 }
 
 /*********************************************************************/
@@ -332,14 +394,13 @@ mjx-container[jax="SVG"] svg {
 .ref-sources>li {
     padding-left: 7px;
     margin-bottom: 5px;
-    font-size: 0.95rem;
+    font-family: var(--font-sans);
+    font-size: .875rem;
     transition: background 0.3s ease;
 }
 
 .ref-sources>li:target {
-    background: #0e53ae22;
-    border-radius: 4px;
-    outline: 2px solid var(--text-link);
+    background: var(--signal);
 }
 
 a[id^="cite-ref-"] {
@@ -379,6 +440,8 @@ a[href^="#cite-ref-"]:hover {
 /* Table Grundformatierung
 /*********************************************************************/
 table {
+    font-family: var(--font-sans);
+    font-size: .9375rem;
     text-align: left;
     border: 1px solid var(--border);
     border-collapse: collapse;
@@ -407,4 +470,98 @@ th {
     -webkit-mask-size: contain;
     mask-size: contain;
     margin: 2rem 0;
+}
+
+/*********************************************************************/
+/* Downloads im Anhang
+/*********************************************************************/
+.download {
+    font-family: var(--font-sans);
+    font-size: .9375rem;
+}
+
+/*********************************************************************/
+/* Breite Bildschirme: Inhaltsverzeichnis als mitlaufende Seitenspalte
+/* (assets/js/toc.js klappt es dort auf)
+/*********************************************************************/
+@media (min-width: 1100px) {
+    main>article:not(.page) {
+        display: grid;
+        grid-template-columns: 220px minmax(0, 1fr);
+        column-gap: 56px;
+    }
+
+    main>article:not(.page)>.page-head {
+        grid-column: 1 / -1;
+    }
+
+    main>article:not(.page)>*:not(.page-head):not(.toc) {
+        grid-column: 2;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    main>article:not(.page)>details.toc {
+        grid-column: 1;
+        grid-row: 2 / span 400;
+        align-self: start;
+        position: sticky;
+        top: 24px;
+        max-width: none;
+        max-height: calc(100vh - 48px);
+        overflow-y: auto;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: .875rem;
+    }
+
+    .toc summary {
+        padding: 0 0 12px;
+        font-size: .8125rem;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+        color: var(--grey);
+    }
+
+    .toc summary .toggle-icon {
+        display: none;
+    }
+
+    .toc nav {
+        margin: 0;
+        padding-top: 4px;
+    }
+
+    details.toc::details-content {
+        opacity: 1;
+    }
+
+    .toc a {
+        padding: 7px 0;
+        font-size: .875rem;
+        line-height: 1.35;
+    }
+}
+
+/*********************************************************************/
+/* Inhaltsverzeichnis: aktueller Abschnitt (setzt assets/js/toc.js)
+/*********************************************************************/
+.toc a.is-current {
+    font-weight: 600;
+}
+
+@media (min-width: 1100px) {
+    .toc a {
+        padding-left: 12px;
+        border-left: 3px solid var(--line);
+    }
+
+    .toc a:hover {
+        border-left-color: var(--ink);
+    }
+
+    .toc a.is-current {
+        border-left-color: var(--ink);
+    }
 }
